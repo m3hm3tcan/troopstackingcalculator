@@ -1,0 +1,52 @@
+.container {
+  max-width: 900px;
+  margin: auto;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+.section {
+  margin-top: 20px;
+}
+
+.title {
+  margin-bottom: 10px;
+}
+
+.troop-list {
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.troop-label {
+  width: 150px;
+  display: block;
+  cursor: pointer;
+  user-select: none;
+}
+
+.result-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 30px;
+}
+
+.result-table th,
+.result-table td {
+  border: 1px solid black;
+  padding: 8px;
+}
+
+.result-table th {
+  text-align: left;
+}
+
+.result-table td.count,
+.result-table td.total-strength {
+  text-align: right;
+}
