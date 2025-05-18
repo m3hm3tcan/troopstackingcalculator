@@ -139,6 +139,62 @@ export const Enemies = {
     strength: 2300,
     strengthAgainst: [{ name: "Mounted", strengthPercentage: 45 }],
   },
+  Ifrit: {
+    name: "Ifrit",
+    strength: 44000,
+    strengthAgainst: [
+      { name: "Melee", strengthPercentage: 70 },
+      { name: "Dragons", strengthPercentage: 40 },
+    ],
+  },
+  GiantZombie: {
+    name: "Giant Zombie",
+    strength: 33000,
+    strengthAgainst: [
+      { name: "Mounted", strengthPercentage: 70 },
+      { name: "Beast", strengthPercentage: 45 },
+    ],
+  },
+  ScorpionRider: {
+    name: "Scorpion Rider",
+    strength: 37000,
+    strengthAgainst: [{ name: "Ranged", strengthPercentage: 40 }],
+  },
+  Bear: {
+    name: "Bear",
+    strength: 22000,
+    strengthAgainst: [
+      { name: "Mounted", strengthPercentage: 70 },
+      { name: "Elementals", strengthPercentage: 50 },
+    ],
+  },
+  Gargoyle: {
+    name: "Gargoyle",
+    strength: 19000,
+    strengthAgainst: [
+      { name: "Mounted", strengthPercentage: 70 },
+      { name: "Elementals", strengthPercentage: 45 },
+    ],
+  },
+  FirewormRider: {
+    name: "Fireworm Rider",
+    strength: 50000,
+    strengthAgainst: [{ name: "Ranged", strengthPercentage: 55 }],
+  },
+  BullRider: {
+    name: "Bull Rider",
+    strength: 29000,
+    strengthAgainst: [{ name: "Ranged", strengthPercentage: 55 }],
+  },
+  Cyclops: {
+    name: "Cyclops",
+    strength: 45000,
+    strengthAgainst: [
+      { name: "Melee", strengthPercentage: 45 },
+      { name: "Fortifications", strengthPercentage: 100 },
+      { name: "Beast", strengthPercentage: 40 },
+    ],
+  },
 };
 
 // Example EnemySquads data simplified (replace with your full data)
@@ -1064,6 +1120,432 @@ export const EnemySquads = [
     squad: [
       { count: 70000, monster: Enemies.Centaur },
       { count: 780000, monster: Enemies.ElvenArcher },
+    ],
+  },
+
+  // RARE Monster Squads //////////////////////////////////////////////
+
+  {
+    level: 17,
+    category: "Rare",
+    name: "Undead",
+    squad: [
+      { count: 290, name: Enemies.DarkRider },
+      { count: 13000, name: Enemies.Banshee },
+      { count: 45000, name: Enemies.Ghoul },
+    ],
+  },
+  {
+    level: 17,
+    category: "Rare",
+    name: "Barbarian",
+    squad: [
+      { count: 100, name: Enemies.StormCrow },
+      { count: 2800, name: Enemies.AxeThrower },
+      { count: 6700, name: Enemies.WolfRider },
+    ],
+  },
+  {
+    level: 17,
+    category: "Rare",
+    name: "Inferno",
+    squad: [
+      { count: 89, name: Enemies.Vampire },
+      { count: 1600, name: Enemies.HornedDemon },
+      { count: 23000, name: Enemies.Magog },
+    ],
+  },
+  {
+    level: 18,
+    category: "Rare",
+    name: "Cursed",
+    squad: [
+      { count: 220, name: Enemies.Vampire },
+      { count: 11000, name: Enemies.WitchDoctor },
+      { count: 29000, name: Enemies.Skeleton },
+    ],
+  },
+  {
+    level: 18,
+    category: "Rare",
+    name: "Elf",
+    squad: [
+      { count: 230, name: Enemies.PegasusRider },
+      { count: 14000, name: Enemies.ElvenArcher },
+      { count: 51000, name: Enemies.Dwarf },
+    ],
+  },
+  {
+    level: 18,
+    category: "Rare",
+    name: "Barbarian",
+    squad: [
+      { count: 180, name: Enemies.StormCrow },
+      { count: 12000, name: Enemies.WolfRider },
+      { count: 64000, name: Enemies.Goblin },
+    ],
+  },
+  {
+    level: 19,
+    category: "Rare",
+    name: "Inferno",
+    squad: [
+      { count: 160, name: Enemies.Vampire },
+      { count: 490, name: Enemies.FirehorseRider },
+      { count: 17000, name: Enemies.Fiend },
+    ],
+  },
+  {
+    level: 19,
+    category: "Rare",
+    name: "Undead",
+    squad: [
+      { count: 520, name: Enemies.DarkRider },
+      { count: 3100, name: Enemies.Necromancer },
+      { count: 81000, name: Enemies.Ghoul },
+    ],
+  },
+  {
+    level: 19,
+    category: "Rare",
+    name: "Elf",
+    squad: [
+      { count: 410, name: Enemies.PegasusRider },
+      { count: 2800, name: Enemies.Druid },
+      { count: 91000, name: Enemies.Dwarf },
+    ],
+  },
+  {
+    level: 20,
+    category: "Rare",
+    name: "Inferno",
+    squad: [
+      { count: 280, name: Enemies.Vampire },
+      { count: 800, name: Enemies.FirehorseRider },
+      { count: 72000, name: Enemies.Magog },
+    ],
+  },
+  {
+    level: 20,
+    category: "Rare",
+    name: "Cursed",
+    squad: [
+      { count: 380, name: Enemies.Vampire },
+      { count: 7900, name: Enemies.Werewolf },
+      { count: 51000, name: Enemies.Skeleton },
+    ],
+  },
+  {
+    level: 20,
+    category: "Rare",
+    name: "Barbarian",
+    squad: [
+      { count: 330, name: Enemies.StormCrow },
+      { count: 8900, name: Enemies.AxeThrower },
+      { count: 110000, name: Enemies.Goblin },
+    ],
+  },
+
+  {
+    level: 21,
+    category: "Rare",
+    name: "Inferno",
+    squad: [
+      { count: 440, name: Enemies.Vampire },
+      { count: 860, name: Enemies.Overseer },
+      { count: 110000, name: Enemies.Magog },
+    ],
+  },
+  {
+    level: 21,
+    category: "Rare",
+    name: "Cursed",
+    squad: [
+      { count: 630, name: Enemies.Vampire },
+      { count: 17000, name: Enemies.JaguarRider },
+      { count: 31000, name: Enemies.WitchDoctor },
+    ],
+  },
+  {
+    level: 21,
+    category: "Rare",
+    name: "Barbarian",
+    squad: [
+      { count: 520, name: Enemies.StormCrow },
+      { count: 14000, name: Enemies.AxeThrower },
+      { count: 34000, name: Enemies.WolfRider },
+    ],
+  },
+  {
+    level: 21,
+    category: "Rare",
+    name: "Elf",
+    squad: [
+      { count: 700, name: Enemies.PegasusRider },
+      { count: 4800, name: Enemies.Druid },
+      { count: 43000, name: Enemies.ElvenArcher },
+    ],
+  },
+  {
+    level: 21,
+    category: "Rare",
+    name: "Undead",
+    squad: [
+      { count: 900, name: Enemies.DarkRider },
+      { count: 5500, name: Enemies.Necromancer },
+      { count: 39000, name: Enemies.Banshee },
+    ],
+  },
+
+  {
+    level: 22,
+    category: "Rare",
+    name: "Inferno",
+    squad: [
+      { count: 680, name: Enemies.Vampire },
+      { count: 170000, name: Enemies.Magog },
+      { count: 310000, name: Enemies.Fiend },
+    ],
+  },
+  {
+    level: 22,
+    category: "Rare",
+    name: "Cursed",
+    squad: [
+      { count: 980, name: Enemies.Vampire },
+      { count: 48000, name: Enemies.WitchDoctor },
+      { count: 130000, name: Enemies.Skeleton },
+    ],
+  },
+  {
+    level: 22,
+    category: "Rare",
+    name: "Barbarian",
+    squad: [
+      { count: 810, name: Enemies.StormCrow },
+      { count: 53000, name: Enemies.WolfRider },
+      { count: 280000, name: Enemies.Goblin },
+    ],
+  },
+  {
+    level: 22,
+    category: "Rare",
+    name: "Elf",
+    squad: [
+      { count: 1100, name: Enemies.PegasusRider },
+      { count: 66000, name: Enemies.ElvenArcher },
+      { count: 240000, name: Enemies.Dwarf },
+    ],
+  },
+  {
+    level: 22,
+    category: "Rare",
+    name: "Undead",
+    squad: [
+      { count: 1400, name: Enemies.DarkRider },
+      { count: 61000, name: Enemies.Banshee },
+      { count: 220000, name: Enemies.Ghoul },
+    ],
+  },
+  {
+    level: 23,
+    category: "Rare",
+    name: "Inferno",
+    squad: [
+      { count: 1000, name: Enemies.Vampire },
+      { count: 19000, name: Enemies.HornedDemon },
+      { count: 480000, name: Enemies.Fiend },
+    ],
+  },
+  {
+    level: 23,
+    category: "Rare",
+    name: "Cursed",
+    squad: [
+      { count: 1500, name: Enemies.Vampire },
+      { count: 31000, name: Enemies.Werewolf },
+      { count: 200000, name: Enemies.Skeleton },
+    ],
+  },
+  {
+    level: 23,
+    category: "Rare",
+    name: "Barbarian",
+    squad: [
+      { count: 1300, name: Enemies.StormCrow },
+      { count: 34000, name: Enemies.AxeThrower },
+      { count: 440000, name: Enemies.Goblin },
+    ],
+  },
+  {
+    level: 23,
+    category: "Rare",
+    name: "Elf",
+    squad: [
+      { count: 1700, name: Enemies.PegasusRider },
+      { count: 11000, name: Enemies.Druid },
+      { count: 370000, name: Enemies.Dwarf },
+    ],
+  },
+  {
+    level: 23,
+    category: "Rare",
+    name: "Undead",
+    squad: [
+      { count: 2200, name: Enemies.DarkRider },
+      { count: 13000, name: Enemies.Necromancer },
+      { count: 340000, name: Enemies.Ghoul },
+    ],
+  },
+  {
+    level: 24,
+    category: "Rare",
+    name: "Inferno",
+    squad: [
+      { count: 1600, name: Enemies.Vampire },
+      { count: 29000, name: Enemies.HornedDemon },
+      { count: 410000, name: Enemies.Magog },
+    ],
+  },
+  {
+    level: 24,
+    category: "Rare",
+    name: "Cursed",
+    squad: [
+      { count: 2300, name: Enemies.Vampire },
+      { count: 64000, name: Enemies.JaguarRider },
+      { count: 48000, name: Enemies.Werewolf },
+    ],
+  },
+  {
+    level: 24,
+    category: "Rare",
+    name: "Barbarian",
+    squad: [
+      { count: 1900, name: Enemies.StormCrow },
+      { count: 53000, name: Enemies.AxeThrower },
+      { count: 130000, name: Enemies.WolfRider },
+    ],
+  },
+  {
+    level: 24,
+    category: "Rare",
+    name: "Elf",
+    squad: [
+      { count: 2600, name: Enemies.PegasusRider },
+      { count: 18000, name: Enemies.Druid },
+      { count: 160000, name: Enemies.ElvenArcher },
+    ],
+  },
+  {
+    level: 24,
+    category: "Rare",
+    name: "Undead",
+    squad: [
+      { count: 3400, name: Enemies.DarkRider },
+      { count: 20000, name: Enemies.Necromancer },
+      { count: 150000, name: Enemies.Banshee },
+    ],
+  },
+  {
+    level: 25,
+    category: "Rare",
+    name: "Inferno",
+    squad: [
+      { count: 970, name: Enemies.Ifrit },
+      { count: 640000, name: Enemies.Magog },
+      { count: 1100000, name: Enemies.Fiend },
+    ],
+  },
+  {
+    level: 25,
+    category: "Rare",
+    name: "Cursed",
+    squad: [
+      { count: 1100, name: Enemies.GiantZombie },
+      { count: 180000, name: Enemies.WitchDoctor },
+      { count: 480000, name: Enemies.Skeleton },
+    ],
+  },
+  {
+    level: 25,
+    category: "Rare",
+    name: "Barbarian",
+    squad: [
+      { count: 1100, name: Enemies.ScorpionRider },
+      { count: 200000, name: Enemies.WolfRider },
+      { count: 1000000, name: Enemies.Goblin },
+    ],
+  },
+  {
+    level: 25,
+    category: "Rare",
+    name: "Elf",
+    squad: [
+      { count: 1500, name: Enemies.Bear },
+      { count: 250000, name: Enemies.ElvenArcher },
+      { count: 880000, name: Enemies.Dwarf },
+    ],
+  },
+  {
+    level: 25,
+    category: "Rare",
+    name: "Undead",
+    squad: [
+      { count: 1600, name: Enemies.Gargoyle },
+      { count: 230000, name: Enemies.Banshee },
+      { count: 810000, name: Enemies.Ghoul },
+    ],
+  },
+
+  {
+    level: 26,
+    category: "Rare",
+    name: "Inferno",
+    squad: [
+      { count: 1300, name: Enemies.FirewormRider },
+      { count: 66000, name: Enemies.HornedDemon },
+      { count: 1700000, name: Enemies.Fiend },
+    ],
+  },
+  {
+    level: 26,
+    category: "Rare",
+    name: "Cursed",
+    squad: [
+      { count: 1900, name: Enemies.BullRider },
+      { count: 110000, name: Enemies.Werewolf },
+      { count: 720000, name: Enemies.Skeleton },
+    ],
+  },
+  {
+    level: 26,
+    category: "Rare",
+    name: "Barbarian",
+    squad: [
+      { count: 1300, name: Enemies.Cyclops },
+      { count: 120000, name: Enemies.AxeThrower },
+      { count: 1600000, name: Enemies.Goblin },
+    ],
+  },
+  {
+    level: 26,
+    category: "Rare",
+    name: "Elf",
+    squad: [
+      { count: 2300, name: Enemies.Bear },
+      { count: 42000, name: Enemies.Druid },
+      { count: 1300000, name: Enemies.Dwarf },
+    ],
+  },
+  {
+    level: 26,
+    category: "Rare",
+    name: "Undead",
+    squad: [
+      { count: 2400, name: Enemies.Gargoyle },
+      { count: 32000, name: Enemies.DeathHoundRider },
+      { count: 1200000, name: Enemies.Ghoul },
     ],
   },
 ];

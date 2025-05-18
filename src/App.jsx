@@ -162,6 +162,25 @@ function App() {
     localStorage.setItem("selectedTroops", []);
   };
 
+  const [scrollY, setScrollY] = useState(150);
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.innerWidth > 760) {
+        setScrollY(150 + window.scrollY);
+      } else {
+        setScrollY(150); // Keep it fixed on small screens
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleScroll); // Adjust on resize
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
+  }, []);
+
   return (
     <>
       <nav className="navbar">
@@ -189,56 +208,69 @@ function App() {
         </div>
       </nav>
       <div className="container">
-        <div className="mani-section">
+        <div className="main-section">
           <InfoModal
             isOpen={showInfoModal}
             onClose={() => setShowInfoModal(false)}
           />
 
-          <div className="section">
-            <label className="sub-title">
-              Select Enemy Squad:{" "}
-              <select
-                value={selectedSquadIndex}
-                onChange={(e) => setSelectedSquadIndex(Number(e.target.value))}
-              >
-                {EnemySquads.map((squad, idx) => (
-                  <option key={idx} value={idx}>
-                    {`Lvl ${squad.level} - ${squad.category} - ${squad.name}`}
-                  </option>
-                ))}
-              </select>
-            </label>
+          <div className="section first-section">
+            <div className="sub-container">
+              <label className="sub-title">
+                Select Enemy Squad:{" "}
+                <select
+                  value={selectedSquadIndex}
+                  onChange={(e) =>
+                    setSelectedSquadIndex(Number(e.target.value))
+                  }
+                >
+                  {EnemySquads.sort((a, b) => {
+                    if (a.level !== b.level) {
+                      return a.level - b.level;
+                    }
+                    if (a.category !== b.category) {
+                      return a.category.localeCompare(b.category);
+                    }
+                    return a.name.localeCompare(b.name);
+                  }).map((squad, idx) => (
+                    <option key={idx} value={idx}>
+                      {`Lvl ${squad.level} - ${squad.category} - ${squad.name}`}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <div className="input-group">
+                <label className="sub-title">
+                  Total Population to Deploy:{" "}
+                  <input
+                    type="string"
+                    min={1}
+                    value={userPopulation}
+                    onChange={(e) => setUserPopulation(Number(e.target.value))}
+                  />
+                </label>
 
-            <label className="sub-title">
-              Total Population to Deploy:{" "}
-              <input
-                type="string"
-                min={1}
-                value={userPopulation}
-                onChange={(e) => setUserPopulation(Number(e.target.value))}
-              />
-            </label>
-
-            <label className="sub-title">
-              Enemy Strength Threshold (%):{" "}
-              <input
-                type="number"
-                min={0}
-                max={100}
-                value={enemyStrengthThreshold}
-                onChange={(e) =>
-                  setEnemyStrengthThreshold(Number(e.target.value))
-                }
-              />
-              <small>
-                Exclude troop types enemy is very strong against (≥ threshold)
-              </small>
-            </label>
-
-            <button onClick={removeLocalData} className="clear-button">
-              Clear
-            </button>
+                <label className="sub-title">
+                  Enemy Strength Threshold (%):{" "}
+                  <input
+                    type="number"
+                    min={0}
+                    max={100}
+                    value={enemyStrengthThreshold}
+                    onChange={(e) =>
+                      setEnemyStrengthThreshold(Number(e.target.value))
+                    }
+                  />
+                  <small>
+                    Exclude troop types enemy is very strong against (≥
+                    threshold)
+                  </small>
+                </label>
+              </div>
+              <button onClick={removeLocalData} className="clear-button">
+                Clear
+              </button>
+            </div>
 
             <div>
               <h3 className="title">Guardsmen Troops</h3>
@@ -303,7 +335,7 @@ function App() {
             </div>
           </div>
 
-          <div className="section">
+          <div className="section second-section">
             <h2>Attack Troops Distribution</h2>
             {results.length === 0 ? (
               <p>Please select troops and enter a valid population.</p>
@@ -324,7 +356,7 @@ function App() {
                       mainType,
                       unitName,
                       count,
-                      totalStrength,
+                      // totalStrength,
                       leadership,
                     }) => (
                       <tr key={mainType}>

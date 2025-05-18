@@ -347,4 +347,34 @@ small {
   background-color: white;
   border: 1px solid #5787b6;
   font-weight: bold;
+  width: 100px;
+}
+
+.sub-container {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.main-section {
+  display: flex;
+  flex-direction: row;
+}
+
+.first-section {
+  flex: 6;
+}
+
+.second-section {
+  flex: 4;
+}
+
+@media (max-width: 780px) {
+  .main-section {
+    flex-direction: column;
+  }
+
+  .first-section {
+    position: relative;
+  }
 }
