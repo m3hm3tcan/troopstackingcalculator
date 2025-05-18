@@ -141,6 +141,13 @@ function App() {
     return acc;
   }, {});
 
+  const groupedUnitsSpecialist = categories.reduce((acc, category) => {
+    acc[category] = specialistUnits
+      .filter((unit) => unit.unitType === category)
+      .map((unit) => unit.unitName);
+    return acc;
+  }, {});
+
   const removeLocalData = () => {
     localStorage.clear();
 
@@ -160,7 +167,8 @@ function App() {
             <img src={HuniLogo} height={30} width={30} />
             Hunililer -TotalBattle Attack Calculator{" "}
             <span className="navbar-subtitle title-italic">
-              powered by Ceo, Ejderya Uzra, Felharon & Turk
+              powered by Ceo, Ejderha Ezra, Fearon & Turkce and coded by Tarkan
+              and the Wolf
             </span>
           </h1>
           <p className="navbar-subtitle">
@@ -276,6 +284,37 @@ function App() {
           </table>
         </div>
 
+        <div>
+          <h3 className="title">Specialist Troops</h3>
+          <table className="troop-table">
+            <tbody>
+              {categories.map((category) => (
+                <>
+                  <tr key={category}>
+                    <td colSpan="4" className="unit-type-header">
+                      {category}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colSpan="4" className="unit-list">
+                      {groupedUnitsSpecialist[category].map((unit) => (
+                        <label key={unit} className="unit-item">
+                          <input
+                            type="checkbox"
+                            checked={selectedTroops.includes(unit)}
+                            onChange={() => toggleTroop(unit)}
+                          />
+                          {unit}
+                        </label>
+                      ))}
+                    </td>
+                  </tr>
+                </>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        {/* 
         <div className="">
           <h3 className="title">Specialist Troops</h3>
           <div className="troop-list">
@@ -290,7 +329,7 @@ function App() {
               </label>
             ))}
           </div>
-        </div>
+        </div> */}
 
         <div className="section">
           <h2>Attack Troops Distribution</h2>

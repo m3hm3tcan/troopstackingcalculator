@@ -334,6 +334,8 @@ small {
 }
 
 .clear-button {
-  color: #004080;
+  color: red;
   background-color: white;
+  border: 1px solid #5787b6;
+  font-weight: bold;
 }
