@@ -129,6 +129,16 @@ export const Enemies = {
     strength: 720,
     strengthAgainst: [{ name: "Melee", strengthPercentage: 50 }],
   },
+  FirehorseRider: {
+    name: "Firehorse Rider",
+    strength: 4100,
+    strengthAgainst: [{ name: "Ranged", strengthPercentage: 50 }],
+  },
+  Headsman: {
+    name: "Headsman",
+    strength: 2300,
+    strengthAgainst: [{ name: "Mounted", strengthPercentage: 45 }],
+  },
 };
 
 // Example EnemySquads data simplified (replace with your full data)
@@ -449,7 +459,7 @@ export const EnemySquads = [
   },
 
   {
-    level: 15,
+    level: 16,
     category: "Common",
     name: "Elf",
     squad: [
@@ -458,7 +468,7 @@ export const EnemySquads = [
     ],
   },
   {
-    level: 15,
+    level: 16,
     category: "Common",
     name: "Undead",
     squad: [
@@ -467,7 +477,7 @@ export const EnemySquads = [
     ],
   },
   {
-    level: 15,
+    level: 16,
     category: "Rare",
     name: "Undead",
     squad: [
@@ -477,7 +487,7 @@ export const EnemySquads = [
     ],
   },
   {
-    level: 15,
+    level: 16,
     category: "Rare",
     name: "Elf",
     squad: [
@@ -487,13 +497,573 @@ export const EnemySquads = [
     ],
   },
   {
-    level: 15,
+    level: 16,
     category: "Rare",
     name: "Cursed",
     squad: [
       { count: 120, name: Enemies.Vampire },
       { count: 3300, name: Enemies.JaguarRider },
       { count: 6000, name: Enemies.WitchDoctor },
+    ],
+  },
+
+  {
+    level: 17,
+    category: "Common",
+    name: "Barbarian",
+    squad: [
+      { count: 2700, monster: Enemies.AxeThrower },
+      { count: 2700, monster: Enemies.WolfRider },
+    ],
+  },
+  {
+    level: 17,
+    category: "Common",
+    name: "Inferno",
+    squad: [
+      { count: 260, monster: Enemies.FirehorseRider },
+      { count: 640, monster: Enemies.HornedDemon },
+    ],
+  },
+  {
+    level: 17,
+    category: "Common",
+    name: "Undead",
+    squad: [
+      { count: 1100, monster: Enemies.DeathHoundRider },
+      { count: 710, monster: Enemies.Necromancer },
+    ],
+  },
+  {
+    level: 18,
+    category: "Common",
+    name: "Cursed",
+    squad: [
+      { count: 4200, monster: Enemies.Werewolf },
+      { count: 2400, monster: Enemies.JaguarRider },
+    ],
+  },
+  {
+    level: 18,
+    category: "Common",
+    name: "Barbarian",
+    squad: [
+      { count: 4600, monster: Enemies.AxeThrower },
+      { count: 26000, monster: Enemies.Goblin },
+    ],
+  },
+  {
+    level: 18,
+    category: "Common",
+    name: "Elf",
+    squad: [
+      { count: 1500, monster: Enemies.Druid },
+      { count: 20000, monster: Enemies.Dwarf },
+    ],
+  },
+  {
+    level: 19,
+    category: "Common",
+    name: "Undead",
+    squad: [
+      { count: 2500, monster: Enemies.Necromancer },
+      { count: 1100, monster: Enemies.DeathHoundRider },
+    ],
+  },
+  {
+    level: 19,
+    category: "Common",
+    name: "Elf",
+    squad: [
+      { count: 640, monster: Enemies.Centaur },
+      { count: 17000, monster: Enemies.ElvenArcher },
+    ],
+  },
+  {
+    level: 19,
+    category: "Common",
+    name: "Inferno",
+    squad: [
+      { count: 2600, monster: Enemies.HornedDemon },
+      { count: 29000, monster: Enemies.Fiend },
+    ],
+  },
+  {
+    level: 20,
+    category: "Common",
+    name: "Cursed",
+    squad: [
+      { count: 4100, monster: Enemies.JaguarRider },
+      { count: 9700, monster: Enemies.WitchDoctor },
+    ],
+  },
+  {
+    level: 20,
+    category: "Common",
+    name: "Barbarian",
+    squad: [
+      { count: 8100, monster: Enemies.AxeThrower },
+      { count: 45000, monster: Enemies.Goblin },
+    ],
+  },
+  {
+    level: 20,
+    category: "Common",
+    name: "Inferno",
+    squad: [
+      { count: 4500, monster: Enemies.HornedDemon },
+      { count: 28000, monster: Enemies.Magog },
+    ],
+  },
+  {
+    level: 21,
+    category: "Common",
+    name: "Cursed",
+    squad: [
+      { count: 16000, monster: Enemies.JaguarRider },
+      { count: 12000, monster: Enemies.WitchDoctor },
+    ],
+  },
+  {
+    level: 21,
+    category: "Common",
+    name: "Undead",
+    squad: [
+      { count: 3200, monster: Enemies.DeathHoundRider },
+      { count: 15000, monster: Enemies.Banshee },
+    ],
+  },
+  {
+    level: 21,
+    category: "Common",
+    name: "Inferno",
+    squad: [
+      { count: 7200, monster: Enemies.HornedDemon },
+      { count: 44000, monster: Enemies.Magog },
+    ],
+  },
+  {
+    level: 21,
+    category: "Common",
+    name: "Barbarian",
+    squad: [
+      { count: 13000, monster: Enemies.AxeThrower },
+      { count: 12000, monster: Enemies.WolfRider },
+    ],
+  },
+  {
+    level: 21,
+    category: "Common",
+    name: "Elf",
+    squad: [
+      { count: 4400, monster: Enemies.Druid },
+      { count: 17000, monster: Enemies.ElvenArcher },
+    ],
+  },
+  {
+    level: 22,
+    category: "Common",
+    name: "Cursed",
+    squad: [
+      { count: 25000, monster: Enemies.JaguarRider },
+      { count: 8100, monster: Enemies.Werewolf },
+    ],
+  },
+  {
+    level: 22,
+    category: "Common",
+    name: "Undead",
+    squad: [
+      { count: 3700, monster: Enemies.DeathHoundRider },
+      { count: 140000, monster: Enemies.Ghoul },
+    ],
+  },
+  {
+    level: 22,
+    category: "Common",
+    name: "Inferno",
+    squad: [
+      { count: 11000, monster: Enemies.HornedDemon },
+      { count: 120000, monster: Enemies.Fiend },
+    ],
+  },
+  {
+    level: 22,
+    category: "Common",
+    name: "Barbarian",
+    squad: [
+      { count: 21000, monster: Enemies.AxeThrower },
+      { count: 110000, monster: Enemies.Goblin },
+    ],
+  },
+  {
+    level: 22,
+    category: "Common",
+    name: "Elf",
+    squad: [
+      { count: 1900, monster: Enemies.Centaur },
+      { count: 4400, monster: Enemies.Druid },
+    ],
+  },
+  {
+    level: 23,
+    category: "Common",
+    name: "Cursed",
+    squad: [
+      { count: 30000, monster: Enemies.Werewolf },
+      { count: 17000, monster: Enemies.JaguarRider },
+    ],
+  },
+  {
+    level: 23,
+    category: "Common",
+    name: "Undead",
+    squad: [
+      { count: 8100, monster: Enemies.DeathHoundRider },
+      { count: 140000, monster: Enemies.Ghoul },
+    ],
+  },
+  {
+    level: 23,
+    category: "Common",
+    name: "Inferno",
+    squad: [
+      { count: 3100, monster: Enemies.FirehorseRider },
+      { count: 110000, monster: Enemies.Magog },
+    ],
+  },
+  {
+    level: 23,
+    category: "Common",
+    name: "Barbarian",
+    squad: [
+      { count: 33000, monster: Enemies.AxeThrower },
+      { count: 34000, monster: Enemies.WolfRider },
+    ],
+  },
+  {
+    level: 23,
+    category: "Common",
+    name: "Elf",
+    squad: [
+      { count: 3800, monster: Enemies.Centaur },
+      { count: 42000, monster: Enemies.ElvenArcher },
+    ],
+  },
+  {
+    level: 24,
+    category: "Common",
+    name: "Cursed",
+    squad: [
+      { count: 5300, monster: Enemies.DeathRider },
+      { count: 130000, monster: Enemies.Skeleton },
+    ],
+  },
+  {
+    level: 24,
+    category: "Common",
+    name: "Undead",
+    squad: [
+      { count: 14000, monster: Enemies.Necromancer },
+      { count: 9200, monster: Enemies.DeathHoundRider },
+    ],
+  },
+  {
+    level: 24,
+    category: "Common",
+    name: "Inferno",
+    squad: [
+      { count: 5000, monster: Enemies.FirehorseRider },
+      { count: 310000, monster: Enemies.Fiend },
+    ],
+  },
+  {
+    level: 24,
+    category: "Common",
+    name: "Barbarian",
+    squad: [
+      { count: 5800, monster: Enemies.OgreShaman },
+      { count: 290000, monster: Enemies.Goblin },
+    ],
+  },
+  {
+    level: 24,
+    category: "Common",
+    name: "Elf",
+    squad: [
+      { count: 3800, monster: Enemies.Centaur },
+      { count: 42000, monster: Enemies.ElvenArcher },
+    ],
+  },
+  {
+    level: 25,
+    category: "Common",
+    name: "Cursed",
+    squad: [
+      { count: 8400, monster: Enemies.DeathRider },
+      { count: 77000, monster: Enemies.WitchDoctor },
+    ],
+  },
+  {
+    level: 25,
+    category: "Common",
+    name: "Undead",
+    squad: [
+      { count: 9700, monster: Enemies.Headsman },
+      { count: 96000, monster: Enemies.Banshee },
+    ],
+  },
+  {
+    level: 25,
+    category: "Common",
+    name: "Inferno",
+    squad: [
+      { count: 5000, monster: Enemies.Overseer },
+      { count: 280000, monster: Enemies.Magog },
+    ],
+  },
+  {
+    level: 25,
+    category: "Common",
+    name: "Barbarian",
+    squad: [
+      { count: 9200, monster: Enemies.OgreShaman },
+      { count: 35000, monster: Enemies.AxeThrower },
+    ],
+  },
+  {
+    level: 25,
+    category: "Common",
+    name: "Elf",
+    squad: [
+      { count: 9400, monster: Enemies.Centaur },
+      { count: 110000, monster: Enemies.ElvenArcher },
+    ],
+  },
+  {
+    level: 26,
+    category: "Common",
+    name: "Cursed",
+    squad: [
+      { count: 13000, monster: Enemies.DeathRider },
+      { count: 49000, monster: Enemies.Werewolf },
+    ],
+  },
+  {
+    level: 26,
+    category: "Common",
+    name: "Undead",
+    squad: [
+      { count: 15000, monster: Enemies.Headsman },
+      { count: 14000, monster: Enemies.DeathHoundRider },
+    ],
+  },
+  {
+    level: 26,
+    category: "Common",
+    name: "Inferno",
+    squad: [
+      { count: 8300, monster: Enemies.FirehorseRider },
+      { count: 5300, monster: Enemies.Overseer },
+    ],
+  },
+  {
+    level: 26,
+    category: "Common",
+    name: "Barbarian",
+    squad: [
+      { count: 14000, monster: Enemies.OgreShaman },
+      { count: 53000, monster: Enemies.AxeThrower },
+    ],
+  },
+  {
+    level: 26,
+    category: "Common",
+    name: "Elf",
+    squad: [
+      { count: 15000, monster: Enemies.Centaur },
+      { count: 18000, monster: Enemies.Druid },
+    ],
+  },
+  {
+    level: 27,
+    category: "Common",
+    name: "Cursed",
+    squad: [
+      { count: 19000, monster: Enemies.DeathRider },
+      { count: 460000, monster: Enemies.Skeleton },
+    ],
+  },
+  {
+    level: 27,
+    category: "Common",
+    name: "Undead",
+    squad: [
+      { count: 51000, monster: Enemies.Headsman },
+      { count: 34000, monster: Enemies.DeathHoundRider },
+    ],
+  },
+  {
+    level: 27,
+    category: "Common",
+    name: "Inferno",
+    squad: [
+      { count: 11000, monster: Enemies.Overseer },
+      { count: 7400, monster: Enemies.FirehorseRider },
+    ],
+  },
+  {
+    level: 27,
+    category: "Common",
+    name: "Barbarian",
+    squad: [
+      { count: 20000, monster: Enemies.OgreShaman },
+      { count: 1000000, monster: Enemies.Goblin },
+    ],
+  },
+  {
+    level: 27,
+    category: "Common",
+    name: "Elf",
+    squad: [
+      { count: 22000, monster: Enemies.Centaur },
+      { count: 860000, monster: Enemies.Dwarf },
+    ],
+  },
+  {
+    level: 28,
+    category: "Common",
+    name: "Cursed",
+    squad: [
+      { count: 28000, monster: Enemies.DeathRider },
+      { count: 260000, monster: Enemies.WitchDoctor },
+    ],
+  },
+  {
+    level: 28,
+    category: "Common",
+    name: "Undead",
+    squad: [
+      { count: 33000, monster: Enemies.Headsman },
+      { count: 330000, monster: Enemies.Banshee },
+    ],
+  },
+  {
+    level: 28,
+    category: "Common",
+    name: "Inferno",
+    squad: [
+      { count: 26000, monster: Enemies.FirehorseRider },
+      { count: 900000, monster: Enemies.Magog },
+    ],
+  },
+  {
+    level: 28,
+    category: "Common",
+    name: "Barbarian",
+    squad: [
+      { count: 30000, monster: Enemies.OgreShaman },
+      { count: 1500000, monster: Enemies.Goblin },
+    ],
+  },
+  {
+    level: 28,
+    category: "Common",
+    name: "Elf",
+    squad: [
+      { count: 32000, monster: Enemies.Centaur },
+      { count: 350000, monster: Enemies.ElvenArcher },
+    ],
+  },
+  {
+    level: 29,
+    category: "Common",
+    name: "Cursed",
+    squad: [
+      { count: 41000, monster: Enemies.DeathRider },
+      { count: 160000, monster: Enemies.Werewolf },
+    ],
+  },
+  {
+    level: 29,
+    category: "Common",
+    name: "Undead",
+    squad: [
+      { count: 49000, monster: Enemies.Headsman },
+      { count: 44000, monster: Enemies.DeathHoundRider },
+    ],
+  },
+  {
+    level: 29,
+    category: "Common",
+    name: "Inferno",
+    squad: [
+      { count: 24000, monster: Enemies.Overseer },
+      { count: 92000, monster: Enemies.HornedDemon },
+    ],
+  },
+  {
+    level: 29,
+    category: "Common",
+    name: "Barbarian",
+    squad: [
+      { count: 45000, monster: Enemies.OgreShaman },
+      { count: 170000, monster: Enemies.AxeThrower },
+    ],
+  },
+  {
+    level: 29,
+    category: "Common",
+    name: "Elf",
+    squad: [
+      { count: 47000, monster: Enemies.Centaur },
+      { count: 58000, monster: Enemies.Druid },
+    ],
+  },
+
+  {
+    level: 30,
+    category: "Common",
+    name: "Cursed",
+    squad: [
+      { count: 61000, monster: Enemies.DeathRider },
+      { count: 560000, monster: Enemies.WitchDoctor },
+    ],
+  },
+  {
+    level: 30,
+    category: "Common",
+    name: "Undead",
+    squad: [
+      { count: 73000, monster: Enemies.Headsman },
+      { count: 65000, monster: Enemies.DeathHoundRider },
+    ],
+  },
+  {
+    level: 30,
+    category: "Common",
+    name: "Inferno",
+    squad: [
+      { count: 56000, monster: Enemies.FirehorseRider },
+      { count: 3500000, monster: Enemies.Fiend },
+    ],
+  },
+  {
+    level: 30,
+    category: "Common",
+    name: "Barbarian",
+    squad: [
+      { count: 66000, monster: Enemies.OgreShaman },
+      { count: 250000, monster: Enemies.AxeThrower },
+    ],
+  },
+  {
+    level: 30,
+    category: "Common",
+    name: "Elf",
+    squad: [
+      { count: 70000, monster: Enemies.Centaur },
+      { count: 780000, monster: Enemies.ElvenArcher },
     ],
   },
 ];
