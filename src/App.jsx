@@ -189,8 +189,8 @@ function App() {
             <img src={HuniLogo} height={30} width={30} />
             Hunililer -TotalBattle Attack Calculator{" "}
             <span className="navbar-subtitle title-italic">
-              powered by Ceo, Ejderha Ezra, Fearon & Turkce and coded by Tarkan
-              and the Wolf
+              powered by Ceo, Ejderha Ezra, Fearon, Turk & Last Ottoman and
+              coded by Tarkan and the Wolf
             </span>
           </h1>
           <p className="navbar-subtitle">
