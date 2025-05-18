@@ -10,10 +10,24 @@ body {
 }
 
 .container {
-  max-width: 900px;
+  /* max-width: 900px; */
   /* margin: auto; */
   font-family: Arial, sans-serif;
   padding-left: 20px;
+
+  display: flex;
+  flex-direction: row; /* Side by side */
+  gap: 20px; /* Adds space between sections */
+  width: 100%;
+}
+
+.section {
+  flex: 1;
+}
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Stack sections on mobile */
+  }
 }
 
 .navbar {
@@ -109,10 +123,6 @@ h1 {
   }
 }
 
-.section {
-  /* margin-top: 20px; */
-}
-
 .title {
   margin-bottom: 10px;
 }
@@ -128,14 +138,14 @@ h1 {
 }
 
 .troop-label {
-  width: 150px;
+  width: 100px;
   display: block;
   cursor: pointer;
   user-select: none;
 }
 
 .result-table {
-  width: 100%;
+  width: 90%;
   border-collapse: collapse;
   margin-top: 30px;
 }
@@ -143,7 +153,7 @@ h1 {
 .result-table th,
 .result-table td {
   border: 1px solid black;
-  padding: 8px;
+  padding: 4px;
 }
 
 .result-table th {
@@ -152,7 +162,7 @@ h1 {
 
 .result-table td.count,
 .result-table td.total-strength {
-  text-align: right;
+  text-align: center;
 }
 
 .header-bar {
@@ -251,8 +261,7 @@ small {
   border-radius: 6px;
   border: 1px solid transparent;
   transition: border-color 0.2s ease;
-  flex: 1 1 50px; /* flexible width: min 150px, grow/shrink */
-  min-width: 50px; /* prevent too narrow on desktop */
+  min-width: 30px; /* prevent too narrow on desktop */
   max-width: 150px; /* optional: max width for nicer look */
   box-sizing: border-box;
 }

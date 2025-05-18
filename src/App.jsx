@@ -106,18 +106,21 @@ function App() {
     if (troops.length === 0) return [];
 
     const totalInverseStrength = troops.reduce(
-      (acc, t) => acc + 1 / t.baseStrength,
+      (acc, t) =>
+        acc + (t.leadership > 0 ? 1 / (t.baseStrength / t.leadership) : 0),
       0
     );
 
     return troops.map((t) => {
-      const count = Math.floor(
-        userPopulation / totalInverseStrength / t.baseStrength
-      );
+      const effectiveStrength = t.baseStrength / t.leadership;
+      const proportion = 1 / effectiveStrength / totalInverseStrength;
+      const count = Math.floor((userPopulation * proportion) / t.leadership);
+
       return {
         unitName: t.unitName,
         count,
         totalStrength: count * t.baseStrength,
+        leadership: t.leadership,
         mainType: t.mainType,
       };
     });
@@ -186,179 +189,159 @@ function App() {
         </div>
       </nav>
       <div className="container">
-        <InfoModal
-          isOpen={showInfoModal}
-          onClose={() => setShowInfoModal(false)}
-        />
+        <div className="mani-section">
+          <InfoModal
+            isOpen={showInfoModal}
+            onClose={() => setShowInfoModal(false)}
+          />
 
-        <div className="section">
-          <label className="sub-title">
-            Select Enemy Squad:{" "}
-            <select
-              value={selectedSquadIndex}
-              onChange={(e) => setSelectedSquadIndex(Number(e.target.value))}
-            >
-              {EnemySquads.map((squad, idx) => (
-                <option key={idx} value={idx}>
-                  {`Lvl ${squad.level} - ${squad.category} - ${squad.name}`}
-                </option>
-              ))}
-            </select>
-          </label>
-
-          <label className="sub-title">
-            Total Population to Deploy:{" "}
-            <input
-              type="string"
-              min={1}
-              value={userPopulation}
-              onChange={(e) => setUserPopulation(Number(e.target.value))}
-            />
-          </label>
-
-          <label className="sub-title">
-            Enemy Strength Threshold (%):{" "}
-            <input
-              type="number"
-              min={0}
-              max={100}
-              value={enemyStrengthThreshold}
-              onChange={(e) =>
-                setEnemyStrengthThreshold(Number(e.target.value))
-              }
-            />
-            <small>
-              Exclude troop types enemy is very strong against (≥ threshold)
-            </small>
-          </label>
-
-          <button onClick={removeLocalData} className="clear-button">
-            Clear
-          </button>
-        </div>
-
-        {/* <div className="section">
-        <h3 className="title">Guardsmen Troops</h3>
-        <div className="troop-list">
-          {guardsmenUnits.map(({ unitName }) => (
-            <label key={unitName} className="troop-label">
-              <input
-                type="checkbox"
-                checked={selectedTroops.includes(unitName)}
-                onChange={() => toggleTroop(unitName)}
-              />{" "}
-              {unitName}
-            </label>
-          ))}
-        </div>
-      </div> */}
-
-        <div>
-          <h3 className="title">Guardsmen Troops</h3>
-          <table className="troop-table">
-            <tbody>
-              {categories.map((category) => (
-                <>
-                  <tr key={category}>
-                    <td colSpan="4" className="unit-type-header">
-                      {category}
-                    </td>
-                  </tr>
-                  <tr>
-                    <td colSpan="4" className="unit-list">
-                      {groupedUnits[category].map((unit) => (
-                        <label key={unit} className="unit-item">
-                          <input
-                            type="checkbox"
-                            checked={selectedTroops.includes(unit)}
-                            onChange={() => toggleTroop(unit)}
-                          />
-                          {unit}
-                        </label>
-                      ))}
-                    </td>
-                  </tr>
-                </>
-              ))}
-            </tbody>
-          </table>
-        </div>
-
-        <div>
-          <h3 className="title">Specialist Troops</h3>
-          <table className="troop-table">
-            <tbody>
-              {categories.map((category) => (
-                <>
-                  <tr key={category}>
-                    <td colSpan="4" className="unit-type-header">
-                      {category}
-                    </td>
-                  </tr>
-                  <tr>
-                    <td colSpan="4" className="unit-list">
-                      {groupedUnitsSpecialist[category].map((unit) => (
-                        <label key={unit} className="unit-item">
-                          <input
-                            type="checkbox"
-                            checked={selectedTroops.includes(unit)}
-                            onChange={() => toggleTroop(unit)}
-                          />
-                          {unit}
-                        </label>
-                      ))}
-                    </td>
-                  </tr>
-                </>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        {/* 
-        <div className="">
-          <h3 className="title">Specialist Troops</h3>
-          <div className="troop-list">
-            {specialistUnits.map(({ unitName }) => (
-              <label key={unitName} className="troop-label">
-                <input
-                  type="checkbox"
-                  checked={selectedTroops.includes(unitName)}
-                  onChange={() => toggleTroop(unitName)}
-                />{" "}
-                {unitName}
-              </label>
-            ))}
-          </div>
-        </div> */}
-
-        <div className="section">
-          <h2>Attack Troops Distribution</h2>
-          {results.length === 0 ? (
-            <p>Please select troops and enter a valid population.</p>
-          ) : (
-            <table className="result-table">
-              <thead>
-                <tr>
-                  <th>Main Troop Type</th>
-                  <th>Troop Unit</th>
-                  <th className="count">Count</th>
-                  <th className="total-strength">Total Strength</th>
-                </tr>
-              </thead>
-              <tbody>
-                {results.map(({ unitName, count, totalStrength, mainType }) => (
-                  <tr key={unitName}>
-                    <td>{mainType}</td>
-                    <td>{unitName}</td>
-                    <td className="count">{count}</td>
-                    <td className="total-strength">
-                      {totalStrength.toFixed(2)}
-                    </td>
-                  </tr>
+          <div className="section">
+            <label className="sub-title">
+              Select Enemy Squad:{" "}
+              <select
+                value={selectedSquadIndex}
+                onChange={(e) => setSelectedSquadIndex(Number(e.target.value))}
+              >
+                {EnemySquads.map((squad, idx) => (
+                  <option key={idx} value={idx}>
+                    {`Lvl ${squad.level} - ${squad.category} - ${squad.name}`}
+                  </option>
                 ))}
-              </tbody>
-            </table>
-          )}
+              </select>
+            </label>
+
+            <label className="sub-title">
+              Total Population to Deploy:{" "}
+              <input
+                type="string"
+                min={1}
+                value={userPopulation}
+                onChange={(e) => setUserPopulation(Number(e.target.value))}
+              />
+            </label>
+
+            <label className="sub-title">
+              Enemy Strength Threshold (%):{" "}
+              <input
+                type="number"
+                min={0}
+                max={100}
+                value={enemyStrengthThreshold}
+                onChange={(e) =>
+                  setEnemyStrengthThreshold(Number(e.target.value))
+                }
+              />
+              <small>
+                Exclude troop types enemy is very strong against (≥ threshold)
+              </small>
+            </label>
+
+            <button onClick={removeLocalData} className="clear-button">
+              Clear
+            </button>
+
+            <div>
+              <h3 className="title">Guardsmen Troops</h3>
+              <table className="troop-table">
+                <tbody>
+                  {categories.map((category) => (
+                    <>
+                      <tr key={category}>
+                        <td colSpan="4" className="unit-type-header">
+                          {category}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td colSpan="4" className="unit-list">
+                          {groupedUnits[category].map((unit) => (
+                            <label key={unit} className="unit-item">
+                              <input
+                                type="checkbox"
+                                checked={selectedTroops.includes(unit)}
+                                onChange={() => toggleTroop(unit)}
+                              />
+                              {unit}
+                            </label>
+                          ))}
+                        </td>
+                      </tr>
+                    </>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <div>
+              <h3 className="title">Specialist Troops</h3>
+              <table className="troop-table">
+                <tbody>
+                  {categories.map((category) => (
+                    <>
+                      <tr key={category}>
+                        <td colSpan="4" className="unit-type-header">
+                          {category}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td colSpan="4" className="unit-list">
+                          {groupedUnitsSpecialist[category].map((unit) => (
+                            <label key={unit} className="unit-item">
+                              <input
+                                type="checkbox"
+                                checked={selectedTroops.includes(unit)}
+                                onChange={() => toggleTroop(unit)}
+                              />
+                              {unit}
+                            </label>
+                          ))}
+                        </td>
+                      </tr>
+                    </>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div className="section">
+            <h2>Attack Troops Distribution</h2>
+            {results.length === 0 ? (
+              <p>Please select troops and enter a valid population.</p>
+            ) : (
+              <table className="result-table">
+                <thead>
+                  <tr>
+                    <th>Main Troop Type</th>
+                    <th>Troop Unit</th>
+                    <th>Leadership</th>
+                    <th className="count">Count</th>
+                    {/* <th className="total-strength">Total Strength</th> */}
+                  </tr>
+                </thead>
+                <tbody>
+                  {results.map(
+                    ({
+                      mainType,
+                      unitName,
+                      count,
+                      totalStrength,
+                      leadership,
+                    }) => (
+                      <tr key={mainType}>
+                        <td>{mainType}</td>
+                        <td>{unitName}</td>
+                        <td className="count">{leadership}</td>
+                        <td className="count">{count}</td>
+                        {/* <td className="total-strength">
+                      {totalStrength.toFixed(2)}
+                    </td> */}
+                      </tr>
+                    )
+                  )}
+                </tbody>
+              </table>
+            )}
+          </div>
         </div>
       </div>
     </>

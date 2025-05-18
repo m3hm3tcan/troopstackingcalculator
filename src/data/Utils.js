@@ -21,6 +21,7 @@ export const flattenTroops = (troopsObj, enemyUnitTypes) => {
         unitType,
         baseStrength: adjustedStrength,
         strengthAgainstPercent: maxBonus,
+        leadership: group.leadership, 
       });
     });
   });
