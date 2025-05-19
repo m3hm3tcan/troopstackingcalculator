@@ -5,6 +5,7 @@ import { guardsmen, specialist } from "./data/Troops";
 import { Enemies, EnemySquads } from "./data/Enemies";
 import { flattenTroops } from "./data/Utils";
 import HuniLogo from "./assets/funnel.svg";
+import UserManualModal from "./components/UserManualModal";
 
 const loadFromStorage = (key, defaultValue) => {
   const stored = localStorage.getItem(key);
@@ -162,6 +163,8 @@ function App() {
     localStorage.setItem("selectedTroops", []);
   };
 
+  const [showManualModal, setShowManualModal] = useState(false);
+
   return (
     <>
       <nav className="navbar">
@@ -251,6 +254,18 @@ function App() {
               <button onClick={removeLocalData} className="clear-button">
                 Clear
               </button>
+
+              <button
+                className="manual-button"
+                aria-label="Open Manual"
+                onClick={() => setShowManualModal(true)}
+              >
+                <span>How is it working?</span>
+              </button>
+              <UserManualModal
+                isOpen={showManualModal}
+                onClose={() => setShowManualModal(false)}
+              />
             </div>
 
             <div>
