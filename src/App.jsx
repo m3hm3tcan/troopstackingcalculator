@@ -162,25 +162,6 @@ function App() {
     localStorage.setItem("selectedTroops", []);
   };
 
-  const [scrollY, setScrollY] = useState(150);
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.innerWidth > 760) {
-        setScrollY(150 + window.scrollY);
-      } else {
-        setScrollY(150); // Keep it fixed on small screens
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    window.addEventListener("resize", handleScroll); // Adjust on resize
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleScroll);
-    };
-  }, []);
-
   return (
     <>
       <nav className="navbar">
@@ -275,29 +256,23 @@ function App() {
             <div>
               <h3 className="title">Guardsmen Troops</h3>
               <table className="troop-table">
-                <tbody>
+                <tbody className="unit-main-title">
                   {categories.map((category) => (
-                    <>
-                      <tr key={category}>
-                        <td colSpan="4" className="unit-type-header">
-                          {category}
-                        </td>
-                      </tr>
-                      <tr>
-                        <td colSpan="4" className="unit-list">
-                          {groupedUnits[category].map((unit) => (
-                            <label key={unit} className="unit-item">
-                              <input
-                                type="checkbox"
-                                checked={selectedTroops.includes(unit)}
-                                onChange={() => toggleTroop(unit)}
-                              />
-                              {unit}
-                            </label>
-                          ))}
-                        </td>
-                      </tr>
-                    </>
+                    <tr className="unit-list">
+                      <td colSpan="4">
+                        <div className="unit-type-header">{category}</div>
+                        {groupedUnits[category].map((unit) => (
+                          <label key={unit} className="unit-item">
+                            <input
+                              type="checkbox"
+                              checked={selectedTroops.includes(unit)}
+                              onChange={() => toggleTroop(unit)}
+                            />
+                            {unit}
+                          </label>
+                        ))}
+                      </td>
+                    </tr>
                   ))}
                 </tbody>
               </table>
@@ -306,29 +281,23 @@ function App() {
             <div>
               <h3 className="title">Specialist Troops</h3>
               <table className="troop-table">
-                <tbody>
+                <tbody className="unit-main-title">
                   {categories.map((category) => (
-                    <>
-                      <tr key={category}>
-                        <td colSpan="4" className="unit-type-header">
-                          {category}
-                        </td>
-                      </tr>
-                      <tr>
-                        <td colSpan="4" className="unit-list">
-                          {groupedUnitsSpecialist[category].map((unit) => (
-                            <label key={unit} className="unit-item">
-                              <input
-                                type="checkbox"
-                                checked={selectedTroops.includes(unit)}
-                                onChange={() => toggleTroop(unit)}
-                              />
-                              {unit}
-                            </label>
-                          ))}
-                        </td>
-                      </tr>
-                    </>
+                    <tr>
+                      <td colSpan="4" className="unit-list">
+                        <div className="unit-type-header">{category}</div>
+                        {groupedUnitsSpecialist[category].map((unit) => (
+                          <label key={unit} className="unit-item">
+                            <input
+                              type="checkbox"
+                              checked={selectedTroops.includes(unit)}
+                              onChange={() => toggleTroop(unit)}
+                            />
+                            {unit}
+                          </label>
+                        ))}
+                      </td>
+                    </tr>
                   ))}
                 </tbody>
               </table>

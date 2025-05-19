@@ -7,6 +7,9 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
+  background-color: black;
+  color: white;
+  border-color: #999;
 }
 
 .container {
@@ -27,6 +30,7 @@ body {
 @media (max-width: 768px) {
   .container {
     flex-direction: column; /* Stack sections on mobile */
+    width: 100%;
   }
 }
 
@@ -55,7 +59,7 @@ body {
   font-style: italic;
   font-size: 0.85rem;
   color: #fff3f3;
-  white-space: nowrap;
+  /* white-space: ; */
 }
 
 .navbar div:last-child {
@@ -109,13 +113,13 @@ h1 {
   .info-button {
     margin-top: 10px;
     align-self: stretch;
-    width: 100%;
+    /* width: 100%; */
     text-align: left;
   }
 
   .navbar div:last-child {
-    margin-right: 0;
-    padding-right: 0px;
+    /* margin-right: 0; */
+    /* padding-right: 0px; */
   }
 
   .info-button > span {
@@ -139,7 +143,7 @@ h1 {
 
 .troop-label {
   width: 100px;
-  display: block;
+  /* display: block; */
   cursor: pointer;
   user-select: none;
 }
@@ -229,7 +233,7 @@ small {
 }
 
 .troop-table {
-  width: 100%;
+  /* width: 100%; */
   border-collapse: collapse;
 }
 
@@ -241,21 +245,29 @@ small {
 }
 
 .unit-type-header {
-  background-color: #f0f0f0;
+  background-color: #5787b6;
   font-weight: bold;
   padding: 8px;
 }
 
-.unit-list {
+.unit-main-title {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.unit-list {
+  /* display: flex; */
+  /* flex-wrap: wrap; */
+  /* flex-direction: column; */
   gap: 12px;
   padding: 10px 0;
+  min-width: 150px;
 }
 
 /* Each unit item container */
 .unit-item {
-  display: flex;
+  display: block;
   align-items: center;
   cursor: pointer;
   border-radius: 6px;
@@ -271,7 +283,7 @@ small {
 }
 
 /* Responsive: turn table into a block layout */
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   h1 {
     font-size: 20px;
   }
@@ -298,7 +310,7 @@ small {
 
   label select,
   label input {
-    width: 100%;
+    /* width: 100%; */
   }
 
   .troop-table,
@@ -307,7 +319,7 @@ small {
   .troop-table tr,
   .troop-table td,
   .troop-table th {
-    display: block;
+    /* display: block; */
     width: 99%;
     text-align: left;
   }
@@ -317,24 +329,19 @@ small {
   }
 
   .unit-type-header {
-    background-color: #dcdcdc;
+    background-color: #5787b6;
     font-size: 18px;
     /* padding: 10px 0; */
     /* margin-top: 20px; */
   }
 
-  .unit-list {
-    flex-direction: column;
+  .unit-main-title {
+    flex-wrap: wrap;
   }
 
-  .unit-item {
-    width: 100%;
-    display: inline-flex;
-    align-items: center;
-    /* gap: 6px; */
-    cursor: pointer;
-    /* padding: 4px 0; */
-    text-align: left;
+  .unit-list {
+    flex-direction: column;
+    flex: 1 1 25%;
   }
 }
 
@@ -353,7 +360,7 @@ small {
 .sub-container {
   display: flex;
   flex-direction: column;
-  width: 300px;
+  max-width: 300px;
 }
 
 .main-section {
