@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useEffect } from "react";
 import "./App.css";
 import InfoModal from "./components/InfoModal/InfoModal";
-import { guardsmen, specialist } from "./data/Troops";
+import { guardsmen, specialist, siegeEngines } from "./data/Troops";
 import { Enemies, EnemySquads } from "./data/Enemies";
 import { flattenTroops } from "./data/Utils";
 import HuniLogo from "./assets/funnel.svg";
@@ -75,9 +75,14 @@ function App() {
       mainType: "Specialist",
     }));
 
+    const engines = flattenTroops(siegeEngines, enemyUnitTypes).map((t) => ({
+      ...t,
+      mainType: "Siege Engine",
+    }));
+
     // We want to exclude any troop where enemy has strengthAgainst on that troop type >= threshold
     // Check enemy's strengthAgainst to troop's unitType
-    return [...guards, ...specs].filter((troop) => {
+    return [...guards, ...specs, ...engines].filter((troop) => {
       // For each enemy unit in squad, check if its strengthAgainst against troop.unitType >= threshold
       return !selectedSquad.squad.some(({ monster, name }) => {
         const enemy = monster || name;
@@ -136,8 +141,13 @@ function App() {
     return allTroops.filter((t) => t.mainType === "Specialist");
   }, [allTroops]);
 
+  const engineUnits = useMemo(() => {
+    return allTroops.filter((t) => t.mainType === "Siege Engine");
+  }, [allTroops]);
+
   // Group units by their type
   const categories = ["Mounted", "Melee", "Ranged", "Flying"];
+  const enginescategories = ["Siege Engine"];
   const groupedUnits = categories.reduce((acc, category) => {
     acc[category] = guardsmenUnits
       .filter((unit) => unit.unitType === category)
@@ -147,6 +157,13 @@ function App() {
 
   const groupedUnitsSpecialist = categories.reduce((acc, category) => {
     acc[category] = specialistUnits
+      .filter((unit) => unit.unitType === category)
+      .map((unit) => unit.unitName);
+    return acc;
+  }, {});
+
+  const groupedUnitsEngines = enginescategories.reduce((acc, category) => {
+    acc[category] = engineUnits
       .filter((unit) => unit.unitType === category)
       .map((unit) => unit.unitName);
     return acc;
@@ -302,6 +319,31 @@ function App() {
                       <td colSpan="4" className="unit-list">
                         <div className="unit-type-header">{category}</div>
                         {groupedUnitsSpecialist[category].map((unit) => (
+                          <label key={unit} className="unit-item">
+                            <input
+                              type="checkbox"
+                              checked={selectedTroops.includes(unit)}
+                              onChange={() => toggleTroop(unit)}
+                            />
+                            {unit}
+                          </label>
+                        ))}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <div>
+              <h3 className="title">Engineer Corps Troops</h3>
+              <table className="troop-table">
+                <tbody className="unit-main-title">
+                  {enginescategories.map((category) => (
+                    <tr>
+                      <td colSpan="4" className="unit-list">
+                        <div className="unit-type-header">{category}</div>
+                        {groupedUnitsEngines[enginescategories].map((unit) => (
                           <label key={unit} className="unit-item">
                             <input
                               type="checkbox"

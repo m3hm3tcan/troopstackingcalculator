@@ -57,7 +57,7 @@ export const guardsmen = {
     strength: 100,
     strengthAgainst: [
       { name: "Ranged", strengthPercentage: 65 },
-      { name: "Siege Engines", strengthPercentage: 54 },
+      { name: "Fortifications", strengthPercentage: 54 },
     ],
   },
   Flying: {
@@ -73,7 +73,7 @@ export const guardsmen = {
     strength: 10000,
     strengthAgainst: [
       { name: "Mounted", strengthPercentage: 395 },
-      { name: "Fortification", strengthPercentage: 208 },
+      { name: "Fortifications", strengthPercentage: 208 },
     ],
   },
 };
@@ -128,7 +128,7 @@ export const specialist = {
     strength: 1050,
     strengthAgainst: [
       { name: "Ranged", strengthPercentage: 165 },
-      { name: "Siege Engines", strengthPercentage: 137 },
+      { name: "Fortifications", strengthPercentage: 137 },
     ],
   },
   Flying: {
@@ -138,7 +138,212 @@ export const specialist = {
     strength: 520,
     strengthAgainst: [
       { name: "Mounted", strengthPercentage: 197 },
-      { name: "Fortification", strengthPercentage: 104 },
+      { name: "Fortifications", strengthPercentage: 104 },
     ],
   },
 };
+
+export const siegeEngines = {
+  SiegeEngine: {
+    leadership: 10,
+    unitType: "Siege Engine",
+    units: [
+      "Catapult I",
+      "Catapult II",
+      "Catapult III",
+      "Catapult IV",
+      "Catapult V",
+      "Catapult VI",
+      "Catapult VII",
+    ],
+    strength: 250,
+    strengthAgainst: [{ name: "Fortifications", strengthPercentage: 65 }],
+  },
+};
+
+export const MonstersUnits = [
+  {
+    dominance: 7,
+    unitType: "Flying",
+    category: "Dragons",
+    name: "Emerald Dragon",
+    strength: 4500,
+    strengthAgainst: [
+      { name: "Mounted", strengthPercentage: 185 },
+      { name: "Giants", strengthPercentage: 72 },
+    ],
+  },
+  {
+    dominance: 13,
+    category: "Dragons",
+    unitType: "Ranged",
+    name: "Magic Dragon",
+    strength: 15000,
+    strengthAgainst: [
+      { name: "Ranged", strengthPercentage: 216 },
+      { name: "Melee", strengthPercentage: 169 },
+    ],
+  },
+  {
+    dominance: 20,
+    category: "Dragons",
+    unitType: "Mounted",
+    name: "Desert Vanquisher",
+    strength: 42000,
+    strengthAgainst: [{ name: "Ranged", strengthPercentage: 253 }],
+  },
+  {
+    dominance: 33,
+    category: "Dragons",
+    unitType: "Melee",
+    name: "Crystal Dragon",
+    strength: 120000,
+    strengthAgainst: [{ name: "Mounted", strengthPercentage: 258 }],
+  },
+  {
+    dominance: 44,
+    category: "Dragons",
+    unitType: "Melee",
+    name: "Black Dragon",
+    strength: 330000,
+    strengthAgainst: [{ name: "Melee", strengthPercentage: 570 }],
+  },
+  {
+    dominance: 3,
+    category: "Elementals",
+    unitType: "Ranged",
+    name: "Water Elemental",
+    strength: 1900,
+    strengthAgainst: [
+      { name: "Melee", strengthPercentage: 113 },
+      { name: "Flying", strengthPercentage: 144 },
+    ],
+  },
+  {
+    dominance: 15,
+    category: "Elementals",
+    unitType: "Melee",
+    name: "Ice Phoenix",
+    strength: 17000,
+    strengthAgainst: [{ name: "Flying", strengthPercentage: 223 }],
+  },
+  {
+    dominance: 21,
+    category: "Elementals",
+    unitType: "Mounted",
+    name: "Flaming Centaur",
+    strength: 44000,
+    strengthAgainst: [{ name: "Ranged", strengthPercentage: 415 }],
+  },
+  {
+    dominance: 35,
+    category: "Elementals",
+    unitType: "Melee",
+    name: "Ruby Golem",
+    strength: 130000,
+    strengthAgainst: [
+      { name: "Mounted", strengthPercentage: 380 },
+      { name: "Melee", strengthPercentage: 486 },
+    ],
+  },
+  {
+    dominance: 45,
+    category: "Elementals",
+    unitType: "Melee",
+    name: "Wind Lord",
+    strength: 310000,
+    strengthAgainst: [{ name: "Mounted", strengthPercentage: 387 }],
+  },
+  {
+    dominance: 8,
+    category: "Giants",
+    unitType: "Flaying",
+    name: "Stone Gargoyle",
+    strength: 5200,
+    strengthAgainst: [{ name: "Melee", strengthPercentage: 185 }],
+  },
+  {
+    dominance: 11,
+    category: "Giants",
+    unitType: "Melee",
+    name: "Many-Armed Guardian",
+    strength: 13000,
+    strengthAgainst: [{ name: "Mounted", strengthPercentage: 115 }],
+  },
+  {
+    dominance: 23,
+    category: "Giants",
+    unitType: "Melee",
+    name: "Ettin",
+    strength: 48000,
+    strengthAgainst: [{ name: "Mounted", strengthPercentage: 334 }],
+  },
+  {
+    dominance: 30,
+    category: "Giants",
+    unitType: "Mounted",
+    name: "Troll Rider",
+    strength: 110000,
+    strengthAgainst: [
+      { name: "Ranged", strengthPercentage: 380 },
+      { name: "Fortifications", strengthPercentage: 486 },
+    ],
+  },
+  {
+    dominance: 43,
+    category: "Giants",
+    unitType: "Ranged",
+    name: "Destructive Colossus",
+    strength: 290000,
+    strengthAgainst: [
+      { name: "Melee", strengthPercentage: 752 },
+      { name: "Flying", strengthPercentage: 547 },
+    ],
+  },
+  {
+    dominance: 8,
+    category: "Beast",
+    unitType: "Flying",
+    name: "Stone Gargoyle",
+    strength: 5200,
+    strengthAgainst: [{ name: "Melee", strengthPercentage: 185 }],
+  },
+  {
+    dominance: 11,
+    category: "Beast",
+    unitType: "Melee",
+    name: "Many-Armed Guardian",
+    strength: 13000,
+    strengthAgainst: [{ name: "Mounted", strengthPercentage: 115 }],
+  },
+  {
+    dominance: 23,
+    category: "Beast",
+    unitType: "Melee",
+    name: "Ettin",
+    strength: 48000,
+    strengthAgainst: [{ name: "Mounted", strengthPercentage: 334 }],
+  },
+  {
+    dominance: 30,
+    category: "Beast",
+    unitType: "Mounted",
+    name: "Troll Rider",
+    strength: 110000,
+    strengthAgainst: [
+      { name: "Ranged", strengthPercentage: 380 },
+      { name: "Fortifications", strengthPercentage: 486 },
+    ],
+  },
+  {
+    dominance: 43,
+    category: "Beast",
+    unitType: "Ranged",
+    name: "Destructive Colossus",
+    strength: 290000,
+    strengthAgainst: [
+      { name: "Melee", strengthPercentage: 752 },
+      { name: "Flying", strengthPercentage: 547 },
+    ],
+  },
+];
