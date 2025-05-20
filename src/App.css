@@ -160,14 +160,14 @@ h1 {
 }
 
 .result-table {
-  width: 90%;
+  width: 100%;
   border-collapse: collapse;
   margin-top: 30px;
 }
 
 .result-table th,
 .result-table td {
-  border: 1px solid black;
+  border: 1px solid white;
   padding: 4px;
 }
 

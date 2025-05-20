@@ -302,7 +302,7 @@ export const MonstersUnits = [
   },
   {
     dominance: 8,
-    category: "Beast",
+    category: "Beasts",
     unitType: "Flying",
     name: "Stone Gargoyle",
     strength: 5200,
@@ -310,7 +310,7 @@ export const MonstersUnits = [
   },
   {
     dominance: 11,
-    category: "Beast",
+    category: "Beasts",
     unitType: "Melee",
     name: "Many-Armed Guardian",
     strength: 13000,
@@ -318,7 +318,7 @@ export const MonstersUnits = [
   },
   {
     dominance: 23,
-    category: "Beast",
+    category: "Beasts",
     unitType: "Melee",
     name: "Ettin",
     strength: 48000,
@@ -326,7 +326,7 @@ export const MonstersUnits = [
   },
   {
     dominance: 30,
-    category: "Beast",
+    category: "Beasts",
     unitType: "Mounted",
     name: "Troll Rider",
     strength: 110000,
@@ -337,7 +337,7 @@ export const MonstersUnits = [
   },
   {
     dominance: 43,
-    category: "Beast",
+    category: "Beasts",
     unitType: "Ranged",
     name: "Destructive Colossus",
     strength: 290000,
