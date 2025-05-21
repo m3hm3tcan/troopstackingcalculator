@@ -143,7 +143,7 @@ export const specialist = {
   },
 };
 
-export const siegeEngines = {
+export const engineerCorps = {
   SiegeEngine: {
     leadership: 10,
     unitType: "Siege Engine",
@@ -309,41 +309,58 @@ export const MonstersUnits = [
     strengthAgainst: [{ name: "Melee", strengthPercentage: 185 }],
   },
   {
-    dominance: 11,
-    category: "Beasts",
-    unitType: "Melee",
-    name: "Many-Armed Guardian",
-    strength: 13000,
-    strengthAgainst: [{ name: "Mounted", strengthPercentage: 115 }],
-  },
-  {
-    dominance: 23,
-    category: "Beasts",
-    unitType: "Melee",
-    name: "Ettin",
-    strength: 48000,
-    strengthAgainst: [{ name: "Mounted", strengthPercentage: 334 }],
-  },
-  {
-    dominance: 30,
+    dominance: 6,
     category: "Beasts",
     unitType: "Mounted",
-    name: "Troll Rider",
-    strength: 110000,
+    name: "Battle Boar",
+    strength: 3900,
     strengthAgainst: [
-      { name: "Ranged", strengthPercentage: 380 },
-      { name: "Fortifications", strengthPercentage: 486 },
+      { name: "Mounted", strengthPercentage: 144 },
+      { name: "Ranged", strengthPercentage: 113 },
     ],
   },
   {
-    dominance: 43,
+    dominance: 10,
     category: "Beasts",
-    unitType: "Ranged",
-    name: "Destructive Colossus",
-    strength: 290000,
+    unitType: "Melee",
+    name: "Gorgon Medusa",
+    strength: 12000,
     strengthAgainst: [
-      { name: "Melee", strengthPercentage: 752 },
-      { name: "Flying", strengthPercentage: 547 },
+      { name: "Melee", strengthPercentage: 277 },
+      { name: "Flying", strengthPercentage: 108 },
+    ],
+  },
+  {
+    dominance: 22,
+    category: "Beasts",
+    unitType: "Flying",
+    name: "Fearsome Manticore",
+    strength: 46000,
+    strengthAgainst: [
+      { name: "Flying", strengthPercentage: 253 },
+      { name: "Giants", strengthPercentage: 324 },
+    ],
+  },
+  {
+    dominance: 34,
+    category: "Beasts",
+    unitType: "Melee",
+    name: "Jungle Destroyer",
+    strength: 130000,
+    strengthAgainst: [
+      { name: "mounted", strengthPercentage: 243 },
+      { name: "Dragons", strengthPercentage: 243 },
+    ],
+  },
+  {
+    dominance: 41,
+    category: "Beasts",
+    unitType: "Mounted",
+    name: "Ancient Terror",
+    strength: 280000,
+    strengthAgainst: [
+      { name: "Ranged", strengthPercentage: 752 },
+      { name: "Fortifications", strengthPercentage: 547 },
     ],
   },
 ];

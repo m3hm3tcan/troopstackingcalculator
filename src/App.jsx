@@ -4,7 +4,7 @@ import InfoModal from "./components/InfoModal/InfoModal";
 import {
   guardsmen,
   specialist,
-  siegeEngines,
+  engineerCorps,
   MonstersUnits,
 } from "./data/Troops";
 import { Enemies, EnemySquads } from "./data/Enemies";
@@ -98,7 +98,7 @@ function App() {
       mainType: "Specialist",
     }));
 
-    const engines = flattenTroops(siegeEngines, enemyUnitTypes).map((t) => ({
+    const engines = flattenTroops(engineerCorps, enemyUnitTypes).map((t) => ({
       ...t,
       mainType: "Siege Engine",
     }));
@@ -128,7 +128,13 @@ function App() {
         });
       }
     );
-  }, [enemyUnitTypes, selectedSquad.squad, enemyStrengthThreshold]);
+  }, [
+    enemyUnitTypes,
+    selectedSquad.squad,
+    enemyStrengthThreshold,
+    selectedTroops,
+    selectedMonsterTroops,
+  ]);
 
   // Toggle troop selection
   const toggleTroop = (unitName) => {
@@ -176,36 +182,59 @@ function App() {
   }, [userPopulation, selectedTroops, allTroops]);
 
   const dominanceResult = useMemo(() => {
-    if (dominancePopulation <= 0 || selectedMonsterTroops.length === 0)
+    if (
+      dominancePopulation <= 0 ||
+      selectedMonsterTroops.length === 0 ||
+      results.length === 0
+    ) {
       return [];
+    }
+
+    // Get target totalStrength per unit from human results
+    const targetStrengthPerUnit = results[0].totalStrength;
 
     const troops = allTroops.filter((t) =>
       selectedMonsterTroops.includes(t.unitName)
     );
     if (troops.length === 0) return [];
 
-    const totalInverseStrength = troops.reduce(
-      (acc, t) =>
-        acc + (t.leadership > 0 ? 1 / (t.baseStrength / t.leadership) : 0),
-      0
-    );
-
-    return troops.map((t) => {
-      const effectiveStrength = t.baseStrength / t.leadership;
-      const proportion = 1 / effectiveStrength / totalInverseStrength;
-      const count = Math.floor(
-        (dominancePopulation * proportion) / t.leadership
-      );
+    // Calculate proposed counts and total dominance cost
+    const proposed = troops.map((t) => {
+      const count = Math.floor(targetStrengthPerUnit / t.baseStrength);
+      const totalDominanceCost = count * t.leadership;
 
       return {
         unitName: t.unitName,
         count,
         totalStrength: count * t.baseStrength,
+        totalDominanceCost,
         leadership: t.leadership,
         mainType: t.mainType,
       };
     });
-  }, [dominancePopulation, selectedMonsterTroops, allTroops]);
+
+    // Sum total dominance cost
+    const totalCost = proposed.reduce(
+      (acc, p) => acc + p.totalDominanceCost,
+      0
+    );
+
+    // If we’re over budget, scale down all counts proportionally
+    if (totalCost > dominancePopulation) {
+      const scale = dominancePopulation / totalCost;
+      return proposed.map((p) => {
+        const scaledCount = Math.floor(p.count * scale);
+        return {
+          ...p,
+          count: scaledCount,
+          totalStrength: scaledCount * (p.totalStrength / p.count), // baseStrength * count
+        };
+      });
+    }
+
+    // Otherwise return as-is
+    return proposed;
+  }, [dominancePopulation, selectedMonsterTroops, allTroops, results]);
 
   // Split troops for UI checkboxes
   const guardsmenUnits = useMemo(() => {
@@ -219,7 +248,6 @@ function App() {
   const engineUnits = useMemo(() => {
     return allTroops.filter((t) => t.mainType === "Siege Engine");
   }, [allTroops]);
-
   const monstersUnits = useMemo(() => {
     return allTroops.filter((t) => t.mainType === "MonstersUnits");
   }, [allTroops]);
@@ -330,27 +358,30 @@ function App() {
                 </select>
               </label>
               <div className="input-group">
-                <label className="sub-title">
-                  Total Population to Deploy:{" "}
-                  <input
-                    type="string"
-                    min={1}
-                    value={userPopulation}
-                    onChange={(e) => setUserPopulation(Number(e.target.value))}
-                  />
-                </label>
-
-                <label className="sub-title">
-                  Total Dominance to Deploy:{" "}
-                  <input
-                    type="string"
-                    min={1}
-                    value={dominancePopulation}
-                    onChange={(e) =>
-                      setDominancePopulation(Number(e.target.value))
-                    }
-                  />
-                </label>
+                <div className="div-input-text">
+                  <label className="sub-title">
+                    Leadership:{" "}
+                    <input
+                      type="string"
+                      min={1}
+                      value={userPopulation}
+                      onChange={(e) =>
+                        setUserPopulation(Number(e.target.value))
+                      }
+                    />
+                  </label>
+                  <label className="sub-title">
+                    Dominance:{" "}
+                    <input
+                      type="string"
+                      min={1}
+                      value={dominancePopulation}
+                      onChange={(e) =>
+                        setDominancePopulation(Number(e.target.value))
+                      }
+                    />
+                  </label>
+                </div>
 
                 <label className="sub-title">
                   Enemy Strength Threshold (%):{" "}
@@ -444,7 +475,7 @@ function App() {
                     <tr>
                       <td colSpan="4" className="unit-list">
                         <div className="unit-type-header">{category}</div>
-                        {groupedUnitsEngines[enginescategories].map((unit) => (
+                        {groupedUnitsEngines[category].map((unit) => (
                           <label key={unit} className="unit-item">
                             <input
                               type="checkbox"
@@ -501,7 +532,7 @@ function App() {
                       <th>Troop Unit</th>
                       <th>Leadership</th>
                       <th className="count">Count</th>
-                      {/* <th className="total-strength">Total Strength</th> */}
+                      <th className="total-strength">Total Strength</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -510,17 +541,17 @@ function App() {
                         mainType,
                         unitName,
                         count,
-                        // totalStrength,
+                        totalStrength,
                         leadership,
                       }) => (
-                        <tr key={mainType}>
+                        <tr key={unitName}>
                           <td>{mainType}</td>
                           <td>{unitName}</td>
                           <td className="count">{leadership}</td>
                           <td className="count">{count}</td>
-                          {/* <td className="total-strength">
-                      {totalStrength.toFixed(2)}
-                    </td> */}
+                          <td className="total-strength">
+                            {totalStrength.toFixed(2)}
+                          </td>
                         </tr>
                       )
                     )}
@@ -540,24 +571,19 @@ function App() {
                       <th>Monster Unit</th>
                       <th>Dominance</th>
                       <th className="count">Count</th>
-                      {/* <th className="total-strength">Total Strength</th> */}
+                      <th className="total-strength">Total Strength</th>
                     </tr>
                   </thead>
                   <tbody>
                     {dominanceResult.map(
-                      ({
-                        unitName,
-                        count,
-                        // totalStrength,
-                        leadership,
-                      }) => (
+                      ({ unitName, count, totalStrength, leadership }) => (
                         <tr key={unitName}>
                           <td>{unitName}</td>
                           <td className="count">{leadership}</td>
                           <td className="count">{count}</td>
-                          {/* <td className="total-strength">
-                      {totalStrength.toFixed(2)}
-                    </td> */}
+                          <td className="total-strength">
+                            {totalStrength.toFixed(2)}
+                          </td>
                         </tr>
                       )
                     )}

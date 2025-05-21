@@ -103,7 +103,8 @@ h1 {
   border: 1px solid #5787b6;
   font-weight: bold;
   width: 100%;
-  padding-bottom: 1px;
+  padding-top: 5px;
+  margin-top: 5px;
   height: 30px;
   font-size: 14px;
 }
@@ -372,7 +373,7 @@ small {
 .sub-container {
   display: flex;
   flex-direction: column;
-  max-width: 300px;
+  max-width: 320px;
 }
 
 .main-section {
@@ -396,4 +397,16 @@ small {
   .first-section {
     position: relative;
   }
+}
+
+.div-input-text {
+  display: flex;
+  gap: 10px;
+}
+
+.div-input-text .sub-title,
+.threshold-input,
+.manual-button,
+.clear-button {
+  width: 50%;
 }
