@@ -301,14 +301,6 @@ export const MonstersUnits = [
     ],
   },
   {
-    dominance: 8,
-    category: "Beasts",
-    unitType: "Flying",
-    name: "Stone Gargoyle",
-    strength: 5200,
-    strengthAgainst: [{ name: "Melee", strengthPercentage: 185 }],
-  },
-  {
     dominance: 6,
     category: "Beasts",
     unitType: "Mounted",
