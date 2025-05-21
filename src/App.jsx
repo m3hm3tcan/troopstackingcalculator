@@ -175,37 +175,38 @@ function App() {
     });
   }, [userPopulation, selectedTroops, allTroops]);
 
-  const dominanceResult = useMemo(() => {
-    if (dominancePopulation <= 0 || selectedMonsterTroops.length === 0)
-      return [];
+const dominanceResult = useMemo(() => {
+  if (selectedMonsterTroops.length === 0 || selectedTroops.length === 0)
+    return [];
 
-    const troops = allTroops.filter((t) =>
-      selectedMonsterTroops.includes(t.unitName)
-    );
-    if (troops.length === 0) return [];
+  // Select only the monster units
+  const troops = allTroops.filter((t) =>
+    selectedMonsterTroops.includes(t.unitName)
+  );
 
-    const totalInverseStrength = troops.reduce(
-      (acc, t) =>
-        acc + (t.leadership > 0 ? 1 / (t.baseStrength / t.leadership) : 0),
-      0
-    );
+  if (troops.length === 0) return [];
 
-    return troops.map((t) => {
-      const effectiveStrength = t.baseStrength / t.leadership;
-      const proportion = 1 / effectiveStrength / totalInverseStrength;
-      const count = Math.floor(
-        (dominancePopulation * proportion) / t.leadership
-      );
+  // Calculate the average total strength per unit from regular troops
+  const totalTroopStrength = selectedTroops.reduce((acc, unitName) => {
+    const troop = allTroops.find((unit) => unit.unitName === unitName);
+    return acc + (troop ? troop.baseStrength : 0);
+  }, 0);
 
-      return {
-        unitName: t.unitName,
-        count,
-        totalStrength: count * t.baseStrength,
-        leadership: t.leadership,
-        mainType: t.mainType,
-      };
-    });
-  }, [dominancePopulation, selectedMonsterTroops, allTroops]);
+  const avgTroopStrength = totalTroopStrength / selectedTroops.length;
+
+  return troops.map((t) => {
+    // Set monster unit total strength equal to avg troop strength
+    const count = Math.floor(avgTroopStrength / t.baseStrength);
+
+    return {
+      unitName: t.unitName,
+      count,
+      totalStrength: count * t.baseStrength,
+      leadership: t.leadership,
+      mainType: t.mainType,
+    };
+  });
+}, [dominancePopulation, selectedMonsterTroops, selectedTroops, allTroops]);
 
   // Split troops for UI checkboxes
   const guardsmenUnits = useMemo(() => {
