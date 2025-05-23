@@ -202,13 +202,13 @@ export const EnemySquads = [
   {
     level: 1,
     category: "Common",
-    name: "Undead Squad",
+    name: "Undead",
     squad: [{ count: 90, monster: Enemies.Ghoul }],
   },
   {
     level: 1,
     category: "Rare",
-    name: "Undead Squad",
+    name: "Undead",
     squad: [
       { count: 2, name: Enemies.DeathHoundRider },
       { count: 16, name: Enemies.Banshee },

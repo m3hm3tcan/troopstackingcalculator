@@ -286,7 +286,7 @@ small {
   border: 1px solid transparent;
   transition: border-color 0.2s ease;
   min-width: 30px; /* prevent too narrow on desktop */
-  max-width: 150px; /* optional: max width for nicer look */
+  max-width: 160px; /* optional: max width for nicer look */
   box-sizing: border-box;
 }
 
@@ -409,4 +409,22 @@ small {
 .manual-button,
 .clear-button {
   width: 50%;
+}
+
+.header-btn-group {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.language-dd {
+  font-size: 14px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: black;
+  padding: 6px 12px;
+  border-radius: 4px;
+  background-color: white;
+  transition: background-color 0.2s ease;
 }

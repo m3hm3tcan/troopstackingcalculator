@@ -1,3 +1,5 @@
+import "./i18n";
+
 import React, { useState, useMemo, useEffect } from "react";
 import "./App.css";
 import InfoModal from "./components/InfoModal/InfoModal";
@@ -11,6 +13,7 @@ import { Enemies, EnemySquads } from "./data/Enemies";
 import { flattenMonsters, flattenTroops } from "./data/Utils";
 import HuniLogo from "./assets/funnel.svg";
 import UserManualModal from "./components/UserManualModal";
+import { useTranslation } from "react-i18next";
 
 const loadFromStorage = (key, defaultValue) => {
   const stored = localStorage.getItem(key);
@@ -26,6 +29,12 @@ const saveToStorage = (key, value) => {
 };
 
 function App() {
+  const { t, i18n } = useTranslation();
+
+  const changeLanguage = (e) => {
+    i18n.changeLanguage(e.target.value);
+  };
+
   const [showInfoModal, setShowInfoModal] = useState(false);
   const [selectedSquadIndex, setSelectedSquadIndex] = useState(
     loadFromStorage("selectedSquadIndex", 0)
@@ -293,6 +302,7 @@ function App() {
     setDominancePopulation(0);
     setSelectedTroops([]);
     setSelectedSquadIndex(0);
+    setSelectedMonsterTroops([]);
 
     localStorage.setItem("selectedTroops", []);
   };
@@ -305,24 +315,34 @@ function App() {
         <div>
           <h1>
             <img src={HuniLogo} height={30} width={30} />
-            Hunililer -TotalBattle Attack Calculator{" "}
-            <span className="navbar-subtitle title-italic">
-              powered by Ceo, Ejderya Uzra, Felharon, Turk & Last Ottoman and
-              coded by Tarkan and the Wolf
-            </span>
+            {t("title")}
           </h1>
-          <p className="navbar-subtitle">
-            Plan your attacks wisely with real-time troop stats
-          </p>
+          <span className="navbar-subtitle title-italic">{t("subtitle")}</span>
+          <p className="navbar-subtitle">{t("description")}</p>
         </div>
         <div>
-          <button
-            className="info-button"
-            aria-label="Open Info"
-            onClick={() => setShowInfoModal(true)}
-          >
-            ℹ️ <span>Information</span>
-          </button>
+          <div className="header-btn-group">
+            <div>
+              <button
+                className="info-button"
+                aria-label="Open Info"
+                onClick={() => setShowInfoModal(true)}
+              >
+                ℹ️ <span>{t("info")}</span>
+              </button>
+            </div>
+            <div>
+              <select
+                id="language"
+                onChange={changeLanguage}
+                value={i18n.language}
+                className="language-dd"
+              >
+                <option value="tr">Turkish</option>
+                <option value="en">English</option>
+              </select>
+            </div>
+          </div>
         </div>
       </nav>
       <div className="container">
@@ -335,7 +355,7 @@ function App() {
           <div className="section first-section">
             <div className="sub-container">
               <label className="sub-title">
-                Select Enemy Squad:{" "}
+                {t("select_enemy_squad")}
                 <select
                   value={selectedSquadIndex}
                   onChange={(e) =>
@@ -352,7 +372,12 @@ function App() {
                     return a.name.localeCompare(b.name);
                   }).map((squad, idx) => (
                     <option key={idx} value={idx}>
-                      {`Lvl ${squad.level} - ${squad.category} - ${squad.name}`}
+                      {t("squadOption", {
+                        level: squad.level,
+                        category: t(`categories.${squad.category}`),
+                        name: t(`names.${squad.name}`),
+                        sq: t("sqs.squad"),
+                      })}
                     </option>
                   ))}
                 </select>
@@ -360,7 +385,7 @@ function App() {
               <div className="input-group">
                 <div className="div-input-text">
                   <label className="sub-title">
-                    Leadership:{" "}
+                    {t("leadership")}:{" "}
                     <input
                       type="string"
                       min={1}
@@ -371,7 +396,7 @@ function App() {
                     />
                   </label>
                   <label className="sub-title">
-                    Dominance:{" "}
+                    {t("dominance")}:{" "}
                     <input
                       type="string"
                       min={1}
@@ -384,7 +409,7 @@ function App() {
                 </div>
 
                 <label className="sub-title">
-                  Enemy Strength Threshold (%):{" "}
+                  {t("enemy_strength_threshold")}:{" "}
                   <input
                     type="number"
                     min={0}
@@ -394,14 +419,11 @@ function App() {
                       setEnemyStrengthThreshold(Number(e.target.value))
                     }
                   />
-                  <small>
-                    Exclude troop types enemy is very strong against (≥
-                    threshold)
-                  </small>
+                  <small>{t("exclude_info")}</small>
                 </label>
               </div>
               <button onClick={removeLocalData} className="clear-button">
-                Clear
+                {t("clear")}
               </button>
 
               <button
@@ -409,7 +431,7 @@ function App() {
                 aria-label="Open Manual"
                 onClick={() => setShowManualModal(true)}
               >
-                <span>How is it working?</span>
+                <span>{t("manual")}</span>
               </button>
               <UserManualModal
                 isOpen={showManualModal}
@@ -418,13 +440,13 @@ function App() {
             </div>
 
             <div>
-              <h3 className="title">Guardsmen Troops</h3>
+              <h3 className="title">{t("guardsmen_troops")}</h3>
               <table className="troop-table">
                 <tbody className="unit-main-title">
                   {categories.map((category) => (
                     <tr className="unit-list">
                       <td colSpan="4">
-                        <div className="unit-type-header">{category}</div>
+                        <div className="unit-type-header">{t(category)}</div>
                         {groupedUnits[category].map((unit) => (
                           <label key={unit} className="unit-item">
                             <input
@@ -432,7 +454,7 @@ function App() {
                               checked={selectedTroops.includes(unit)}
                               onChange={() => toggleTroop(unit)}
                             />
-                            {unit}
+                            {t(unit)}
                           </label>
                         ))}
                       </td>
@@ -443,13 +465,13 @@ function App() {
             </div>
 
             <div>
-              <h3 className="title">Specialist Troops</h3>
+              <h3 className="title">{t("specialist_troops")}</h3>
               <table className="troop-table">
                 <tbody className="unit-main-title">
                   {categories.map((category) => (
                     <tr>
                       <td colSpan="4" className="unit-list">
-                        <div className="unit-type-header">{category}</div>
+                        <div className="unit-type-header">{t(category)}</div>
                         {groupedUnitsSpecialist[category].map((unit) => (
                           <label key={unit} className="unit-item">
                             <input
@@ -457,7 +479,7 @@ function App() {
                               checked={selectedTroops.includes(unit)}
                               onChange={() => toggleTroop(unit)}
                             />
-                            {unit}
+                            {t(unit)}
                           </label>
                         ))}
                       </td>
@@ -468,13 +490,13 @@ function App() {
             </div>
 
             <div>
-              <h3 className="title">Engineer Corps Troops</h3>
+              <h3 className="title">{t("engineer_troops")}</h3>
               <table className="troop-table">
                 <tbody className="unit-main-title">
                   {enginescategories.map((category) => (
                     <tr>
                       <td colSpan="4" className="unit-list">
-                        <div className="unit-type-header">{category}</div>
+                        <div className="unit-type-header">{t(category)}</div>
                         {groupedUnitsEngines[category].map((unit) => (
                           <label key={unit} className="unit-item">
                             <input
@@ -482,7 +504,7 @@ function App() {
                               checked={selectedTroops.includes(unit)}
                               onChange={() => toggleTroop(unit)}
                             />
-                            {unit}
+                            {t(unit)}
                           </label>
                         ))}
                       </td>
@@ -493,13 +515,13 @@ function App() {
             </div>
 
             <div>
-              <h3 className="title">Monster Troops</h3>
+              <h3 className="title">{t("monster_troops")}</h3>
               <table className="troop-table">
                 <tbody className="unit-main-title">
                   {monsterCategories.map((category) => (
                     <tr>
                       <td colSpan="4" className="unit-list">
-                        <div className="unit-type-header">{category}</div>
+                        <div className="unit-type-header">{t(category)}</div>
                         {groupedUnitsMonsters[category].map((unit) => (
                           <label key={unit} className="unit-item">
                             <input
@@ -519,20 +541,20 @@ function App() {
           </div>
 
           <div className="section second-section">
-            <h2>Attack Troops Distribution</h2>
+            <h2>{t("attack_troop_distribution")}</h2>
             {results.length === 0 ? (
-              <p>Please select troops and enter a valid population.</p>
+              <p>{t("please_select_troops")}</p>
             ) : (
               <div>
-                <h2>Main Troops</h2>
+                <h2>{t("main_troops")}</h2>
                 <table className="result-table">
                   <thead>
                     <tr>
-                      <th>Main Troop Type</th>
-                      <th>Troop Unit</th>
-                      <th>Leadership</th>
-                      <th className="count">Count</th>
-                      <th className="total-strength">Total Strength</th>
+                      <th>{t("main_troop_type")}</th>
+                      <th>{t("troop_unit")}</th>
+                      <th>{t("leadership_column")}</th>
+                      <th className="count">{t("count")}</th>
+                      <th className="total-strength">{t("total_strength")}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -561,17 +583,17 @@ function App() {
             )}
 
             {results.length === 0 ? (
-              <p>Please select monsters and enter a valid dominance.</p>
+              <p>{t("please_select_monsters")}</p>
             ) : (
               <div>
-                <h2>Monsters</h2>
+                <h2>{t("monster_units")}</h2>
                 <table className="result-table">
                   <thead>
                     <tr>
-                      <th>Monster Unit</th>
-                      <th>Dominance</th>
-                      <th className="count">Count</th>
-                      <th className="total-strength">Total Strength</th>
+                      <th>{t("monster_unit")}</th>
+                      <th>{t("dominance_column")}</th>
+                      <th className="count">{t("count")}</th>
+                      <th className="total-strength">{t("total_strength")}</th>
                     </tr>
                   </thead>
                   <tbody>
