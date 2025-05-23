@@ -529,7 +529,7 @@ function App() {
                               checked={selectedMonsterTroops.includes(unit)}
                               onChange={() => toggleMonsterTroop(unit)}
                             />
-                            {unit}
+                            {t(unit)}
                           </label>
                         ))}
                       </td>
@@ -567,8 +567,8 @@ function App() {
                         leadership,
                       }) => (
                         <tr key={unitName}>
-                          <td>{mainType}</td>
-                          <td>{unitName}</td>
+                          <td>{t(mainType)}</td>
+                          <td>{t(unitName)}</td>
                           <td className="count">{leadership}</td>
                           <td className="count">{count}</td>
                           <td className="total-strength">
@@ -600,7 +600,7 @@ function App() {
                     {dominanceResult.map(
                       ({ unitName, count, totalStrength, leadership }) => (
                         <tr key={unitName}>
-                          <td>{unitName}</td>
+                          <td>{t(unitName)}</td>
                           <td className="count">{leadership}</td>
                           <td className="count">{count}</td>
                           <td className="total-strength">

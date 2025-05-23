@@ -120,5 +120,29 @@
   "Catapult IV": "Katapult IV",
   "Catapult V": "Katapult V",
   "Siege Ballistae VI": "Kusatma Balistasi VI",
-  "Siege Ballistae VII": "Kusatma Balistasi VII"
+  "Siege Ballistae VII": "Kusatma Balistasi VII",
+
+  "(III)Emerald Dragon": "(III)Zumrut Ejderha",
+  "(IV)Magic Dragon": "(IV)Sihirli Ejderha",
+  "(V)Desert Vanquisher": "(V)Çöl Galibi",
+  "(VI)Crystal Dragon": "(VI)Krilstal Ejderha",
+  "(VII)Black Dragon": "(VII)Kara Ejderha",
+  "(III)Water Elemental": "(III)Su Elementali",
+  "(IV)Ice Phoenix": "(IV)Buz Zumruduankasi",
+  "(V)Flaming Centaur": "(V)Alevli Sentor",
+  "(VI)Ruby Golem": "(VI)Yakut Golem",
+  "(VII)Wind Lord": "(VII)Ruzgar Lordu",
+  "(III)Stone Gargoyle": "(III)Taş Çörten",
+  "(IV)Many-Armed Guardian": "(IV)Çok Kollu Muhafiz",
+  "(V)Ettin": "(V)Ettin",
+  "(VI)Troll Rider": "(VI)Trol Süvari",
+  "(VII)Destructive Colossus": "(VII)Yikici Kolosus",
+  "(III)Battle Boar": "(III)Savas Domuzu",
+  "(IV)Gorgon Medusa": "(IV)Çiglik Atan Medusa",
+  "(V)Fearsome Manticore": "(V)Korkunç Mantikor",
+  "(VI)Jungle Destroyer": "(VI)Orman Muhribi",
+  "(VII)Ancient Terror": "(VII)Antik Terör",
+
+  "Guardsmen": "Muhafiz",
+  "Specialist": "Ozel"
 }
