@@ -19,7 +19,7 @@
   "main_troops": "Ana Birlikler",
   "monster_units": "Canavarlar",
   "please_select_monsters": "Lütfen canavarları seçin ve geçerli bir nüfus girin.",
-  "main_troop_type": "Ana Birlik Türü",
+  "main_troop_type": "Tür",
   "troop_unit": "Birlikler",
   "leadership_column": "Liderlik",
   "count": "Adet",
@@ -36,7 +36,8 @@
     "Elf": "Elf",
     "Undead": "Ölümsüzler",
     "Cursed": "Lanetliler",
-    "Inferno": "Ateş"
+    "Inferno": "Ateş",
+    "Barbarian ": "Barbarlar"
   },
   "sqs": {
     "squad": "mangası"
@@ -144,5 +145,90 @@
   "(VII)Ancient Terror": "(VII)Antik Terör",
 
   "Guardsmen": "Muhafiz",
-  "Specialist": "Ozel"
+  "Specialist": "Ozel",
+
+  "userManual": {
+    "overviewTitle": "Genel Bakış",
+    "overviewText": "Bu uygulama, oyuncuların çeşitli düşman birliklerine karşı optimal asker dağılımı stratejisi oluşturmasına yardımcı olur. Kaynaklarınızı girin, düşmanları seçin ve hesaplanan asker dağılımlarını alın.",
+
+    "gettingStartedTitle": "1. Başlarken",
+    "gettingStartedPoints": [
+      {
+        "label": "Dil Seçimi:",
+        "text": "İngilizce ve Türkçe arasında geçiş yapmak için açılır menüyü kullanın."
+      },
+      {
+        "label": "Bilgi & Kılavuz:",
+        "text": "Yardım pencerelerini açmak için ℹ️ veya 📘 butonuna tıklayın."
+      }
+    ],
+
+    "inputsControlsTitle": "2. Girdiler ve Kontroller",
+    "inputsControlsPoints": [
+      {
+        "label": "Düşman Birliği:",
+        "text": "Asker seçimini özelleştirmek için seviye/tip bazında birlikleri seçin."
+      },
+      { "label": "Liderlik:", "text": "Toplam asker liderlik kaynağı." },
+      { "label": "Hakimiyet:", "text": "Toplam canavar liderlik kaynağı." },
+      {
+        "label": "Düşman Güç Eşiği:",
+        "text": "Düşmana karşı zayıf askerler (≥ eşik) hariç tutulur."
+      },
+      {
+        "label": "Temizle Butonu:",
+        "text": "localStorage'deki tüm kayıtlı girdileri sıfırlar."
+      }
+    ],
+
+    "troopSelectionTitle": "3. Asker Seçimi",
+    "troopSelectionIntro": "Askerler türlere ayrılmıştır:",
+    "troopTypes": [
+      { "label": "Muhafızlar:", "text": "Piyade, süvariler" },
+      { "label": "Uzmanlar:", "text": "Ozel birlikler" },
+      { "label": "Kuşatma Silahları:", "text": "Ağır topçular" },
+      {
+        "label": "Canavarlar:",
+        "text": "Ejderhalar, elementaller, devler, yaratiklar"
+      }
+    ],
+    "troopSelectionNote": "Her türün altındaki onay kutularını kullanarak mevcut birimleri filtreleyin ve seçin.",
+
+    "resultsTitle": "4. Sonuçlar",
+    "resultsPoints": [
+      {
+        "label": "Ana Asker Dağılımı:",
+        "text": "Liderlik girişi ve seçimlere göre otomatik hesaplanır."
+      },
+      {
+        "label": "Canavar Dağılımı:",
+        "text": "Canavar gücünü ilk askere eşler, hakimiyetle ölçeklenir."
+      }
+    ],
+
+    "featuresTitle": "5. Özellikler",
+    "featuresPoints": [
+      {
+        "label": "Süreklilik:",
+        "text": "Girdiler ve seçimler oturumlar arasında yerel olarak kaydedilir."
+      }
+    ],
+
+    "tipsTitle": "6. İpuçları",
+    "tipsPoints": [
+      "Önce bir düşman seçerek zayıf askerleri otomatik filtreleyin.",
+      "Risk ve güç dengesi için yaklaşık 30 eşiğini deneyin.",
+      "Daha iyi optimizasyon için canavar askerleri dahil edin."
+    ],
+
+    "troubleshootingTitle": "7. Sorun Giderme",
+    "troubleshootingPoints": [
+      {
+        "label": "Asker görünmüyor:",
+        "text": "Düşman seçimini ve asker onay kutularını kontrol edin."
+      },
+      { "label": "Yanlış sonuçlar:", "text": "Temizle butonuyla sıfırlayın." },
+      { "label": "Dil yanlış:", "text": "Dil açılır menüsünü kullanın." }
+    ]
+  }
 }

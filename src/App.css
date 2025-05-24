@@ -428,3 +428,9 @@ small {
   background-color: white;
   transition: background-color 0.2s ease;
 }
+
+.image-and-name {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}

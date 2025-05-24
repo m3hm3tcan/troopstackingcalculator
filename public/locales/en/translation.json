@@ -19,7 +19,7 @@
   "main_troops": "Main Troops",
   "monster_units": "Monsters",
   "please_select_monsters": "Please select monsters and enter a valid dominance.",
-  "main_troop_type": "Main Troop Type",
+  "main_troop_type": "Type",
   "troop_unit": "Troop Unit",
   "leadership_column": "Leadership",
   "count": "Count",
@@ -36,7 +36,8 @@
     "Elf": "Elf",
     "Undead": "Undead",
     "Cursed": "Cursed",
-    "Inferno": "Inferno"
+    "Inferno": "Inferno",
+    "Barbarian": "Barbarian "
   },
   "sqs": {
     "squad": "squad"
@@ -144,5 +145,87 @@
   "(VII)Ancient Terror": "(VII)Ancient Terror",
 
   "Guardsmen": "Guardsmen",
-  "Specialist": "Specialist"
+  "Specialist": "Specialist",
+
+  "userManual": {
+    "overviewTitle": "Overview",
+    "overviewText": "This application helps players strategize optimal troop distribution against various enemy squads. Input your resources, select enemies, and receive calculated troop distributions.",
+
+    "gettingStartedTitle": "1. Getting Started",
+    "gettingStartedPoints": [
+      {
+        "label": "Language Selection:",
+        "text": "Use the dropdown to switch between English and Turkish."
+      },
+      {
+        "label": "Info & Manual:",
+        "text": "Click the ℹ️ or 📘 button to open help modals."
+      }
+    ],
+
+    "inputsControlsTitle": "2. Inputs and Controls",
+    "inputsControlsPoints": [
+      {
+        "label": "Enemy Squad:",
+        "text": "Choose squads by level/type to tailor troop selection."
+      },
+      { "label": "Leadership:", "text": "Total troop leadership resource." },
+      { "label": "Dominance:", "text": "Total monster leadership resource." },
+      {
+        "label": "Enemy Strength Threshold:",
+        "text": "Troops vulnerable to the enemy (≥ threshold) are excluded."
+      },
+      {
+        "label": "Clear Button:",
+        "text": "Resets all saved inputs from localStorage."
+      }
+    ],
+
+    "troopSelectionTitle": "3. Troop Selection",
+    "troopSelectionIntro": "Troops are grouped into types:",
+    "troopTypes": [
+      { "label": "Guardsmen:", "text": "Infantry, mounted" },
+      { "label": "Specialists:", "text": "Special units" },
+      { "label": "Siege Engines:", "text": "Heavy artillery" },
+      { "label": "Monsters:", "text": "Dragons, elementals, giants and beasts" }
+    ],
+    "troopSelectionNote": "Filter and select available units using checkboxes under each type.",
+
+    "resultsTitle": "4. Results",
+    "resultsPoints": [
+      {
+        "label": "Main Troop Distribution:",
+        "text": "Auto-calculated based on leadership input and selections."
+      },
+      {
+        "label": "Monster Distribution:",
+        "text": "Matches monster strength to first troop, scales with dominance."
+      }
+    ],
+
+    "featuresTitle": "5. Features",
+    "featuresPoints": [
+      {
+        "label": "Persistence:",
+        "text": "Inputs and selections are saved locally across sessions."
+      }
+    ],
+
+    "tipsTitle": "6. Tips",
+    "tipsPoints": [
+      "Select an enemy first to auto-filter weak troops.",
+      "Try threshold ~30 to balance risk and strength.",
+      "Include monster troops for better optimization."
+    ],
+
+    "troubleshootingTitle": "7. Troubleshooting",
+    "troubleshootingPoints": [
+      {
+        "label": "No troops visible:",
+        "text": "Check enemy selection and troop checkboxes."
+      },
+      { "label": "Wrong results:", "text": "Reset with the clear button." },
+      { "label": "Language incorrect:", "text": "Use language dropdown." }
+    ]
+  }
 }

@@ -1,7 +1,7 @@
 import "./i18n";
-
 import React, { useState, useMemo, useEffect } from "react";
 import "./App.css";
+
 import InfoModal from "./components/InfoModal/InfoModal";
 import {
   guardsmen,
@@ -30,6 +30,23 @@ const saveToStorage = (key, value) => {
 
 function App() {
   const { t, i18n } = useTranslation();
+
+  const [images, setImages] = useState([]);
+
+  useEffect(() => {
+    const modules = import.meta.glob("./assets/troops/*.{png,jpg,jpeg,svg}", {
+      eager: true,
+    });
+
+    const imageMap = {};
+
+    for (const path in modules) {
+      const encodedFileName = path.split("/").pop(); // e.g., Archer%20I.png
+      const decodedFileName = decodeURIComponent(encodedFileName); // "Archer I.png"
+      imageMap[decodedFileName.split(".")[0]] = modules[path].default;
+    }
+    setImages(imageMap);
+  }, []);
 
   const changeLanguage = (e) => {
     i18n.changeLanguage(e.target.value);
@@ -568,11 +585,19 @@ function App() {
                       }) => (
                         <tr key={unitName}>
                           <td>{t(mainType)}</td>
-                          <td>{t(unitName)}</td>
+                          <td className="image-and-name">
+                            <img
+                              src={images[unitName]}
+                              alt={unitName}
+                              height={50}
+                              width={50}
+                            />
+                            <span>{t(unitName)}</span>
+                          </td>
                           <td className="count">{leadership}</td>
                           <td className="count">{count}</td>
                           <td className="total-strength">
-                            {totalStrength.toFixed(2)}
+                            {totalStrength.toFixed(0)}
                           </td>
                         </tr>
                       )
@@ -600,11 +625,19 @@ function App() {
                     {dominanceResult.map(
                       ({ unitName, count, totalStrength, leadership }) => (
                         <tr key={unitName}>
-                          <td>{t(unitName)}</td>
+                          <td className="image-and-name">
+                            <img
+                              src={images[unitName]}
+                              alt={unitName}
+                              height={50}
+                              width={50}
+                            />
+                            <span>{t(unitName)}</span>
+                          </td>
                           <td className="count">{leadership}</td>
                           <td className="count">{count}</td>
                           <td className="total-strength">
-                            {totalStrength.toFixed(2)}
+                            {totalStrength.toFixed(0)}
                           </td>
                         </tr>
                       )
