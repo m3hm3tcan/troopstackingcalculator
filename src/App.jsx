@@ -32,6 +32,7 @@ function App() {
   const { t, i18n } = useTranslation();
 
   const [images, setImages] = useState([]);
+  const [newArry, setNewArr] = useState([]);
 
   useEffect(() => {
     const modules = import.meta.glob("./assets/troops/*.{png,jpg,jpeg,svg}", {
@@ -40,12 +41,17 @@ function App() {
 
     const imageMap = {};
 
+    const newArr = {};
+
     for (const path in modules) {
       const encodedFileName = path.split("/").pop(); // e.g., Archer%20I.png
       const decodedFileName = decodeURIComponent(encodedFileName); // "Archer I.png"
       imageMap[decodedFileName.split(".")[0]] = modules[path].default;
+
+      newArr[decodedFileName] = decodedFileName;
     }
     setImages(imageMap);
+    setNewArr(newArr);
   }, []);
 
   const changeLanguage = (e) => {
@@ -331,7 +337,7 @@ function App() {
       <nav className="navbar">
         <div>
           <h1>
-            <img src={HuniLogo} height={30} width={30} />
+            <img src="funnel.svg" height={30} width={30} />
             {t("title")}
           </h1>
           <span className="navbar-subtitle title-italic">{t("subtitle")}</span>
@@ -587,7 +593,7 @@ function App() {
                           <td>{t(mainType)}</td>
                           <td className="image-and-name">
                             <img
-                              src={images[unitName]}
+                              src={`troops/${newArry[unitName + ".png"]}`}
                               alt={unitName}
                               height={50}
                               width={50}
@@ -627,7 +633,7 @@ function App() {
                         <tr key={unitName}>
                           <td className="image-and-name">
                             <img
-                              src={images[unitName]}
+                              src={`troops/${newArry[unitName + ".png"]}`}
                               alt={unitName}
                               height={50}
                               width={50}
@@ -644,6 +650,7 @@ function App() {
                     )}
                   </tbody>
                 </table>
+                <div>{/* <MiniBrowser /> */}</div>
               </div>
             )}
           </div>
