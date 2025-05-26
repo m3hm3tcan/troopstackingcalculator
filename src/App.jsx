@@ -340,7 +340,7 @@ function App() {
             <img src="funnel.svg" height={30} width={30} />
             {t("title")}
           </h1>
-          {/* <span className="navbar-subtitle title-italic">{t("subtitle")}</span> */}
+          <span className="navbar-subtitle title-italic">{t("subtitle")}</span>
           {/* <p className="navbar-subtitle">{t("description")}</p> */}
         </div>
         <div>
