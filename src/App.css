@@ -439,3 +439,9 @@ small {
   align-items: center;
   gap: 5px;
 }
+
+.sub-title-msg {
+  font-size: 0.85rem;
+  color: #7e7c7c;
+  margin-top: -10px;
+}

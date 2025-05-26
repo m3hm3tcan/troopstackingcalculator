@@ -430,6 +430,7 @@ function App() {
                     />
                   </label>
                 </div>
+                <p className="sub-title-msg">{t("population-info")}</p>
 
                 <label className="sub-title">
                   {t("enemy_strength_threshold")}:{" "}
@@ -442,8 +443,8 @@ function App() {
                       setEnemyStrengthThreshold(Number(e.target.value))
                     }
                   />
-                  <small>{t("exclude_info")}</small>
                 </label>
+                <p className="sub-title-msg">{t("exclude_info")}</p>
               </div>
               <button onClick={removeLocalData} className="clear-button">
                 {t("clear")}

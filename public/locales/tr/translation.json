@@ -6,6 +6,7 @@
   "select_enemy_squad": "Düşman Takımını Seçin",
   "leadership": "Liderlik",
   "dominance": "Nüfus",
+  "population-info": "Popülasyon eklerken lütfen Ejderha bonusunu da unutmayınız!",
   "enemy_strength_threshold": "Düşman Güç Eşiği (%)",
   "exclude_info": "Düşmanın % oraninda güçlü olduğu birlik türlerini hariç tut (≥ eşik)",
   "clear": "Temizle",
