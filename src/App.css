@@ -10,14 +10,15 @@ body {
   background-color: black;
   color: white;
   border-color: #999;
+  font-size: 13px;
 }
 
 .container {
   /* max-width: 900px; */
   /* margin: auto; */
   font-family: Arial, sans-serif;
-  padding-left: 20px;
-
+  padding-left: 10px;
+  padding-right: 10px;
   display: flex;
   flex-direction: row; /* Side by side */
   gap: 20px; /* Adds space between sections */
@@ -106,7 +107,7 @@ h1 {
   padding-top: 5px;
   margin-top: 5px;
   height: 30px;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .info-button:hover,
@@ -161,7 +162,7 @@ h1 {
 }
 
 .result-table {
-  width: 100%;
+  width: 95%;
   border-collapse: collapse;
   margin-top: 30px;
 }
@@ -209,7 +210,7 @@ h1 {
 label {
   display: flex;
   flex-direction: column;
-  font-size: 14px;
+  font-size: 13px;
   margin-bottom: 15px;
 }
 
@@ -217,14 +218,14 @@ label select,
 label input {
   margin-top: 5px;
   padding: 6px 10px;
-  font-size: 14px;
+  font-size: 13px;
   border: 1px solid #ccc;
   border-radius: 5px;
   max-width: 100%;
 }
 
 .section {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 small {
@@ -234,12 +235,12 @@ small {
 }
 
 .section {
-  padding: 20px;
+  padding: 5px;
   font-family: sans-serif;
 }
 
 .title {
-  font-size: 24px;
+  font-size: 18px;
   text-align: center;
   margin-bottom: 20px;
 }
@@ -259,7 +260,7 @@ small {
 .unit-type-header {
   background-color: #5787b6;
   font-weight: bold;
-  padding: 8px;
+  padding: 4px;
 }
 
 .unit-main-title {
@@ -308,7 +309,7 @@ small {
   .header-bar {
     flex-direction: column;
     align-items: flex-start;
-    font-size: 14px;
+    font-size: 13px;
   }
 
   .header-bar h1 {
@@ -317,7 +318,7 @@ small {
   }
 
   label {
-    font-size: 15px;
+    font-size: 13px;
   }
 
   label select,
@@ -342,7 +343,7 @@ small {
 
   .unit-type-header {
     background-color: #5787b6;
-    font-size: 18px;
+    font-size: 14px;
     /* padding: 10px 0; */
     /* margin-top: 20px; */
   }
@@ -417,6 +418,10 @@ small {
   gap: 3px;
 }
 
+.navbar div:last-child {
+  padding-right: 0;
+}
+
 .language-dd {
   font-size: 14px;
   cursor: pointer;
@@ -427,4 +432,10 @@ small {
   border-radius: 4px;
   background-color: white;
   transition: background-color 0.2s ease;
+}
+
+.image-and-name {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }

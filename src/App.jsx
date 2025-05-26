@@ -1,7 +1,7 @@
 import "./i18n";
-
 import React, { useState, useMemo, useEffect } from "react";
 import "./App.css";
+
 import InfoModal from "./components/InfoModal/InfoModal";
 import {
   guardsmen,
@@ -30,6 +30,29 @@ const saveToStorage = (key, value) => {
 
 function App() {
   const { t, i18n } = useTranslation();
+
+  const [images, setImages] = useState([]);
+  const [newArry, setNewArr] = useState([]);
+
+  useEffect(() => {
+    const modules = import.meta.glob("./assets/troops/*.{png,jpg,jpeg,svg}", {
+      eager: true,
+    });
+
+    const imageMap = {};
+
+    const newArr = {};
+
+    for (const path in modules) {
+      const encodedFileName = path.split("/").pop(); // e.g., Archer%20I.png
+      const decodedFileName = decodeURIComponent(encodedFileName); // "Archer I.png"
+      imageMap[decodedFileName.split(".")[0]] = modules[path].default;
+
+      newArr[decodedFileName] = decodedFileName;
+    }
+    setImages(imageMap);
+    setNewArr(newArr);
+  }, []);
 
   const changeLanguage = (e) => {
     i18n.changeLanguage(e.target.value);
@@ -314,22 +337,22 @@ function App() {
       <nav className="navbar">
         <div>
           <h1>
-            <img src={HuniLogo} height={30} width={30} />
+            <img src="funnel.svg" height={30} width={30} />
             {t("title")}
           </h1>
-          <span className="navbar-subtitle title-italic">{t("subtitle")}</span>
-          <p className="navbar-subtitle">{t("description")}</p>
+          {/* <span className="navbar-subtitle title-italic">{t("subtitle")}</span> */}
+          {/* <p className="navbar-subtitle">{t("description")}</p> */}
         </div>
         <div>
           <div className="header-btn-group">
             <div>
-              <button
+              {/* <button
                 className="info-button"
                 aria-label="Open Info"
                 onClick={() => setShowInfoModal(true)}
               >
                 ℹ️ <span>{t("info")}</span>
-              </button>
+              </button> */}
             </div>
             <div>
               <select
@@ -469,8 +492,8 @@ function App() {
               <table className="troop-table">
                 <tbody className="unit-main-title">
                   {categories.map((category) => (
-                    <tr>
-                      <td colSpan="4" className="unit-list">
+                    <tr className="unit-list">
+                      <td colSpan="4">
                         <div className="unit-type-header">{t(category)}</div>
                         {groupedUnitsSpecialist[category].map((unit) => (
                           <label key={unit} className="unit-item">
@@ -494,8 +517,8 @@ function App() {
               <table className="troop-table">
                 <tbody className="unit-main-title">
                   {enginescategories.map((category) => (
-                    <tr>
-                      <td colSpan="4" className="unit-list">
+                    <tr className="unit-list">
+                      <td colSpan="4">
                         <div className="unit-type-header">{t(category)}</div>
                         {groupedUnitsEngines[category].map((unit) => (
                           <label key={unit} className="unit-item">
@@ -519,8 +542,8 @@ function App() {
               <table className="troop-table">
                 <tbody className="unit-main-title">
                   {monsterCategories.map((category) => (
-                    <tr>
-                      <td colSpan="4" className="unit-list">
+                    <tr className="unit-list">
+                      <td colSpan="4">
                         <div className="unit-type-header">{t(category)}</div>
                         {groupedUnitsMonsters[category].map((unit) => (
                           <label key={unit} className="unit-item">
@@ -568,11 +591,19 @@ function App() {
                       }) => (
                         <tr key={unitName}>
                           <td>{t(mainType)}</td>
-                          <td>{t(unitName)}</td>
+                          <td className="image-and-name">
+                            {/* <img
+                              src={`troops/${newArry[unitName + ".png"]}`}
+                              alt={unitName}
+                              height={50}
+                              width={50}
+                            /> */}
+                            <span>{t(unitName)}</span>
+                          </td>
                           <td className="count">{leadership}</td>
                           <td className="count">{count}</td>
                           <td className="total-strength">
-                            {totalStrength.toFixed(2)}
+                            {totalStrength.toFixed(0)}
                           </td>
                         </tr>
                       )
@@ -600,17 +631,26 @@ function App() {
                     {dominanceResult.map(
                       ({ unitName, count, totalStrength, leadership }) => (
                         <tr key={unitName}>
-                          <td>{t(unitName)}</td>
+                          <td className="image-and-name">
+                            {/* <img
+                              src={`troops/${newArry[unitName + ".png"]}`}
+                              alt={unitName}
+                              height={50}
+                              width={50}
+                            /> */}
+                            <span>{t(unitName)}</span>
+                          </td>
                           <td className="count">{leadership}</td>
                           <td className="count">{count}</td>
                           <td className="total-strength">
-                            {totalStrength.toFixed(2)}
+                            {totalStrength.toFixed(0)}
                           </td>
                         </tr>
                       )
                     )}
                   </tbody>
                 </table>
+                <div>{/* <MiniBrowser /> */}</div>
               </div>
             )}
           </div>
