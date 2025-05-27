@@ -332,6 +332,60 @@ function App() {
 
   const [showManualModal, setShowManualModal] = useState(false);
 
+  // Extract distinct filter values
+  const uniqueLevels = [...new Set(EnemySquads.map((s) => s.level))];
+  const uniqueCategories = [...new Set(EnemySquads.map((s) => s.category))];
+
+  // State initialization with fallback
+  const [selectedLevel, setSelectedLevel] = useState(
+    loadFromStorage("selectedLevel") ?? uniqueLevels[0]
+  );
+  const [selectedCategory, setSelectedCategory] = useState(
+    loadFromStorage("selectedCategory") ?? uniqueCategories[0]
+  );
+  const [availableNames, setAvailableNames] = useState([]);
+  const [selectedName, setSelectedName] = useState(
+    loadFromStorage("selectedName") ?? ""
+  );
+
+  // Save user selection to storage
+  useEffect(() => {
+    saveToStorage("selectedLevel", selectedLevel);
+  }, [selectedLevel]);
+
+  useEffect(() => {
+    saveToStorage("selectedCategory", selectedCategory);
+  }, [selectedCategory]);
+
+  useEffect(() => {
+    saveToStorage("selectedName", selectedName);
+  }, [selectedName]);
+
+  // Update available names based on level/category
+  useEffect(() => {
+    const filteredSquads = EnemySquads.filter(
+      (s) => s.level === selectedLevel && s.category === selectedCategory
+    );
+    const names = filteredSquads.map((s) => s.name);
+    setAvailableNames(names);
+
+    // Reset selected name if no match
+    if (!names.includes(selectedName)) {
+      setSelectedName(names[0] ?? "");
+    }
+  }, [selectedLevel, selectedCategory]);
+
+  // Update squad index
+  useEffect(() => {
+    const index = EnemySquads.findIndex(
+      (s) =>
+        s.level === selectedLevel &&
+        s.category === selectedCategory &&
+        s.name === selectedName
+    );
+    setSelectedSquadIndex(index !== -1 ? index : null);
+  }, [selectedLevel, selectedCategory, selectedName]);
+
   return (
     <>
       <nav className="navbar">
@@ -379,7 +433,47 @@ function App() {
             <div className="sub-container">
               <label className="sub-title">
                 {t("select_enemy_squad")}
-                <select
+                <div
+                  style={{ display: "flex", gap: "1rem", marginTop: "0.5rem" }}
+                >
+                  <select
+                    value={selectedLevel}
+                    onChange={(e) => setSelectedLevel(Number(e.target.value))}
+                  >
+                    {uniqueLevels.map((level) => (
+                      <option key={level} value={level}>
+                        {level}
+                      </option>
+                    ))}
+                  </select>
+
+                  <select
+                    value={selectedCategory}
+                    onChange={(e) => setSelectedCategory(e.target.value)}
+                  >
+                    {uniqueCategories.map((cat) => (
+                      <option key={cat} value={cat}>
+                        {t(`categories.${cat}`)}
+                      </option>
+                    ))}
+                  </select>
+                  <select
+                    value={selectedName}
+                    onChange={(e) => setSelectedName(e.target.value)}
+                    disabled={availableNames.length === 0}
+                  >
+                    {availableNames.length === 0 ? (
+                      <option>No names available</option>
+                    ) : (
+                      availableNames.map((name) => (
+                        <option key={name} value={name}>
+                          {t(`names.${name}`)}
+                        </option>
+                      ))
+                    )}
+                  </select>
+                </div>
+                {/* <select
                   value={selectedSquadIndex}
                   onChange={(e) =>
                     setSelectedSquadIndex(Number(e.target.value))
@@ -403,11 +497,11 @@ function App() {
                       })}
                     </option>
                   ))}
-                </select>
+                </select> */}
               </label>
               <div className="input-group">
                 <div className="div-input-text">
-                  <label className="sub-title">
+                  <label className="sub-title sub-title-numbers">
                     {t("leadership")}:{" "}
                     <input
                       type="string"
@@ -418,7 +512,7 @@ function App() {
                       }
                     />
                   </label>
-                  <label className="sub-title">
+                  <label className="sub-title sub-title-numbers">
                     {t("dominance")}:{" "}
                     <input
                       type="string"
@@ -432,9 +526,10 @@ function App() {
                 </div>
                 <p className="sub-title-msg">{t("population-info")}</p>
 
-                <label className="sub-title">
+                <label className="sub-title ">
                   {t("enemy_strength_threshold")}:{" "}
                   <input
+                    className="sub-title-numbers"
                     type="number"
                     min={0}
                     max={100}

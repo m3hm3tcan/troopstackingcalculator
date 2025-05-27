@@ -8,7 +8,7 @@
   "dominance": "Nüfus",
   "population-info": "Popülasyon eklerken lütfen Ejderha bonusunu da unutmayınız!",
   "enemy_strength_threshold": "Düşman Güç Eşiği (%)",
-  "exclude_info": "Düşmanın % oraninda güçlü olduğu birlik türlerini hariç tut (≥ eşik)",
+  "exclude_info": "Düşmanın % oraninda güçlü olduğu birlik türlerini hariç tutar.",
   "clear": "Temizle",
   "manual": "Nasıl çalışıyor?",
   "guardsmen_troops": "Muhafız Birlikleri",

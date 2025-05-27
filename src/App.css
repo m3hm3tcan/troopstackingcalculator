@@ -445,3 +445,7 @@ small {
   color: #7e7c7c;
   margin-top: -10px;
 }
+
+.sub-title-numbers {
+  width: 39% !important;
+}
