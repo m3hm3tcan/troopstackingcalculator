@@ -200,6 +200,19 @@ export const Enemies = {
     strength: 27000,
     strengthAgainst: [{ name: "Ranged", strengthPercentage: 65 }],
   },
+  DeathChariot: {
+    name: "Unicorn Rider",
+    strength: 57000,
+    strengthAgainst: [{ name: "Ranged", strengthPercentage: 60 }],
+  },
+  Ent: {
+    name: "Ent",
+    strength: 73000,
+    strengthAgainst: [
+      { name: "Ranged", strengthPercentage: 55 },
+      { name: "Dragon", strengthPercentage: 45 },
+    ],
+  },
 };
 
 // Example EnemySquads data simplified (replace with your full data)
@@ -1702,7 +1715,6 @@ export const EnemySquads = [
       { count: 100000, name: Enemies.DeathHoundRider },
     ],
   },
-
   {
     level: 30,
     category: "Rare",
@@ -1753,4 +1765,65 @@ export const EnemySquads = [
       { count: 1600000, name: Enemies.Banshee },
     ],
   },
+
+  // {
+  //   level: 16,
+  //   category: "Heroic",
+  //   name: "Undead",
+  //   squad: [
+  //     { count: 96, name: Enemies.DeathChariot },
+  //     { count: 96, name: Enemies.DeathChariot },
+  //     { count: 96, name: Enemies.DeathChariot },
+  //     { count: 96, name: Enemies.DeathChariot },
+  //     { count: 96, name: Enemies.DeathChariot },
+  //     { count: 440, name: Enemies.DarkRider },
+  //     { count: 440, name: Enemies.DarkRider },
+  //     { count: 440, name: Enemies.DarkRider },
+  //     { count: 440, name: Enemies.DarkRider },
+  //     { count: 440, name: Enemies.DarkRider },
+  //     { count: 2200, name: Enemies.Necromancer },
+  //     { count: 2200, name: Enemies.Necromancer },
+  //     { count: 2200, name: Enemies.Necromancer },
+  //     { count: 2200, name: Enemies.Necromancer },
+  //     { count: 2200, name: Enemies.Necromancer },
+
+  //     { count: 10400, name: Enemies.Banshee },
+  //     { count: 10400, name: Enemies.Banshee },
+  //     { count: 10400, name: Enemies.Banshee },
+  //     { count: 10400, name: Enemies.Banshee },
+  //     { count: 10400, name: Enemies.Banshee },
+  //   ],
+  // },
+
+  // {
+  //   level: 17,
+  //   category: "Heroic",
+  //   name: "Elf",
+  //   squad: [
+  //     { count: 130, name: Enemies.Ent },
+  //     { count: 130, name: Enemies.Ent },
+  //     { count: 130, name: Enemies.Ent },
+  //     { count: 130, name: Enemies.Ent },
+  //     { count: 130, name: Enemies.Ent },
+
+  //     { count: 114, name: Enemies.UnicornRider },
+  //     { count: 114, name: Enemies.UnicornRider },
+  //     { count: 114, name: Enemies.UnicornRider },
+  //     { count: 114, name: Enemies.UnicornRider },
+  //     { count: 114, name: Enemies.UnicornRider },
+
+  //     { count: 170, name: Enemies.PegasusRider },
+  //     { count: 170, name: Enemies.PegasusRider },
+  //     { count: 170, name: Enemies.PegasusRider },
+  //     { count: 170, name: Enemies.PegasusRider },
+  //     { count: 170, name: Enemies.PegasusRider },
+
+  //     { count: 1720, name: Enemies.Druid },
+  //     { count: 1720, name: Enemies.Druid },
+  //     { count: 1720, name: Enemies.Druid },
+  //     { count: 1720, name: Enemies.Druid },
+  //     { count: 1720, name: Enemies.Druid },
+  //     { count: 1720, name: Enemies.Druid },
+  //   ],
+  // },
 ];

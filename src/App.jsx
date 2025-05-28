@@ -202,9 +202,12 @@ function App() {
       const effectiveStrength = t.baseStrength / t.leadership;
       const proportion = 1 / effectiveStrength / totalInverseStrength;
       const count = Math.floor((userPopulation * proportion) / t.leadership);
+      const unitStrength = t.baseStrength;
 
       return {
         unitName: t.unitName,
+        unitColor: t.unitColor,
+        unitStrength,
         count,
         totalStrength: count * t.baseStrength,
         leadership: t.leadership,
@@ -320,6 +323,10 @@ function App() {
   const removeLocalData = () => {
     localStorage.clear();
 
+    setSelectedLevel(uniqueLevels[0]);
+    setSelectedCategory(uniqueCategories[0]);
+    setSelectedName("");
+
     setEnemyStrengthThreshold(30);
     setUserPopulation(0);
     setDominancePopulation(0);
@@ -369,10 +376,10 @@ function App() {
     const names = filteredSquads.map((s) => s.name);
     setAvailableNames(names);
 
-    // Reset selected name if no match
-    if (!names.includes(selectedName)) {
-      setSelectedName(names[0] ?? "");
-    }
+    // // Reset selected name if no match
+    // if (!names.includes(selectedName)) {
+    //   setSelectedName(names[0] ?? "");
+    // }
   }, [selectedLevel, selectedCategory]);
 
   // Update squad index
@@ -428,7 +435,6 @@ function App() {
             isOpen={showInfoModal}
             onClose={() => setShowInfoModal(false)}
           />
-
           <div className="section first-section">
             <div className="sub-container">
               <label className="sub-title">
@@ -658,7 +664,7 @@ function App() {
               </table>
             </div>
           </div>
-
+          name
           <div className="section second-section">
             <h2>{t("attack_troop_distribution")}</h2>
             {results.length === 0 ? (
@@ -677,33 +683,54 @@ function App() {
                     </tr>
                   </thead>
                   <tbody>
-                    {results.map(
-                      ({
-                        mainType,
-                        unitName,
-                        count,
-                        totalStrength,
-                        leadership,
-                      }) => (
-                        <tr key={unitName}>
-                          <td>{t(mainType)}</td>
-                          <td className="image-and-name">
-                            {/* <img
-                              src={`troops/${newArry[unitName + ".png"]}`}
-                              alt={unitName}
-                              height={50}
-                              width={50}
-                            /> */}
-                            <span>{t(unitName)}</span>
-                          </td>
-                          <td className="count">{leadership}</td>
-                          <td className="count">{count}</td>
-                          <td className="total-strength">
-                            {totalStrength.toFixed(0)}
-                          </td>
-                        </tr>
-                      )
-                    )}
+                    {results
+                      .sort((a, b) => {
+                        // if (a.leadership < b.leadership) return 1;
+                        // if (a.leadership > b.leadership) return -1;
+                        if (a.unitStrength < b.unitStrength) return 1;
+                        if (a.unitStrength > b.unitStrength) return -1;
+
+                        // if (a.mainType < b.mainType) return -1;
+                        // if (a.mainType > b.mainType) return 1;
+
+                        // if (a.unitName < b.unitName) return 1;
+                        // if (a.unitName > b.unitName) return -1;
+
+                        // if (a.unitType < b.unitType) return -1;
+                        // if (a.unitType > b.unitType) return 1;
+                      })
+                      .map(
+                        ({
+                          mainType,
+                          unitName,
+                          unitColor,
+                          // unitStrength,
+                          count,
+                          totalStrength,
+                          leadership,
+                        }) => (
+                          <tr
+                            key={unitName}
+                            // style={{ backgroundColor: `#${unitColor}` }}
+                          >
+                            <td>{t(mainType)}</td>
+                            <td className="image-and-name">
+                              {/* <img
+                                src={`troops/${newArry[unitName + ".png"]}`}
+                                alt={unitName}
+                                height={50}
+                                width={50}
+                              /> */}
+                              <span>{t(unitName)}</span>
+                            </td>
+                            <td className="count">{leadership}</td>
+                            <td className="count">{count}</td>
+                            <td className="total-strength">
+                              {totalStrength.toFixed(0)}
+                            </td>
+                          </tr>
+                        )
+                      )}
                   </tbody>
                 </table>
               </div>

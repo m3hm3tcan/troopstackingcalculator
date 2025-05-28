@@ -435,9 +435,10 @@ small {
 }
 
 .image-and-name {
-  display: flex;
-  align-items: center;
+  /* display: flex; */
+  /* align-items: center; */
   gap: 5px;
+  min-width: 120px;
 }
 
 .sub-title-msg {

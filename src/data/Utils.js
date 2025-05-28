@@ -5,7 +5,7 @@ export const bonusStrengthRatio = 0.5;
 export const flattenTroops = (troopsObj, enemyUnitTypes) => {
   const troopsList = [];
   Object.values(troopsObj).forEach((group) => {
-    const { unitType, units, strength, strengthAgainst } = group;
+    const { unitType, units, strength, strengthAgainst, colors } = group;
     units.forEach((unitName, i) => {
       const baseStrength = strength * Math.pow(1 + strengthRatio, i);
       // Find max bonus against enemy types
@@ -16,9 +16,12 @@ export const flattenTroops = (troopsObj, enemyUnitTypes) => {
       const adjustedStrength =
         baseStrength * (1 + bonusStrengthRatio * (maxBonus / 100));
 
+      const unitColor = colors[i];
+
       troopsList.push({
         unitName,
         unitType,
+        unitColor,
         baseStrength: adjustedStrength,
         strengthAgainstPercent: maxBonus,
         leadership: group.leadership,

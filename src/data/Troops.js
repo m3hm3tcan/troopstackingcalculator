@@ -2,6 +2,17 @@
 export const guardsmen = {
   Ranged: {
     leadership: 1,
+    colors: [
+      "E0E0E0",
+      "495B08",
+      "00CCCC",
+      "6600CC",
+      "FF9933",
+      "990000",
+      "CCCC00",
+      "C0C0C0",
+      "336600",
+    ],
     unitType: "Ranged",
     units: [
       "Archer I",
@@ -22,6 +33,17 @@ export const guardsmen = {
   },
   Melee: {
     leadership: 1,
+    colors: [
+      "E0E0E0",
+      "495B08",
+      "00CCCC",
+      "6600CC",
+      "FF9933",
+      "990000",
+      "CCCC00",
+      "C0C0C0",
+      "336600",
+    ],
     unitType: "Melee",
     units: [
       "Spearman I",
@@ -42,6 +64,17 @@ export const guardsmen = {
   },
   Mounted: {
     leadership: 2,
+    colors: [
+      "E0E0E0",
+      "495B08",
+      "00CCCC",
+      "6600CC",
+      "FF9933",
+      "990000",
+      "CCCC00",
+      "C0C0C0",
+      "336600",
+    ],
     unitType: "Mounted",
     units: [
       "Rider I",
@@ -62,6 +95,7 @@ export const guardsmen = {
   },
   Flying: {
     leadership: 20,
+    colors: ["FF9933", "990000", "CCCC00", "C0C0C0", "336600"],
     unitType: "Flying",
     units: [
       "Battle Griffin V",
@@ -81,6 +115,7 @@ export const guardsmen = {
 export const specialist = {
   Ranged: {
     leadership: 1,
+    colors: ["FF9933", "990000", "CCCC00", "C0C0C0", "336600"],
     unitType: "Ranged",
     units: [
       "Deadshot V",
@@ -98,6 +133,17 @@ export const specialist = {
   Melee: {
     leadership: 1,
     unitType: "Melee",
+    colors: [
+      "E0E0E0",
+      "495B08",
+      "00CCCC",
+      "6600CC",
+      "FF9933",
+      "990000",
+      "CCCC00",
+      "C0C0C0",
+      "336600",
+    ],
     units: [
       "Swordsman I",
       "Swordsman II",
@@ -117,6 +163,7 @@ export const specialist = {
   },
   Mounted: {
     leadership: 2,
+    colors: ["FF9933", "990000", "CCCC00", "C0C0C0", "336600"],
     unitType: "Mounted",
     units: [
       "Lion Rider V",
@@ -133,6 +180,7 @@ export const specialist = {
   },
   Flying: {
     leadership: 1,
+    colors: ["FF9933", "990000", "CCCC00"],
     unitType: "Flying",
     units: ["Vulture V", "Vulture VI", "Vulture VII"],
     strength: 520,
@@ -147,6 +195,15 @@ export const engineerCorps = {
   SiegeEngine: {
     leadership: 10,
     unitType: "Siege Engine",
+    colors: [
+      "E0E0E0",
+      "495B08",
+      "00CCCC",
+      "6600CC",
+      "FF9933",
+      "990000",
+      "CCCC00",
+    ],
     units: [
       "Catapult I",
       "Catapult II",
