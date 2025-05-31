@@ -232,15 +232,17 @@ function App() {
       selectedMonsterTroops.includes(t.unitName)
     );
     if (troops.length === 0) return [];
-
+    console.log("troops", troops);
     // Calculate proposed counts and total dominance cost
     const proposed = troops.map((t) => {
       const count = Math.floor(targetStrengthPerUnit / t.baseStrength);
       const totalDominanceCost = count * t.leadership;
+      const unitStrength = t.baseStrength;
 
       return {
         unitName: t.unitName,
         count,
+        unitStrength,
         totalStrength: count * t.baseStrength,
         totalDominanceCost,
         leadership: t.leadership,
@@ -338,24 +340,37 @@ function App() {
   };
 
   const [showManualModal, setShowManualModal] = useState(false);
-
   // Extract distinct filter values
   const uniqueLevels = [...new Set(EnemySquads.map((s) => s.level))];
   const uniqueCategories = [...new Set(EnemySquads.map((s) => s.category))];
 
-  // State initialization with fallback
-  const [selectedLevel, setSelectedLevel] = useState(
-    loadFromStorage("selectedLevel") ?? uniqueLevels[0]
-  );
-  const [selectedCategory, setSelectedCategory] = useState(
-    loadFromStorage("selectedCategory") ?? uniqueCategories[0]
-  );
-  const [availableNames, setAvailableNames] = useState([]);
-  const [selectedName, setSelectedName] = useState(
-    loadFromStorage("selectedName") ?? ""
+  // Helpers
+  const validateOrDefault = (value, validOptions, fallback) =>
+    validOptions.includes(value) ? value : fallback;
+
+  // Initialize state with validated stored values
+  const [selectedLevel, setSelectedLevel] = useState(() =>
+    validateOrDefault(
+      loadFromStorage("selectedLevel"),
+      uniqueLevels,
+      uniqueLevels[0]
+    )
   );
 
-  // Save user selection to storage
+  const [selectedCategory, setSelectedCategory] = useState(() =>
+    validateOrDefault(
+      loadFromStorage("selectedCategory"),
+      uniqueCategories,
+      uniqueCategories[0]
+    )
+  );
+
+  const [availableNames, setAvailableNames] = useState([]);
+  const [selectedName, setSelectedName] = useState(
+    () => loadFromStorage("selectedName") ?? ""
+  );
+
+  // Persist selections to storage
   useEffect(() => {
     saveToStorage("selectedLevel", selectedLevel);
   }, [selectedLevel]);
@@ -368,7 +383,7 @@ function App() {
     saveToStorage("selectedName", selectedName);
   }, [selectedName]);
 
-  // Update available names based on level/category
+  // Update names when level/category changes
   useEffect(() => {
     const filteredSquads = EnemySquads.filter(
       (s) => s.level === selectedLevel && s.category === selectedCategory
@@ -376,13 +391,13 @@ function App() {
     const names = filteredSquads.map((s) => s.name);
     setAvailableNames(names);
 
-    // // Reset selected name if no match
-    // if (!names.includes(selectedName)) {
-    //   setSelectedName(names[0] ?? "");
-    // }
+    // Reset selected name if invalid
+    if (!names.includes(selectedName)) {
+      setSelectedName(names[0] ?? "");
+    }
   }, [selectedLevel, selectedCategory]);
 
-  // Update squad index
+  // Update selected squad index
   useEffect(() => {
     const index = EnemySquads.findIndex(
       (s) =>
@@ -685,19 +700,8 @@ function App() {
                   <tbody>
                     {results
                       .sort((a, b) => {
-                        // if (a.leadership < b.leadership) return 1;
-                        // if (a.leadership > b.leadership) return -1;
                         if (a.unitStrength < b.unitStrength) return 1;
                         if (a.unitStrength > b.unitStrength) return -1;
-
-                        // if (a.mainType < b.mainType) return -1;
-                        // if (a.mainType > b.mainType) return 1;
-
-                        // if (a.unitName < b.unitName) return 1;
-                        // if (a.unitName > b.unitName) return -1;
-
-                        // if (a.unitType < b.unitType) return -1;
-                        // if (a.unitType > b.unitType) return 1;
                       })
                       .map(
                         ({
@@ -751,8 +755,12 @@ function App() {
                     </tr>
                   </thead>
                   <tbody>
-                    {dominanceResult.map(
-                      ({ unitName, count, totalStrength, leadership }) => (
+                    {dominanceResult
+                      .sort((a, b) => {
+                        if (a.unitStrength < b.unitStrength) return 1;
+                        if (a.unitStrength > b.unitStrength) return -1;
+                      })
+                      .map(({ unitName, count, totalStrength, leadership }) => (
                         <tr key={unitName}>
                           <td className="image-and-name">
                             {/* <img
@@ -769,8 +777,7 @@ function App() {
                             {totalStrength.toFixed(0)}
                           </td>
                         </tr>
-                      )
-                    )}
+                      ))}
                   </tbody>
                 </table>
                 <div>{/* <MiniBrowser /> */}</div>

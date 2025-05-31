@@ -3,6 +3,7 @@ export const bonusStrengthRatio = 0.5;
 
 // Flatten troops with strength calculation
 export const flattenTroops = (troopsObj, enemyUnitTypes) => {
+  console.log("enemyUnitTypes", enemyUnitTypes);
   const troopsList = [];
   Object.values(troopsObj).forEach((group) => {
     const { unitType, units, strength, strengthAgainst, colors } = group;
