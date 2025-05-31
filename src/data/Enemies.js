@@ -1,146 +1,175 @@
 export const Enemies = {
   Ghoul: {
     name: "Ghoul",
+    unitType: "Melee",
     strength: 28,
     strengthAgainst: [{ name: "Mounted", strengthPercentage: 15 }],
   },
   DeathHoundRider: {
     name: "DeathHound Rider",
+    unitType: "Mounted",
     strength: 1100,
     strengthAgainst: [{ name: "Ranged", strengthPercentage: 40 }],
   },
   Banshee: {
     name: "Banshee",
+    unitType: "Ranged",
     strength: 100,
     strengthAgainst: [{ name: "Melee", strengthPercentage: 45 }],
   },
   Dwarf: {
     name: "Dwarf",
+    unitType: "Melee",
     strength: 28,
     strengthAgainst: [{ name: "Mounted", strengthPercentage: 10 }],
   },
   Centaur: {
     name: "Centaur",
+    unitType: "Mounted",
     strength: 2600,
     strengthAgainst: [{ name: "Ranged", strengthPercentage: 50 }],
   },
   ElvenArcher: {
     name: "Elven Archer",
+    unitType: "Ranged",
     strength: 100,
     strengthAgainst: [{ name: "Melee", strengthPercentage: 35 }],
   },
   Skeleton: {
     name: "Skeleton",
+    unitType: "Melee",
     strength: 56,
     strengthAgainst: [{ name: "Mounted", strengthPercentage: 15 }],
   },
   DeathRider: {
     name: "Death Rider",
+    unitType: "Mounted",
     strength: 3200,
     strengthAgainst: [{ name: "Ranged", strengthPercentage: 50 }],
   },
   WitchDoctor: {
     name: "Witch Doctor",
+    unitType: "Ranged",
     strength: 150,
     strengthAgainst: [{ name: "Melee", strengthPercentage: 25 }],
   },
   Goblin: {
     name: "Goblin",
+    unitType: "Melee",
     strength: 28,
     strengthAgainst: [{ name: "Mounted", strengthPercentage: 10 }],
   },
   OgreShaman: {
     name: "Ogre Shaman",
+    unitType: "Melee",
     strength: 3200,
     strengthAgainst: [{ name: "Mounted", strengthPercentage: 60 }],
   },
   WolfRider: {
     name: "Wolf Rider",
+    unitType: "Mounted",
     strength: 150,
     strengthAgainst: [{ name: "Ranged", strengthPercentage: 60 }],
   },
   Fiend: {
     name: "Fiend",
+    unitType: "Melee",
     strength: 28,
     strengthAgainst: [{ name: "Mounted", strengthPercentage: 15 }],
   },
   Overseer: {
     name: "Overseer",
+    unitType: "Ranged",
     strength: 6500,
     strengthAgainst: [{ name: "Melee", strengthPercentage: 70 }],
   },
   Magog: {
     name: "Magog",
+    unitType: "Ranged",
     strength: 50,
     strengthAgainst: [{ name: "Melee", strengthPercentage: 30 }],
   },
   DarkRider: {
     name: "Dark Rider",
+    unitType: "Mounted",
     strength: 5800,
     strengthAgainst: [{ name: "Ranged", strengthPercentage: 50 }],
   },
   PegasusRider: {
     name: "Pegasus Rider",
+    unitType: "Flying",
     strength: 8200,
     strengthAgainst: [{ name: "Melee", strengthPercentage: 60 }],
   },
   Druid: {
     name: "Druid",
+    unitType: "Ranged",
     strength: 900,
     strengthAgainst: [{ name: "Melee", strengthPercentage: 25 }],
   },
   Vampire: {
     name: "Vampire",
+    unitType: "Flying",
     strength: 9900,
     strengthAgainst: [{ name: "Melee", strengthPercentage: 60 }],
   },
   Werewolf: {
     name: "Werewolf",
+    unitType: "Melee",
     strength: 360,
     strengthAgainst: [{ name: "Mounted", strengthPercentage: 45 }],
   },
   StormCrow: {
     name: "Storm Crow",
+    unitType: "Flying",
     strength: 13000,
     strengthAgainst: [{ name: "Melee", strengthPercentage: 55 }],
   },
   AxeThrower: {
     name: "Axe Thrower",
+    unitType: "Ranged",
     strength: 360,
     strengthAgainst: [{ name: "Melee", strengthPercentage: 45 }],
   },
   Cerberus: {
     name: "Cerberus",
+    unitType: "Melee",
     strength: 17000,
     strengthAgainst: [{ name: "Ranged", strengthPercentage: 65 }],
   },
   HornedDemon: {
     name: "Horned Demon",
+    unitType: "Melee",
     strength: 720,
     strengthAgainst: [{ name: "Mounted", strengthPercentage: 40 }],
   },
   JaguarRider: {
     name: "Jaguar Rider",
+    unitType: "Mounted",
     strength: 270,
     strengthAgainst: [{ name: "Ranged", strengthPercentage: 30 }],
   },
   Necromancer: {
     name: "Necromancer",
+    unitType: "Ranged",
     strength: 720,
     strengthAgainst: [{ name: "Melee", strengthPercentage: 50 }],
   },
   FirehorseRider: {
     name: "Firehorse Rider",
+    unitType: "Mounted",
     strength: 4100,
     strengthAgainst: [{ name: "Ranged", strengthPercentage: 50 }],
   },
   Headsman: {
     name: "Headsman",
+    unitType: "Melee",
     strength: 2300,
     strengthAgainst: [{ name: "Mounted", strengthPercentage: 45 }],
   },
   Ifrit: {
     name: "Ifrit",
+    unitType: "Flying",
     strength: 44000,
     strengthAgainst: [
       { name: "Melee", strengthPercentage: 70 },
@@ -149,6 +178,7 @@ export const Enemies = {
   },
   GiantZombie: {
     name: "Giant Zombie",
+    unitType: "Melee",
     strength: 33000,
     strengthAgainst: [
       { name: "Mounted", strengthPercentage: 70 },
@@ -157,11 +187,13 @@ export const Enemies = {
   },
   ScorpionRider: {
     name: "Scorpion Rider",
+    unitType: "Mounted",
     strength: 37000,
     strengthAgainst: [{ name: "Ranged", strengthPercentage: 40 }],
   },
   Bear: {
     name: "Bear",
+    unitType: "Melee",
     strength: 22000,
     strengthAgainst: [
       { name: "Mounted", strengthPercentage: 70 },
@@ -170,6 +202,7 @@ export const Enemies = {
   },
   Gargoyle: {
     name: "Gargoyle",
+    unitType: "Flying",
     strength: 19000,
     strengthAgainst: [
       { name: "Mounted", strengthPercentage: 70 },
@@ -178,16 +211,19 @@ export const Enemies = {
   },
   FirewormRider: {
     name: "Fireworm Rider",
+    unitType: "Mounted",
     strength: 50000,
     strengthAgainst: [{ name: "Ranged", strengthPercentage: 55 }],
   },
   BullRider: {
     name: "Bull Rider",
+    unitType: "Mounted",
     strength: 29000,
     strengthAgainst: [{ name: "Ranged", strengthPercentage: 55 }],
   },
   Cyclops: {
     name: "Cyclops",
+    unitType: "Ranged",
     strength: 45000,
     strengthAgainst: [
       { name: "Melee", strengthPercentage: 45 },
@@ -197,6 +233,7 @@ export const Enemies = {
   },
   UnicornRider: {
     name: "Unicorn Rider",
+    unitType: "Mounted",
     strength: 27000,
     strengthAgainst: [{ name: "Ranged", strengthPercentage: 65 }],
   },

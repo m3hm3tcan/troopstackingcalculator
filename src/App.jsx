@@ -232,7 +232,6 @@ function App() {
       selectedMonsterTroops.includes(t.unitName)
     );
     if (troops.length === 0) return [];
-    console.log("troops", troops);
     // Calculate proposed counts and total dominance cost
     const proposed = troops.map((t) => {
       const count = Math.floor(targetStrengthPerUnit / t.baseStrength);
@@ -242,6 +241,7 @@ function App() {
       return {
         unitName: t.unitName,
         count,
+        unitColor: t.unitColor,
         unitStrength,
         totalStrength: count * t.baseStrength,
         totalDominanceCost,
@@ -679,7 +679,6 @@ function App() {
               </table>
             </div>
           </div>
-          name
           <div className="section second-section">
             <h2>{t("attack_troop_distribution")}</h2>
             {results.length === 0 ? (
@@ -715,7 +714,11 @@ function App() {
                         }) => (
                           <tr
                             key={unitName}
-                            // style={{ backgroundColor: `#${unitColor}` }}
+                            style={{
+                              background: `${unitColor}`,
+                              color: "white",
+                              fontWeight: "bold",
+                            }}
                           >
                             <td>{t(mainType)}</td>
                             <td className="image-and-name">
@@ -760,24 +763,39 @@ function App() {
                         if (a.unitStrength < b.unitStrength) return 1;
                         if (a.unitStrength > b.unitStrength) return -1;
                       })
-                      .map(({ unitName, count, totalStrength, leadership }) => (
-                        <tr key={unitName}>
-                          <td className="image-and-name">
-                            {/* <img
+                      .map(
+                        ({
+                          unitName,
+                          count,
+                          totalStrength,
+                          leadership,
+                          unitColor,
+                        }) => (
+                          <tr
+                            key={unitName}
+                            style={{
+                              background: `${unitColor}`,
+                              color: "white",
+                              fontWeight: "bold",
+                            }}
+                          >
+                            <td className="image-and-name">
+                              {/* <img
                               src={`troops/${newArry[unitName + ".png"]}`}
                               alt={unitName}
                               height={50}
                               width={50}
                             /> */}
-                            <span>{t(unitName)}</span>
-                          </td>
-                          <td className="count">{leadership}</td>
-                          <td className="count">{count}</td>
-                          <td className="total-strength">
-                            {totalStrength.toFixed(0)}
-                          </td>
-                        </tr>
-                      ))}
+                              <span>{t(unitName)}</span>
+                            </td>
+                            <td className="count">{leadership}</td>
+                            <td className="count">{count}</td>
+                            <td className="total-strength">
+                              {totalStrength.toFixed(0)}
+                            </td>
+                          </tr>
+                        )
+                      )}
                   </tbody>
                 </table>
                 <div>{/* <MiniBrowser /> */}</div>

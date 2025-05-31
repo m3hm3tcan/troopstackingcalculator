@@ -3,7 +3,6 @@ export const bonusStrengthRatio = 0.5;
 
 // Flatten troops with strength calculation
 export const flattenTroops = (troopsObj, enemyUnitTypes) => {
-  console.log("enemyUnitTypes", enemyUnitTypes);
   const troopsList = [];
   Object.values(troopsObj).forEach((group) => {
     const { unitType, units, strength, strengthAgainst, colors } = group;
@@ -18,11 +17,13 @@ export const flattenTroops = (troopsObj, enemyUnitTypes) => {
         baseStrength * (1 + bonusStrengthRatio * (maxBonus / 100));
 
       const unitColor = colors[i];
+      // const unitBgColor = bgcolors[i];
 
       troopsList.push({
         unitName,
         unitType,
         unitColor,
+        // unitBgColor,
         baseStrength: adjustedStrength,
         strengthAgainstPercent: maxBonus,
         leadership: group.leadership,
@@ -34,8 +35,15 @@ export const flattenTroops = (troopsObj, enemyUnitTypes) => {
 
 export const flattenMonsters = (monstersArray, enemyUnitTypes) => {
   return monstersArray.map((monster) => {
-    const { category, name, unitType, strength, strengthAgainst, dominance } =
-      monster;
+    const {
+      category,
+      name,
+      unitType,
+      strength,
+      strengthAgainst,
+      dominance,
+      color,
+    } = monster;
 
     // Find max bonus against enemy types
     const maxBonus = strengthAgainst
@@ -44,10 +52,11 @@ export const flattenMonsters = (monstersArray, enemyUnitTypes) => {
 
     const adjustedStrength =
       strength * (1 + bonusStrengthRatio * (maxBonus / 100));
-
+    const unitColor = color;
     return {
       unitName: name,
       unitType,
+      unitColor,
       category,
       baseStrength: adjustedStrength,
       strengthAgainstPercent: maxBonus,

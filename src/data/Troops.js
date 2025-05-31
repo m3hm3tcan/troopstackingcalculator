@@ -1,17 +1,16 @@
-// Example data (shortened for clarity, add your full data here)
 export const guardsmen = {
   Ranged: {
     leadership: 1,
     colors: [
-      "E0E0E0",
-      "495B08",
-      "00CCCC",
-      "6600CC",
-      "FF9933",
-      "990000",
-      "CCCC00",
-      "C0C0C0",
-      "336600",
+      "radial-gradient(circle,rgba(148, 153, 148, 1) 0%, rgba(66, 65, 65, 1) 100%)",
+      "radial-gradient(circle,rgba(106, 173, 102, 1) 0%, rgba(10, 92, 44, 1) 100%",
+      "radial-gradient(circle,rgba(0, 212, 255, 1) 0%, rgba(39, 39, 171, 1) 88%, rgba(2, 0, 36, 1) 100%",
+      "radial-gradient(circle,rgba(191, 171, 237, 1) 0%, rgba(56, 49, 110, 1) 100%)",
+      "radial-gradient(circle,rgba(255, 217, 136, 1) 0%, rgba(127, 53, 7, 1) 62%)",
+      "radial-gradient(circle,rgba(235, 115, 115, 1) 0%, rgba(84, 0, 0, 1) 62%)",
+      "radial-gradient(circle,rgba(255, 234, 0, 1) 0%, rgba(102, 95, 0, 1) 62%)",
+      "radial-gradient(circle,rgba(155, 155, 155, 1) 0%, rgba(79, 130, 140, 1) 100%)",
+      "radial-gradient(circle,rgba(117, 140, 107, 1) 0%, rgba(30, 94, 0, 1) 100%)",
     ],
     unitType: "Ranged",
     units: [
@@ -34,15 +33,15 @@ export const guardsmen = {
   Melee: {
     leadership: 1,
     colors: [
-      "E0E0E0",
-      "495B08",
-      "00CCCC",
-      "6600CC",
-      "FF9933",
-      "990000",
-      "CCCC00",
-      "C0C0C0",
-      "336600",
+      "radial-gradient(circle,rgba(148, 153, 148, 1) 0%, rgba(66, 65, 65, 1) 100%)",
+      "radial-gradient(circle,rgba(106, 173, 102, 1) 0%, rgba(10, 92, 44, 1) 100%",
+      "radial-gradient(circle,rgba(0, 212, 255, 1) 0%, rgba(39, 39, 171, 1) 88%, rgba(2, 0, 36, 1) 100%",
+      "radial-gradient(circle,rgba(191, 171, 237, 1) 0%, rgba(56, 49, 110, 1) 100%)",
+      "radial-gradient(circle,rgba(255, 217, 136, 1) 0%, rgba(127, 53, 7, 1) 62%)",
+      "radial-gradient(circle,rgba(235, 115, 115, 1) 0%, rgba(84, 0, 0, 1) 62%)",
+      "radial-gradient(circle,rgba(255, 234, 0, 1) 0%, rgba(102, 95, 0, 1) 62%)",
+      "radial-gradient(circle,rgba(155, 155, 155, 1) 0%, rgba(79, 130, 140, 1) 100%)",
+      "radial-gradient(circle,rgba(117, 140, 107, 1) 0%, rgba(30, 94, 0, 1) 100%)",
     ],
     unitType: "Melee",
     units: [
@@ -65,15 +64,15 @@ export const guardsmen = {
   Mounted: {
     leadership: 2,
     colors: [
-      "E0E0E0",
-      "495B08",
-      "00CCCC",
-      "6600CC",
-      "FF9933",
-      "990000",
-      "CCCC00",
-      "C0C0C0",
-      "336600",
+      "radial-gradient(circle,rgba(148, 153, 148, 1) 0%, rgba(66, 65, 65, 1) 100%)",
+      "radial-gradient(circle,rgba(106, 173, 102, 1) 0%, rgba(10, 92, 44, 1) 100%",
+      "radial-gradient(circle,rgba(0, 212, 255, 1) 0%, rgba(39, 39, 171, 1) 88%, rgba(2, 0, 36, 1) 100%",
+      "radial-gradient(circle,rgba(191, 171, 237, 1) 0%, rgba(56, 49, 110, 1) 100%)",
+      "radial-gradient(circle,rgba(255, 217, 136, 1) 0%, rgba(127, 53, 7, 1) 62%)",
+      "radial-gradient(circle,rgba(235, 115, 115, 1) 0%, rgba(84, 0, 0, 1) 62%)",
+      "radial-gradient(circle,rgba(255, 234, 0, 1) 0%, rgba(102, 95, 0, 1) 62%)",
+      "radial-gradient(circle,rgba(155, 155, 155, 1) 0%, rgba(79, 130, 140, 1) 100%)",
+      "radial-gradient(circle,rgba(117, 140, 107, 1) 0%, rgba(30, 94, 0, 1) 100%)",
     ],
     unitType: "Mounted",
     units: [
@@ -95,7 +94,13 @@ export const guardsmen = {
   },
   Flying: {
     leadership: 20,
-    colors: ["FF9933", "990000", "CCCC00", "C0C0C0", "336600"],
+    colors: [
+      "radial-gradient(circle,rgba(255, 217, 136, 1) 0%, rgba(127, 53, 7, 1) 62%)",
+      "radial-gradient(circle,rgba(235, 115, 115, 1) 0%, rgba(84, 0, 0, 1) 62%)",
+      "radial-gradient(circle,rgba(255, 234, 0, 1) 0%, rgba(102, 95, 0, 1) 62%)",
+      "radial-gradient(circle,rgba(155, 155, 155, 1) 0%, rgba(79, 130, 140, 1) 100%)",
+      "radial-gradient(circle,rgba(117, 140, 107, 1) 0%, rgba(30, 94, 0, 1) 100%)",
+    ],
     unitType: "Flying",
     units: [
       "Battle Griffin V",
@@ -115,7 +120,13 @@ export const guardsmen = {
 export const specialist = {
   Ranged: {
     leadership: 1,
-    colors: ["FF9933", "990000", "CCCC00", "C0C0C0", "336600"],
+    colors: [
+      "radial-gradient(circle,rgba(255, 217, 136, 1) 0%, rgba(127, 53, 7, 1) 62%)",
+      "radial-gradient(circle,rgba(235, 115, 115, 1) 0%, rgba(84, 0, 0, 1) 62%)",
+      "radial-gradient(circle,rgba(255, 234, 0, 1) 0%, rgba(102, 95, 0, 1) 62%)",
+      "radial-gradient(circle,rgba(155, 155, 155, 1) 0%, rgba(79, 130, 140, 1) 100%)",
+      "radial-gradient(circle,rgba(117, 140, 107, 1) 0%, rgba(30, 94, 0, 1) 100%)",
+    ],
     unitType: "Ranged",
     units: [
       "Deadshot V",
@@ -134,15 +145,15 @@ export const specialist = {
     leadership: 1,
     unitType: "Melee",
     colors: [
-      "E0E0E0",
-      "495B08",
-      "00CCCC",
-      "6600CC",
-      "FF9933",
-      "990000",
-      "CCCC00",
-      "C0C0C0",
-      "336600",
+      "radial-gradient(circle,rgba(148, 153, 148, 1) 0%, rgba(66, 65, 65, 1) 100%)",
+      "radial-gradient(circle,rgba(106, 173, 102, 1) 0%, rgba(10, 92, 44, 1) 100%",
+      "radial-gradient(circle,rgba(0, 212, 255, 1) 0%, rgba(39, 39, 171, 1) 88%, rgba(2, 0, 36, 1) 100%",
+      "radial-gradient(circle,rgba(191, 171, 237, 1) 0%, rgba(56, 49, 110, 1) 100%)",
+      "radial-gradient(circle,rgba(255, 217, 136, 1) 0%, rgba(127, 53, 7, 1) 62%)",
+      "radial-gradient(circle,rgba(235, 115, 115, 1) 0%, rgba(84, 0, 0, 1) 62%)",
+      "radial-gradient(circle,rgba(255, 234, 0, 1) 0%, rgba(102, 95, 0, 1) 62%)",
+      "radial-gradient(circle,rgba(155, 155, 155, 1) 0%, rgba(79, 130, 140, 1) 100%)",
+      "radial-gradient(circle,rgba(117, 140, 107, 1) 0%, rgba(30, 94, 0, 1) 100%)",
     ],
     units: [
       "Swordsman I",
@@ -163,7 +174,13 @@ export const specialist = {
   },
   Mounted: {
     leadership: 2,
-    colors: ["FF9933", "990000", "CCCC00", "C0C0C0", "336600"],
+    colors: [
+      "radial-gradient(circle,rgba(255, 217, 136, 1) 0%, rgba(127, 53, 7, 1) 62%)",
+      "radial-gradient(circle,rgba(235, 115, 115, 1) 0%, rgba(84, 0, 0, 1) 62%)",
+      "radial-gradient(circle,rgba(255, 234, 0, 1) 0%, rgba(102, 95, 0, 1) 62%)",
+      "radial-gradient(circle,rgba(155, 155, 155, 1) 0%, rgba(79, 130, 140, 1) 100%)",
+      "radial-gradient(circle,rgba(117, 140, 107, 1) 0%, rgba(30, 94, 0, 1) 100%)",
+    ],
     unitType: "Mounted",
     units: [
       "Lion Rider V",
@@ -180,7 +197,11 @@ export const specialist = {
   },
   Flying: {
     leadership: 1,
-    colors: ["FF9933", "990000", "CCCC00"],
+    colors: [
+      "radial-gradient(circle,rgba(255, 217, 136, 1) 0%, rgba(127, 53, 7, 1) 62%)",
+      "radial-gradient(circle,rgba(235, 115, 115, 1) 0%, rgba(84, 0, 0, 1) 62%)",
+      "radial-gradient(circle,rgba(255, 234, 0, 1) 0%, rgba(102, 95, 0, 1) 62%)",
+    ],
     unitType: "Flying",
     units: ["Vulture V", "Vulture VI", "Vulture VII"],
     strength: 520,
@@ -196,13 +217,13 @@ export const engineerCorps = {
     leadership: 10,
     unitType: "Siege Engine",
     colors: [
-      "E0E0E0",
-      "495B08",
-      "00CCCC",
-      "6600CC",
-      "FF9933",
-      "990000",
-      "CCCC00",
+      "radial-gradient(circle,rgba(148, 153, 148, 1) 0%, rgba(66, 65, 65, 1) 100%)",
+      "radial-gradient(circle,rgba(106, 173, 102, 1) 0%, rgba(10, 92, 44, 1) 100%",
+      "radial-gradient(circle,rgba(0, 212, 255, 1) 0%, rgba(39, 39, 171, 1) 88%, rgba(2, 0, 36, 1) 100%",
+      "radial-gradient(circle,rgba(191, 171, 237, 1) 0%, rgba(56, 49, 110, 1) 100%)",
+      "radial-gradient(circle,rgba(255, 217, 136, 1) 0%, rgba(127, 53, 7, 1) 62%)",
+      "radial-gradient(circle,rgba(235, 115, 115, 1) 0%, rgba(84, 0, 0, 1) 62%)",
+      "radial-gradient(circle,rgba(255, 234, 0, 1) 0%, rgba(102, 95, 0, 1) 62%)",
     ],
     units: [
       "Catapult I",
@@ -218,11 +239,21 @@ export const engineerCorps = {
   },
 };
 
+// "radial-gradient(circle,rgba(0, 212, 255, 1) 0%, rgba(39, 39, 171, 1) 88%, rgba(2, 0, 36, 1) 100%",
+// "radial-gradient(circle,rgba(191, 171, 237, 1) 0%, rgba(56, 49, 110, 1) 100%)",
+// "radial-gradient(circle,rgba(255, 217, 136, 1) 0%, rgba(127, 53, 7, 1) 62%)",
+// "radial-gradient(circle,rgba(235, 115, 115, 1) 0%, rgba(84, 0, 0, 1) 62%)",
+// "radial-gradient(circle,rgba(255, 234, 0, 1) 0%, rgba(102, 95, 0, 1) 62%)",
+// "radial-gradient(circle,rgba(155, 155, 155, 1) 0%, rgba(79, 130, 140, 1) 100%)",
+// "radial-gradient(circle,rgba(117, 140, 107, 1) 0%, rgba(30, 94, 0, 1) 100%)",
+
 export const MonstersUnits = [
   {
     dominance: 7,
     unitType: "Flying",
     category: "Dragons",
+    color:
+      "radial-gradient(circle,rgba(0, 212, 255, 1) 0%, rgba(39, 39, 171, 1) 88%, rgba(2, 0, 36, 1) 100%",
     name: "(III)Emerald Dragon",
     strength: 4500,
     strengthAgainst: [
@@ -234,6 +265,8 @@ export const MonstersUnits = [
     dominance: 13,
     category: "Dragons",
     unitType: "Ranged",
+    color:
+      "radial-gradient(circle,rgba(191, 171, 237, 1) 0%, rgba(56, 49, 110, 1) 100%)",
     name: "(IV)Magic Dragon",
     strength: 15000,
     strengthAgainst: [
@@ -245,6 +278,8 @@ export const MonstersUnits = [
     dominance: 20,
     category: "Dragons",
     unitType: "Mounted",
+    color:
+      "radial-gradient(circle,rgb(247, 196, 86) 0%, rgba(127, 53, 7, 1) 62%)",
     name: "(V)Desert Vanquisher",
     strength: 42000,
     strengthAgainst: [{ name: "Ranged", strengthPercentage: 253 }],
@@ -253,6 +288,8 @@ export const MonstersUnits = [
     dominance: 33,
     category: "Dragons",
     unitType: "Melee",
+    color:
+      "radial-gradient(circle,rgba(235, 115, 115, 1) 0%, rgba(84, 0, 0, 1) 62%)",
     name: "(VI)Crystal Dragon",
     strength: 120000,
     strengthAgainst: [{ name: "Mounted", strengthPercentage: 258 }],
@@ -261,6 +298,8 @@ export const MonstersUnits = [
     dominance: 44,
     category: "Dragons",
     unitType: "Melee",
+    color:
+      "radial-gradient(circle,rgb(189, 180, 80) 0%, rgba(102, 95, 0, 1) 62%)",
     name: "(VII)Black Dragon",
     strength: 330000,
     strengthAgainst: [{ name: "Melee", strengthPercentage: 570 }],
@@ -269,6 +308,8 @@ export const MonstersUnits = [
     dominance: 3,
     category: "Elementals",
     unitType: "Ranged",
+    color:
+      "radial-gradient(circle,rgba(0, 212, 255, 1) 0%, rgba(39, 39, 171, 1) 88%, rgba(2, 0, 36, 1) 100%",
     name: "(III)Water Elemental",
     strength: 1900,
     strengthAgainst: [
@@ -280,6 +321,8 @@ export const MonstersUnits = [
     dominance: 15,
     category: "Elementals",
     unitType: "Melee",
+    color:
+      "radial-gradient(circle,rgba(191, 171, 237, 1) 0%, rgba(56, 49, 110, 1) 100%)",
     name: "(IV)Ice Phoenix",
     strength: 17000,
     strengthAgainst: [{ name: "Flying", strengthPercentage: 223 }],
@@ -288,6 +331,8 @@ export const MonstersUnits = [
     dominance: 21,
     category: "Elementals",
     unitType: "Mounted",
+    color:
+      "radial-gradient(circle,rgb(247, 196, 86) 0%, rgba(127, 53, 7, 1) 62%)",
     name: "(V)Flaming Centaur",
     strength: 44000,
     strengthAgainst: [{ name: "Ranged", strengthPercentage: 415 }],
@@ -296,6 +341,8 @@ export const MonstersUnits = [
     dominance: 35,
     category: "Elementals",
     unitType: "Melee",
+    color:
+      "radial-gradient(circle,rgba(235, 115, 115, 1) 0%, rgba(84, 0, 0, 1) 62%)",
     name: "(VI)Ruby Golem",
     strength: 130000,
     strengthAgainst: [
@@ -307,6 +354,8 @@ export const MonstersUnits = [
     dominance: 45,
     category: "Elementals",
     unitType: "Melee",
+    color:
+      "radial-gradient(circle,rgb(189, 180, 80) 0%, rgba(102, 95, 0, 1) 62%)",
     name: "(VII)Wind Lord",
     strength: 310000,
     strengthAgainst: [{ name: "Mounted", strengthPercentage: 387 }],
@@ -315,6 +364,8 @@ export const MonstersUnits = [
     dominance: 8,
     category: "Giants",
     unitType: "Flaying",
+    color:
+      "radial-gradient(circle,rgba(0, 212, 255, 1) 0%, rgba(39, 39, 171, 1) 88%, rgba(2, 0, 36, 1) 100%",
     name: "(III)Stone Gargoyle",
     strength: 5200,
     strengthAgainst: [{ name: "Melee", strengthPercentage: 185 }],
@@ -323,6 +374,8 @@ export const MonstersUnits = [
     dominance: 11,
     category: "Giants",
     unitType: "Melee",
+    color:
+      "radial-gradient(circle,rgba(191, 171, 237, 1) 0%, rgba(56, 49, 110, 1) 100%)",
     name: "(IV)Many-Armed Guardian",
     strength: 13000,
     strengthAgainst: [{ name: "Mounted", strengthPercentage: 115 }],
@@ -331,6 +384,8 @@ export const MonstersUnits = [
     dominance: 23,
     category: "Giants",
     unitType: "Melee",
+    color:
+      "radial-gradient(circle,rgb(247, 196, 86) 0%, rgba(127, 53, 7, 1) 62%)",
     name: "(V)Ettin",
     strength: 48000,
     strengthAgainst: [{ name: "Mounted", strengthPercentage: 334 }],
@@ -339,6 +394,8 @@ export const MonstersUnits = [
     dominance: 30,
     category: "Giants",
     unitType: "Mounted",
+    color:
+      "radial-gradient(circle,rgba(235, 115, 115, 1) 0%, rgba(84, 0, 0, 1) 62%)",
     name: "(VI)Troll Rider",
     strength: 110000,
     strengthAgainst: [
@@ -350,6 +407,8 @@ export const MonstersUnits = [
     dominance: 43,
     category: "Giants",
     unitType: "Ranged",
+    color:
+      "radial-gradient(circle,rgb(189, 180, 80) 0%, rgba(102, 95, 0, 1) 62%)",
     name: "(VII)Destructive Colossus",
     strength: 290000,
     strengthAgainst: [
@@ -362,6 +421,8 @@ export const MonstersUnits = [
     category: "Beasts",
     unitType: "Mounted",
     name: "(III)Battle Boar",
+    color:
+      "radial-gradient(circle,rgba(0, 212, 255, 1) 0%, rgba(39, 39, 171, 1) 88%, rgba(2, 0, 36, 1) 100%",
     strength: 3900,
     strengthAgainst: [
       { name: "Mounted", strengthPercentage: 144 },
@@ -372,6 +433,8 @@ export const MonstersUnits = [
     dominance: 10,
     category: "Beasts",
     unitType: "Melee",
+    color:
+      "radial-gradient(circle,rgba(191, 171, 237, 1) 0%, rgba(56, 49, 110, 1) 100%)",
     name: "(IV)Gorgon Medusa",
     strength: 12000,
     strengthAgainst: [
@@ -383,6 +446,8 @@ export const MonstersUnits = [
     dominance: 22,
     category: "Beasts",
     unitType: "Flying",
+    color:
+      "radial-gradient(circle,rgb(247, 196, 86) 0%, rgba(127, 53, 7, 1) 62%)",
     name: "(V)Fearsome Manticore",
     strength: 46000,
     strengthAgainst: [
@@ -394,6 +459,8 @@ export const MonstersUnits = [
     dominance: 34,
     category: "Beasts",
     unitType: "Melee",
+    color:
+      "radial-gradient(circle,rgba(235, 115, 115, 1) 0%, rgba(84, 0, 0, 1) 62%)",
     name: "(VI)Jungle Destroyer",
     strength: 130000,
     strengthAgainst: [
@@ -405,6 +472,8 @@ export const MonstersUnits = [
     dominance: 41,
     category: "Beasts",
     unitType: "Mounted",
+    color:
+      "radial-gradient(circle,rgb(189, 180, 80) 0%, rgba(102, 95, 0, 1) 62%)",
     name: "(VII)Ancient Terror",
     strength: 280000,
     strengthAgainst: [
