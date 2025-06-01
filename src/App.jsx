@@ -336,6 +336,8 @@ function App() {
     setSelectedSquadIndex(0);
     setSelectedMonsterTroops([]);
 
+    setSection("");
+
     localStorage.setItem("selectedTroops", []);
   };
 
@@ -408,6 +410,15 @@ function App() {
     setSelectedSquadIndex(index !== -1 ? index : null);
   }, [selectedLevel, selectedCategory, selectedName]);
 
+  const [section, setSection] = useState("");
+  const toggleSection = (index) => {
+    if (section === index) {
+      setSection("");
+    } else {
+      setSection(index);
+    }
+  };
+
   return (
     <>
       <nav className="navbar">
@@ -421,15 +432,7 @@ function App() {
         </div>
         <div>
           <div className="header-btn-group">
-            <div>
-              {/* <button
-                className="info-button"
-                aria-label="Open Info"
-                onClick={() => setShowInfoModal(true)}
-              >
-                ℹ️ <span>{t("info")}</span>
-              </button> */}
-            </div>
+            <div></div>
             <div>
               <select
                 id="language"
@@ -494,31 +497,6 @@ function App() {
                     )}
                   </select>
                 </div>
-                {/* <select
-                  value={selectedSquadIndex}
-                  onChange={(e) =>
-                    setSelectedSquadIndex(Number(e.target.value))
-                  }
-                >
-                  {EnemySquads.sort((a, b) => {
-                    if (a.level !== b.level) {
-                      return a.level - b.level;
-                    }
-                    if (a.category !== b.category) {
-                      return a.category.localeCompare(b.category);
-                    }
-                    return a.name.localeCompare(b.name);
-                  }).map((squad, idx) => (
-                    <option key={idx} value={idx}>
-                      {t("squadOption", {
-                        level: squad.level,
-                        category: t(`categories.${squad.category}`),
-                        name: t(`names.${squad.name}`),
-                        sq: t("sqs.squad"),
-                      })}
-                    </option>
-                  ))}
-                </select> */}
               </label>
               <div className="input-group">
                 <div className="div-input-text">
@@ -580,102 +558,160 @@ function App() {
             </div>
 
             <div>
-              <h3 className="title">{t("guardsmen_troops")}</h3>
+              <h3
+                className={`title`}
+                onClick={() => toggleSection("guardsmen")}
+              >
+                <span
+                  className={`accordion-arrow ${
+                    section === "guardsmen"
+                      ? "accordion-arrow-green"
+                      : "accordion-arrow-gray"
+                  }`}
+                >
+                  {section === "guardsmen" ? "▲" : "▼"}
+                </span>
+                {t("guardsmen_troops")}
+              </h3>
+              {section === "guardsmen" && (
+                <table className="troop-table">
+                  <tbody className="unit-main-title">
+                    {categories.map((category) => (
+                      <tr className="unit-list">
+                        <td colSpan="4">
+                          <div className="unit-type-header">{t(category)}</div>
+                          {groupedUnits[category].map((unit) => (
+                            <label key={unit} className="unit-item">
+                              <input
+                                type="checkbox"
+                                checked={selectedTroops.includes(unit)}
+                                onChange={() => toggleTroop(unit)}
+                              />
+                              {t(unit)}
+                            </label>
+                          ))}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              )}
+            </div>
+
+            <div>
+              <h3
+                className={`title`}
+                onClick={() => toggleSection("specialist")}
+              >
+                <span
+                  className={`accordion-arrow ${
+                    section === "specialist"
+                      ? "accordion-arrow-green"
+                      : "accordion-arrow-gray"
+                  }`}
+                >
+                  {section === "specialist" ? "▲" : "▼"}
+                </span>
+                {t("specialist_troops")}
+              </h3>
+              {section === "specialist" && (
+                <table className="troop-table">
+                  <tbody className="unit-main-title">
+                    {categories.map((category) => (
+                      <tr className="unit-list">
+                        <td colSpan="4">
+                          <div className="unit-type-header">{t(category)}</div>
+                          {groupedUnitsSpecialist[category].map((unit) => (
+                            <label key={unit} className="unit-item">
+                              <input
+                                type="checkbox"
+                                checked={selectedTroops.includes(unit)}
+                                onChange={() => toggleTroop(unit)}
+                              />
+                              {t(unit)}
+                            </label>
+                          ))}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              )}
+            </div>
+
+            <div>
+              <h3 className={`title`} onClick={() => toggleSection("engineer")}>
+                <span
+                  className={`accordion-arrow ${
+                    section === "engineer"
+                      ? "accordion-arrow-green"
+                      : "accordion-arrow-gray"
+                  }`}
+                >
+                  {section === "engineer" ? "▲" : "▼"}
+                </span>
+                {t("engineer_troops")}
+              </h3>
               <table className="troop-table">
-                <tbody className="unit-main-title">
-                  {categories.map((category) => (
-                    <tr className="unit-list">
-                      <td colSpan="4">
-                        <div className="unit-type-header">{t(category)}</div>
-                        {groupedUnits[category].map((unit) => (
-                          <label key={unit} className="unit-item">
-                            <input
-                              type="checkbox"
-                              checked={selectedTroops.includes(unit)}
-                              onChange={() => toggleTroop(unit)}
-                            />
-                            {t(unit)}
-                          </label>
-                        ))}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
+                {section === "engineer" && (
+                  <tbody className="unit-main-title">
+                    {enginescategories.map((category) => (
+                      <tr className="unit-list">
+                        <td colSpan="4">
+                          <div className="unit-type-header">{t(category)}</div>
+                          {groupedUnitsEngines[category].map((unit) => (
+                            <label key={unit} className="unit-item">
+                              <input
+                                type="checkbox"
+                                checked={selectedTroops.includes(unit)}
+                                onChange={() => toggleTroop(unit)}
+                              />
+                              {t(unit)}
+                            </label>
+                          ))}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                )}
               </table>
             </div>
 
             <div>
-              <h3 className="title">{t("specialist_troops")}</h3>
+              <h3 className={`title`} onClick={() => toggleSection("monster")}>
+                <span
+                  className={`accordion-arrow ${
+                    section === "monster"
+                      ? "accordion-arrow-green"
+                      : "accordion-arrow-gray"
+                  }`}
+                >
+                  {section === "monster" ? "▲" : "▼"}
+                </span>
+                {t("monster_troops")}
+              </h3>
               <table className="troop-table">
-                <tbody className="unit-main-title">
-                  {categories.map((category) => (
-                    <tr className="unit-list">
-                      <td colSpan="4">
-                        <div className="unit-type-header">{t(category)}</div>
-                        {groupedUnitsSpecialist[category].map((unit) => (
-                          <label key={unit} className="unit-item">
-                            <input
-                              type="checkbox"
-                              checked={selectedTroops.includes(unit)}
-                              onChange={() => toggleTroop(unit)}
-                            />
-                            {t(unit)}
-                          </label>
-                        ))}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-
-            <div>
-              <h3 className="title">{t("engineer_troops")}</h3>
-              <table className="troop-table">
-                <tbody className="unit-main-title">
-                  {enginescategories.map((category) => (
-                    <tr className="unit-list">
-                      <td colSpan="4">
-                        <div className="unit-type-header">{t(category)}</div>
-                        {groupedUnitsEngines[category].map((unit) => (
-                          <label key={unit} className="unit-item">
-                            <input
-                              type="checkbox"
-                              checked={selectedTroops.includes(unit)}
-                              onChange={() => toggleTroop(unit)}
-                            />
-                            {t(unit)}
-                          </label>
-                        ))}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-
-            <div>
-              <h3 className="title">{t("monster_troops")}</h3>
-              <table className="troop-table">
-                <tbody className="unit-main-title">
-                  {monsterCategories.map((category) => (
-                    <tr className="unit-list">
-                      <td colSpan="4">
-                        <div className="unit-type-header">{t(category)}</div>
-                        {groupedUnitsMonsters[category].map((unit) => (
-                          <label key={unit} className="unit-item">
-                            <input
-                              type="checkbox"
-                              checked={selectedMonsterTroops.includes(unit)}
-                              onChange={() => toggleMonsterTroop(unit)}
-                            />
-                            {t(unit)}
-                          </label>
-                        ))}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
+                {section === "monster" && (
+                  <tbody className="unit-main-title">
+                    {monsterCategories.map((category) => (
+                      <tr className="unit-list">
+                        <td colSpan="4">
+                          <div className="unit-type-header">{t(category)}</div>
+                          {groupedUnitsMonsters[category].map((unit) => (
+                            <label key={unit} className="unit-item">
+                              <input
+                                type="checkbox"
+                                checked={selectedMonsterTroops.includes(unit)}
+                                onChange={() => toggleMonsterTroop(unit)}
+                              />
+                              {t(unit)}
+                            </label>
+                          ))}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                )}
               </table>
             </div>
           </div>
@@ -707,7 +743,6 @@ function App() {
                           mainType,
                           unitName,
                           unitColor,
-                          // unitStrength,
                           count,
                           totalStrength,
                           leadership,
@@ -722,12 +757,6 @@ function App() {
                           >
                             <td>{t(mainType)}</td>
                             <td className="image-and-name">
-                              {/* <img
-                                src={`troops/${newArry[unitName + ".png"]}`}
-                                alt={unitName}
-                                height={50}
-                                width={50}
-                              /> */}
                               <span>{t(unitName)}</span>
                             </td>
                             <td className="count">{leadership}</td>
@@ -780,12 +809,6 @@ function App() {
                             }}
                           >
                             <td className="image-and-name">
-                              {/* <img
-                              src={`troops/${newArry[unitName + ".png"]}`}
-                              alt={unitName}
-                              height={50}
-                              width={50}
-                            /> */}
                               <span>{t(unitName)}</span>
                             </td>
                             <td className="count">{leadership}</td>
