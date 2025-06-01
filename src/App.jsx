@@ -798,7 +798,6 @@ function App() {
                       )}
                   </tbody>
                 </table>
-                <div>{/* <MiniBrowser /> */}</div>
               </div>
             )}
           </div>

@@ -150,86 +150,110 @@
 
   "userManual": {
     "overviewTitle": "Genel Bakış",
-    "overviewText": "Bu uygulama, oyuncuların çeşitli düşman birliklerine karşı optimal asker dağılımı stratejisi oluşturmasına yardımcı olur. Kaynaklarınızı girin, düşmanları seçin ve hesaplanan asker dağılımlarını alın.",
+    "overviewText": "Bu uygulama, oyuncuların farklı düşman birliklerine karşı en uygun birlik dağılımını planlamasına yardımcı olur. Kaynaklarınızı girin, düşmanları seçin ve hesaplanmış birlik dağılımını alın.",
 
     "gettingStartedTitle": "1. Başlarken",
     "gettingStartedPoints": [
       {
         "label": "Dil Seçimi:",
-        "text": "İngilizce ve Türkçe arasında geçiş yapmak için açılır menüyü kullanın."
+        "text": "Dil değişimi için sağ üstteki açılır menüyü kullanabilirsiniz (İngilizce ve Türkçe)."
       },
       {
-        "label": "Bilgi & Kılavuz:",
-        "text": "Yardım pencerelerini açmak için ℹ️ veya 📘 butonuna tıklayın."
+        "label": "Bilgi ve Kılavuz:",
+        "text": "ℹ️ veya 📘 butonuna tıklayarak bilgi penceresini açabilirsiniz."
       }
     ],
 
-    "inputsControlsTitle": "2. Girdiler ve Kontroller",
+    "inputsControlsTitle": "2. Girdi ve Kontroller",
     "inputsControlsPoints": [
       {
-        "label": "Düşman Birliği:",
-        "text": "Asker seçimini özelleştirmek için seviye/tip bazında birlikleri seçin."
+        "label": "Düşman Birlik Filtreleri:",
+        "text": "Düşman seviyesini, kategorisini ve adını seçerek uygun birlikleri filtreleyin."
       },
-      { "label": "Liderlik:", "text": "Toplam asker liderlik kaynağı." },
-      { "label": "Hakimiyet:", "text": "Toplam canavar liderlik kaynağı." },
+      {
+        "label": "Liderlik:",
+        "text": "Toplam birlik liderlik kaynağınızı girin."
+      },
+      {
+        "label": "Baskınlık:",
+        "text": "Toplam canavar liderlik kaynağınızı girin."
+      },
       {
         "label": "Düşman Güç Eşiği:",
-        "text": "Düşmana karşı zayıf askerler (≥ eşik) hariç tutulur."
+        "text": "Seçilen düşmana kıyasla zayıf kalan birlikler otomatik olarak hariç tutulur."
       },
       {
         "label": "Temizle Butonu:",
-        "text": "localStorage'deki tüm kayıtlı girdileri sıfırlar."
+        "text": "Tüm girişleri ve seçimleri yerel depolamadan sıfırlar."
+      },
+      {
+        "label": "Kılavuz Butonu:",
+        "text": "Bu kullanıcı kılavuzunu açar."
       }
     ],
 
-    "troopSelectionTitle": "3. Asker Seçimi",
-    "troopSelectionIntro": "Askerler türlere ayrılmıştır:",
+    "troopSelectionTitle": "3. Birlik Seçimi",
+    "troopSelectionIntro": "Birlikler türlerine göre gruplanmıştır ve onay kutularıyla seçilir.",
     "troopTypes": [
-      { "label": "Muhafızlar:", "text": "Piyade, süvariler" },
-      { "label": "Uzmanlar:", "text": "Ozel birlikler" },
-      { "label": "Kuşatma Silahları:", "text": "Ağır topçular" },
+      { "label": "Muhafızlar:", "text": "Piyade ve süvari birlikleri." },
+      { "label": "Uzmanlar:", "text": "Özel yeteneklere sahip birlikler." },
+      {
+        "label": "Mühendis Birlikleri:",
+        "text": "Ağır silah ve kuşatma birlikleri."
+      },
       {
         "label": "Canavarlar:",
-        "text": "Ejderhalar, elementaller, devler, yaratiklar"
+        "text": "Ejderhalar, elementaller, devler ve yaratıklar."
       }
     ],
-    "troopSelectionNote": "Her türün altındaki onay kutularını kullanarak mevcut birimleri filtreleyin ve seçin.",
+    "troopSelectionNote": "Her birlik türünün altında ilgili onay kutularını işaretleyerek seçim yapabilirsiniz.",
 
     "resultsTitle": "4. Sonuçlar",
     "resultsPoints": [
       {
-        "label": "Ana Asker Dağılımı:",
-        "text": "Liderlik girişi ve seçimlere göre otomatik hesaplanır."
+        "label": "Ana Birlik Dağılımı:",
+        "text": "Girdiğiniz liderlik miktarına göre otomatik hesaplanır. Güçlü birlikler önceliklidir."
       },
       {
         "label": "Canavar Dağılımı:",
-        "text": "Canavar gücünü ilk askere eşler, hakimiyetle ölçeklenir."
+        "text": "Baskınlık değeri ile hesaplanır. Ana birlikleri desteklemek için kullanılır."
       }
     ],
 
     "featuresTitle": "5. Özellikler",
     "featuresPoints": [
       {
-        "label": "Süreklilik:",
-        "text": "Girdiler ve seçimler oturumlar arasında yerel olarak kaydedilir."
+        "label": "Kalıcılık:",
+        "text": "Girdi ve seçimleriniz yerel depolamada otomatik olarak saklanır."
+      },
+      {
+        "label": "Filtreleme:",
+        "text": "Düşman filtreleri ile sadece uygun birlikler görüntülenir."
       }
     ],
 
     "tipsTitle": "6. İpuçları",
     "tipsPoints": [
-      "Önce bir düşman seçerek zayıf askerleri otomatik filtreleyin.",
-      "Risk ve güç dengesi için yaklaşık 30 eşiğini deneyin.",
-      "Daha iyi optimizasyon için canavar askerleri dahil edin."
+      "İlk olarak bir düşman birliği seçin, böylece zayıf birlikler filtrelenir.",
+      "Güç ve risk arasında denge kurmak için eşik değeri olarak 30 deneyin.",
+      "Canavar birlikleri seçimi, optimizasyonu artırır.",
+      "Sonuçlar yanlış görünüyorsa 'Temizle' butonunu kullanın."
     ],
 
     "troubleshootingTitle": "7. Sorun Giderme",
     "troubleshootingPoints": [
       {
-        "label": "Asker görünmüyor:",
-        "text": "Düşman seçimini ve asker onay kutularını kontrol edin."
+        "label": "Hiç birlik görünmüyor:",
+        "text": "Düşman seçtiğinizden ve birlik kutucuklarını işaretlediğinizden emin olun."
       },
-      { "label": "Yanlış sonuçlar:", "text": "Temizle butonuyla sıfırlayın." },
-      { "label": "Dil yanlış:", "text": "Dil açılır menüsünü kullanın." }
+      {
+        "label": "Sonuçlar hatalı:",
+        "text": "‘Temizle’ butonuna tıklayıp yeniden başlayın."
+      },
+      {
+        "label": "Dil değişmedi:",
+        "text": "Sağ üst köşedeki dil menüsünden dili tekrar seçin."
+      }
     ]
   }
 }
