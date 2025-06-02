@@ -8,9 +8,14 @@ import {
   specialist,
   engineerCorps,
   MonstersUnits,
+  MercenaryUnits,
 } from "./data/Troops";
 import { Enemies, EnemySquads } from "./data/Enemies";
-import { flattenMonsters, flattenTroops } from "./data/Utils";
+import {
+  flattenMonsters,
+  flattenTroops,
+  flattenMercenaries,
+} from "./data/Utils";
 import HuniLogo from "./assets/funnel.svg";
 import UserManualModal from "./components/UserManualModal";
 import { useTranslation } from "react-i18next";
@@ -66,6 +71,10 @@ function App() {
     loadFromStorage("dominancePopulation", 0)
   );
 
+  const [authorityPopulation, setAuthorityPopulation] = useState(
+    loadFromStorage("authorityPopulation", 0)
+  );
+
   const [userPopulation, setUserPopulation] = useState(
     loadFromStorage("userPopulation", 0)
   );
@@ -76,6 +85,10 @@ function App() {
 
   const [selectedMonsterTroops, setSelectedMonsterTroops] = useState(
     loadFromStorage("selectedMonsterTroops", [])
+  );
+
+  const [selectedMercenaryTroops, setSelectedMercenaryTroops] = useState(
+    loadFromStorage("selectedMercenaryTroops", [])
   );
 
   const [enemyStrengthThreshold, setEnemyStrengthThreshold] = useState(
@@ -95,12 +108,20 @@ function App() {
   }, [dominancePopulation]);
 
   useEffect(() => {
+    saveToStorage("authorityPopulation", authorityPopulation);
+  }, [authorityPopulation]);
+
+  useEffect(() => {
     saveToStorage("selectedTroops", selectedTroops);
   }, [selectedTroops]);
 
   useEffect(() => {
     saveToStorage("selectedMonsterTroops", selectedMonsterTroops);
   }, [selectedMonsterTroops]);
+
+  useEffect(() => {
+    saveToStorage("selectedMercenaryTroops", selectedMercenaryTroops);
+  }, [selectedMercenaryTroops]);
 
   useEffect(() => {
     saveToStorage("enemyStrengthThreshold", enemyStrengthThreshold);
@@ -143,29 +164,42 @@ function App() {
       mainType: "MonstersUnits",
     }));
 
+    const mercenaryTroopUnits = flattenMercenaries(
+      MercenaryUnits,
+      enemyUnitTypes
+    ).map((t) => ({
+      ...t,
+      mainType: "MercenaryUnits",
+    }));
+
     // const
 
     // We want to exclude any troop where enemy has strengthAgainst on that troop type >= threshold
     // Check enemy's strengthAgainst to troop's unitType
-    return [...guards, ...specs, ...engines, ...monsterTroopsUnits].filter(
-      (troop) => {
-        // For each enemy unit in squad, check if its strengthAgainst against troop.unitType >= threshold
-        return !selectedSquad.squad.some(({ monster, name }) => {
-          const enemy = monster || name;
-          if (!enemy?.strengthAgainst) return false;
-          const sa = enemy.strengthAgainst.find(
-            (sa) => sa.name === troop.unitType
-          );
-          return sa && sa.strengthPercentage >= enemyStrengthThreshold;
-        });
-      }
-    );
+    return [
+      ...guards,
+      ...specs,
+      ...engines,
+      ...monsterTroopsUnits,
+      ...mercenaryTroopUnits,
+    ].filter((troop) => {
+      // For each enemy unit in squad, check if its strengthAgainst against troop.unitType >= threshold
+      return !selectedSquad.squad.some(({ monster, name }) => {
+        const enemy = monster || name;
+        if (!enemy?.strengthAgainst) return false;
+        const sa = enemy.strengthAgainst.find(
+          (sa) => sa.name === troop.unitType
+        );
+        return sa && sa.strengthPercentage >= enemyStrengthThreshold;
+      });
+    });
   }, [
     enemyUnitTypes,
     selectedSquad.squad,
     enemyStrengthThreshold,
     selectedTroops,
     selectedMonsterTroops,
+    selectedMercenaryTroops,
   ]);
 
   // Toggle troop selection
@@ -179,6 +213,14 @@ function App() {
 
   const toggleMonsterTroop = (unitName) => {
     setSelectedMonsterTroops((prev) =>
+      prev.includes(unitName)
+        ? prev.filter((t) => t !== unitName)
+        : [...prev, unitName]
+    );
+  };
+
+  const toggleMeMercenaryTroop = (unitName) => {
+    setSelectedMercenaryTroops((prev) =>
       prev.includes(unitName)
         ? prev.filter((t) => t !== unitName)
         : [...prev, unitName]
@@ -273,6 +315,63 @@ function App() {
     return proposed;
   }, [dominancePopulation, selectedMonsterTroops, allTroops, results]);
 
+  const authorityResult = useMemo(() => {
+    if (
+      authorityPopulation <= 0 ||
+      selectedMercenaryTroops.length === 0 ||
+      results.length === 0
+    ) {
+      return [];
+    }
+
+    // Get target totalStrength per unit from human results
+    const targetStrengthPerUnit = results[0].totalStrength;
+
+    const troops = allTroops.filter((t) =>
+      selectedMercenaryTroops.includes(t.unitName)
+    );
+    if (troops.length === 0) return [];
+    // Calculate proposed counts and total authority cost
+    const proposed = troops.map((t) => {
+      const count = Math.floor(targetStrengthPerUnit / t.baseStrength);
+      const totalAuthorityCost = count * t.leadership;
+      const unitStrength = t.baseStrength;
+
+      return {
+        unitName: t.unitName,
+        count,
+        unitColor: t.unitColor,
+        unitStrength,
+        totalStrength: count * t.baseStrength,
+        totalAuthorityCost,
+        leadership: t.leadership,
+        mainType: t.mainType,
+      };
+    });
+
+    // Sum total dominance cost
+    const totalCost = proposed.reduce(
+      (acc, p) => acc + p.totalDominanceCost,
+      0
+    );
+
+    // If we’re over budget, scale down all counts proportionally
+    if (totalCost > authorityPopulation) {
+      const scale = authorityPopulation / totalCost;
+      return proposed.map((p) => {
+        const scaledCount = Math.floor(p.count * scale);
+        return {
+          ...p,
+          count: scaledCount,
+          totalStrength: scaledCount * (p.totalStrength / p.count), // baseStrength * count
+        };
+      });
+    }
+
+    // Otherwise return as-is
+    return proposed;
+  }, [authorityPopulation, selectedMercenaryTroops, allTroops, results]);
+
   // Split troops for UI checkboxes
   const guardsmenUnits = useMemo(() => {
     return allTroops.filter((t) => t.mainType === "Guardsmen");
@@ -289,10 +388,15 @@ function App() {
     return allTroops.filter((t) => t.mainType === "MonstersUnits");
   }, [allTroops]);
 
+  const mercenariesUnits = useMemo(() => {
+    return allTroops.filter((t) => t.mainType === "MercenaryUnits");
+  }, [allTroops]);
+
   // Group units by their type
   const categories = ["Mounted", "Melee", "Ranged", "Flying"];
   const enginescategories = ["Siege Engine"];
   const monsterCategories = ["Dragons", "Beasts", "Elementals", "Giants"];
+  const mercenaryCategories = ["Mercenary VI", "Mercenary VII", "Mercenary II"];
 
   const groupedUnits = categories.reduce((acc, category) => {
     acc[category] = guardsmenUnits
@@ -322,6 +426,16 @@ function App() {
     return acc;
   }, {});
 
+  const groupedUnitsMercenaries = mercenaryCategories.reduce(
+    (acc, category) => {
+      acc[category] = mercenariesUnits
+        .filter((unit) => unit.category === category)
+        .map((unit) => unit.unitName);
+      return acc;
+    },
+    {}
+  );
+
   const removeLocalData = () => {
     localStorage.clear();
 
@@ -335,6 +449,9 @@ function App() {
     setSelectedTroops([]);
     setSelectedSquadIndex(0);
     setSelectedMonsterTroops([]);
+
+    setSelectedMercenaryTroops([]);
+    setAuthorityPopulation(0);
 
     setSection("");
 
@@ -519,6 +636,18 @@ function App() {
                       value={dominancePopulation}
                       onChange={(e) =>
                         setDominancePopulation(Number(e.target.value))
+                      }
+                    />
+                  </label>
+
+                  <label className="sub-title sub-title-numbers">
+                    {t("authority")}:{" "}
+                    <input
+                      type="string"
+                      min={1}
+                      value={authorityPopulation}
+                      onChange={(e) =>
+                        setAuthorityPopulation(Number(e.target.value))
                       }
                     />
                   </label>
@@ -714,6 +843,47 @@ function App() {
                 )}
               </table>
             </div>
+
+            <div>
+              <h3
+                className={`title`}
+                onClick={() => toggleSection("mercenary")}
+              >
+                <span
+                  className={`accordion-arrow ${
+                    section === "mercenary"
+                      ? "accordion-arrow-green"
+                      : "accordion-arrow-gray"
+                  }`}
+                >
+                  {section === "mercenary" ? "▲" : "▼"}
+                </span>
+                Mercenaries
+              </h3>
+              <table className="troop-table">
+                {section === "mercenary" && (
+                  <tbody className="unit-main-title">
+                    {mercenaryCategories.map((category) => (
+                      <tr className="unit-list">
+                        <td colSpan="4">
+                          <div className="unit-type-header">{t(category)}</div>
+                          {groupedUnitsMercenaries[category].map((unit) => (
+                            <label key={unit} className="unit-item">
+                              <input
+                                type="checkbox"
+                                checked={selectedMercenaryTroops.includes(unit)}
+                                onChange={() => toggleMeMercenaryTroop(unit)}
+                              />
+                              {t(unit)}
+                            </label>
+                          ))}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                )}
+              </table>
+            </div>
           </div>
           <div className="section second-section">
             <h2>{t("attack_troop_distribution")}</h2>
@@ -788,6 +958,58 @@ function App() {
                   </thead>
                   <tbody>
                     {dominanceResult
+                      .sort((a, b) => {
+                        if (a.unitStrength < b.unitStrength) return 1;
+                        if (a.unitStrength > b.unitStrength) return -1;
+                      })
+                      .map(
+                        ({
+                          unitName,
+                          count,
+                          totalStrength,
+                          leadership,
+                          unitColor,
+                        }) => (
+                          <tr
+                            key={unitName}
+                            style={{
+                              background: `${unitColor}`,
+                              color: "white",
+                              fontWeight: "bold",
+                            }}
+                          >
+                            <td className="image-and-name">
+                              <span>{t(unitName)}</span>
+                            </td>
+                            <td className="count">{leadership}</td>
+                            <td className="count">{count}</td>
+                            <td className="total-strength">
+                              {totalStrength.toFixed(0)}
+                            </td>
+                          </tr>
+                        )
+                      )}
+                  </tbody>
+                </table>
+              </div>
+            )}
+
+            {results.length === 0 ? (
+              <p>{t("please_select_mercenaries")}</p>
+            ) : (
+              <div>
+                <h2>{t("mercenary_units")}</h2>
+                <table className="result-table">
+                  <thead>
+                    <tr>
+                      <th>{t("mercenary_unit")}</th>
+                      <th>{t("authority_column")}</th>
+                      <th className="count">{t("count")}</th>
+                      <th className="total-strength">{t("total_strength")}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {authorityResult
                       .sort((a, b) => {
                         if (a.unitStrength < b.unitStrength) return 1;
                         if (a.unitStrength > b.unitStrength) return -1;

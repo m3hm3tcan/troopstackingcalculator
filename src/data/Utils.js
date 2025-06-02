@@ -64,3 +64,35 @@ export const flattenMonsters = (monstersArray, enemyUnitTypes) => {
     };
   });
 };
+
+export const flattenMercenaries = (MercenaryArray, enemyUnitTypes) => {
+  return MercenaryArray.map((monster) => {
+    const {
+      category,
+      name,
+      unitType,
+      strength,
+      strengthAgainst,
+      authority,
+      color,
+    } = monster;
+
+    // Find max bonus against enemy types
+    const maxBonus = strengthAgainst
+      .filter((sa) => enemyUnitTypes.includes(sa.name))
+      .reduce((max, sa) => Math.max(max, sa.strengthPercentage), 0);
+
+    const adjustedStrength =
+      strength * (1 + bonusStrengthRatio * (maxBonus / 100));
+    const unitColor = color;
+    return {
+      unitName: name,
+      unitType,
+      unitColor,
+      category,
+      baseStrength: adjustedStrength,
+      strengthAgainstPercent: maxBonus,
+      leadership: authority, // Using 'leadership' field to match output format
+    };
+  });
+};
