@@ -193,7 +193,7 @@ label input {
   font-size: 13px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  max-width: 100%;
+  max-width: 80%;
 }
 
 small {
@@ -375,4 +375,10 @@ small {
 }
 .accordion-arrow-gray {
   color: rgb(179, 112, 112);
+}
+
+.icon-input-section {
+  display: flex;
+  gap: 5px;
+  align-items: center;
 }

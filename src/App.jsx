@@ -16,7 +16,6 @@ import {
   flattenTroops,
   flattenMercenaries,
 } from "./data/Utils";
-import HuniLogo from "./assets/funnel.svg";
 import UserManualModal from "./components/UserManualModal";
 import { useTranslation } from "react-i18next";
 
@@ -618,7 +617,15 @@ function App() {
               <div className="input-group">
                 <div className="div-input-text">
                   <label className="sub-title sub-title-numbers">
-                    {t("leadership")}:{" "}
+                    <div className="icon-input-section">
+                      <img
+                        src="/leadership.svg"
+                        alt="leadership img"
+                        height={20}
+                        width={20}
+                      />
+                      {t("leadership")}:
+                    </div>
                     <input
                       type="string"
                       min={1}
@@ -629,7 +636,16 @@ function App() {
                     />
                   </label>
                   <label className="sub-title sub-title-numbers">
-                    {t("dominance")}:{" "}
+                    <div className="icon-input-section">
+                      <img
+                        src="/dominance.svg"
+                        alt="dominance img"
+                        height={20}
+                        width={20}
+                      />
+                      {t("dominance")}:
+                    </div>
+
                     <input
                       type="string"
                       min={1}
@@ -641,7 +657,16 @@ function App() {
                   </label>
 
                   <label className="sub-title sub-title-numbers">
-                    {t("authority")}:{" "}
+                    <div className="icon-input-section">
+                      <img
+                        src="/authority.svg"
+                        alt="authority img"
+                        height={20}
+                        width={20}
+                      />
+                      {t("authority")}:
+                    </div>
+
                     <input
                       type="string"
                       min={1}
