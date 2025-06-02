@@ -305,6 +305,32 @@ export const MonstersUnits = [
     strengthAgainst: [{ name: "Melee", strengthPercentage: 570 }],
   },
   {
+    dominance: 53,
+    category: "Dragons",
+    unitType: "Mounted",
+    color:
+      "radial-gradient(circle,rgba(155, 155, 155, 1) 0%, rgba(79, 130, 140, 1) 100%)",
+    name: "(I)Devastator I",
+    strength: 650000,
+    strengthAgainst: [
+      { name: "Ranged", strengthPercentage: 1281 },
+      { name: "Giants", strengthPercentage: 667 },
+    ],
+  },
+  {
+    dominance: 53,
+    category: "Dragons",
+    unitType: "Mounted",
+    color:
+      "radial-gradient(circle,rgba(117, 140, 107, 1) 0%, rgba(30, 94, 0, 1) 100%)",
+    name: "(II)Devastator II",
+    strength: 1170000,
+    strengthAgainst: [
+      { name: "Ranged", strengthPercentage: 1922 },
+      { name: "Giants", strengthPercentage: 1000 },
+    ],
+  },
+  {
     dominance: 3,
     category: "Elementals",
     unitType: "Ranged",
@@ -361,6 +387,32 @@ export const MonstersUnits = [
     strengthAgainst: [{ name: "Mounted", strengthPercentage: 387 }],
   },
   {
+    dominance: 54,
+    category: "Elementals",
+    unitType: "Flying",
+    color:
+      "radial-gradient(circle,rgba(155, 155, 155, 1) 0%, rgba(79, 130, 140, 1) 100%)",
+    name: "(I)Fire Phoenix I",
+    strength: 660000,
+    strengthAgainst: [
+      { name: "Melee", strengthPercentage: 701 },
+      { name: "Dragons", strengthPercentage: 1247 },
+    ],
+  },
+  {
+    dominance: 54,
+    category: "Elementals",
+    unitType: "Flying",
+    color:
+      "radial-gradient(circle,rgba(117, 140, 107, 1) 0%, rgba(30, 94, 0, 1) 100%)",
+    name: "(II)Fire Phoenix II",
+    strength: 1190000,
+    strengthAgainst: [
+      { name: "Melee", strengthPercentage: 1051 },
+      { name: "Dragons", strengthPercentage: 1871 },
+    ],
+  },
+  {
     dominance: 8,
     category: "Giants",
     unitType: "Flaying",
@@ -414,6 +466,32 @@ export const MonstersUnits = [
     strengthAgainst: [
       { name: "Melee", strengthPercentage: 752 },
       { name: "Flying", strengthPercentage: 547 },
+    ],
+  },
+  {
+    dominance: 55,
+    category: "Giants",
+    unitType: "Melee",
+    color:
+      "radial-gradient(circle,rgba(155, 155, 155, 1) 0%, rgba(79, 130, 140, 1) 100%)",
+    name: "(I)Kraken I",
+    strength: 290000,
+    strengthAgainst: [
+      { name: "Mounted", strengthPercentage: 991 },
+      { name: "Beasts", strengthPercentage: 957 },
+    ],
+  },
+  {
+    dominance: 55,
+    category: "Giants",
+    unitType: "Melee",
+    color:
+      "radial-gradient(circle,rgba(117, 140, 107, 1) 0%, rgba(30, 94, 0, 1) 100%)",
+    name: "(II)Kraken II",
+    strength: 290000,
+    strengthAgainst: [
+      { name: "Mounted", strengthPercentage: 1486 },
+      { name: "Beasts", strengthPercentage: 1435 },
     ],
   },
   {
@@ -479,6 +557,32 @@ export const MonstersUnits = [
     strengthAgainst: [
       { name: "Ranged", strengthPercentage: 752 },
       { name: "Fortifications", strengthPercentage: 547 },
+    ],
+  },
+  {
+    dominance: 52,
+    category: "Beasts",
+    unitType: "Ranged",
+    color:
+      "radial-gradient(circle,rgba(155, 155, 155, 1) 0%, rgba(79, 130, 140, 1) 100%)",
+    name: "(I)Trickster I",
+    strength: 640000,
+    strengthAgainst: [
+      { name: "Flying", strengthPercentage: 940 },
+      { name: "Elementals", strengthPercentage: 1008 },
+    ],
+  },
+  {
+    dominance: 52,
+    category: "Beasts",
+    unitType: "Ranged",
+    color:
+      "radial-gradient(circle,rgba(117, 140, 107, 1) 0%, rgba(30, 94, 0, 1) 100%)",
+    name: "(II)Trickster II",
+    strength: 1150000,
+    strengthAgainst: [
+      { name: "Flying", strengthPercentage: 1410 },
+      { name: "Elementals", strengthPercentage: 1512 },
     ],
   },
 ];
