@@ -182,7 +182,7 @@ export const Enemies = {
     strength: 33000,
     strengthAgainst: [
       { name: "Mounted", strengthPercentage: 70 },
-      { name: "Beast", strengthPercentage: 45 },
+      { name: "Beasts", strengthPercentage: 45 },
     ],
   },
   ScorpionRider: {
@@ -228,7 +228,7 @@ export const Enemies = {
     strengthAgainst: [
       { name: "Melee", strengthPercentage: 45 },
       { name: "Fortifications", strengthPercentage: 100 },
-      { name: "Beast", strengthPercentage: 40 },
+      { name: "Beasts", strengthPercentage: 40 },
     ],
   },
   UnicornRider: {
@@ -247,8 +247,110 @@ export const Enemies = {
     strength: 73000,
     strengthAgainst: [
       { name: "Ranged", strengthPercentage: 55 },
-      { name: "Dragon", strengthPercentage: 45 },
+      { name: "Dragons", strengthPercentage: 45 },
     ],
+  },
+  Scorpid: {
+    name: "Scorpid",
+    strength: 500000,
+    strengthAgainst: [{ name: "Mounted", strengthPercentage: 65 }],
+  },
+  LizardRider: {
+    name: "Lizard Rider",
+    strength: 90000,
+    strengthAgainst: [{ name: "Ranged", strengthPercentage: 80 }],
+  },
+  Hubi: {
+    name: "Hubi",
+    strength: 110000,
+    strengthAgainst: [{ name: "Flying", strengthPercentage: 70 }],
+  },
+  CursedDendroid: {
+    name: "Cursed Dendroid",
+    strength: 110000,
+    strengthAgainst: [
+      { name: "Ranged", strengthPercentage: 70 },
+      { name: "Dragons", strengthPercentage: 70 },
+    ],
+  },
+  VampireLord: {
+    name: "Vampire Lord",
+    strength: 120000,
+    strengthAgainst: [{ name: "Melee", strengthPercentage: 70 }],
+  },
+  Owlbear: {
+    name: "Owlbear",
+    strength: 140000,
+    strengthAgainst: [{ name: "Mounted", strengthPercentage: 65 }],
+  },
+  LifeDragon: {
+    name: "Life Dragon",
+    strength: 240000,
+    strengthAgainst: [
+      { name: "Mounted", strengthPercentage: 60 },
+      { name: "Giants", strengthPercentage: 60 },
+    ],
+  },
+  Dryad: {
+    name: "Dryad",
+    strength: 200000,
+    strengthAgainst: [{ name: "Flying", strengthPercentage: 60 }],
+  },
+  Huracan: {
+    name: "Huracan",
+    strength: 200000,
+    strengthAgainst: [{ name: "Ranged", strengthPercentage: 75 }],
+  },
+  RevenantSkirmisher: {
+    name: "Revenant Skirmisher",
+    strength: 150000,
+    strengthAgainst: [{ name: "Mounted", strengthPercentage: 75 }],
+  },
+  FireWitch: {
+    name: "Fire Witch",
+    strength: 90000,
+    strengthAgainst: [{ name: "Melee", strengthPercentage: 70 }],
+  },
+  FireLord: {
+    name: "Fire Lord",
+    strength: 560000,
+    strengthAgainst: [{ name: "Melee", strengthPercentage: 70 }],
+  },
+  VolcanicGolem: {
+    name: "Volcanic Golem",
+    strength: 170000,
+    strengthAgainst: [{ name: "Flying", strengthPercentage: 60 }],
+  },
+  OverLord: {
+    name: "OverLord",
+    strength: 200000,
+    strengthAgainst: [
+      { name: "Melee", strengthPercentage: 60 },
+      { name: "Beasts", strengthPercentage: 50 },
+    ],
+  },
+  HorrorEye: {
+    name: "Horror Eye",
+    strength: 180000,
+    strengthAgainst: [{ name: "Melee", strengthPercentage: 75 }],
+  },
+  GnollGunner: {
+    name: "Gnoll Gunner",
+    strength: 660000,
+    strengthAgainst: [{ name: "Flying", strengthPercentage: 75 }],
+  },
+  CursedDragon: {
+    name: "Cursed Dragon",
+    strength: 320000,
+    strengthAgainst: [
+      { name: "Giants", strengthPercentage: 50 },
+      { name: "Mounted", strengthPercentage: 50 },
+    ],
+  },
+  BoneGolem: {
+    name: "Bone Golem",
+    strength: 70000,
+    strengthAgainst: [{ name: "Dragons", strengthPercentage: 50 }],
   },
 };
 
@@ -1863,4 +1965,591 @@ export const EnemySquads = [
   //     { count: 1720, name: Enemies.Druid },
   //   ],
   // },
+
+  {
+    level: 31,
+    category: "Common",
+    name: "Barbarian",
+    squad: [
+      { count: 89000, name: Enemies.OgreShaman },
+      { count: 820000, name: Enemies.WolfRider },
+    ],
+  },
+  {
+    level: 31,
+    category: "Common",
+    name: "Cursed",
+    squad: [
+      { count: 84000, name: Enemies.DeathRider },
+      { count: 770000, name: Enemies.WitchDoctor },
+    ],
+  },
+  {
+    level: 31,
+    category: "Common",
+    name: "Inferno",
+    squad: [
+      { count: 53000, name: Enemies.FirehorseRider },
+      { count: 33000, name: Enemies.Overseer },
+    ],
+  },
+  {
+    level: 31,
+    category: "Common",
+    name: "Undead",
+    squad: [
+      { count: 110000, name: Enemies.Headsman },
+      { count: 1000000, name: Enemies.Banshee },
+    ],
+  },
+  {
+    level: 31,
+    category: "Common",
+    name: "Elf",
+    squad: [
+      { count: 98000, name: Enemies.Centaur },
+      { count: 1100000, name: Enemies.ElvenArcher },
+    ],
+  },
+  {
+    level: 32,
+    category: "Common",
+    name: "Barbarian",
+    squad: [
+      { count: 120000, name: Enemies.OgreShaman },
+      { count: 450000, name: Enemies.AxeThrower },
+    ],
+  },
+  {
+    level: 32,
+    category: "Common",
+    name: "Cursed",
+    squad: [
+      { count: 110000, name: Enemies.DeathRider },
+      { count: 420000, name: Enemies.Werewolf },
+    ],
+  },
+  {
+    level: 32,
+    category: "Common",
+    name: "Inferno",
+    squad: [
+      { count: 97000, name: Enemies.FirehorseRider },
+      { count: 240000, name: Enemies.HornedDemon },
+    ],
+  },
+  {
+    level: 32,
+    category: "Common",
+    name: "Undead",
+    squad: [
+      { count: 140000, name: Enemies.Headsman },
+      { count: 190000, name: Enemies.Necromancer },
+    ],
+  },
+  {
+    level: 32,
+    category: "Common",
+    name: "Elf",
+    squad: [
+      { count: 130000, name: Enemies.Centaur },
+      { count: 160000, name: Enemies.Druid },
+    ],
+  },
+  {
+    level: 33,
+    category: "Common",
+    name: "Barbarian",
+    squad: [
+      { count: 160000, name: Enemies.OgreShaman },
+      { count: 7600000, name: Enemies.Goblin },
+    ],
+  },
+  {
+    level: 33,
+    category: "Common",
+    name: "Cursed",
+    squad: [
+      { count: 150000, name: Enemies.DeathRider },
+      { count: 3600000, name: Enemies.Skeleton },
+    ],
+  },
+  {
+    level: 33,
+    category: "Common",
+    name: "Inferno",
+    squad: [
+      { count: 92000, name: Enemies.FirehorseRider },
+      { count: 58000, name: Enemies.Overseer },
+    ],
+  },
+  {
+    level: 33,
+    category: "Common",
+    name: "Undead",
+    squad: [
+      { count: 180000, name: Enemies.Headsman },
+      { count: 160000, name: Enemies.DeathHoundRider },
+    ],
+  },
+  {
+    level: 33,
+    category: "Common",
+    name: "Elf",
+    squad: [
+      { count: 170000, name: Enemies.Centaur },
+      { count: 6800000, name: Enemies.Dwarf },
+    ],
+  },
+  {
+    level: 34,
+    category: "Common",
+    name: "Barbarian",
+    squad: [
+      { count: 210000, name: Enemies.OgreShaman },
+      { count: 780000, name: Enemies.AxeThrower },
+    ],
+  },
+  {
+    level: 34,
+    category: "Common",
+    name: "Cursed",
+    squad: [
+      { count: 190000, name: Enemies.DeathRider },
+      { count: 1800000, name: Enemies.WitchDoctor },
+    ],
+  },
+  {
+    level: 34,
+    category: "Common",
+    name: "Inferno",
+    squad: [
+      { count: 120000, name: Enemies.FirehorseRider },
+      { count: 76000, name: Enemies.Overseer },
+    ],
+  },
+  {
+    level: 34,
+    category: "Common",
+    name: "Undead",
+    squad: [
+      { count: 240000, name: Enemies.Headsman },
+      { count: 2400000, name: Enemies.Banshee },
+    ],
+  },
+  {
+    level: 34,
+    category: "Common",
+    name: "Elf",
+    squad: [
+      { count: 230000, name: Enemies.Centaur },
+      { count: 2500000, name: Enemies.ElvenArcher },
+    ],
+  },
+  {
+    level: 35,
+    category: "Common",
+    name: "Barbarian",
+    squad: [
+      { count: 270000, name: Enemies.OgreShaman },
+      { count: 1000000, name: Enemies.AxeThrower },
+    ],
+  },
+  {
+    level: 35,
+    category: "Common",
+    name: "Cursed",
+    squad: [
+      { count: 260000, name: Enemies.DeathRider },
+      { count: 970000, name: Enemies.Werewolf },
+    ],
+  },
+  {
+    level: 35,
+    category: "Common",
+    name: "Inferno",
+    squad: [
+      { count: 140000, name: Enemies.Overseer },
+      { count: 96000, name: Enemies.FirehorseRider },
+    ],
+  },
+  {
+    level: 35,
+    category: "Common",
+    name: "Undead",
+    squad: [
+      { count: 320000, name: Enemies.Headsman },
+      { count: 290000, name: Enemies.DeathHoundRider },
+    ],
+  },
+  {
+    level: 35,
+    category: "Common",
+    name: "Elf",
+    squad: [
+      { count: 300000, name: Enemies.Centaur },
+      { count: 370000, name: Enemies.Druid },
+    ],
+  },
+  {
+    level: 36,
+    category: "Common",
+    name: "Barbarian",
+    squad: [
+      { count: 1100, name: Enemies.Scorpid },
+      { count: 13900, name: Enemies.LizardRider },
+    ],
+  },
+  {
+    level: 36,
+    category: "Common",
+    name: "Cursed",
+    squad: [
+      { count: 11000, name: Enemies.Hubi },
+      { count: 4700, name: Enemies.CursedDendroid },
+    ],
+  },
+  // {
+  //   level: 36,
+  //   category: "Common",
+  //   name: "Inferno",
+  //   squad: [
+  //     { count: 140000, name: Enemies.Overseer },
+  //     { count: 96000, name: Enemies.FirehorseRider },
+  //   ],
+  // },
+  {
+    level: 36,
+    category: "Common",
+    name: "Undead",
+    squad: [
+      { count: 8100, name: Enemies.VampireLord },
+      { count: 7500, name: Enemies.DeathChariot },
+    ],
+  },
+  {
+    level: 36,
+    category: "Common",
+    name: "Elf",
+    squad: [
+      { count: 7800, name: Enemies.Owlbear },
+      { count: 1900, name: Enemies.LifeDragon },
+    ],
+  },
+  {
+    level: 37,
+    category: "Common",
+    name: "Elf",
+    squad: [
+      { count: 8100, name: Enemies.Dryad },
+      { count: 2900, name: Enemies.LifeDragon },
+    ],
+  },
+  {
+    level: 37,
+    category: "Common",
+    name: "Cursed",
+    squad: [
+      { count: 9500, name: Enemies.Huracan },
+      { count: 7000, name: Enemies.Hubi },
+    ],
+  },
+  {
+    level: 37,
+    category: "Common",
+    name: "Undead",
+    squad: [
+      { count: 9700, name: Enemies.RevenantSkirmisher },
+      { count: 11000, name: Enemies.DeathChariot },
+    ],
+  },
+  {
+    level: 37,
+    category: "Common",
+    name: "Inferno",
+    squad: [
+      { count: 15000, name: Enemies.FireWitch },
+      { count: 1000, name: Enemies.FireLord },
+    ],
+  },
+
+  {
+    level: 38,
+    category: "Common",
+    name: "Inferno",
+    squad: [
+      { count: 12000, name: Enemies.VolcanicGolem },
+      { count: 20000, name: Enemies.Ifrit },
+    ],
+  },
+  {
+    level: 38,
+    category: "Common",
+    name: "Elf",
+    squad: [
+      { count: 17000, name: Enemies.Owlbear },
+      { count: 39000, name: Enemies.UnicornRider },
+    ],
+  },
+  {
+    level: 38,
+    category: "Common",
+    name: "Undead",
+    squad: [
+      { count: 18000, name: Enemies.VampireLord },
+      { count: 4700, name: Enemies.OverLord },
+    ],
+  },
+  {
+    level: 38,
+    category: "Common",
+    name: "Barbarian",
+    squad: [
+      { count: 10300, name: Enemies.HorrorEye },
+      { count: 8820, name: Enemies.LizardRider },
+    ],
+  },
+  {
+    level: 39,
+    category: "Common",
+    name: "Barbarian",
+    squad: [
+      { count: 1820, name: Enemies.GnollGunner },
+      { count: 30600, name: Enemies.LizardRider },
+    ],
+  },
+  {
+    level: 39,
+    category: "Common",
+    name: "Cursed",
+    squad: [
+      { count: 24000, name: Enemies.Hubi },
+      { count: 3500, name: Enemies.CursedDragon },
+    ],
+  },
+  {
+    level: 39,
+    category: "Common",
+    name: "Undead",
+    squad: [
+      { count: 22000, name: Enemies.RevenantSkirmisher },
+      { count: 73000, name: Enemies.Gargoyle },
+    ],
+  },
+  {
+    level: 39,
+    category: "Common",
+    name: "Inferno",
+    squad: [
+      { count: 33000, name: Enemies.FireWitch },
+      { count: 2300, name: Enemies.FireLord },
+    ],
+  },
+  {
+    level: 40,
+    category: "Common",
+    name: "Inferno",
+    squad: [
+      { count: 26000, name: Enemies.VolcanicGolem },
+      { count: 44000, name: Enemies.Ifrit },
+    ],
+  },
+  {
+    level: 40,
+    category: "Common",
+    name: "Elf",
+    squad: [
+      { count: 18000, name: Enemies.Dryad },
+      { count: 21000, name: Enemies.Ent },
+    ],
+  },
+  {
+    level: 40,
+    category: "Common",
+    name: "Cursed",
+    squad: [
+      { count: 21000, name: Enemies.Huracan },
+      { count: 5300, name: Enemies.CursedDragon },
+    ],
+  },
+  {
+    level: 40,
+    category: "Common",
+    name: "Barbarian",
+    squad: [
+      { count: 3580, name: Enemies.Scorpid },
+      { count: 22500, name: Enemies.HorrorEye },
+    ],
+  },
+  {
+    level: 41,
+    category: "Common",
+    name: "Undead",
+    squad: [
+      { count: 41000, name: Enemies.VampireLord },
+      { count: 31000, name: Enemies.BoneGolem },
+    ],
+  },
+  {
+    level: 41,
+    category: "Common",
+    name: "Elf",
+    squad: [
+      { count: 41000, name: Enemies.Owlbear },
+      { count: 31000, name: Enemies.Dryad },
+    ],
+  },
+  {
+    level: 41,
+    category: "Common",
+    name: "Cursed",
+    squad: [
+      { count: 55000, name: Enemies.Hubi },
+      { count: 85000, name: Enemies.BullRider },
+    ],
+  },
+  {
+    level: 41,
+    category: "Common",
+    name: "Barbarian",
+    squad: [
+      { count: 5400, name: Enemies.Scorpid },
+      { count: 68000, name: Enemies.LizardRider },
+    ],
+  },
+  {
+    level: 42,
+    category: "Common",
+    name: "Inferno",
+    squad: [
+      { count: 72000, name: Enemies.FireWitch },
+      { count: 5100, name: Enemies.FireLord },
+    ],
+  },
+  {
+    level: 42,
+    category: "Common",
+    name: "Elf",
+    squad: [
+      { count: 39000, name: Enemies.Dryad },
+      { count: 120000, name: Enemies.UnicornRider },
+    ],
+  },
+  {
+    level: 42,
+    category: "Common",
+    name: "Undead",
+    squad: [
+      { count: 140000, name: Enemies.Overseer },
+      { count: 96000, name: Enemies.FirehorseRider },
+    ],
+  },
+  {
+    level: 42,
+    category: "Common",
+    name: "Cursed",
+    squad: [
+      { count: 45000, name: Enemies.Huracan },
+      { count: 33000, name: Enemies.CursedDendroid },
+    ],
+  },
+  {
+    level: 43,
+    category: "Common",
+    name: "Barbarian",
+    squad: [
+      { count: 5580, name: Enemies.GnollGunner },
+      { count: 46900, name: Enemies.HorrorEye },
+    ],
+  },
+  {
+    level: 43,
+    category: "Common",
+    name: "Undead",
+    squad: [
+      { count: 81000, name: Enemies.VampireLord },
+      { count: 75000, name: Enemies.DeathChariot },
+    ],
+  },
+  {
+    level: 43,
+    category: "Common",
+    name: "Elf",
+    squad: [
+      { count: 76000, name: Enemies.Owlbear },
+      { count: 19000, name: Enemies.LifeDragon },
+    ],
+  },
+  {
+    level: 43,
+    category: "Common",
+    name: "Inferno",
+    squad: [
+      { count: 53000, name: Enemies.VolcanicGolem },
+      { count: 88000, name: Enemies.Ifrit },
+    ],
+  },
+  {
+    level: 44,
+    category: "Common",
+    name: "Undead",
+    squad: [
+      { count: 87000, name: Enemies.RevenantSkirmisher },
+      { count: 100000, name: Enemies.DeathChariot },
+    ],
+  },
+  {
+    level: 44,
+    category: "Common",
+    name: "Barbarian",
+    squad: [
+      { count: 119000, name: Enemies.LizardRider },
+      { count: 25500, name: Enemies.HorrorEye },
+    ],
+  },
+  {
+    level: 44,
+    category: "Common",
+    name: "Inferno",
+    squad: [
+      { count: 130000, name: Enemies.FireWitch },
+      { count: 6400, name: Enemies.FireLord },
+    ],
+  },
+  {
+    level: 44,
+    category: "Common",
+    name: "Cursed",
+    squad: [
+      { count: 100000, name: Enemies.Hubi },
+      { count: 45000, name: Enemies.CursedDendroid },
+    ],
+  },
+  {
+    level: 45,
+    category: "Common",
+    name: "Cursed",
+    squad: [
+      { count: 82000, name: Enemies.Huracan },
+      { count: 60000, name: Enemies.Hubi },
+    ],
+  },
+  {
+    level: 45,
+    category: "Common",
+    name: "Elf",
+    squad: [
+      { count: 71000, name: Enemies.Dryad },
+      { count: 26000, name: Enemies.LifeDragon },
+    ],
+  },
+  {
+    level: 45,
+    category: "Common",
+    name: "Barbarian",
+    squad: [
+      { count: 85900, name: Enemies.HorrorEye },
+      { count: 73600, name: Enemies.LizardRider },
+    ],
+  },
 ];
