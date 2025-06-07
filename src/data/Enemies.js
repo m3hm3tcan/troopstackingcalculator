@@ -407,6 +407,11 @@ export const Enemies = {
     strength: 99200,
     strengthAgainst: [{ name: "Melee", strengthPercentage: 50 }],
   },
+  FireHydra: {
+    name: "Fire Hydra",
+    strength: 100000,
+    strengthAgainst: [{ name: "Mounted", strengthPercentage: 75 }],
+  },
 };
 
 // Example EnemySquads data simplified (replace with your full data)
@@ -3029,4 +3034,17 @@ export const EnemySquads = [
       { count: 10000000, name: Enemies.ShadowCorax },
     ],
   },
+  {
+    level: 50,
+    category: "Event",
+    name: "Ragnarok",
+    squad: [
+      { count: 35000000, name: Enemies.Overseer },
+      { count: 5000000, name: Enemies.Ifrit },
+      { count: 4000000, name: Enemies.FirewormRider },
+      { count: 2250000, name: Enemies.FireHydra },
+    ],
+  },
 ];
+
+//epic ates mangasi...lvl50...
