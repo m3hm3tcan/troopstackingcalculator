@@ -3037,7 +3037,7 @@ export const EnemySquads = [
   {
     level: 50,
     category: "Event",
-    name: "Ragnarok",
+    name: "Epic Inferno Squad",
     squad: [
       { count: 35000000, name: Enemies.Overseer },
       { count: 5000000, name: Enemies.Ifrit },
