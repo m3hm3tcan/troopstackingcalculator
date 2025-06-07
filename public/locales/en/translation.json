@@ -36,14 +36,16 @@
   "squadOption": "Lvl {{level}} - {{category}} {{name}} {{sq}}",
   "categories": {
     "Common": "Common",
-    "Rare": "Rare"
+    "Rare": "Rare",
+    "Event": "Event"
   },
   "names": {
     "Elf": "Elf",
     "Undead": "Undead",
     "Cursed": "Cursed",
     "Inferno": "Inferno",
-    "Barbarian": "Barbarian "
+    "Barbarian": "Barbarian ",
+    "Shadow Invasion": "Shadow Invasion"
   },
   "sqs": {
     "squad": "squad"

@@ -35,14 +35,16 @@
   "squadOption": "Lvl {{level}} - {{category}} {{name}} {{sq}}",
   "categories": {
     "Common": "Sıradan",
-    "Rare": "Nadir"
+    "Rare": "Nadir",
+    "Event": "Turnuva"
   },
   "names": {
     "Elf": "Elf",
     "Undead": "Ölümsüzler",
     "Cursed": "Lanetliler",
     "Inferno": "Ateş",
-    "Barbarian ": "Barbarlar"
+    "Barbarian ": "Barbarlar",
+    "Shadow Invasion": "Zafer Meydan Okumasi"
   },
   "sqs": {
     "squad": "mangası"

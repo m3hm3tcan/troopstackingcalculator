@@ -387,6 +387,26 @@ export const Enemies = {
     strength: 630000,
     strengthAgainst: [{ name: "Ranged", strengthPercentage: 75 }],
   },
+  ShadowWarrior: {
+    name: "Shadow Warrior",
+    strength: 9920,
+    strengthAgainst: [{ name: "Mounted", strengthPercentage: 50 }],
+  },
+  ShadowRanger: {
+    name: "Shadow Ranger",
+    strength: 9920,
+    strengthAgainst: [{ name: "Flying", strengthPercentage: 50 }],
+  },
+  ShadowRider: {
+    name: "Shadow Rider",
+    strength: 19840,
+    strengthAgainst: [{ name: "Ranged", strengthPercentage: 50 }],
+  },
+  ShadowCorax: {
+    name: "Shadow Corax",
+    strength: 99200,
+    strengthAgainst: [{ name: "Melee", strengthPercentage: 50 }],
+  },
 };
 
 // Example EnemySquads data simplified (replace with your full data)
@@ -2996,6 +3016,17 @@ export const EnemySquads = [
       { count: 8400, name: Enemies.Wyvern },
       { count: 40000, name: Enemies.Hubi },
       { count: 41000, name: Enemies.CursedDendroid },
+    ],
+  },
+  {
+    level: 50,
+    category: "Event",
+    name: "Shadow Invasion",
+    squad: [
+      { count: 110000000, name: Enemies.ShadowWarrior },
+      { count: 110000000, name: Enemies.ShadowRanger },
+      { count: 42000000, name: Enemies.ShadowRider },
+      { count: 10000000, name: Enemies.ShadowCorax },
     ],
   },
 ];
