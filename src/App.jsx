@@ -1,6 +1,7 @@
 import "./i18n";
 import React, { useState, useMemo, useEffect } from "react";
 import "./App.css";
+import BattleAnalysisModal from "./components/BattleAnalysisModal";
 
 import InfoModal from "./components/InfoModal/InfoModal";
 import {
@@ -34,7 +35,7 @@ const saveToStorage = (key, value) => {
 
 function App() {
   const { t, i18n } = useTranslation();
-
+  const [showAnalysisModal, setShowAnalysisModal] = useState(false);
   const [images, setImages] = useState([]);
   const [newArry, setNewArr] = useState([]);
 
@@ -141,23 +142,36 @@ function App() {
 
   // Combine guardsmen + specialist and filter troops by enemy strengthAgainst threshold
   const allTroops = useMemo(() => {
-    const guards = flattenTroops(guardsmen, enemyUnitTypes).map((t) => ({
+    const guards = flattenTroops(
+      guardsmen,
+      enemyUnitTypes,
+      selectedSquad.squad
+    ).map((t) => ({
       ...t,
       mainType: "Guardsmen",
     }));
-    const specs = flattenTroops(specialist, enemyUnitTypes).map((t) => ({
+    const specs = flattenTroops(
+      specialist,
+      enemyUnitTypes,
+      selectedSquad.squad
+    ).map((t) => ({
       ...t,
       mainType: "Specialist",
     }));
 
-    const engines = flattenTroops(engineerCorps, enemyUnitTypes).map((t) => ({
+    const engines = flattenTroops(
+      engineerCorps,
+      enemyUnitTypes,
+      selectedSquad.squad
+    ).map((t) => ({
       ...t,
       mainType: "Siege Engine",
     }));
 
     const monsterTroopsUnits = flattenMonsters(
       MonstersUnits,
-      enemyUnitTypes
+      enemyUnitTypes,
+      selectedSquad.squad
     ).map((t) => ({
       ...t,
       mainType: "MonstersUnits",
@@ -165,16 +179,13 @@ function App() {
 
     const mercenaryTroopUnits = flattenMercenaries(
       MercenaryUnits,
-      enemyUnitTypes
+      enemyUnitTypes,
+      selectedSquad.squad
     ).map((t) => ({
       ...t,
       mainType: "MercenaryUnits",
     }));
 
-    // const
-
-    // We want to exclude any troop where enemy has strengthAgainst on that troop type >= threshold
-    // Check enemy's strengthAgainst to troop's unitType
     return [
       ...guards,
       ...specs,
@@ -524,9 +535,15 @@ function App() {
         s.name === selectedName
     );
     setSelectedSquadIndex(index !== -1 ? index : null);
+
+    if (selectedLevel >= 50) {
+      setEnemyStrengthThreshold(70);
+    } else {
+      setEnemyStrengthThreshold(30);
+    }
   }, [selectedLevel, selectedCategory, selectedName]);
 
-  const [section, setSection] = useState("");
+  const [section, setSection] = useState("guardsmen");
   const toggleSection = (index) => {
     if (section === index) {
       setSection("");
@@ -687,9 +704,7 @@ function App() {
                     min={0}
                     max={100}
                     value={enemyStrengthThreshold}
-                    onChange={(e) =>
-                      setEnemyStrengthThreshold(Number(e.target.value))
-                    }
+                    onChange={(e) => setEnemyStrengthThreshold(e.target.value)}
                   />
                 </label>
                 <p className="sub-title-msg">{t("exclude_info")}</p>
@@ -912,6 +927,27 @@ function App() {
           </div>
           <div className="section second-section">
             <h2>{t("attack_troop_distribution")}</h2>
+
+            {/* {results.length > 0 && (
+              <>
+                <button
+                  onClick={() => setShowAnalysisModal(true)}
+                  className="analysis-button"
+                >
+                  🧠 Savaş Analizini Göster
+                </button>
+
+                <BattleAnalysisModal
+                  isOpen={showAnalysisModal}
+                  onClose={() => setShowAnalysisModal(false)}
+                  allTroops={allTroops}
+                  userPopulation={userPopulation}
+                  onSelectRecommended={(unitNames) =>
+                    setSelectedTroops(unitNames)
+                  }
+                />
+              </>
+            )} */}
             {results.length === 0 ? (
               <p>{t("please_select_troops")}</p>
             ) : (

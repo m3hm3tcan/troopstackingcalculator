@@ -415,7 +415,7 @@ export const MonstersUnits = [
   {
     dominance: 8,
     category: "Giants",
-    unitType: "Flaying",
+    unitType: "Flying",
     color:
       "radial-gradient(circle,rgba(0, 212, 255, 1) 0%, rgba(39, 39, 171, 1) 88%, rgba(2, 0, 36, 1) 100%",
     name: "(III)Stone Gargoyle",

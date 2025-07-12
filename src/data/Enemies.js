@@ -238,12 +238,14 @@ export const Enemies = {
     strengthAgainst: [{ name: "Ranged", strengthPercentage: 65 }],
   },
   DeathChariot: {
-    name: "Unicorn Rider",
+    name: "Death Chariot",
+    unitType: "Mounted",
     strength: 57000,
     strengthAgainst: [{ name: "Ranged", strengthPercentage: 60 }],
   },
   Ent: {
     name: "Ent",
+    unitType: "Melee",
     strength: 73000,
     strengthAgainst: [
       { name: "Ranged", strengthPercentage: 55 },
@@ -252,21 +254,25 @@ export const Enemies = {
   },
   Scorpid: {
     name: "Scorpid",
+    unitType: "Melee",
     strength: 500000,
     strengthAgainst: [{ name: "Mounted", strengthPercentage: 65 }],
   },
   LizardRider: {
     name: "Lizard Rider",
+    unitType: "Mounted",
     strength: 90000,
     strengthAgainst: [{ name: "Ranged", strengthPercentage: 80 }],
   },
   Hubi: {
     name: "Hubi",
+    unitType: "Ranged",
     strength: 110000,
     strengthAgainst: [{ name: "Flying", strengthPercentage: 70 }],
   },
   CursedDendroid: {
     name: "Cursed Dendroid",
+    unitType: "Melee",
     strength: 110000,
     strengthAgainst: [
       { name: "Ranged", strengthPercentage: 70 },
@@ -275,16 +281,19 @@ export const Enemies = {
   },
   VampireLord: {
     name: "Vampire Lord",
+    unitType: "Flying",
     strength: 120000,
     strengthAgainst: [{ name: "Melee", strengthPercentage: 70 }],
   },
   Owlbear: {
     name: "Owlbear",
+    unitType: "Melee",
     strength: 140000,
     strengthAgainst: [{ name: "Mounted", strengthPercentage: 65 }],
   },
   LifeDragon: {
     name: "Life Dragon",
+    unitType: "Flying",
     strength: 240000,
     strengthAgainst: [
       { name: "Mounted", strengthPercentage: 60 },
@@ -293,36 +302,43 @@ export const Enemies = {
   },
   Dryad: {
     name: "Dryad",
+    unitType: "Ranged",
     strength: 200000,
     strengthAgainst: [{ name: "Flying", strengthPercentage: 60 }],
   },
   Huracan: {
     name: "Huracan",
+    unitType: "Mounted",
     strength: 200000,
     strengthAgainst: [{ name: "Ranged", strengthPercentage: 75 }],
   },
   RevenantSkirmisher: {
     name: "Revenant Skirmisher",
+    unitType: "Melee",
     strength: 150000,
     strengthAgainst: [{ name: "Mounted", strengthPercentage: 75 }],
   },
   FireWitch: {
     name: "Fire Witch",
+    unitType: "Flying",
     strength: 90000,
     strengthAgainst: [{ name: "Melee", strengthPercentage: 70 }],
   },
   FireLord: {
     name: "Fire Lord",
+    unitType: "Ranged",
     strength: 560000,
     strengthAgainst: [{ name: "Melee", strengthPercentage: 70 }],
   },
   VolcanicGolem: {
     name: "Volcanic Golem",
+    unitType: "Ranged",
     strength: 170000,
     strengthAgainst: [{ name: "Flying", strengthPercentage: 60 }],
   },
   OverLord: {
     name: "OverLord",
+    unitType: "Ranged",
     strength: 200000,
     strengthAgainst: [
       { name: "Melee", strengthPercentage: 60 },
@@ -331,16 +347,19 @@ export const Enemies = {
   },
   HorrorEye: {
     name: "Horror Eye",
+    unitType: "Flying",
     strength: 180000,
     strengthAgainst: [{ name: "Melee", strengthPercentage: 75 }],
   },
   GnollGunner: {
     name: "Gnoll Gunner",
+    unitType: "Ranged",
     strength: 660000,
     strengthAgainst: [{ name: "Flying", strengthPercentage: 75 }],
   },
   CursedDragon: {
     name: "Cursed Dragon",
+    unitType: "Flying",
     strength: 320000,
     strengthAgainst: [
       { name: "Giants", strengthPercentage: 50 },
@@ -349,68 +368,105 @@ export const Enemies = {
   },
   BoneGolem: {
     name: "Bone Golem",
+    unitType: "Melee",
     strength: 70000,
     strengthAgainst: [{ name: "Dragons", strengthPercentage: 50 }],
   },
   EternalCannoneer: {
     name: "Eternal Cannoneer",
+    unitType: "Ranged",
     strength: 57000,
     strengthAgainst: [{ name: "Ranged", strengthPercentage: 60 }],
   },
   Chak: {
     name: "Ch'ak",
+    unitType: "Melee",
     strength: 500000,
     strengthAgainst: [{ name: "Mounted", strengthPercentage: 65 }],
   },
   Warden: {
     name: "Warden",
+    unitType: "Mounted",
     strength: 470000,
     strengthAgainst: [{ name: "Ranged", strengthPercentage: 70 }],
   },
   RatRider: {
     name: "Rat Rider",
+    unitType: "Mounted",
     strength: 550000,
     strengthAgainst: [{ name: "Ranged", strengthPercentage: 65 }],
   },
   Peryton: {
     name: "Peryton",
+    unitType: "Flying",
     strength: 720000,
     strengthAgainst: [{ name: "Melee", strengthPercentage: 70 }],
   },
   Wyvern: {
     name: "Wyvern",
+    unitType: "Flying",
     strength: 690000,
     strengthAgainst: [{ name: "Melee", strengthPercentage: 75 }],
   },
   CrabRider: {
     name: "Crab Rider",
+    unitType: "Mounted",
     strength: 630000,
     strengthAgainst: [{ name: "Ranged", strengthPercentage: 75 }],
   },
   ShadowWarrior: {
     name: "Shadow Warrior",
+    unitType: "Melee", // ← Bunu ekle!
     strength: 9920,
     strengthAgainst: [{ name: "Mounted", strengthPercentage: 50 }],
   },
   ShadowRanger: {
     name: "Shadow Ranger",
+    unitType: "Ranged", // ← Doğru tür!
     strength: 9920,
     strengthAgainst: [{ name: "Flying", strengthPercentage: 50 }],
   },
   ShadowRider: {
     name: "Shadow Rider",
+    unitType: "Mounted", // ← Bu da önemli
     strength: 19840,
     strengthAgainst: [{ name: "Ranged", strengthPercentage: 50 }],
   },
   ShadowCorax: {
     name: "Shadow Corax",
+    unitType: "Flying", // ← Veya Melee? Kontrol et.
     strength: 99200,
     strengthAgainst: [{ name: "Melee", strengthPercentage: 50 }],
   },
   FireHydra: {
     name: "Fire Hydra",
+    unitType: "Melee",
     strength: 100000,
     strengthAgainst: [{ name: "Mounted", strengthPercentage: 75 }],
+  },
+  Harpy: {
+    name: "Harpy",
+    unitType: "Flying",
+    strength: 100000,
+    strengthAgainst: [{ name: "Melee", strengthPercentage: 80 }],
+  },
+  Briareus: {
+    name: "Briareus",
+    unitType: "Melee",
+    strength: 70000,
+    strengthAgainst: [{ name: "Mounted", strengthPercentage: 45 }],
+  },
+  CentaurVII: {
+    name: "CentaurVII",
+    unitType: "Mounted",
+    strength: 57000,
+    strengthAgainst: [{ name: "Ranged", strengthPercentage: 60 }],
+  },
+  Satyr: {
+    name: "Satyr",
+    unitType: "Ranged",
+    strength: 70000,
+    strengthAgainst: [{ name: "Flying", strengthPercentage: 50 }],
   },
 };
 
@@ -3043,6 +3099,17 @@ export const EnemySquads = [
       { count: 5000000, name: Enemies.Ifrit },
       { count: 4000000, name: Enemies.FirewormRider },
       { count: 2250000, name: Enemies.FireHydra },
+    ],
+  },
+  {
+    level: 50,
+    category: "Event",
+    name: "Trial of Briareus",
+    squad: [
+      { count: 40000000, name: Enemies.Harpy },
+      { count: 45000000, name: Enemies.Briareus },
+      { count: 20000000, name: Enemies.CentaurVII },
+      { count: 2500000, name: Enemies.Satyr },
     ],
   },
 ];
