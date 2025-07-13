@@ -557,7 +557,7 @@ function App() {
       if (selectedName === "Trial of Briareus") {
         setEnemyStrengthThreshold(55);
       }
-      if (selectedName === "Epic Inferno Squad") {
+      if (selectedName === "Ragnarök - Jörmungandr") {
         setEnemyStrengthThreshold(75);
       }
       // setEnemyStrengthThreshold(50);

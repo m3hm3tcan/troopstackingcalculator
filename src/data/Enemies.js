@@ -81,7 +81,7 @@ export const Enemies = {
     name: "Overseer",
     unitType: "Ranged",
     strength: 6500,
-    strengthAgainst: [{ name: "Melee", strengthPercentage: 70 }],
+    strengthAgainst: [{ name: "Melee", strengthPercentage: 80 }],
   },
   Magog: {
     name: "Magog",
@@ -442,7 +442,7 @@ export const Enemies = {
     name: "Fire Hydra",
     unitType: "Melee",
     strength: 100000,
-    strengthAgainst: [{ name: "Mounted", strengthPercentage: 75 }],
+    strengthAgainst: [{ name: "Mounted", strengthPercentage: 70 }],
   },
   Harpy: {
     name: "Harpy",
@@ -3141,6 +3141,17 @@ export const EnemySquads = [
   {
     level: 50,
     category: "Event",
+    name: "Ragnarök - Jörmungandr",
+    squad: [
+      { count: 35000000, name: Enemies.Overseer },
+      { count: 5000000, name: Enemies.Ifrit },
+      { count: 4000000, name: Enemies.FirewormRider },
+      { count: 2500000, name: Enemies.FireHydra },
+    ],
+  },
+  {
+    level: 50,
+    category: "Event",
     name: "Shadow Invasion",
     squad: [
       { count: 110000000, name: Enemies.ShadowWarrior },
@@ -3149,17 +3160,17 @@ export const EnemySquads = [
       { count: 10000000, name: Enemies.ShadowCorax },
     ],
   },
-  {
-    level: 50,
-    category: "Event",
-    name: "Epic Inferno Squad",
-    squad: [
-      { count: 35000000, name: Enemies.Overseer },
-      { count: 5000000, name: Enemies.Ifrit },
-      { count: 4000000, name: Enemies.FirewormRider },
-      { count: 2250000, name: Enemies.FireHydra },
-    ],
-  },
+  // {
+  //   level: 50,
+  //   category: "Event",
+  //   name: "Epic Inferno Squad",
+  //   squad: [
+  //     { count: 35000000, name: Enemies.Overseer },
+  //     { count: 5000000, name: Enemies.Ifrit },
+  //     { count: 4000000, name: Enemies.FirewormRider },
+  //     { count: 2250000, name: Enemies.FireHydra },
+  //   ],
+  // },
   {
     level: 50,
     category: "Event",
