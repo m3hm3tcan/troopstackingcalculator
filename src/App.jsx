@@ -551,6 +551,15 @@ function App() {
       if (selectedName === "Shadow Invasion") {
         setEnemyStrengthThreshold(50);
       }
+      if (selectedName === "Trial of Basilisk") {
+        setEnemyStrengthThreshold(75);
+      }
+      if (selectedName === "Trial of Briareus") {
+        setEnemyStrengthThreshold(55);
+      }
+      if (selectedName === "Epic Inferno Squad") {
+        setEnemyStrengthThreshold(75);
+      }
       // setEnemyStrengthThreshold(50);
     }
 

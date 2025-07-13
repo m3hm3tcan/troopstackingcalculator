@@ -448,13 +448,13 @@ export const Enemies = {
     name: "Harpy",
     unitType: "Flying",
     strength: 100000,
-    strengthAgainst: [{ name: "Melee", strengthPercentage: 45 }],
+    strengthAgainst: [{ name: "Melee", strengthPercentage: 60 }],
   },
   Briareus: {
     name: "Briareus",
     unitType: "Melee",
     strength: 70000,
-    strengthAgainst: [{ name: "Mounted", strengthPercentage: 45 }],
+    strengthAgainst: [{ name: "Mounted", strengthPercentage: 50 }],
   },
   CentaurVII: {
     name: "CentaurVII",
@@ -465,8 +465,8 @@ export const Enemies = {
   Satyr: {
     name: "Satyr",
     unitType: "Ranged",
-    strength: 70000,
-    strengthAgainst: [{ name: "Flying", strengthPercentage: 80 }],
+    strength: 720,
+    strengthAgainst: [{ name: "Flying", strengthPercentage: 45 }],
   },
   MechanicalGriffin: {
     name: "Mechanical Griffin",
@@ -491,6 +491,30 @@ export const Enemies = {
     unitType: "Mounted",
     strength: 57000,
     strengthAgainst: [{ name: "Ranged", strengthPercentage: 55 }],
+  },
+  Basilisk: {
+    name: "Basilisk",
+    unitType: "Melee",
+    strength: 100000,
+    strengthAgainst: [{ name: "Mounted", strengthPercentage: 70 }],
+  },
+  CentaurV: {
+    name: "CentaurV",
+    unitType: "Mounted",
+    strength: 50000,
+    strengthAgainst: [{ name: "Ranged", strengthPercentage: 70 }],
+  },
+  HarpyV: {
+    name: "HarpyV",
+    unitType: "Flying",
+    strength: 44000,
+    strengthAgainst: [{ name: "Melee", strengthPercentage: 80 }],
+  },
+  SatyrIII: {
+    name: "SatyrIII",
+    unitType: "Ranged",
+    strength: 6500,
+    strengthAgainst: [{ name: "Flying", strengthPercentage: 70 }],
   },
 };
 
@@ -3144,7 +3168,18 @@ export const EnemySquads = [
       { count: 40000000, name: Enemies.Harpy },
       { count: 45000000, name: Enemies.Briareus },
       { count: 20000000, name: Enemies.CentaurVII },
-      { count: 2500000, name: Enemies.Satyr },
+      { count: 25000000, name: Enemies.Satyr },
+    ],
+  },
+  {
+    level: 50,
+    category: "Event",
+    name: "Trial of Basilisk",
+    squad: [
+      { count: 40000000, name: Enemies.SatyrIII },
+      { count: 5500000, name: Enemies.HarpyV },
+      { count: 5000000, name: Enemies.CentaurV },
+      { count: 2500000, name: Enemies.Basilisk },
     ],
   },
 ];
