@@ -470,8 +470,16 @@ function App() {
 
   const [showManualModal, setShowManualModal] = useState(false);
   // Extract distinct filter values
-  const uniqueLevels = [...new Set(EnemySquads.map((s) => s.level))];
-  const uniqueCategories = [...new Set(EnemySquads.map((s) => s.category))];
+  const uniqueLevels = [...new Set(EnemySquads.map((s) => s.level))].sort(
+    (a, b) => b - a
+  );
+
+  const indexedArray = [...new Set(EnemySquads.map((s) => s.category))].map(
+    (value, index) => [index, value]
+  );
+  indexedArray.sort((a, b) => b[0] - a[0]);
+
+  const uniqueCategories = indexedArray.map((s) => s[1]);
 
   // Helpers
   const validateOrDefault = (value, validOptions, fallback) =>
