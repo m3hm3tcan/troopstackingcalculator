@@ -418,25 +418,25 @@ export const Enemies = {
     name: "Shadow Warrior",
     unitType: "Melee", // ← Bunu ekle!
     strength: 9920,
-    strengthAgainst: [{ name: "Mounted", strengthPercentage: 50 }],
+    strengthAgainst: [{ name: "Mounted", strengthPercentage: 49 }],
   },
   ShadowRanger: {
     name: "Shadow Ranger",
     unitType: "Ranged", // ← Doğru tür!
     strength: 9920,
-    strengthAgainst: [{ name: "Flying", strengthPercentage: 50 }],
+    strengthAgainst: [{ name: "Flying", strengthPercentage: 49 }],
   },
   ShadowRider: {
     name: "Shadow Rider",
     unitType: "Mounted", // ← Bu da önemli
     strength: 19840,
-    strengthAgainst: [{ name: "Ranged", strengthPercentage: 50 }],
+    strengthAgainst: [{ name: "Ranged", strengthPercentage: 60 }],
   },
   ShadowCorax: {
     name: "Shadow Corax",
     unitType: "Flying", // ← Veya Melee? Kontrol et.
     strength: 99200,
-    strengthAgainst: [{ name: "Melee", strengthPercentage: 50 }],
+    strengthAgainst: [{ name: "Melee", strengthPercentage: 55 }],
   },
   FireHydra: {
     name: "Fire Hydra",
@@ -448,7 +448,7 @@ export const Enemies = {
     name: "Harpy",
     unitType: "Flying",
     strength: 100000,
-    strengthAgainst: [{ name: "Melee", strengthPercentage: 80 }],
+    strengthAgainst: [{ name: "Melee", strengthPercentage: 45 }],
   },
   Briareus: {
     name: "Briareus",
@@ -466,7 +466,31 @@ export const Enemies = {
     name: "Satyr",
     unitType: "Ranged",
     strength: 70000,
+    strengthAgainst: [{ name: "Flying", strengthPercentage: 80 }],
+  },
+  MechanicalGriffin: {
+    name: "Mechanical Griffin",
+    unitType: "Flying",
+    strength: 70000,
+    strengthAgainst: [{ name: "Melee", strengthPercentage: 80 }],
+  },
+  AncientArbalester: {
+    name: "Ancient Arbalester",
+    unitType: "Ranged",
+    strength: 720,
     strengthAgainst: [{ name: "Flying", strengthPercentage: 50 }],
+  },
+  GoldenGuardian: {
+    name: "Golden Guardian",
+    unitType: "Melee",
+    strength: 100000,
+    strengthAgainst: [{ name: "Mounted", strengthPercentage: 45 }],
+  },
+  TigerRider: {
+    name: "Golden Guardian",
+    unitType: "Mounted",
+    strength: 57000,
+    strengthAgainst: [{ name: "Ranged", strengthPercentage: 55 }],
   },
 };
 
@@ -3077,6 +3101,17 @@ export const EnemySquads = [
       { count: 8400, name: Enemies.Wyvern },
       { count: 40000, name: Enemies.Hubi },
       { count: 41000, name: Enemies.CursedDendroid },
+    ],
+  },
+  {
+    level: 50,
+    category: "Event",
+    name: "TintMan - Rise of the Ancients",
+    squad: [
+      { count: 475000, name: Enemies.MechanicalGriffin },
+      { count: 45000000, name: Enemies.AncientArbalester },
+      { count: 550000, name: Enemies.GoldenGuardian },
+      { count: 575000, name: Enemies.TigerRider },
     ],
   },
   {

@@ -545,8 +545,16 @@ function App() {
     setSelectedSquadIndex(index !== -1 ? index : null);
 
     if (selectedLevel >= 50) {
-      setEnemyStrengthThreshold(70);
-    } else {
+      if (selectedName === "TintMan - Rise of the Ancients") {
+        setEnemyStrengthThreshold(60);
+      }
+      if (selectedName === "Shadow Invasion") {
+        setEnemyStrengthThreshold(50);
+      }
+      // setEnemyStrengthThreshold(50);
+    }
+
+    if (selectedLevel < 50) {
       setEnemyStrengthThreshold(30);
     }
   }, [selectedLevel, selectedCategory, selectedName]);
