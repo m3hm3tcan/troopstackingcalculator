@@ -35,9 +35,9 @@ const saveToStorage = (key, value) => {
 
 function App() {
   const { t, i18n } = useTranslation();
-  const [showAnalysisModal, setShowAnalysisModal] = useState(false);
-  const [images, setImages] = useState([]);
-  const [newArry, setNewArr] = useState([]);
+  // const [showAnalysisModal, setShowAnalysisModal] = useState(false);
+  // const [images, setImages] = useState([]);
+  // const [newArry, setNewArr] = useState([]);
 
   useEffect(() => {
     const modules = import.meta.glob("./assets/troops/*.{png,jpg,jpeg,svg}", {
@@ -55,8 +55,8 @@ function App() {
 
       newArr[decodedFileName] = decodedFileName;
     }
-    setImages(imageMap);
-    setNewArr(newArr);
+    // setImages(imageMap);
+    // setNewArr(newArr);
   }, []);
 
   const changeLanguage = (e) => {
@@ -546,10 +546,10 @@ function App() {
 
     if (selectedLevel >= 50) {
       if (selectedName === "TintMan - Rise of the Ancients") {
-        setEnemyStrengthThreshold(60);
+        setEnemyStrengthThreshold(80);
       }
       if (selectedName === "Shadow Invasion") {
-        setEnemyStrengthThreshold(50);
+        setEnemyStrengthThreshold(75);
       }
       if (selectedName === "Trial of Basilisk") {
         setEnemyStrengthThreshold(75);
@@ -558,6 +558,9 @@ function App() {
         setEnemyStrengthThreshold(55);
       }
       if (selectedName === "Ragnarök - Jörmungandr") {
+        setEnemyStrengthThreshold(75);
+      }
+      if (selectedName === "Doomsday") {
         setEnemyStrengthThreshold(75);
       }
       // setEnemyStrengthThreshold(50);

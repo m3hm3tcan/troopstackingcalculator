@@ -516,6 +516,12 @@ export const Enemies = {
     strength: 6500,
     strengthAgainst: [{ name: "Flying", strengthPercentage: 70 }],
   },
+  Demon: {
+    name: "SatyrIII",
+    unitType: "Flying",
+    strength: 100000,
+    strengthAgainst: [{ name: "Melee", strengthPercentage: 70 }],
+  },
 };
 
 // Example EnemySquads data simplified (replace with your full data)
@@ -3141,6 +3147,17 @@ export const EnemySquads = [
   {
     level: 50,
     category: "Event",
+    name: "Doomsday",
+    squad: [
+      { count: 3500000, name: Enemies.Demon },
+      { count: 4000000, name: Enemies.DeathChariot },
+      { count: 3000000, name: Enemies.BoneGolem },
+      { count: 285000000, name: Enemies.Necromancer },
+    ],
+  },
+  {
+    level: 50,
+    category: "Event",
     name: "Ragnarök - Jörmungandr",
     squad: [
       { count: 35000000, name: Enemies.Overseer },
@@ -3160,17 +3177,6 @@ export const EnemySquads = [
       { count: 10000000, name: Enemies.ShadowCorax },
     ],
   },
-  // {
-  //   level: 50,
-  //   category: "Event",
-  //   name: "Epic Inferno Squad",
-  //   squad: [
-  //     { count: 35000000, name: Enemies.Overseer },
-  //     { count: 5000000, name: Enemies.Ifrit },
-  //     { count: 4000000, name: Enemies.FirewormRider },
-  //     { count: 2250000, name: Enemies.FireHydra },
-  //   ],
-  // },
   {
     level: 50,
     category: "Event",
