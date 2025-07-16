@@ -522,6 +522,30 @@ export const Enemies = {
     strength: 100000,
     strengthAgainst: [{ name: "Melee", strengthPercentage: 70 }],
   },
+  MercilessArachne: {
+    name: "Merciless Arachne",
+    unitType: "Ranged",
+    strength: 50000,
+    strengthAgainst: [{ name: "Flying", strengthPercentage: 50 }],
+  },
+  MaliciousMantis: {
+    name: "Malicious Mantis",
+    unitType: "Melee",
+    strength: 11000,
+    strengthAgainst: [{ name: "Mounted", strengthPercentage: 50 }],
+  },
+  ElusiveWasp: {
+    name: "Elusive Wasp",
+    unitType: "Flying",
+    strength: 11000,
+    strengthAgainst: [{ name: "Melee", strengthPercentage: 50 }],
+  },
+  CaterpillarCavalry: {
+    name: "Caterpillar Cavalry",
+    unitType: "Mounted",
+    strength: 11000,
+    strengthAgainst: [{ name: "Ranged", strengthPercentage: 50 }],
+  },
 };
 
 // Example EnemySquads data simplified (replace with your full data)
@@ -3153,6 +3177,17 @@ export const EnemySquads = [
       { count: 4000000, name: Enemies.DeathChariot },
       { count: 3000000, name: Enemies.BoneGolem },
       { count: 285000000, name: Enemies.Necromancer },
+    ],
+  },
+  {
+    level: 50,
+    category: "Event",
+    name: "Arachne's Swarm",
+    squad: [
+      { count: 2500000, name: Enemies.MercilessArachne },
+      { count: 15000000, name: Enemies.CaterpillarCavalry },
+      { count: 15000000, name: Enemies.ElusiveWasp },
+      { count: 15000000, name: Enemies.MaliciousMantis },
     ],
   },
   {

@@ -563,7 +563,9 @@ function App() {
       if (selectedName === "Doomsday") {
         setEnemyStrengthThreshold(75);
       }
-      // setEnemyStrengthThreshold(50);
+      if (selectedName === "Arachne's Swarm") {
+        setEnemyStrengthThreshold(55);
+      }
     }
 
     if (selectedLevel < 50) {
