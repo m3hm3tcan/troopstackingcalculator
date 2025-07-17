@@ -546,6 +546,12 @@ export const Enemies = {
     strength: 11000,
     strengthAgainst: [{ name: "Ranged", strengthPercentage: 50 }],
   },
+  ShipGolem: {
+    name: "ShipGolem",
+    unitType: "Melee",
+    strength: 1980000,
+    strengthAgainst: [{ name: "Mounted", strengthPercentage: 75 }],
+  },
 };
 
 // Example EnemySquads data simplified (replace with your full data)
@@ -3257,7 +3263,17 @@ export const EnemySquads = [
       { count: 5200, name: Enemies.Gargoyle },
     ],
   },
-
+  {
+    level: 39,
+    category: "Event",
+    name: "Vault of the Ancients",
+    squad: [
+      { count: 1700, name: Enemies.RevenantSkirmisher },
+      { count: 1300, name: Enemies.OverLord },
+      { count: 4500, name: Enemies.DeathChariot },
+      { count: 14000, name: Enemies.Gargoyle },
+    ],
+  },
   {
     level: 44,
     category: "Event",
@@ -3267,6 +3283,17 @@ export const EnemySquads = [
       { count: 2100, name: Enemies.EternalCannoneer },
       { count: 1700, name: Enemies.RatRider },
       { count: 7800, name: Enemies.VampireLord },
+    ],
+  },
+  {
+    level: 44,
+    category: "Event",
+    name: "Vault of the Ancients",
+    squad: [
+      { count: 600, name: Enemies.ShipGolem },
+      { count: 2700, name: Enemies.EternalCannoneer },
+      { count: 2200, name: Enemies.RatRider },
+      { count: 9900, name: Enemies.VampireLord },
     ],
   },
 ];
