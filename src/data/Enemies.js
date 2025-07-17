@@ -3286,7 +3286,7 @@ export const EnemySquads = [
     ],
   },
   {
-    level: 44,
+    level: 45,
     category: "Event",
     name: "Vault of the Ancients",
     squad: [
