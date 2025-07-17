@@ -3234,6 +3234,41 @@ export const EnemySquads = [
       { count: 2500000, name: Enemies.Basilisk },
     ],
   },
+
+  {
+    level: 29,
+    category: "Event",
+    name: "Vault of the Ancients",
+    squad: [
+      { count: 610, name: Enemies.BoneGolem },
+      { count: 7300, name: Enemies.DarkRider },
+      { count: 59000, name: Enemies.Necromancer },
+    ],
+  },
+
+  {
+    level: 34,
+    category: "Event",
+    name: "Vault of the Ancients",
+    squad: [
+      { count: 660, name: Enemies.RevenantSkirmisher },
+      { count: 7300, name: Enemies.OverLord },
+      { count: 1700, name: Enemies.DeathChariot },
+      { count: 5200, name: Enemies.Gargoyle },
+    ],
+  },
+
+  {
+    level: 44,
+    category: "Event",
+    name: "Vault of the Ancients",
+    squad: [
+      { count: 470, name: Enemies.ShipGolem },
+      { count: 2100, name: Enemies.EternalCannoneer },
+      { count: 1700, name: Enemies.RatRider },
+      { count: 7800, name: Enemies.VampireLord },
+    ],
+  },
 ];
 
 //epic ates mangasi...lvl50...
