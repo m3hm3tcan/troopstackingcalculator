@@ -36,6 +36,7 @@
   "squadOption": "Lvl {{level}} - {{category}} {{name}} {{sq}}",
   "categories": {
     "Common": "Common",
+    "Heroic": "Heroic",
     "Rare": "Rare",
     "Event": "Event"
   },
@@ -52,7 +53,7 @@
     "Trial of Basilisk": "Trial of Basilisk",
     "Ragnarök - Jörmungandr": "Ragnarök - Jörmungandr",
     "Doomsday": "Doomsday",
-    "Arachne's Swarm" : "Arachne's Swarm",
+    "Arachne's Swarm": "Arachne's Swarm",
     "Vault of the Ancients": "Vault of the Ancients"
   },
   "sqs": {

@@ -36,6 +36,7 @@
   "categories": {
     "Common": "Sıradan",
     "Rare": "Nadir",
+    "Heroic": "Heroic",
     "Event": "Turnuva"
   },
   "names": {
