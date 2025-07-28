@@ -38,7 +38,8 @@
     "Common": "Common",
     "Heroic": "Heroic",
     "Rare": "Rare",
-    "Event": "Event"
+    "Event": "Event",
+    "Citadel": "Citadel"
   },
   "names": {
     "Elf": "Elf",
@@ -54,7 +55,8 @@
     "Ragnarök - Jörmungandr": "Ragnarök - Jörmungandr",
     "Doomsday": "Doomsday",
     "Arachne's Swarm": "Arachne's Swarm",
-    "Vault of the Ancients": "Vault of the Ancients"
+    "Vault of the Ancients": "Vault of the Ancients",
+    "Elven Citadel": "Elven Citadel"
   },
   "sqs": {
     "squad": "squad"

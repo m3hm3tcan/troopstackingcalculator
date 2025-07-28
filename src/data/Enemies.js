@@ -561,6 +561,16 @@ export const Enemies = {
       { name: "Elementals", strengthPercentage: 50 },
     ],
   },
+  CitadelWalls: {
+    name: "Citadel Walls",
+    unitType: "Fortifications",
+    strength: 10000,
+    strengthAgainst: [
+      { name: "Melee", strengthPercentage: 100 },
+      { name: "Ranged", strengthPercentage: 100 },
+      { name: "Mounted", strengthPercentage: 100 },
+    ],
+  },
 };
 
 // Example EnemySquads data simplified (replace with your full data)
@@ -3347,6 +3357,58 @@ export const EnemySquads = [
       { count: 22000, name: Enemies.WolfRider },
       { count: 22000, name: Enemies.WolfRider },
       { count: 22000, name: Enemies.WolfRider },
+    ],
+  },
+  {
+    level: 15,
+    category: "Citadel",
+    name: "Elven Citadel",
+    squad: [
+      { count: 21, name: Enemies.Ent },
+      { count: 700, name: Enemies.CitadelWalls },
+      { count: 47, name: Enemies.UnicornRider },
+      { count: 290, name: Enemies.Centaur },
+      { count: 1100, name: Enemies.Druid },
+      { count: 5000, name: Enemies.ElvenArcher },
+    ],
+  },
+  {
+    level: 20,
+    category: "Citadel",
+    name: "Elven Citadel",
+    squad: [
+      { count: 41, name: Enemies.LifeDragon },
+      { count: 110, name: Enemies.Ent },
+      { count: 3650, name: Enemies.CitadelWalls },
+      { count: 230, name: Enemies.Bear },
+      { count: 2500, name: Enemies.Centaur },
+      { count: 3600, name: Enemies.Druid },
+    ],
+  },
+  {
+    level: 25,
+    category: "Citadel",
+    name: "Elven Citadel",
+    squad: [
+      { count: 480, name: Enemies.LifeDragon },
+      { count: 880, name: Enemies.Ent },
+      { count: 31900, name: Enemies.CitadelWalls },
+      { count: 2400, name: Enemies.Bear },
+      { count: 10000, name: Enemies.Centaur },
+      { count: 4300, name: Enemies.PegasusRider },
+    ],
+  },
+  {
+    level: 30,
+    category: "Citadel",
+    name: "Elven Citadel",
+    squad: [
+      { count: 2300, name: Enemies.LifeDragon },
+      { count: 4300, name: Enemies.Ent },
+      { count: 135000, name: Enemies.CitadelWalls },
+      { count: 12000, name: Enemies.Bear },
+      { count: 49000, name: Enemies.Centaur },
+      { count: 21000, name: Enemies.PegasusRider },
     ],
   },
 ];

@@ -5,16 +5,19 @@ import BattleAnalysisModal from "./components/BattleAnalysisModal";
 
 import InfoModal from "./components/InfoModal/InfoModal";
 import {
-  guardsmen,
+  // guardsmen,
   specialist,
   engineerCorps,
   MonstersUnits,
   MercenaryUnits,
 } from "./data/Troops";
+
+import { guardsmen } from "./data/transformedTroops";
 import { Enemies, EnemySquads } from "./data/Enemies";
 import {
   flattenMonsters,
   flattenTroops,
+  flattenGuardsmanTroops,
   flattenMercenaries,
 } from "./data/Utils";
 import UserManualModal from "./components/UserManualModal";
@@ -142,7 +145,7 @@ function App() {
 
   // Combine guardsmen + specialist and filter troops by enemy strengthAgainst threshold
   const allTroops = useMemo(() => {
-    const guards = flattenTroops(
+    const guards = flattenGuardsmanTroops(
       guardsmen,
       enemyUnitTypes,
       selectedSquad.squad

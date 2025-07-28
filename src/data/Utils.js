@@ -60,6 +60,26 @@ export const flattenTroops = (troopsObj, enemyUnitTypes, enemySquad) => {
   return troopsList.sort((a, b) => b.score - a.score);
 };
 
+export const flattenGuardsmanTroops = (troopsObj, enemyUnitTypes, enemySquad) => {
+  return troopsObj
+    .map((merc) => {
+      const bonus = computeMaxBonus(merc.strengthAgainst, enemyUnitTypes);
+      const adjusted = calculateAdjustedStrength(merc.strength, bonus);
+      const unit = {
+        unitName: merc.name,
+        unitType: merc.unitType,
+        unitColor: merc.color,
+        category: merc.category,
+        baseStrength: adjusted,
+        strengthAgainstPercent: bonus,
+        leadership: merc.leadership,
+      };
+      unit.score = scoreTroopAgainstEnemies(unit, enemySquad);
+      return unit;
+    })
+    .sort((a, b) => b.score - a.score);
+};
+
 // 🧟 Flatten and score Monsters
 export const flattenMonsters = (monstersArray, enemyUnitTypes, enemySquad) => {
   return monstersArray
