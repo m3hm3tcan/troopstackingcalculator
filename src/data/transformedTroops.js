@@ -71,19 +71,6 @@ export const guardsmen = [
     category: "Guardsmen",
     color:
       "radial-gradient(circle,rgba(255, 217, 136, 1) 0%, rgba(127, 53, 7, 1) 62%)",
-    name: "Archer V",
-    strength: 290,
-    strengthAgainst: [
-      { name: "Melee", strengthPercentage: 176 },
-      { name: "Flying", strengthPercentage: 226 },
-    ],
-  },
-  {
-    leadership: 1,
-    unitType: "Ranged",
-    category: "Guardsmen",
-    color:
-      "radial-gradient(circle,rgba(255, 217, 136, 1) 0%, rgba(127, 53, 7, 1) 62%)",
     name: "Heavy Arbalester VI",
     strength: 940,
     strengthAgainst: [
