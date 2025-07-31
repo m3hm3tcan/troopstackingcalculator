@@ -569,6 +569,9 @@ function App() {
       if (selectedName === "Arachne's Swarm") {
         setEnemyStrengthThreshold(55);
       }
+      if (selectedName === "Trial of the Chimera") {
+        setEnemyStrengthThreshold(55);
+      }
     }
 
     if (selectedLevel < 50) {

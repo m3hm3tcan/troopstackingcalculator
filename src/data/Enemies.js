@@ -3433,7 +3433,7 @@ export const EnemySquads = [
   {
     level: 50,
     category: "Event",
-    name: "Trial of the Chemera",
+    name: "Trial of the Chimera",
     squad: [
       { count: 2500000, name: Enemies.HarpyIII },
       { count: 2500000, name: Enemies.HarpyIII },
