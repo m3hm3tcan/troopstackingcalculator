@@ -450,14 +450,26 @@ export const Enemies = {
     strength: 100000,
     strengthAgainst: [{ name: "Melee", strengthPercentage: 60 }],
   },
+  HarpyIII: {
+    name: "HarpyIII",
+    unitType: "Flying",
+    strength: 70000,
+    strengthAgainst: [{ name: "Melee", strengthPercentage: 80 }],
+  },
+  ChimeraVI: {
+    name: "ChimeraVI",
+    unitType: "Melee",
+    strength: 100000,
+    strengthAgainst: [{ name: "Mounted", strengthPercentage: 45 }],
+  },
   Briareus: {
     name: "Briareus",
     unitType: "Melee",
     strength: 70000,
     strengthAgainst: [{ name: "Mounted", strengthPercentage: 50 }],
   },
-  CentaurVII: {
-    name: "CentaurVII",
+  CentaurVI: {
+    name: "",
     unitType: "Mounted",
     strength: 57000,
     strengthAgainst: [{ name: "Ranged", strengthPercentage: 60 }],
@@ -510,6 +522,12 @@ export const Enemies = {
     strength: 44000,
     strengthAgainst: [{ name: "Melee", strengthPercentage: 80 }],
   },
+  SatyrII: {
+    name: "SatyrII",
+    unitType: "Ranged",
+    strength: 720,
+    strengthAgainst: [{ name: "Flying", strengthPercentage: 50 }],
+  },
   SatyrIII: {
     name: "SatyrIII",
     unitType: "Ranged",
@@ -517,7 +535,7 @@ export const Enemies = {
     strengthAgainst: [{ name: "Flying", strengthPercentage: 70 }],
   },
   Demon: {
-    name: "SatyrIII",
+    name: "Demon",
     unitType: "Flying",
     strength: 100000,
     strengthAgainst: [{ name: "Melee", strengthPercentage: 70 }],
@@ -3182,7 +3200,7 @@ export const EnemySquads = [
     squad: [
       { count: 40000000, name: Enemies.Harpy },
       { count: 45000000, name: Enemies.Briareus },
-      { count: 20000000, name: Enemies.CentaurVII },
+      { count: 20000000, name: Enemies.CentaurVI },
       { count: 25000000, name: Enemies.Satyr },
     ],
   },
@@ -3409,6 +3427,31 @@ export const EnemySquads = [
       { count: 12000, name: Enemies.Bear },
       { count: 49000, name: Enemies.Centaur },
       { count: 21000, name: Enemies.PegasusRider },
+    ],
+  },
+
+  {
+    level: 50,
+    category: "Event",
+    name: "Trial of the Chemera",
+    squad: [
+      { count: 2500000, name: Enemies.HarpyIII },
+      { count: 2500000, name: Enemies.HarpyIII },
+      { count: 2500000, name: Enemies.HarpyIII },
+      { count: 2500000, name: Enemies.HarpyIII },
+      { count: 2000000, name: Enemies.ChimeraVI },
+      { count: 2000000, name: Enemies.ChimeraVI },
+      { count: 2000000, name: Enemies.ChimeraVI },
+      { count: 2000000, name: Enemies.ChimeraVI },
+      { count: 2000000, name: Enemies.ChimeraVI },
+      { count: 2000000, name: Enemies.CentaurVI },
+      { count: 2000000, name: Enemies.CentaurVI },
+      { count: 2000000, name: Enemies.CentaurVI },
+      { count: 2000000, name: Enemies.CentaurVI },
+      { count: 170000000, name: Enemies.SatyrII },
+      { count: 170000000, name: Enemies.SatyrII },
+      { count: 170000000, name: Enemies.SatyrII },
+      { count: 170000000, name: Enemies.SatyrII },
     ],
   },
 ];
