@@ -570,7 +570,7 @@ function App() {
         setEnemyStrengthThreshold(55);
       }
       if (selectedName === "Trial of the Chimera") {
-        setEnemyStrengthThreshold(55);
+        setEnemyStrengthThreshold(65);
       }
     }
 
