@@ -3377,6 +3377,20 @@ export const EnemySquads = [
       { count: 22000, name: Enemies.WolfRider },
     ],
   },
+
+    {
+    level: 10,
+    category: "Citadel",
+    name: "Elven Citadel",
+    squad: [
+      { count: 10, name: Enemies.LifeDragon },
+      { count: 51, name: Enemies.Ent },
+      { count: 1500, name: Enemies.CitadelWalls },
+      { count: 230, name: Enemies.Bear },
+      { count: 1500, name: Enemies.Centaur },
+      { count: 2600, name: Enemies.Druid },
+    ],
+  },
   {
     level: 15,
     category: "Citadel",
