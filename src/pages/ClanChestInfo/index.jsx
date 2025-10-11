@@ -15,7 +15,7 @@ const ClanChestInfo = () => {
           {
             headers: {
               "Content-Type": "application/json",
-              "x-apikey": "68e81cff7f34ed1dfc200a8c",
+              "x-apikey": import.meta.env.VITE_API_KEY,
             },
           }
         );
