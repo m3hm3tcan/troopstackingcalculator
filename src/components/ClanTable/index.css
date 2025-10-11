@@ -94,3 +94,35 @@
   margin: 6px 0 0;
   font-weight: 500;
 }
+
+/* Dropdown filter for mobile */
+.mobile-filter {
+  display: none;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.mobile-filter label {
+  margin-right: 8px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.mobile-filter select {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+/* Show dropdown only on mobile view */
+@media (max-width: 768px) {
+  .mobile-filter {
+    display: block;
+  }
+
+  .clan-summary {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+}

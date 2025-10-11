@@ -32,6 +32,7 @@
   "mercenary_units": "Mercenaries",
   "mercenary_unit": "Mercenaries",
   "authority_column": "Authority",
+  "clan": "Clan Chest Info",
 
   "squadOption": "Lvl {{level}} - {{category}} {{name}} {{sq}}",
   "categories": {
