@@ -1,0 +1,29 @@
+/* --- Top Section --- */
+.navbar-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--nav-bg, #222);
+  color: white;
+}
+
+/* --- Bottom Section (white background) --- */
+.navbar-bottom {
+  width: 100%;
+  background-color: white;
+  padding: 0.75rem 2rem;
+  display: flex;
+  justify-content: flex-start; /* 👈 aligns link to right */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-link {
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}

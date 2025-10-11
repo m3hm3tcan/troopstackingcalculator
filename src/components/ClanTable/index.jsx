@@ -1,7 +1,16 @@
+import { useState, useEffect } from "react";
 import "./index.css";
 
 function ClanTable({ members }) {
-  console.log(members);
+  const [selectedMember, setSelectedMember] = useState("All");
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const headers = [
     "Clan Member Name",
     "Total Points",
@@ -25,7 +34,6 @@ function ClanTable({ members }) {
 
   const parseChestInfo = (chestText = "") => {
     const text = chestText.toLowerCase().trim();
-
     const levelMatch = text.match(/level\s*(\d+)/);
     const level = levelMatch ? parseInt(levelMatch[1]) : null;
 
@@ -34,12 +42,11 @@ function ClanTable({ members }) {
     else if (text.includes("epic")) rarity = "Epic";
 
     let category = "Unknown";
-
     if (text.includes("crypt")) category = "Crypt";
     else if (text.includes("citadel")) category = "Citadel";
     else if (text.includes("arena")) category = "Arena";
     else if (text.includes("wealth")) category = "Clan Wealth";
-    // 🧩 Merge both “Vault of the Ancients” and “Rise of the Ancients”
+    // ✅ Merge “Vault of the Ancients” and “Rise of the Ancients”
     else if (text.includes("ancient") || text.includes("vault"))
       category = "Ancient of Rise";
     else if (text.includes("olimpos")) category = "Olimpos";
@@ -84,7 +91,6 @@ function ClanTable({ members }) {
       const m = aggregated[name];
 
       if (level && m[`level${level}`] !== undefined) m[`level${level}`]++;
-
       if (category === "Crypt") {
         if (rarity === "Rare") m.rareCrypt++;
         else if (rarity === "Epic") m.epicCrypt++;
@@ -105,14 +111,26 @@ function ClanTable({ members }) {
   };
 
   const aggregatedMembers = aggregateMembers(members);
-
+  const weekInfo =
+    aggregatedMembers.length > 0 ? aggregatedMembers[0].weekid : "Unknown";
   const clanTotalChests = aggregatedMembers.reduce(
     (sum, member) => sum + member.totalPoints,
     0
   );
 
-  const weekInfo =
-    aggregatedMembers.length > 0 ? aggregatedMembers[0].weekid : "Unknown";
+  // Get unique member list for dropdown
+  const uniqueMembers = [
+    "All",
+    ...new Set(aggregatedMembers.map((m) => m.name)),
+  ];
+
+  // Filtered members for mobile dropdown
+  const displayedMembers =
+    selectedMember === "All"
+      ? aggregatedMembers
+      : aggregatedMembers.filter(
+          (m) => m.name.toLowerCase() === selectedMember.toLowerCase()
+        );
 
   return (
     <div className="table-wrapper">
@@ -126,6 +144,23 @@ function ClanTable({ members }) {
         </p>
       </div>
 
+      {isMobile && (
+        <div className="mobile-filter">
+          <label htmlFor="memberSelect">Select Member:</label>
+          <select
+            id="memberSelect"
+            value={selectedMember}
+            onChange={(e) => setSelectedMember(e.target.value)}
+          >
+            {uniqueMembers.map((member) => (
+              <option key={member} value={member}>
+                {member}
+              </option>
+            ))}
+          </select>
+        </div>
+      )}
+
       <table className="clan-table">
         <thead>
           <tr>
@@ -135,7 +170,7 @@ function ClanTable({ members }) {
           </tr>
         </thead>
         <tbody>
-          {aggregatedMembers.map((m, i) => (
+          {displayedMembers.map((m, i) => (
             <tr key={i}>
               <td data-label="Clan Member Name">{m.name}</td>
               <td data-label="Total Points" className="total-point">
