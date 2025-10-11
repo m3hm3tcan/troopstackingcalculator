@@ -1,6 +1,7 @@
 import "./index.css";
 
 function ClanTable({ members }) {
+  console.log(members);
   const headers = [
     "Clan Member Name",
     "Total Points",
@@ -33,11 +34,14 @@ function ClanTable({ members }) {
     else if (text.includes("epic")) rarity = "Epic";
 
     let category = "Unknown";
+
     if (text.includes("crypt")) category = "Crypt";
     else if (text.includes("citadel")) category = "Citadel";
     else if (text.includes("arena")) category = "Arena";
     else if (text.includes("wealth")) category = "Clan Wealth";
-    else if (text.includes("ancient")) category = "Ancient of Rise";
+    // 🧩 Merge both “Vault of the Ancients” and “Rise of the Ancients”
+    else if (text.includes("ancient") || text.includes("vault"))
+      category = "Ancient of Rise";
     else if (text.includes("olimpos")) category = "Olimpos";
     else if (text.includes("ragnarok")) category = "Ragnarok";
 
@@ -80,6 +84,7 @@ function ClanTable({ members }) {
       const m = aggregated[name];
 
       if (level && m[`level${level}`] !== undefined) m[`level${level}`]++;
+
       if (category === "Crypt") {
         if (rarity === "Rare") m.rareCrypt++;
         else if (rarity === "Epic") m.epicCrypt++;
