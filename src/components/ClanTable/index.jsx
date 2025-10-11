@@ -11,19 +11,8 @@ function ClanTable({ members }) {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const headers = [
-    "Clan Member Name",
-    "Total Points",
-    "Level 5",
-    "Level 10",
-    "Level 15",
-    "Level 20",
-    "Level 25",
-    "Level 30",
-    "Level 35",
-    "Normal Crypt",
-    "Rare Crypt",
-    "Epic Crypt",
+  const levelHeaders = [5, 10, 15, 20, 25, 30, 35];
+  const categoryHeaders = [
     "Citadel",
     "Arena",
     "Clan Wealth",
@@ -37,22 +26,16 @@ function ClanTable({ members }) {
     const levelMatch = text.match(/level\s*(\d+)/);
     const level = levelMatch ? parseInt(levelMatch[1]) : null;
 
-    let rarity = "Normal";
-    if (text.includes("rare")) rarity = "Rare";
-    else if (text.includes("epic")) rarity = "Epic";
-
     let category = "Unknown";
-    if (text.includes("crypt")) category = "Crypt";
-    else if (text.includes("citadel")) category = "Citadel";
+    if (text.includes("citadel")) category = "Citadel";
     else if (text.includes("arena")) category = "Arena";
     else if (text.includes("wealth")) category = "Clan Wealth";
-    // ✅ Merge “Vault of the Ancients” and “Rise of the Ancients”
     else if (text.includes("ancient") || text.includes("vault"))
       category = "Ancient of Rise";
     else if (text.includes("olimpos")) category = "Olimpos";
     else if (text.includes("ragnarok")) category = "Ragnarok";
 
-    return { level, rarity, category };
+    return { level, category };
   };
 
   const aggregateMembers = (data) => {
@@ -60,49 +43,27 @@ function ClanTable({ members }) {
 
     data.forEach((item) => {
       const name = item.from || item.name || "Unknown";
-      const { level, rarity, category } = parseChestInfo(
-        item.source || item.chest
-      );
+      const { level, category } = parseChestInfo(item.source || item.chest);
 
       if (!aggregated[name]) {
-        aggregated[name] = {
-          name,
-          totalPoints: 0,
-          level5: 0,
-          level10: 0,
-          level15: 0,
-          level20: 0,
-          level25: 0,
-          level30: 0,
-          level35: 0,
-          normalCrypt: 0,
-          rareCrypt: 0,
-          epicCrypt: 0,
-          citadel: 0,
-          arena: 0,
-          clanWealth: 0,
-          ancientOfRise: 0,
-          olimpos: 0,
-          ragnarok: 0,
-          weekid: item.weekid || "Unknown",
-        };
+        aggregated[name] = { name, totalPoints: 0, weekid: item.weekid || "Unknown" };
+        levelHeaders.forEach((lvl) => (aggregated[name][`level${lvl}`] = 0));
+        categoryHeaders.forEach((cat) => (aggregated[name][cat] = 0));
       }
 
       const m = aggregated[name];
 
-      if (level && m[`level${level}`] !== undefined) m[`level${level}`]++;
-      if (category === "Crypt") {
-        if (rarity === "Rare") m.rareCrypt++;
-        else if (rarity === "Epic") m.epicCrypt++;
-        else m.normalCrypt++;
-      } else if (category === "Citadel") m.citadel++;
-      else if (category === "Arena") m.arena++;
-      else if (category === "Clan Wealth") m.clanWealth++;
-      else if (category === "Ancient of Rise") m.ancientOfRise++;
-      else if (category === "Olimpos") m.olimpos++;
-      else if (category === "Ragnarok") m.ragnarok++;
+      // Count level-based chest
+      if (levelHeaders.includes(level)) {
+        m[`level${level}`]++;
+        m.totalPoints++;
+      }
 
-      m.totalPoints++;
+      // Count category chest (Citadel, Arena, etc.)
+      if (categoryHeaders.includes(category)) {
+        m[category]++;
+        m.totalPoints++;
+      }
     });
 
     return Object.values(aggregated).sort((a, b) =>
@@ -111,20 +72,13 @@ function ClanTable({ members }) {
   };
 
   const aggregatedMembers = aggregateMembers(members);
-  const weekInfo =
-    aggregatedMembers.length > 0 ? aggregatedMembers[0].weekid : "Unknown";
+  const weekInfo = aggregatedMembers.length > 0 ? aggregatedMembers[0].weekid : "Unknown";
   const clanTotalChests = aggregatedMembers.reduce(
     (sum, member) => sum + member.totalPoints,
     0
   );
 
-  // Get unique member list for dropdown
-  const uniqueMembers = [
-    "All",
-    ...new Set(aggregatedMembers.map((m) => m.name)),
-  ];
-
-  // Filtered members for mobile dropdown
+  const uniqueMembers = ["All", ...new Set(aggregatedMembers.map((m) => m.name))];
   const displayedMembers =
     selectedMember === "All"
       ? aggregatedMembers
@@ -164,8 +118,13 @@ function ClanTable({ members }) {
       <table className="clan-table">
         <thead>
           <tr>
-            {headers.map((header) => (
-              <th key={header}>{header}</th>
+            <th>Clan Member Name</th>
+            <th>Total Points</th>
+            {levelHeaders.map((lvl) => (
+              <th key={lvl}>Level {lvl}</th>
+            ))}
+            {categoryHeaders.map((cat) => (
+              <th key={cat}>{cat}</th>
             ))}
           </tr>
         </thead>
@@ -176,22 +135,16 @@ function ClanTable({ members }) {
               <td data-label="Total Points" className="total-point">
                 {m.totalPoints}
               </td>
-              <td data-label="Level 5">{m.level5}</td>
-              <td data-label="Level 10">{m.level10}</td>
-              <td data-label="Level 15">{m.level15}</td>
-              <td data-label="Level 20">{m.level20}</td>
-              <td data-label="Level 25">{m.level25}</td>
-              <td data-label="Level 30">{m.level30}</td>
-              <td data-label="Level 35">{m.level35}</td>
-              <td data-label="Normal Crypt">{m.normalCrypt}</td>
-              <td data-label="Rare Crypt">{m.rareCrypt}</td>
-              <td data-label="Epic Crypt">{m.epicCrypt}</td>
-              <td data-label="Citadel">{m.citadel}</td>
-              <td data-label="Arena">{m.arena}</td>
-              <td data-label="Clan Wealth">{m.clanWealth}</td>
-              <td data-label="Ancient of Rise">{m.ancientOfRise}</td>
-              <td data-label="Olimpos">{m.olimpos}</td>
-              <td data-label="Ragnarok">{m.ragnarok}</td>
+              {levelHeaders.map((lvl) => (
+                <td key={lvl} data-label={`Level ${lvl}`}>
+                  {m[`level${lvl}`]}
+                </td>
+              ))}
+              {categoryHeaders.map((cat) => (
+                <td key={cat} data-label={cat}>
+                  {m[cat]}
+                </td>
+              ))}
             </tr>
           ))}
         </tbody>
