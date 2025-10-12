@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import "./index.css";
+import stringSimilarity from "string-similarity";
 
-function ClanTable({ members }) {
+function ClanTable({ memberList = [], chestInfo = [] }) {
   const [selectedMember, setSelectedMember] = useState("All");
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
@@ -38,47 +39,59 @@ function ClanTable({ members }) {
     return { level, category };
   };
 
-  const aggregateMembers = (data) => {
+  const normalizeName = (name) => {
+    if (!name) return "Unknown";
+    const memberNames = memberList.map((m) => m.name);
+    const matches = stringSimilarity.findBestMatch(name, memberNames);
+    return matches.bestMatch.rating > 0.7 ? matches.bestMatch.target : name;
+  };
+
+  const aggregateMembers = (members, chestData) => {
     const aggregated = {};
 
-    data.forEach((item) => {
-      const name = item.from || item.name || "Unknown";
+    // Initialize all members with 0 stats
+    members.forEach((m) => {
+      aggregated[m.name] = {
+        name: m.name,
+        totalPoints: 0,
+      };
+      levelHeaders.forEach((lvl) => (aggregated[m.name][`level${lvl}`] = 0));
+      categoryHeaders.forEach((cat) => (aggregated[m.name][cat] = 0));
+    });
+
+    chestData.forEach((item) => {
+      const rawName = item.from || "Unknown";
+      const name = normalizeName(rawName);
+
+      if (!aggregated[name]) return;
+
       const { level, category } = parseChestInfo(item.source || item.chest);
-
-      if (!aggregated[name]) {
-        aggregated[name] = { name, totalPoints: 0, weekid: item.weekid || "Unknown" };
-        levelHeaders.forEach((lvl) => (aggregated[name][`level${lvl}`] = 0));
-        categoryHeaders.forEach((cat) => (aggregated[name][cat] = 0));
-      }
-
       const m = aggregated[name];
 
-      // Count level-based chest
       if (levelHeaders.includes(level)) {
         m[`level${level}`]++;
         m.totalPoints++;
       }
 
-      // Count category chest (Citadel, Arena, etc.)
       if (categoryHeaders.includes(category)) {
         m[category]++;
         m.totalPoints++;
       }
     });
 
-    return Object.values(aggregated).sort((a, b) =>
-      a.name.localeCompare(b.name, undefined, { sensitivity: "base" })
+    // Sort by totalPoints descending
+    return Object.values(aggregated).sort(
+      (a, b) => b.totalPoints - a.totalPoints
     );
   };
 
-  const aggregatedMembers = aggregateMembers(members);
-  const weekInfo = aggregatedMembers.length > 0 ? aggregatedMembers[0].weekid : "Unknown";
+  const aggregatedMembers = aggregateMembers(memberList, chestInfo);
   const clanTotalChests = aggregatedMembers.reduce(
     (sum, member) => sum + member.totalPoints,
     0
   );
 
-  const uniqueMembers = ["All", ...new Set(aggregatedMembers.map((m) => m.name))];
+  const uniqueMembers = ["All", ...memberList.map((m) => m.name)];
   const displayedMembers =
     selectedMember === "All"
       ? aggregatedMembers
@@ -90,9 +103,6 @@ function ClanTable({ members }) {
     <div className="table-wrapper">
       <div className="clan-summary">
         <h2>Clan Chest Summary</h2>
-        <p>
-          <strong>Week:</strong> {weekInfo}
-        </p>
         <p>
           <strong>Total Clan Chests:</strong> {clanTotalChests}
         </p>
