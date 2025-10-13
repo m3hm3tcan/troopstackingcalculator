@@ -20,6 +20,7 @@ function ClanTable({ memberList = [], chestInfo = [] }) {
     "Ancient of Rise",
     "Olimpos",
     "Ragnarok",
+    "Other Events",
   ];
 
   const parseChestInfo = (chestText = "") => {
@@ -35,6 +36,7 @@ function ClanTable({ memberList = [], chestInfo = [] }) {
       category = "Ancient of Rise";
     else if (text.includes("olimpos")) category = "Olimpos";
     else if (text.includes("ragnarok")) category = "Ragnarok";
+    else if (text.includes("runic")) category = "Other Events";
 
     return { level, category };
   };
