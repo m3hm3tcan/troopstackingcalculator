@@ -32,13 +32,13 @@ const NavBar = () => {
           </select>
         </div>
       </nav>
-      <div>
+      {/* <div>
         <div className="navbar-bottom">
           <Link to="/clan" className="nav-link">
             {t("clan")}
           </Link>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };

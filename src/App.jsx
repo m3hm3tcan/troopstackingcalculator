@@ -10,7 +10,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/clan" element={<ClanChestInfo />} />
+        {/* <Route path="/clan" element={<ClanChestInfo />} /> */}
       </Routes>
     </>
   );
