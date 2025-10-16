@@ -3378,14 +3378,14 @@ export const EnemySquads = [
     ],
   },
 
-    {
+  {
     level: 10,
     category: "Citadel",
     name: "Elven Citadel",
     squad: [
       { count: 10, name: Enemies.LifeDragon },
       { count: 51, name: Enemies.Ent },
-      { count: 1500, name: Enemies.CitadelWalls },
+      // { count: 1500, name: Enemies.CitadelWalls },
       { count: 230, name: Enemies.Bear },
       { count: 1500, name: Enemies.Centaur },
       { count: 2600, name: Enemies.Druid },
@@ -3397,7 +3397,7 @@ export const EnemySquads = [
     name: "Elven Citadel",
     squad: [
       { count: 21, name: Enemies.Ent },
-      { count: 700, name: Enemies.CitadelWalls },
+      // { count: 700, name: Enemies.CitadelWalls },
       { count: 47, name: Enemies.UnicornRider },
       { count: 290, name: Enemies.Centaur },
       { count: 1100, name: Enemies.Druid },
@@ -3411,7 +3411,7 @@ export const EnemySquads = [
     squad: [
       { count: 41, name: Enemies.LifeDragon },
       { count: 110, name: Enemies.Ent },
-      { count: 3650, name: Enemies.CitadelWalls },
+      // { count: 3650, name: Enemies.CitadelWalls },
       { count: 230, name: Enemies.Bear },
       { count: 2500, name: Enemies.Centaur },
       { count: 3600, name: Enemies.Druid },
@@ -3424,7 +3424,7 @@ export const EnemySquads = [
     squad: [
       { count: 480, name: Enemies.LifeDragon },
       { count: 880, name: Enemies.Ent },
-      { count: 31900, name: Enemies.CitadelWalls },
+      // { count: 31900, name: Enemies.CitadelWalls },
       { count: 2400, name: Enemies.Bear },
       { count: 10000, name: Enemies.Centaur },
       { count: 4300, name: Enemies.PegasusRider },
@@ -3437,13 +3437,38 @@ export const EnemySquads = [
     squad: [
       { count: 2300, name: Enemies.LifeDragon },
       { count: 4300, name: Enemies.Ent },
-      { count: 135000, name: Enemies.CitadelWalls },
+      // { count: 135000, name: Enemies.CitadelWalls },
       { count: 12000, name: Enemies.Bear },
       { count: 49000, name: Enemies.Centaur },
       { count: 21000, name: Enemies.PegasusRider },
     ],
   },
-
+  {
+    level: 20,
+    category: "Citadel",
+    name: "Cursed Citadel",
+    squad: [
+      { count: 10, name: Enemies.CursedDragon },
+      // { count: 9200, name: Enemies.CitadelWalls },
+      { count: 80, name: Enemies.GiantZombie },
+      { count: 54, name: Enemies.BullRider },
+      { count: 650, name: Enemies.DeathRider },
+      { count: 2900, name: Enemies.Werewolf },
+    ],
+  },
+  {
+    level: 25,
+    category: "Citadel",
+    name: "Cursed Citadel",
+    squad: [
+      { count: 120, name: Enemies.CursedDragon },
+      { count: 205, name: Enemies.CursedDendroid },
+      // { count: 77500, name: Enemies.CitadelWalls },
+      { count: 540, name: Enemies.GiantZombie },
+      { count: 400, name: Enemies.BullRider },
+      { count: 2750, name: Enemies.DeathRider },
+    ],
+  },
   {
     level: 50,
     category: "Event",
