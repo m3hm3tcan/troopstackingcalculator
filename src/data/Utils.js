@@ -60,7 +60,11 @@ export const flattenTroops = (troopsObj, enemyUnitTypes, enemySquad) => {
   return troopsList.sort((a, b) => b.score - a.score);
 };
 
-export const flattenGuardsmanTroops = (troopsObj, enemyUnitTypes, enemySquad) => {
+export const flattenGuardsmanTroops = (
+  troopsObj,
+  enemyUnitTypes,
+  enemySquad
+) => {
   return troopsObj
     .map((merc) => {
       const bonus = computeMaxBonus(merc.strengthAgainst, enemyUnitTypes);
