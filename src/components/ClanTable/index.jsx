@@ -12,7 +12,10 @@ function ClanTable({ memberList = [], chestInfo = [] }) {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Level definitions
   const levelHeaders = [5, 10, 15, 20, 25, 30, 35];
+
+  // Category definitions
   const categoryHeaders = [
     "Citadel",
     "Arena",
@@ -23,6 +26,7 @@ function ClanTable({ memberList = [], chestInfo = [] }) {
     "Other Events",
   ];
 
+  // ----------- 🔍 FIXED: parseChestInfo now works for "string" ----------
   const parseChestInfo = (chestText = "") => {
     const text = chestText.toLowerCase().trim();
     const levelMatch = text.match(/level\s*(\d+)/);
@@ -41,17 +45,20 @@ function ClanTable({ memberList = [], chestInfo = [] }) {
     return { level, category };
   };
 
+  // ----------- 🧠 Name fuzzy-match fix ----------
   const normalizeName = (name) => {
     if (!name) return "Unknown";
+
     const memberNames = memberList.map((m) => m.name);
     const matches = stringSimilarity.findBestMatch(name, memberNames);
-    return matches.bestMatch.rating > 0.7 ? matches.bestMatch.target : name;
+    return matches.bestMatch.rating >= 0.65 ? matches.bestMatch.target : name;
   };
 
+  // ------------------- 📊 MAIN DATA AGGREGATOR -------------------
   const aggregateMembers = (members, chestData) => {
     const aggregated = {};
 
-    // Initialize all members with 0 stats
+    // Create empty rows for all members
     members.forEach((m) => {
       aggregated[m.name] = {
         name: m.name,
@@ -61,39 +68,46 @@ function ClanTable({ memberList = [], chestInfo = [] }) {
       categoryHeaders.forEach((cat) => (aggregated[m.name][cat] = 0));
     });
 
+    // Process ALL chest entries
     chestData.forEach((item) => {
       const rawName = item.from || "Unknown";
-      const name = normalizeName(rawName);
+      const normalizedName = normalizeName(rawName);
 
-      if (!aggregated[name]) return;
+      if (!aggregated[normalizedName]) return;
 
-      const { level, category } = parseChestInfo(item.source || item.chest);
-      const m = aggregated[name];
+      const sources = Array.isArray(item.source) ? item.source : [];
 
-      if (levelHeaders.includes(level)) {
-        m[`level${level}`]++;
-        m.totalPoints++;
-      }
+      sources.forEach((entry) => {
+        const { level, category } = parseChestInfo(entry);
+        const row = aggregated[normalizedName];
 
-      if (categoryHeaders.includes(category)) {
-        m[category]++;
-        m.totalPoints++;
-      }
+        if (levelHeaders.includes(level)) {
+          row[`level${level}`]++;
+          row.totalPoints++;
+        }
+
+        if (categoryHeaders.includes(category)) {
+          row[category]++;
+          row.totalPoints++;
+        }
+      });
     });
 
-    // Sort by totalPoints descending
+    // Sort by total points descending
     return Object.values(aggregated).sort(
       (a, b) => b.totalPoints - a.totalPoints
     );
   };
 
   const aggregatedMembers = aggregateMembers(memberList, chestInfo);
+
   const clanTotalChests = aggregatedMembers.reduce(
-    (sum, member) => sum + member.totalPoints,
+    (sum, m) => sum + m.totalPoints,
     0
   );
 
   const uniqueMembers = ["All", ...memberList.map((m) => m.name)];
+
   const displayedMembers =
     selectedMember === "All"
       ? aggregatedMembers
@@ -101,10 +115,31 @@ function ClanTable({ memberList = [], chestInfo = [] }) {
           (m) => m.name.toLowerCase() === selectedMember.toLowerCase()
         );
 
+  const getWeekInfo = () => {
+    if (!chestInfo.length) return null;
+
+    // Take the most recent record
+    const latest = chestInfo[chestInfo.length - 1];
+
+    if (!latest.timestamp) return null;
+
+    const [week, year] = latest.timestamp.split("_");
+    return { week, year };
+  };
+
+  const weekInfo = getWeekInfo();
+
   return (
     <div className="table-wrapper">
       <div className="clan-summary">
-        <h2>Clan Chest Summary</h2>
+        {/* <h2>Clan Chest Summary</h2> */}
+        {weekInfo && (
+          <div className="week-info">
+            <h3>
+              Week {weekInfo.week} - {weekInfo.year}
+            </h3>
+          </div>
+        )}
         <p>
           <strong>Total Clan Chests:</strong> {clanTotalChests}
         </p>
@@ -112,16 +147,13 @@ function ClanTable({ memberList = [], chestInfo = [] }) {
 
       {isMobile && (
         <div className="mobile-filter">
-          <label htmlFor="memberSelect">Select Member:</label>
+          <label>Select Member:</label>
           <select
-            id="memberSelect"
             value={selectedMember}
             onChange={(e) => setSelectedMember(e.target.value)}
           >
             {uniqueMembers.map((member) => (
-              <option key={member} value={member}>
-                {member}
-              </option>
+              <option key={member}>{member}</option>
             ))}
           </select>
         </div>
@@ -130,32 +162,29 @@ function ClanTable({ memberList = [], chestInfo = [] }) {
       <table className="clan-table">
         <thead>
           <tr>
-            <th>Clan Member Name</th>
-            <th>Total Points</th>
+            <th>Member</th>
+            <th>Total Chests</th>
             {levelHeaders.map((lvl) => (
-              <th key={lvl}>Level {lvl}</th>
+              <th key={lvl}>Lvl {lvl}</th>
             ))}
             {categoryHeaders.map((cat) => (
               <th key={cat}>{cat}</th>
             ))}
           </tr>
         </thead>
+
         <tbody>
           {displayedMembers.map((m, i) => (
             <tr key={i}>
-              <td data-label="Clan Member Name">{m.name}</td>
-              <td data-label="Total Points" className="total-point">
-                {m.totalPoints}
-              </td>
+              <td>{m.name}</td>
+              <td className="total-point">{m.totalPoints}</td>
+
               {levelHeaders.map((lvl) => (
-                <td key={lvl} data-label={`Level ${lvl}`}>
-                  {m[`level${lvl}`]}
-                </td>
+                <td key={lvl}>{m[`level${lvl}`]}</td>
               ))}
+
               {categoryHeaders.map((cat) => (
-                <td key={cat} data-label={cat}>
-                  {m[cat]}
-                </td>
+                <td key={cat}>{m[cat]}</td>
               ))}
             </tr>
           ))}

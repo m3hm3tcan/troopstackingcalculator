@@ -8,49 +8,48 @@ const ClanChestInfo = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const API_KEY = import.meta.env.VITE_API_KEY;
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Fetch member list
-        const membersRes = await fetch(
-          "https://chesttrackerdb-1374.restdb.io/rest/MemberTable",
-          {
-            headers: {
-              "Content-Type": "application/json",
-              "x-apikey": import.meta.env.VITE_API_KEY,
-            },
-          }
-        );
-        if (!membersRes.ok) throw new Error("Failed to fetch members");
-        const membersData = await membersRes.json();
-        setMemberList(membersData);
-        console.log(membersData);
+        const headers = {
+          "Content-Type": "application/json",
+          "x-apikey": API_KEY,
+        };
 
-        // Fetch chest info
-        const chestRes = await fetch(
-          "https://chesttrackerdb-1374.restdb.io/rest/chestinfotable",
-          {
-            headers: {
-              "Content-Type": "application/json",
-              "x-apikey": import.meta.env.VITE_API_KEY,
-            },
-          }
-        );
+        // Run both requests in parallel → faster UI
+        const [membersRes, chestRes] = await Promise.all([
+          fetch("https://chesttrackerdb-1374.restdb.io/rest/MemberTable", {
+            headers,
+          }),
+          fetch("https://chesttrackerdb-1374.restdb.io/rest/sbnclan", {
+            headers,
+          }),
+        ]);
+
+        if (!membersRes.ok) throw new Error("Failed to fetch member list");
         if (!chestRes.ok) throw new Error("Failed to fetch chest info");
+
+        const membersData = await membersRes.json();
         const chestData = await chestRes.json();
-        setChestInfo(chestData);
+
+        setMemberList(Array.isArray(membersData) ? membersData : []);
+        setChestInfo(Array.isArray(chestData) ? chestData : []);
       } catch (err) {
-        setError(err.message);
+        setError(err.message || "Unexpected error");
       } finally {
         setLoading(false);
       }
     };
 
     fetchData();
-  }, []);
+  }, [API_KEY]);
 
-  if (loading) return <p className="clan-container loading">Loading...</p>;
-  if (error) return <p className="error">{error}</p>;
+  if (loading)
+    return <p className="clan-container loading">Loading chest data...</p>;
+
+  if (error) return <p className="clan-container error">Error: {error}</p>;
 
   return (
     <div className="clan-container">
