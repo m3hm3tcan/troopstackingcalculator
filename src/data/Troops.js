@@ -201,9 +201,17 @@ export const specialist = {
       "radial-gradient(circle,rgba(255, 217, 136, 1) 0%, rgba(127, 53, 7, 1) 62%)",
       "radial-gradient(circle,rgba(235, 115, 115, 1) 0%, rgba(84, 0, 0, 1) 62%)",
       "radial-gradient(circle,rgba(255, 234, 0, 1) 0%, rgba(102, 95, 0, 1) 62%)",
+      "radial-gradient(circle,rgba(155, 155, 155, 1) 0%, rgba(79, 130, 140, 1) 100%)",
+      "radial-gradient(circle,rgba(117, 140, 107, 1) 0%, rgba(30, 94, 0, 1) 100%)",
     ],
     unitType: "Flying",
-    units: ["Vulture V", "Vulture VI", "Vulture VII"],
+    units: [
+      "Vulture V",
+      "Vulture VI",
+      "Vulture VII",
+      "Royal Lion I",
+      "Royal Lion II",
+    ],
     strength: 520,
     strengthAgainst: [
       { name: "Mounted", strengthPercentage: 197 },

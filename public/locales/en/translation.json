@@ -1,6 +1,6 @@
 {
   "title": "Hunililer - Attack Calculator",
-  "subtitle": "Brought to life by the power of Ceo, Ejderya Uzra, Felharon, Turk, and the Last Ottoman. With special thanks to Masho and Rol 1966. Developed by Tarkan and the Wolf.",
+  "subtitle": "Brought to life by the power of determination. Developed by Tarkan and the Wolf.",
   "description": "Plan your attacks wisely with real-time troop stats",
   "info": "Info",
   "select_enemy_squad": "Select Enemy Squad",
@@ -136,6 +136,8 @@
   "Vulture V": "Vulture V",
   "Vulture VI": "Vulture VI",
   "Vulture VII": "Vulture VII",
+  "Royal Lion I": "Royal Lion I",
+  "Royal Lion II": "Royal Lion II",
 
   "Catapult I": "Catapult I",
   "Catapult II": "Catapult II",

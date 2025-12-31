@@ -382,3 +382,19 @@ small {
   gap: 5px;
   align-items: center;
 }
+
+.unit-right {
+  display: flex;
+  flex-direction: column; /* image top, name bottom */
+  align-items: center; /* center horizontally */
+  justify-content: center; /* center vertically as a group */
+}
+
+.unit-image {
+  width: 60px !important;
+  height: 60px !important;
+}
+
+.image-name {
+  padding-left: 15px;
+}

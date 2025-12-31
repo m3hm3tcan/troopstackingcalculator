@@ -761,7 +761,15 @@ function Home() {
                                 checked={selectedTroops.includes(unit)}
                                 onChange={() => toggleTroop(unit)}
                               />
-                              {t(unit)}
+
+                              <img
+                                src={`/troops/${unit}.png`}
+                                alt="img"
+                                className="unit-image"
+                              />
+                              <div className="image-name">
+                                <span>{t(unit)}</span>
+                              </div>
                             </label>
                           ))}
                         </td>
@@ -802,7 +810,14 @@ function Home() {
                                 checked={selectedTroops.includes(unit)}
                                 onChange={() => toggleTroop(unit)}
                               />
-                              {t(unit)}
+                              <img
+                                src={`/troops/${unit}.png`}
+                                alt="img"
+                                className="unit-image"
+                              />
+                              <div className="image-name">
+                                <span>{t(unit)}</span>
+                              </div>
                             </label>
                           ))}
                         </td>
@@ -840,7 +855,14 @@ function Home() {
                                 checked={selectedTroops.includes(unit)}
                                 onChange={() => toggleTroop(unit)}
                               />
-                              {t(unit)}
+                              <img
+                                src={`/troops/${unit}.png`}
+                                alt="img"
+                                className="unit-image"
+                              />
+                              <div className="image-name">
+                                <span>{t(unit)}</span>
+                              </div>
                             </label>
                           ))}
                         </td>
@@ -878,7 +900,14 @@ function Home() {
                                 checked={selectedMonsterTroops.includes(unit)}
                                 onChange={() => toggleMonsterTroop(unit)}
                               />
-                              {t(unit)}
+                              <img
+                                src={`/troops/${unit}.png`}
+                                alt="img"
+                                className="unit-image"
+                              />
+                              <div className="image-name">
+                                <span>{t(unit)}</span>
+                              </div>
                             </label>
                           ))}
                         </td>
