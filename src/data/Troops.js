@@ -52,8 +52,8 @@ export const guardsmen = {
       "Spearman V",
       "Heavy Halberdier VI",
       "Heavy Halberdier VII",
-      "Smiter I",
-      "Smiter II",
+      "Punisher I",
+      "Punisher II",
     ],
     strength: 50,
     strengthAgainst: [
@@ -83,8 +83,8 @@ export const guardsmen = {
       "Rider V",
       "Mounted Knight VI",
       "Mounted Knight VII",
-      "Punisher I",
-      "Punisher II",
+      "Smiter I",
+      "Smiter II",
     ],
     strength: 100,
     strengthAgainst: [
@@ -483,7 +483,7 @@ export const MonstersUnits = [
     color:
       "radial-gradient(circle,rgba(155, 155, 155, 1) 0%, rgba(79, 130, 140, 1) 100%)",
     name: "(I)Kraken I",
-    strength: 290000,
+    strength: 670000,
     strengthAgainst: [
       { name: "Mounted", strengthPercentage: 991 },
       { name: "Beasts", strengthPercentage: 957 },
@@ -496,7 +496,7 @@ export const MonstersUnits = [
     color:
       "radial-gradient(circle,rgba(117, 140, 107, 1) 0%, rgba(30, 94, 0, 1) 100%)",
     name: "(II)Kraken II",
-    strength: 290000,
+    strength: 1210000,
     strengthAgainst: [
       { name: "Mounted", strengthPercentage: 1486 },
       { name: "Beasts", strengthPercentage: 1435 },
@@ -1016,7 +1016,7 @@ export const MercenaryUnits = [
     strengthAgainst: [{ name: "Mounted", strengthPercentage: 500 }],
   },
   {
-    authority: 1,
+    authority: 2,
     unitType: "Mounted",
     category: "Mercenary II",
     color:

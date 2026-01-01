@@ -217,7 +217,7 @@ export const guardsmen = [
     category: "Guardsmen",
     color:
       "radial-gradient(circle,rgba(155, 155, 155, 1) 0%, rgba(79, 130, 140, 1) 100%)",
-    name: "Smiter I",
+    name: "Punisher I",
     strength: 3060,
     strengthAgainst: [
       { name: "Mounted", strengthPercentage: 667 },
@@ -230,7 +230,7 @@ export const guardsmen = [
     category: "Guardsmen",
     color:
       "radial-gradient(circle,rgba(117, 140, 107, 1) 0%, rgba(30, 94, 0, 1) 100%)",
-    name: "Smiter II",
+    name: "Punisher II",
     strength: 5510,
     strengthAgainst: [
       { name: "Mounted", strengthPercentage: 1000 },
@@ -339,7 +339,7 @@ export const guardsmen = [
     category: "Guardsmen",
     color:
       "radial-gradient(circle,rgba(155, 155, 155, 1) 0%, rgba(79, 130, 140, 1) 100%)",
-    name: "Punisher I",
+    name: "Smiter I",
     strength: 6120,
     strengthAgainst: [
       { name: "Ranged", strengthPercentage: 1111 },
@@ -352,7 +352,7 @@ export const guardsmen = [
     category: "Guardsmen",
     color:
       "radial-gradient(circle,rgba(117, 140, 107, 1) 0%, rgba(30, 94, 0, 1) 100%)",
-    name: "Punisher II",
+    name: "Smiter II",
     strength: 11020,
     strengthAgainst: [
       { name: "Ranged", strengthPercentage: 1667 },
@@ -364,7 +364,7 @@ export const guardsmen = [
   //////////////////////FLYING UNITS/////////////////////////
 
   {
-    leadership: 2,
+    leadership: 20,
     unitType: "Flying",
     category: "Guardsmen",
     color:
@@ -377,7 +377,7 @@ export const guardsmen = [
     ],
   },
   {
-    leadership: 2,
+    leadership: 20,
     unitType: "Flying",
     category: "Guardsmen",
     color:
@@ -390,7 +390,7 @@ export const guardsmen = [
     ],
   },
   {
-    leadership: 2,
+    leadership: 20,
     unitType: "Flying",
     category: "Guardsmen",
     color:
@@ -403,7 +403,7 @@ export const guardsmen = [
     ],
   },
   {
-    leadership: 2,
+    leadership: 20,
     unitType: "Flying",
     category: "Guardsmen",
     color:
@@ -416,7 +416,7 @@ export const guardsmen = [
     ],
   },
   {
-    leadership: 2,
+    leadership: 20,
     unitType: "Flying",
     category: "Guardsmen",
     color:
@@ -426,6 +426,328 @@ export const guardsmen = [
     strengthAgainst: [
       { name: "Ranged", strengthPercentage: 1999 },
       { name: "Fortifications", strengthPercentage: 1051 },
+    ],
+  },
+];
+
+////////////////////////////////////////////////////////////////////////////////////
+//////////////////////SPECIALIST///////////////////////////////////////////////////
+
+export const specialist = [
+  /////////////////RANGED////////////////////////////////////////////
+  {
+    leadership: 1,
+    unitType: "Ranged",
+    category: "Specialist",
+    color:
+      "radial-gradient(circle,rgba(255, 217, 136, 1) 0%, rgba(127, 53, 7, 1) 62%)",
+    name: "Deadshot V",
+    strength: 520,
+    strengthAgainst: [
+      { name: "Melee", strengthPercentage: 122 },
+      { name: "Flying", strengthPercentage: 170 },
+    ],
+  },
+  {
+    leadership: 1,
+    unitType: "Ranged",
+    category: "Specialist",
+    color:
+      "radial-gradient(circle,rgba(235, 115, 115, 1) 0%, rgba(84, 0, 0, 1) 62%)",
+    name: "Deadshot VI",
+    strength: 940,
+    strengthAgainst: [
+      { name: "Melee", strengthPercentage: 197 },
+      { name: "Flying", strengthPercentage: 254 },
+    ],
+  },
+  {
+    leadership: 1,
+    unitType: "Ranged",
+    category: "Specialist",
+    color:
+      "radial-gradient(circle,rgba(255, 234, 0, 1) 0%, rgba(102, 95, 0, 1) 62%)",
+    name: "Deadshot VII",
+    strength: 1700,
+    strengthAgainst: [
+      { name: "Melee", strengthPercentage: 296 },
+      { name: "Flying", strengthPercentage: 382 },
+    ],
+  },
+  {
+    leadership: 1,
+    unitType: "Ranged",
+    category: "Specialist",
+    color:
+      "radial-gradient(circle,rgba(255, 234, 0, 1) 0%, rgba(102, 95, 0, 1) 62%)",
+    name: "Legitimist I",
+    strength: 3060,
+    strengthAgainst: [
+      { name: "Melee", strengthPercentage: 444 },
+      { name: "Flying", strengthPercentage: 572 },
+    ],
+  },
+  {
+    leadership: 1,
+    unitType: "Ranged",
+    category: "Specialist",
+    color:
+      "radial-gradient(circle,rgba(255, 234, 0, 1) 0%, rgba(102, 95, 0, 1) 62%)",
+    name: "Legitimist I",
+    strength: 5510,
+    strengthAgainst: [
+      { name: "Melee", strengthPercentage: 667 },
+      { name: "Flying", strengthPercentage: 859 },
+    ],
+  },
+  /////////////////MELEE////////////////////////////////////////////
+  {
+    leadership: 1,
+    unitType: "Melee",
+    category: "Specialist",
+    color:
+      "radial-gradient(circle,rgba(148, 153, 148, 1) 0%, rgba(66, 65, 65, 1) 100%)",
+    name: "Swordsman I",
+    strength: 50,
+    strengthAgainst: [
+      { name: "Mounted", strengthPercentage: 20 },
+      { name: "Beasts", strengthPercentage: 40 },
+    ],
+  },
+  {
+    leadership: 1,
+    unitType: "Melee",
+    category: "Specialist",
+    color:
+      "radial-gradient(circle,rgba(106, 173, 102, 1) 0%, rgba(10, 92, 44, 1) 100%",
+    name: "Swordsman II",
+    strength: 90,
+    strengthAgainst: [
+      { name: "Mounted", strengthPercentage: 29 },
+      { name: "Beasts", strengthPercentage: 60 },
+    ],
+  },
+  {
+    leadership: 1,
+    unitType: "Melee",
+    category: "Specialist",
+    color:
+      "radial-gradient(circle,rgba(0, 212, 255, 1) 0%, rgba(39, 39, 171, 1) 88%, rgba(2, 0, 36, 1) 100%",
+    name: "Swordsman III",
+    strength: 160,
+    strengthAgainst: [
+      { name: "Mounted", strengthPercentage: 44 },
+      { name: "Beasts", strengthPercentage: 90 },
+    ],
+  },
+  {
+    leadership: 1,
+    unitType: "Melee",
+    category: "Specialist",
+    color:
+      "radial-gradient(circle,rgba(191, 171, 237, 1) 0%, rgba(56, 49, 110, 1) 100%)",
+    name: "Swordsman IV",
+    strength: 290,
+    strengthAgainst: [
+      { name: "Mounted", strengthPercentage: 66 },
+      { name: "Beasts", strengthPercentage: 135 },
+    ],
+  },
+  {
+    leadership: 1,
+    unitType: "Melee",
+    category: "Specialist",
+    color:
+      "radial-gradient(circle,rgba(255, 217, 136, 1) 0%, rgba(127, 53, 7, 1) 62%)",
+    name: "Swordsman V",
+    strength: 520,
+    strengthAgainst: [
+      { name: "Mounted", strengthPercentage: 99 },
+      { name: "Beasts", strengthPercentage: 203 },
+    ],
+  },
+  {
+    leadership: 1,
+    unitType: "Melee",
+    category: "Specialist",
+    color:
+      "radial-gradient(circle,rgba(235, 115, 115, 1) 0%, rgba(84, 0, 0, 1) 62%)",
+    name: "Heavy Knight VI",
+    strength: 940,
+    strengthAgainst: [
+      { name: "Mounted", strengthPercentage: 148 },
+      { name: "Beasts", strengthPercentage: 304 },
+    ],
+  },
+  {
+    leadership: 1,
+    unitType: "Melee",
+    category: "Specialist",
+    color:
+      "radial-gradient(circle,rgba(255, 234, 0, 1) 0%, rgba(102, 95, 0, 1) 62%)",
+    name: "Heavy Knight VII",
+    strength: 1700,
+    strengthAgainst: [
+      { name: "Mounted", strengthPercentage: 222 },
+      { name: "Beasts", strengthPercentage: 456 },
+    ],
+  },
+  {
+    leadership: 1,
+    unitType: "Melee",
+    category: "Specialist",
+    color:
+      "radial-gradient(circle,rgba(155, 155, 155, 1) 0%, rgba(79, 130, 140, 1) 100%)",
+    name: "Duelist I",
+    strength: 3060,
+    strengthAgainst: [
+      { name: "Mounted", strengthPercentage: 333 },
+      { name: "Beasts", strengthPercentage: 683 },
+    ],
+  },
+  {
+    leadership: 1,
+    unitType: "Melee",
+    category: "Specialist",
+    color:
+      "radial-gradient(circle,rgba(117, 140, 107, 1) 0%, rgba(30, 94, 0, 1) 100%)",
+    name: "Duelist II",
+    strength: 5510,
+    strengthAgainst: [
+      { name: "Mounted", strengthPercentage: 500 },
+      { name: "Beasts", strengthPercentage: 1025 },
+    ],
+  },
+  //////////////////////////////////////MOUNTED////////////////////////////////////
+  {
+    leadership: 2,
+    unitType: "Mounted",
+    category: "Specialist",
+    color:
+      "radial-gradient(circle,rgba(255, 217, 136, 1) 0%, rgba(127, 53, 7, 1) 62%)",
+    name: "Lion Rider V",
+    strength: 1050,
+    strengthAgainst: [
+      { name: "Ranged", strengthPercentage: 165 },
+      { name: "Fortifications", strengthPercentage: 137 },
+    ],
+  },
+  {
+    leadership: 2,
+    unitType: "Mounted",
+    category: "Specialist",
+    color:
+      "radial-gradient(circle,rgba(235, 115, 115, 1) 0%, rgba(84, 0, 0, 1) 62%)",
+    name: "Lion Rider VI",
+    strength: 1900,
+    strengthAgainst: [
+      { name: "Ranged", strengthPercentage: 247 },
+      { name: "Fortifications", strengthPercentage: 205 },
+    ],
+  },
+  {
+    leadership: 2,
+    unitType: "Mounted",
+    category: "Specialist",
+    color:
+      "radial-gradient(circle,rgba(255, 234, 0, 1) 0%, rgba(102, 95, 0, 1) 62%)",
+    name: "Lion Rider VII",
+    strength: 3400,
+    strengthAgainst: [
+      { name: "Ranged", strengthPercentage: 370 },
+      { name: "Fortifications", strengthPercentage: 308 },
+    ],
+  },
+  {
+    leadership: 2,
+    unitType: "Mounted",
+    category: "Specialist",
+    color:
+      "radial-gradient(circle,rgba(155, 155, 155, 1) 0%, rgba(79, 130, 140, 1) 100%)",
+    name: "Whitemane I",
+    strength: 6120,
+    strengthAgainst: [
+      { name: "Ranged", strengthPercentage: 555 },
+      { name: "Fortifications", strengthPercentage: 461 },
+    ],
+  },
+  {
+    leadership: 2,
+    unitType: "Mounted",
+    category: "Specialist",
+    color:
+      "radial-gradient(circle,rgba(117, 140, 107, 1) 0%, rgba(30, 94, 0, 1) 100%)",
+    name: "Whitemane II",
+    strength: 11020,
+    strengthAgainst: [
+      { name: "Ranged", strengthPercentage: 833 },
+      { name: "Fortifications", strengthPercentage: 692 },
+    ],
+  },
+  ////////////////////////////FLYING///////////////////////////
+  {
+    leadership: 1,
+    unitType: "Flying",
+    category: "Specialist",
+    color:
+      "radial-gradient(circle,rgba(255, 217, 136, 1) 0%, rgba(127, 53, 7, 1) 62%)",
+    name: "Vulture V",
+    strength: 520,
+    strengthAgainst: [
+      { name: "Mounted", strengthPercentage: 197 },
+      { name: "Fortifications", strengthPercentage: 104 },
+    ],
+  },
+  {
+    leadership: 1,
+    unitType: "Flying",
+    category: "Specialist",
+    color:
+      "radial-gradient(circle,rgba(235, 115, 115, 1) 0%, rgba(84, 0, 0, 1) 62%)",
+    name: "Vulture VI",
+    strength: 940,
+    strengthAgainst: [
+      { name: "Mounted", strengthPercentage: 296 },
+      { name: "Fortifications", strengthPercentage: 156 },
+    ],
+  },
+  {
+    leadership: 1,
+    unitType: "Flying",
+    category: "Specialist",
+    color:
+      "radial-gradient(circle,rgba(255, 234, 0, 1) 0%, rgba(102, 95, 0, 1) 62%)",
+    name: "Vulture VII",
+    strength: 1700,
+    strengthAgainst: [
+      { name: "Mounted", strengthPercentage: 444 },
+      { name: "Fortifications", strengthPercentage: 234 },
+    ],
+  },
+  {
+    leadership: 20,
+    unitType: "Flying",
+    category: "Specialist",
+    color:
+      "radial-gradient(circle,rgba(155, 155, 155, 1) 0%, rgba(79, 130, 140, 1) 100%)",
+    name: "Royal Lion I",
+    strength: 61200,
+    strengthAgainst: [
+      { name: "Mounted", strengthPercentage: 667 },
+      { name: "Fortifications", strengthPercentage: 350 },
+    ],
+  },
+  {
+    leadership: 20,
+    unitType: "Flying",
+    category: "Specialist",
+    color:
+      "radial-gradient(circle,rgba(117, 140, 107, 1) 0%, rgba(30, 94, 0, 1) 100%)",
+    name: "Royal Lion II",
+    strength: 110200,
+    strengthAgainst: [
+      { name: "Mounted", strengthPercentage: 1000 },
+      { name: "Fortifications", strengthPercentage: 525 },
     ],
   },
 ];

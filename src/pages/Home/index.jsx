@@ -5,17 +5,18 @@ import "./../../App.css";
 import InfoModal from "./../../components/InfoModal/InfoModal";
 import {
   // guardsmen,
-  specialist,
+  // specialist,
   engineerCorps,
   MonstersUnits,
   MercenaryUnits,
 } from "./../../data/Troops";
 
-import { guardsmen } from "./../../data/transformedTroops";
+import { guardsmen, specialist } from "./../../data/transformedTroops";
 import { Enemies, EnemySquads } from "./../../data/Enemies";
 import {
   flattenMonsters,
   flattenTroops,
+  flattenSpecialistTroops,
   flattenGuardsmanTroops,
   flattenMercenaries,
 } from "./../../data/Utils";
@@ -148,7 +149,7 @@ function Home() {
       ...t,
       mainType: "Guardsmen",
     }));
-    const specs = flattenTroops(
+    const specs = flattenSpecialistTroops(
       specialist,
       enemyUnitTypes,
       selectedSquad.squad
@@ -660,27 +661,6 @@ function Home() {
                   <label className="sub-title sub-title-numbers">
                     <div className="icon-input-section">
                       <img
-                        src="/dominance.svg"
-                        alt="dominance img"
-                        height={20}
-                        width={20}
-                      />
-                      {t("dominance")}:
-                    </div>
-
-                    <input
-                      type="string"
-                      min={1}
-                      value={dominancePopulation}
-                      onChange={(e) =>
-                        setDominancePopulation(Number(e.target.value))
-                      }
-                    />
-                  </label>
-
-                  <label className="sub-title sub-title-numbers">
-                    <div className="icon-input-section">
-                      <img
                         src="/authority.svg"
                         alt="authority img"
                         height={20}
@@ -695,6 +675,26 @@ function Home() {
                       value={authorityPopulation}
                       onChange={(e) =>
                         setAuthorityPopulation(Number(e.target.value))
+                      }
+                    />
+                  </label>
+                  <label className="sub-title sub-title-numbers">
+                    <div className="icon-input-section">
+                      <img
+                        src="/dominance.svg"
+                        alt="dominance img"
+                        height={20}
+                        width={20}
+                      />
+                      {t("dominance")}:
+                    </div>
+
+                    <input
+                      type="string"
+                      min={1}
+                      value={dominancePopulation}
+                      onChange={(e) =>
+                        setDominancePopulation(Number(e.target.value))
                       }
                     />
                   </label>
