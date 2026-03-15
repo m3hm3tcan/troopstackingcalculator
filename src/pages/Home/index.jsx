@@ -1053,6 +1053,7 @@ function Home() {
                 <table className="result-table">
                   <thead>
                     <tr>
+                      <th>{t("troop_unit_img")}</th>
                       <th>{t("monster_unit")}</th>
                       <th>{t("dominance_column")}</th>
                       <th className="count">{t("count")}</th>
@@ -1081,6 +1082,13 @@ function Home() {
                               fontWeight: "bold",
                             }}
                           >
+                            <td>
+                              <img
+                                src={`/troops/${unitName}.png`}
+                                alt="img"
+                                className="unit-image"
+                              />
+                            </td>
                             <td className="image-and-name">
                               <span>{t(unitName)}</span>
                             </td>
