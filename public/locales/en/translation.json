@@ -24,6 +24,7 @@
   "please_select_mercenaries": "Please select mercenaries and enter a valid authority.",
   "main_troop_type": "Type",
   "troop_unit": "Troop Unit",
+  "troop_unit_img": "Picture",
   "leadership_column": "Leadership",
   "count": "Count",
   "total_strength": "Total Strength",

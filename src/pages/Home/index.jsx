@@ -64,34 +64,34 @@ function Home() {
 
   const [showInfoModal, setShowInfoModal] = useState(false);
   const [selectedSquadIndex, setSelectedSquadIndex] = useState(
-    loadFromStorage("selectedSquadIndex", 0)
+    loadFromStorage("selectedSquadIndex", 0),
   );
   const [dominancePopulation, setDominancePopulation] = useState(
-    loadFromStorage("dominancePopulation", 0)
+    loadFromStorage("dominancePopulation", 0),
   );
 
   const [authorityPopulation, setAuthorityPopulation] = useState(
-    loadFromStorage("authorityPopulation", 0)
+    loadFromStorage("authorityPopulation", 0),
   );
 
   const [userPopulation, setUserPopulation] = useState(
-    loadFromStorage("userPopulation", 0)
+    loadFromStorage("userPopulation", 0),
   );
 
   const [selectedTroops, setSelectedTroops] = useState(
-    loadFromStorage("selectedTroops", [])
+    loadFromStorage("selectedTroops", []),
   );
 
   const [selectedMonsterTroops, setSelectedMonsterTroops] = useState(
-    loadFromStorage("selectedMonsterTroops", [])
+    loadFromStorage("selectedMonsterTroops", []),
   );
 
   const [selectedMercenaryTroops, setSelectedMercenaryTroops] = useState(
-    loadFromStorage("selectedMercenaryTroops", [])
+    loadFromStorage("selectedMercenaryTroops", []),
   );
 
   const [enemyStrengthThreshold, setEnemyStrengthThreshold] = useState(
-    loadFromStorage("enemyStrengthThreshold", 30)
+    loadFromStorage("enemyStrengthThreshold", 30),
   ); // User input threshold
 
   useEffect(() => {
@@ -144,7 +144,7 @@ function Home() {
     const guards = flattenGuardsmanTroops(
       guardsmen,
       enemyUnitTypes,
-      selectedSquad.squad
+      selectedSquad.squad,
     ).map((t) => ({
       ...t,
       mainType: "Guardsmen",
@@ -152,7 +152,7 @@ function Home() {
     const specs = flattenSpecialistTroops(
       specialist,
       enemyUnitTypes,
-      selectedSquad.squad
+      selectedSquad.squad,
     ).map((t) => ({
       ...t,
       mainType: "Specialist",
@@ -161,7 +161,7 @@ function Home() {
     const engines = flattenTroops(
       engineerCorps,
       enemyUnitTypes,
-      selectedSquad.squad
+      selectedSquad.squad,
     ).map((t) => ({
       ...t,
       mainType: "Siege Engine",
@@ -170,7 +170,7 @@ function Home() {
     const monsterTroopsUnits = flattenMonsters(
       MonstersUnits,
       enemyUnitTypes,
-      selectedSquad.squad
+      selectedSquad.squad,
     ).map((t) => ({
       ...t,
       mainType: "MonstersUnits",
@@ -179,7 +179,7 @@ function Home() {
     const mercenaryTroopUnits = flattenMercenaries(
       MercenaryUnits,
       enemyUnitTypes,
-      selectedSquad.squad
+      selectedSquad.squad,
     ).map((t) => ({
       ...t,
       mainType: "MercenaryUnits",
@@ -197,7 +197,7 @@ function Home() {
         const enemy = monster || name;
         if (!enemy?.strengthAgainst) return false;
         const sa = enemy.strengthAgainst.find(
-          (sa) => sa.name === troop.unitType
+          (sa) => sa.name === troop.unitType,
         );
         return sa && sa.strengthPercentage >= enemyStrengthThreshold;
       });
@@ -216,7 +216,7 @@ function Home() {
     setSelectedTroops((prev) =>
       prev.includes(unitName)
         ? prev.filter((t) => t !== unitName)
-        : [...prev, unitName]
+        : [...prev, unitName],
     );
   };
 
@@ -224,7 +224,7 @@ function Home() {
     setSelectedMonsterTroops((prev) =>
       prev.includes(unitName)
         ? prev.filter((t) => t !== unitName)
-        : [...prev, unitName]
+        : [...prev, unitName],
     );
   };
 
@@ -232,7 +232,7 @@ function Home() {
     setSelectedMercenaryTroops((prev) =>
       prev.includes(unitName)
         ? prev.filter((t) => t !== unitName)
-        : [...prev, unitName]
+        : [...prev, unitName],
     );
   };
 
@@ -246,7 +246,7 @@ function Home() {
     const totalInverseStrength = troops.reduce(
       (acc, t) =>
         acc + (t.leadership > 0 ? 1 / (t.baseStrength / t.leadership) : 0),
-      0
+      0,
     );
 
     return troops.map((t) => {
@@ -280,7 +280,7 @@ function Home() {
     const targetStrengthPerUnit = results[0].totalStrength;
 
     const troops = allTroops.filter((t) =>
-      selectedMonsterTroops.includes(t.unitName)
+      selectedMonsterTroops.includes(t.unitName),
     );
     if (troops.length === 0) return [];
     // Calculate proposed counts and total dominance cost
@@ -304,7 +304,7 @@ function Home() {
     // Sum total dominance cost
     const totalCost = proposed.reduce(
       (acc, p) => acc + p.totalDominanceCost,
-      0
+      0,
     );
 
     // If we’re over budget, scale down all counts proportionally
@@ -337,7 +337,7 @@ function Home() {
     const targetStrengthPerUnit = results[0].totalStrength;
 
     const troops = allTroops.filter((t) =>
-      selectedMercenaryTroops.includes(t.unitName)
+      selectedMercenaryTroops.includes(t.unitName),
     );
     if (troops.length === 0) return [];
     // Calculate proposed counts and total authority cost
@@ -361,7 +361,7 @@ function Home() {
     // Sum total dominance cost
     const totalCost = proposed.reduce(
       (acc, p) => acc + p.totalDominanceCost,
-      0
+      0,
     );
 
     // If we’re over budget, scale down all counts proportionally
@@ -442,7 +442,7 @@ function Home() {
         .map((unit) => unit.unitName);
       return acc;
     },
-    {}
+    {},
   );
 
   const removeLocalData = () => {
@@ -470,11 +470,11 @@ function Home() {
   const [showManualModal, setShowManualModal] = useState(false);
   // Extract distinct filter values
   const uniqueLevels = [...new Set(EnemySquads.map((s) => s.level))].sort(
-    (a, b) => b - a
+    (a, b) => b - a,
   );
 
   const indexedArray = [...new Set(EnemySquads.map((s) => s.category))].map(
-    (value, index) => [index, value]
+    (value, index) => [index, value],
   );
   indexedArray.sort((a, b) => b[0] - a[0]);
 
@@ -489,21 +489,21 @@ function Home() {
     validateOrDefault(
       loadFromStorage("selectedLevel"),
       uniqueLevels,
-      uniqueLevels[0]
-    )
+      uniqueLevels[0],
+    ),
   );
 
   const [selectedCategory, setSelectedCategory] = useState(() =>
     validateOrDefault(
       loadFromStorage("selectedCategory"),
       uniqueCategories,
-      uniqueCategories[0]
-    )
+      uniqueCategories[0],
+    ),
   );
 
   const [availableNames, setAvailableNames] = useState([]);
   const [selectedName, setSelectedName] = useState(
-    () => loadFromStorage("selectedName") ?? ""
+    () => loadFromStorage("selectedName") ?? "",
   );
 
   // Persist selections to storage
@@ -522,7 +522,7 @@ function Home() {
   // Update names when level/category changes
   useEffect(() => {
     const filteredSquads = EnemySquads.filter(
-      (s) => s.level === selectedLevel && s.category === selectedCategory
+      (s) => s.level === selectedLevel && s.category === selectedCategory,
     );
     const names = filteredSquads.map((s) => s.name);
     setAvailableNames(names);
@@ -539,7 +539,7 @@ function Home() {
       (s) =>
         s.level === selectedLevel &&
         s.category === selectedCategory &&
-        s.name === selectedName
+        s.name === selectedName,
     );
     setSelectedSquadIndex(index !== -1 ? index : null);
 
@@ -991,6 +991,7 @@ function Home() {
                   <thead>
                     <tr>
                       <th>{t("main_troop_type")}</th>
+                      <th>{t("troop_unit_img")}</th>
                       <th>{t("troop_unit")}</th>
                       <th>{t("leadership_column")}</th>
                       <th className="count">{t("count")}</th>
@@ -1021,6 +1022,13 @@ function Home() {
                             }}
                           >
                             <td>{t(mainType)}</td>
+                            <td>
+                              <img
+                                src={`/troops/${unitName}.png`}
+                                alt="img"
+                                className="unit-image"
+                              />
+                            </td>
                             <td className="image-and-name">
                               <span>{t(unitName)}</span>
                             </td>
@@ -1030,7 +1038,7 @@ function Home() {
                               {totalStrength.toFixed(0)}
                             </td>
                           </tr>
-                        )
+                        ),
                       )}
                   </tbody>
                 </table>
@@ -1082,7 +1090,7 @@ function Home() {
                               {totalStrength.toFixed(0)}
                             </td>
                           </tr>
-                        )
+                        ),
                       )}
                   </tbody>
                 </table>
@@ -1134,7 +1142,7 @@ function Home() {
                               {totalStrength.toFixed(0)}
                             </td>
                           </tr>
-                        )
+                        ),
                       )}
                   </tbody>
                 </table>
