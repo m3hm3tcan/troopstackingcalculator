@@ -990,12 +990,12 @@ function Home() {
                 <table className="result-table">
                   <thead>
                     <tr>
-                      <th>{t("main_troop_type")}</th>
+                      {/* <th>{t("main_troop_type")}</th> */}
                       <th>{t("troop_unit_img")}</th>
                       <th>{t("troop_unit")}</th>
-                      <th>{t("leadership_column")}</th>
+                      {/* <th>{t("leadership_column")}</th> */}
                       <th className="count">{t("count")}</th>
-                      <th className="total-strength">{t("total_strength")}</th>
+                      {/* <th className="total-strength">{t("total_strength")}</th> */}
                     </tr>
                   </thead>
                   <tbody>
@@ -1006,12 +1006,12 @@ function Home() {
                       })
                       .map(
                         ({
-                          mainType,
+                          // mainType,
                           unitName,
                           unitColor,
                           count,
-                          totalStrength,
-                          leadership,
+                          // totalStrength,
+                          // leadership,
                         }) => (
                           <tr
                             key={unitName}
@@ -1021,22 +1021,22 @@ function Home() {
                               fontWeight: "bold",
                             }}
                           >
-                            <td>{t(mainType)}</td>
-                            <td>
+                            {/* <td>{t(mainType)}</td> */}
+                            <td className="image-wrapper">
                               <img
                                 src={`/troops/${unitName}.png`}
                                 alt="img"
-                                className="unit-image"
+                                className="unit-image image-zoom"
                               />
                             </td>
                             <td className="image-and-name">
                               <span>{t(unitName)}</span>
                             </td>
-                            <td className="count">{leadership}</td>
+                            {/* <td className="count">{leadership}</td> */}
                             <td className="count">{count}</td>
-                            <td className="total-strength">
+                            {/* <td className="total-strength">
                               {totalStrength.toFixed(0)}
-                            </td>
+                            </td> */}
                           </tr>
                         ),
                       )}
@@ -1055,9 +1055,9 @@ function Home() {
                     <tr>
                       <th>{t("troop_unit_img")}</th>
                       <th>{t("monster_unit")}</th>
-                      <th>{t("dominance_column")}</th>
+                      {/* <th>{t("dominance_column")}</th> */}
                       <th className="count">{t("count")}</th>
-                      <th className="total-strength">{t("total_strength")}</th>
+                      {/* <th className="total-strength">{t("total_strength")}</th> */}
                     </tr>
                   </thead>
                   <tbody>
@@ -1070,8 +1070,8 @@ function Home() {
                         ({
                           unitName,
                           count,
-                          totalStrength,
-                          leadership,
+                          // totalStrength,
+                          // leadership,
                           unitColor,
                         }) => (
                           <tr
@@ -1082,21 +1082,21 @@ function Home() {
                               fontWeight: "bold",
                             }}
                           >
-                            <td>
+                            <td className="image-wrapper">
                               <img
                                 src={`/troops/${unitName}.png`}
                                 alt="img"
-                                className="unit-image"
+                                className="unit-image image-zoom-monster"
                               />
                             </td>
                             <td className="image-and-name">
                               <span>{t(unitName)}</span>
                             </td>
-                            <td className="count">{leadership}</td>
+                            {/* <td className="count">{leadership}</td> */}
                             <td className="count">{count}</td>
-                            <td className="total-strength">
+                            {/* <td className="total-strength">
                               {totalStrength.toFixed(0)}
-                            </td>
+                            </td> */}
                           </tr>
                         ),
                       )}
@@ -1114,9 +1114,9 @@ function Home() {
                   <thead>
                     <tr>
                       <th>{t("mercenary_unit")}</th>
-                      <th>{t("authority_column")}</th>
+                      {/* <th>{t("authority_column")}</th> */}
                       <th className="count">{t("count")}</th>
-                      <th className="total-strength">{t("total_strength")}</th>
+                      {/* <th className="total-strength">{t("total_strength")}</th> */}
                     </tr>
                   </thead>
                   <tbody>
@@ -1129,8 +1129,8 @@ function Home() {
                         ({
                           unitName,
                           count,
-                          totalStrength,
-                          leadership,
+                          // totalStrength,
+                          // leadership,
                           unitColor,
                         }) => (
                           <tr
@@ -1144,11 +1144,11 @@ function Home() {
                             <td className="image-and-name">
                               <span>{t(unitName)}</span>
                             </td>
-                            <td className="count">{leadership}</td>
+                            {/* <td className="count">{leadership}</td> */}
                             <td className="count">{count}</td>
-                            <td className="total-strength">
+                            {/* <td className="total-strength">
                               {totalStrength.toFixed(0)}
-                            </td>
+                            </td> */}
                           </tr>
                         ),
                       )}

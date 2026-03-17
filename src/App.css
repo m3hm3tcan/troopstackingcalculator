@@ -94,7 +94,9 @@ button,
   border-radius: 4px;
   background-color: white;
   color: black;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
 button:focus-visible {
@@ -397,4 +399,19 @@ small {
 
 .image-name {
   padding-left: 15px;
+}
+
+.image-wrapper {
+  overflow: hidden; /* taşmayı engeller */
+}
+
+.image-zoom {
+  /* object-fit: cover; */
+  transform: scale(1.75); /* zoom */
+  transform-origin: left top; /* zoom başlangıç noktası */
+}
+
+.image-zoom-monster {
+  transform: scale(1.35); /* zoom */
+  transform-origin: left top; /* zoom başlangıç noktası */
 }
