@@ -559,6 +559,9 @@ function Home() {
       if (selectedName === "Ragnarök - Jörmungandr") {
         setEnemyStrengthThreshold(75);
       }
+      if (selectedName === "Ragnarök - Fenrir") {
+        setEnemyStrengthThreshold(60);
+      }
       if (selectedName === "Doomsday") {
         setEnemyStrengthThreshold(75);
       }

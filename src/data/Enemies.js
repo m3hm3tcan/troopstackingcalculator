@@ -632,6 +632,31 @@ export const Enemies = {
       { name: "Mounted", strengthPercentage: 100 },
     ],
   },
+
+  DarkElf: {
+    name: "Dark Elf",
+    unitType: "Flying",
+    strength: 70000,
+    strengthAgainst: [{ name: "Melee", strengthPercentage: 80 }],
+  },
+  Valkyrie: {
+    name: "Valkyrie",
+    unitType: "Mounted",
+    strength: 57000,
+    strengthAgainst: [{ name: "Ranged", strengthPercentage: 60 }],
+  },
+  Fenrir: {
+    name: "Fenrir",
+    unitType: "Melee",
+    strength: 70000,
+    strengthAgainst: [{ name: "Mounted", strengthPercentage: 45 }],
+  },
+  DraugMage: {
+    name: "Draug Mage",
+    unitType: "Ranged",
+    strength: 720,
+    strengthAgainst: [{ name: "Flying", strengthPercentage: 50 }],
+  },
 };
 
 // Example EnemySquads data simplified (replace with your full data)
@@ -3223,6 +3248,17 @@ export const EnemySquads = [
       { count: 5000000, name: Enemies.Ifrit },
       { count: 4000000, name: Enemies.FirewormRider },
       { count: 2500000, name: Enemies.FireHydra },
+    ],
+  },
+  {
+    level: 50,
+    category: "Event",
+    name: "Ragnarök - Fenrir",
+    squad: [
+      { count: 17000000, name: Enemies.DarkElf },
+      { count: 18500000, name: Enemies.Valkyrie },
+      { count: 15000000, name: Enemies.Fenrir },
+      { count: 1500000000, name: Enemies.DraugMage },
     ],
   },
   {
