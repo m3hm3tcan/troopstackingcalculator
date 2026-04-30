@@ -33,6 +33,7 @@
   "mercenary_unit": "Paralı Askerler",
   "authority_column": "Otorite",
   "clan": "Klan Sandık Bilgisi",
+  "kriptoInfo": "Kripto Bilgisi",
 
   "squadOption": "Lvl {{level}} - {{category}} {{name}} {{sq}}",
   "categories": {
@@ -333,5 +334,68 @@
         "text": "Sağ üst köşedeki dil menüsünden dili tekrar seçin."
       }
     ]
+  },
+  "mouseAutomation": {
+    "title": "Mouse Automation Pro",
+    "subtitle": "Gelişmiş Mouse Otomasyon ve Kayıt Aracı",
+    "download": "Şimdi İndir",
+
+    "aboutTitle": "Program Nedir?",
+    "aboutText": "Mouse Automation Pro, kullanıcıların fare hareketlerini ve tıklamalarını kaydedip daha sonra otomatik olarak tekrar oynatmasını sağlayan gelişmiş bir masaüstü otomasyon aracıdır. Program şu anda yalnızca Türkçe ve İngilizce desteklemektedir.",
+
+    "featuresTitle": "Temel Özellikler",
+    "features": {
+      "recording": "🎥 Mouse hareketleri ve tıklama kaydı",
+      "playback": "▶ Automation playback sistemi",
+      "randomness": "🎲 İnsan benzeri rastgele gecikme desteği",
+      "repeat": "🔁 Repeat / döngü sistemi",
+      "hotkey": "⛔ Global durdurma tuşu (D)",
+      "overlay": "📊 Canlı ilerleme overlay ekranı",
+      "speedup": "⚡ Hızlandırma ikonu algılama"
+    },
+
+    "usageTitle": "Nasıl Kullanılır?",
+    "steps": {
+      "1": {
+        "title": "1. Kayıt Başlat",
+        "text": "🎥 Kayıt Başlat butonuna tıklayın."
+      },
+      "2": {
+        "title": "2. Hareketleri Yapın",
+        "text": "Kaydetmek istediğiniz mouse hareketlerini ve tıklamaları yapın."
+      },
+      "3": {
+        "title": "3. Kaydı Bitirin",
+        "text": "Overlay üzerindeki 💾 Kaydet butonuyla kaydı tamamlayın."
+      },
+      "4": {
+        "title": "4. Oynatın",
+        "text": "Otomasyonu seçip ▶ Oynat butonuna basın."
+      }
+    },
+
+    "settingsTitle": "Ayarlar",
+    "settings": {
+      "delay": {
+        "title": "Delay",
+        "text": "Her tıklama arasındaki temel bekleme süresi."
+      },
+      "random": {
+        "title": "Random",
+        "text": "Delay üzerine rastgele varyasyon ekler. Daha insansı davranış sağlar."
+      },
+      "repeat": {
+        "title": "Repeat",
+        "text": "Otomasyonun kaç kez tekrarlanacağını belirler. Maksimum 30. Sonraki döngü öncesi hızlandırma ikonunun kaybolmasını bekler."
+      }
+    },
+
+    "hotkeysTitle": "Klavye Kısayolları",
+    "hotkeys": {
+      "stop": "Aktif otomasyonu anında durdurur."
+    },
+
+    "warningTitle": "Önemli Uyarı",
+    "warningText": "Bu araç otomasyon amaçlı geliştirilmiştir. Bazı oyunlar ve platformlar otomasyon kullanımını yasaklayabilir. Kullanım sorumluluğu tamamen kullanıcıya aittir."
   }
 }

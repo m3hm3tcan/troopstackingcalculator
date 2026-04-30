@@ -34,6 +34,7 @@
   "mercenary_unit": "Mercenaries",
   "authority_column": "Authority",
   "clan": "Clan Chest Info",
+  "kriptoInfo": "Crypto Info",
 
   "squadOption": "Lvl {{level}} - {{category}} {{name}} {{sq}}",
   "categories": {
@@ -334,5 +335,68 @@
         "text": "Use the language dropdown in the top-right navigation bar."
       }
     ]
+  },
+  "mouseAutomation": {
+    "title": "Mouse Automation Pro",
+    "subtitle": "Advanced Mouse Automation & Recording Tool",
+    "download": "Download Now",
+
+    "aboutTitle": "What is this Program?",
+    "aboutText": "Mouse Automation Pro is an advanced desktop automation tool that records mouse movements and clicks, then replays them automatically. The program currently supports English and Turkish only.",
+
+    "featuresTitle": "Core Features",
+    "features": {
+      "recording": "🎥 Mouse movement and click recording",
+      "playback": "▶ Automation playback system",
+      "randomness": "🎲 Human-like random delay support",
+      "repeat": "🔁 Repeat / loop system",
+      "hotkey": "⛔ Global stop hotkey (D)",
+      "overlay": "📊 Live progress overlay",
+      "speedup": "⚡ Speed-up icon detection"
+    },
+
+    "usageTitle": "How to Use",
+    "steps": {
+      "1": {
+        "title": "1. Start Recording",
+        "text": "Click the '🎥 Start Recording' button."
+      },
+      "2": {
+        "title": "2. Perform Actions",
+        "text": "Move your mouse and perform clicks to record."
+      },
+      "3": {
+        "title": "3. Save Recording",
+        "text": "Use the overlay '💾 Save' button to finish recording."
+      },
+      "4": {
+        "title": "4. Play Automation",
+        "text": "Select your automation and click '▶ Play'."
+      }
+    },
+
+    "settingsTitle": "Settings",
+    "settings": {
+      "delay": {
+        "title": "Delay",
+        "text": "Base wait time between each click."
+      },
+      "random": {
+        "title": "Random",
+        "text": "Adds random variation to delay for human-like behavior."
+      },
+      "repeat": {
+        "title": "Repeat",
+        "text": "Determines how many times automation repeats. Max 30. Waits for speed-up icon to disappear before next loop."
+      }
+    },
+
+    "hotkeysTitle": "Keyboard Shortcuts",
+    "hotkeys": {
+      "stop": "Stops active automation instantly."
+    },
+
+    "warningTitle": "Important Warning",
+    "warningText": "This tool is designed for automation purposes. Some games and platforms may prohibit automation usage. Usage responsibility belongs entirely to the user."
   }
 }

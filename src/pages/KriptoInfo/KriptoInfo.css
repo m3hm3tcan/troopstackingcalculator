@@ -1,0 +1,99 @@
+.kripto-info {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px 14px;
+  color: #f1f1f1;
+  font-family: Arial, sans-serif;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.hero h1 {
+  font-size: 30px;
+  margin-bottom: 4px;
+  color: #4da3ff;
+}
+
+.hero p {
+  font-size: 14px;
+  color: #aaa;
+}
+
+section {
+  margin-bottom: 18px;
+  background: #151515;
+  padding: 16px;
+  border-radius: 10px;
+  border: 1px solid #2a2a2a;
+}
+
+section h2 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #4da3ff;
+}
+
+section p,
+section li {
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+ul {
+  padding-left: 18px;
+  margin: 0;
+}
+
+li {
+  margin-bottom: 6px;
+}
+
+.step {
+  margin-bottom: 10px;
+  padding: 6 12px;
+  background: #1c1c1c;
+  border-radius: 6px;
+}
+
+.step h3 {
+  margin-bottom: 4px;
+  font-size: 15px;
+  color: #fff;
+}
+
+.setting-card {
+  margin-bottom: 10px;
+  padding: 6px 12px;
+  background: #1c1c1c;
+  border-left: 3px solid #4da3ff;
+  border-radius: 6px;
+}
+
+.setting-card h3 {
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+.hotkey {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hotkey span {
+  background: #4da3ff;
+  color: black;
+  font-weight: bold;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.warning {
+  color: #ff7b7b;
+  font-weight: bold;
+  font-size: 14px;
+}

@@ -34,9 +34,16 @@ const NavBar = () => {
       </nav>
       <div>
         <div className="navbar-bottom">
-          <Link to="/clan" className="nav-link">
+          {/* <Link to="/clan" className="nav-link">
             {t("clan")}
-          </Link>
+          </Link> */}
+          {/* <a href="/taytay/TayTayMouse.zip" className="nav-link">
+            {t("Crypto Mouse")}
+          </a> */}
+          \
+          {/* <Link to="/kriptoInfo" className="nav-link">
+            {t("kriptoInfo")}
+          </Link> */}
         </div>
       </div>
     </>
