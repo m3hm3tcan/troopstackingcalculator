@@ -571,6 +571,9 @@ function Home() {
       if (selectedName === "Trial of the Chimera") {
         setEnemyStrengthThreshold(65);
       }
+      if (selectedName === "Armageddon") {
+        setEnemyStrengthThreshold(70);
+      }
     }
 
     if (selectedLevel < 50) {
