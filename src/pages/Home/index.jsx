@@ -1001,7 +1001,7 @@ function Home() {
                       <th>{t("troop_unit")}</th>
                       {/* <th>{t("leadership_column")}</th> */}
                       <th className="count">{t("count")}</th>
-                      {/* <th className="total-strength">{t("total_strength")}</th> */}
+                      <th className="total-strength">{t("total_strength")}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -1016,7 +1016,7 @@ function Home() {
                           unitName,
                           unitColor,
                           count,
-                          // totalStrength,
+                          totalStrength,
                           // leadership,
                         }) => (
                           <tr
@@ -1040,9 +1040,9 @@ function Home() {
                             </td>
                             {/* <td className="count">{leadership}</td> */}
                             <td className="count">{count}</td>
-                            {/* <td className="total-strength">
+                            <td className="total-strength">
                               {totalStrength.toFixed(0)}
-                            </td> */}
+                            </td>
                           </tr>
                         ),
                       )}
@@ -1063,7 +1063,7 @@ function Home() {
                       <th>{t("monster_unit")}</th>
                       {/* <th>{t("dominance_column")}</th> */}
                       <th className="count">{t("count")}</th>
-                      {/* <th className="total-strength">{t("total_strength")}</th> */}
+                      <th className="total-strength">{t("total_strength")}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -1076,7 +1076,7 @@ function Home() {
                         ({
                           unitName,
                           count,
-                          // totalStrength,
+                          totalStrength,
                           // leadership,
                           unitColor,
                         }) => (
@@ -1100,9 +1100,9 @@ function Home() {
                             </td>
                             {/* <td className="count">{leadership}</td> */}
                             <td className="count">{count}</td>
-                            {/* <td className="total-strength">
+                            <td className="total-strength">
                               {totalStrength.toFixed(0)}
-                            </td> */}
+                            </td>
                           </tr>
                         ),
                       )}
@@ -1122,7 +1122,7 @@ function Home() {
                       <th>{t("mercenary_unit")}</th>
                       {/* <th>{t("authority_column")}</th> */}
                       <th className="count">{t("count")}</th>
-                      {/* <th className="total-strength">{t("total_strength")}</th> */}
+                      <th className="total-strength">{t("total_strength")}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -1135,7 +1135,7 @@ function Home() {
                         ({
                           unitName,
                           count,
-                          // totalStrength,
+                          totalStrength,
                           // leadership,
                           unitColor,
                         }) => (
@@ -1152,9 +1152,9 @@ function Home() {
                             </td>
                             {/* <td className="count">{leadership}</td> */}
                             <td className="count">{count}</td>
-                            {/* <td className="total-strength">
+                            <td className="total-strength">
                               {totalStrength.toFixed(0)}
-                            </td> */}
+                            </td>
                           </tr>
                         ),
                       )}

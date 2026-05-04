@@ -389,45 +389,45 @@ export const guardsmen = [
       { name: "Fortifications", strengthPercentage: 311 },
     ],
   },
-  {
-    leadership: 20,
-    unitType: "Flying",
-    category: "Guardsmen",
-    color:
-      "radial-gradient(circle,rgba(255, 234, 0, 1) 0%, rgba(102, 95, 0, 1) 62%)",
-    name: "Battle Griffin VII",
-    strength: 34000,
-    strengthAgainst: [
-      { name: "Ranged", strengthPercentage: 888 },
-      { name: "Fortifications", strengthPercentage: 467 },
-    ],
-  },
-  {
-    leadership: 20,
-    unitType: "Flying",
-    category: "Guardsmen",
-    color:
-      "radial-gradient(circle,rgba(155, 155, 155, 1) 0%, rgba(79, 130, 140, 1) 100%)",
-    name: "Corax I",
-    strength: 61200,
-    strengthAgainst: [
-      { name: "Ranged", strengthPercentage: 1333 },
-      { name: "Fortifications", strengthPercentage: 701 },
-    ],
-  },
-  {
-    leadership: 20,
-    unitType: "Flying",
-    category: "Guardsmen",
-    color:
-      "radial-gradient(circle,rgba(117, 140, 107, 1) 0%, rgba(30, 94, 0, 1) 100%)",
-    name: "Corax II",
-    strength: 110200,
-    strengthAgainst: [
-      { name: "Ranged", strengthPercentage: 1999 },
-      { name: "Fortifications", strengthPercentage: 1051 },
-    ],
-  },
+    {
+      leadership: 20,
+      unitType: "Flying",
+      category: "Guardsmen",
+      color:
+        "radial-gradient(circle,rgba(255, 234, 0, 1) 0%, rgba(102, 95, 0, 1) 62%)",
+      name: "Battle Griffin VII",
+      strength: 34000,
+      strengthAgainst: [
+        { name: "Ranged", strengthPercentage: 888 },
+        { name: "Fortifications", strengthPercentage: 467 },
+      ],
+    },
+    {
+      leadership: 20,
+      unitType: "Flying",
+      category: "Guardsmen",
+      color:
+        "radial-gradient(circle,rgba(155, 155, 155, 1) 0%, rgba(79, 130, 140, 1) 100%)",
+      name: "Corax I",
+      strength: 61200,
+      strengthAgainst: [
+        { name: "Ranged", strengthPercentage: 1333 },
+        { name: "Fortifications", strengthPercentage: 701 },
+      ],
+    },
+    {
+      leadership: 20,
+      unitType: "Flying",
+      category: "Guardsmen",
+      color:
+        "radial-gradient(circle,rgba(117, 140, 107, 1) 0%, rgba(30, 94, 0, 1) 100%)",
+      name: "Corax II",
+      strength: 110200,
+      strengthAgainst: [
+        { name: "Ranged", strengthPercentage: 1999 },
+        { name: "Fortifications", strengthPercentage: 1051 },
+      ],
+    },
 ];
 
 ////////////////////////////////////////////////////////////////////////////////////
