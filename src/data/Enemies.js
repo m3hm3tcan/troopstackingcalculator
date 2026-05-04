@@ -4272,6 +4272,17 @@ export const EnemySquads = [
       { count: 170000000, name: Enemies.SatyrII },
     ],
   },
+  {
+    level: 50,
+    category: "Event",
+    name: "Armageddon",
+    squad: [
+      { count: 12000000, name: Enemies.FireHydra },
+      { count: 28000000, name: Enemies.Ifrit },
+      { count: 25000000, name: Enemies.FirewormRider },
+      { count: 180000000, name: Enemies.Overseer },
+    ],
+  },
 ];
 
 //epic ates mangasi...lvl50...
