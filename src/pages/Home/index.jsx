@@ -284,10 +284,18 @@ function Home() {
         }
       }
 
+      const originalCount = Math.floor(
+        (userPopulation * proportion) / t.leadership,
+      );
+
+      const originalTotalStrength = originalCount * t.baseStrength;
+
       return {
         unitName: t.unitName,
         unitColor: t.unitColor,
         unitStrength: t.baseStrength,
+        originalCount,
+        originalTotalStrength,
         count,
         totalStrength: count * t.baseStrength,
         leadership: t.leadership,
@@ -306,7 +314,8 @@ function Home() {
     }
 
     // Get target totalStrength per unit from human results
-    const targetStrengthPerUnit = results[0].totalStrength;
+    // const targetStrengthPerUnit = results[0].totalStrength;
+    const targetStrengthPerUnit = results[0].originalTotalStrength || 0;
 
     const troops = allTroops.filter((t) =>
       selectedMonsterTroops.includes(t.unitName),
@@ -314,7 +323,14 @@ function Home() {
     if (troops.length === 0) return [];
     // Calculate proposed counts and total dominance cost
     const proposed = troops.map((t) => {
-      const count = Math.floor(targetStrengthPerUnit / t.baseStrength);
+      // const count = Math.floor(targetStrengthPerUnit / t.baseStrength);
+      let count = Math.floor(targetStrengthPerUnit / t.baseStrength);
+
+      // Specialist boost varsa monster azalt
+      if (troopBalance > 0) {
+        count = Math.floor(count * (1 - troopBalance / 100));
+      }
+
       const totalDominanceCost = count * t.leadership;
       const unitStrength = t.baseStrength;
 
@@ -345,6 +361,7 @@ function Home() {
           ...p,
           count: scaledCount,
           totalStrength: scaledCount * (p.totalStrength / p.count), // baseStrength * count
+          // totalStrength: scaledCount * p.unitStrength,
         };
       });
     }
@@ -363,7 +380,8 @@ function Home() {
     }
 
     // Get target totalStrength per unit from human results
-    const targetStrengthPerUnit = results[0].totalStrength;
+    // const targetStrengthPerUnit = results[0].totalStrength;
+    const targetStrengthPerUnit = results[0].originalTotalStrength || 0;
 
     const troops = allTroops.filter((t) =>
       selectedMercenaryTroops.includes(t.unitName),
@@ -371,7 +389,15 @@ function Home() {
     if (troops.length === 0) return [];
     // Calculate proposed counts and total authority cost
     const proposed = troops.map((t) => {
-      const count = Math.floor(targetStrengthPerUnit / t.baseStrength);
+      // const count = Math.floor(targetStrengthPerUnit / t.baseStrength);
+
+      let count = Math.floor(targetStrengthPerUnit / t.baseStrength);
+
+      // Specialist boost varsa mercenary azalt
+      if (troopBalance > 0) {
+        count = Math.floor(count * (1 - troopBalance / 100));
+      }
+
       const totalAuthorityCost = count * t.leadership;
       const unitStrength = t.baseStrength;
 
@@ -401,7 +427,8 @@ function Home() {
         return {
           ...p,
           count: scaledCount,
-          totalStrength: scaledCount * (p.totalStrength / p.count), // baseStrength * count
+          // totalStrength: scaledCount * (p.totalStrength / p.count), // baseStrength * count
+          totalStrength: scaledCount * p.unitStrength,
         };
       });
     }
