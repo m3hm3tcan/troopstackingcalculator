@@ -42,6 +42,8 @@ function Home() {
   // const [images, setImages] = useState([]);
   // const [newArry, setNewArr] = useState([]);
 
+  const [troopBalance, setTroopBalance] = useState(0);
+
   useEffect(() => {
     const modules = import.meta.glob("./assets/troops/*.{png,jpg,jpeg,svg}", {
       eager: true,
@@ -241,6 +243,7 @@ function Home() {
     if (userPopulation <= 0 || selectedTroops.length === 0) return [];
 
     const troops = allTroops.filter((t) => selectedTroops.includes(t.unitName));
+
     if (troops.length === 0) return [];
 
     const totalInverseStrength = troops.reduce(
@@ -251,21 +254,47 @@ function Home() {
 
     return troops.map((t) => {
       const effectiveStrength = t.baseStrength / t.leadership;
+
       const proportion = 1 / effectiveStrength / totalInverseStrength;
-      const count = Math.floor((userPopulation * proportion) / t.leadership);
-      const unitStrength = t.baseStrength;
+
+      // Normal count
+      let count = Math.floor((userPopulation * proportion) / t.leadership);
+
+      // SPECIALIST BOOST
+      if (troopBalance > 0) {
+        if (t.mainType === "Specialist") {
+          count = Math.floor(count * (1 + troopBalance / 100));
+        }
+
+        if (t.mainType === "Guardsmen") {
+          count = Math.floor(count * (1 - troopBalance / 100));
+        }
+      }
+
+      // GUARDSMEN BOOST
+      if (troopBalance < 0) {
+        const boost = Math.abs(troopBalance);
+
+        if (t.mainType === "Guardsmen") {
+          count = Math.floor(count * (1 + boost / 100));
+        }
+
+        if (t.mainType === "Specialist") {
+          count = Math.floor(count * (1 - boost / 100));
+        }
+      }
 
       return {
         unitName: t.unitName,
         unitColor: t.unitColor,
-        unitStrength,
+        unitStrength: t.baseStrength,
         count,
         totalStrength: count * t.baseStrength,
         leadership: t.leadership,
         mainType: t.mainType,
       };
     });
-  }, [userPopulation, selectedTroops, allTroops]);
+  }, [userPopulation, selectedTroops, allTroops, troopBalance]);
 
   const dominanceResult = useMemo(() => {
     if (
@@ -360,7 +389,7 @@ function Home() {
 
     // Sum total dominance cost
     const totalCost = proposed.reduce(
-      (acc, p) => acc + p.totalDominanceCost,
+      (acc, p) => acc + p.totalAuthorityCost,
       0,
     );
 
@@ -735,6 +764,63 @@ function Home() {
                 isOpen={showManualModal}
                 onClose={() => setShowManualModal(false)}
               />
+            </div>
+
+            <div style={{ marginTop: "20px" }}>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  color: "white",
+                  fontWeight: "bold",
+                  marginBottom: "10px",
+                }}
+              >
+                <span>{t("guardsmen_troops")}</span>
+
+                <span>
+                  {troopBalance < 0
+                    ? `${t("guardsmens")} +${Math.abs(troopBalance)}%`
+                    : troopBalance > 0
+                      ? `${t("specialists")} +${troopBalance}%`
+                      : `${t("balanced")}`}
+                </span>
+
+                <span>{t("specialist_troops")}</span>
+              </div>
+
+              <input
+                type="range"
+                min={-20}
+                max={20}
+                step={5}
+                value={troopBalance}
+                onChange={(e) => setTroopBalance(Number(e.target.value))}
+                style={{
+                  width: "100%",
+                  cursor: "pointer",
+                }}
+              />
+
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  color: "#aaa",
+                  fontSize: "12px",
+                  marginTop: "5px",
+                }}
+              >
+                <span>20</span>
+                <span>15</span>
+                <span>10</span>
+                <span>5</span>
+                <span>0</span>
+                <span>5</span>
+                <span>10</span>
+                <span>15</span>
+                <span>20</span>
+              </div>
             </div>
 
             <div>
