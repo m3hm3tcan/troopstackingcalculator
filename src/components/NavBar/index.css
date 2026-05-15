@@ -14,7 +14,7 @@
   background-color: white;
   padding: 0.75rem 2rem;
   display: flex;
-  justify-content: flex-start; /* 👈 aligns link to right */
+  justify-content: flex-end; /* ✅ aligns link to right */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -22,8 +22,73 @@
   color: #333;
   text-decoration: none;
   font-weight: 500;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
 }
 
 .nav-link:hover {
-  text-decoration: underline;
+  background: #f2f2f2;
+  text-decoration: none;
+}
+
+.header-cover {
+  position: relative;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  background: none; /* IMPORTANT: remove direct opacity approach */
+  overflow: hidden;
+}
+
+/* Background image layer ONLY */
+.header-cover::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/cover.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.4; /* 👈 only image fades */
+  z-index: 0;
+}
+
+/* Content stays above background */
+.navbar-top,
+.navbar-bottom {
+  position: relative;
+  z-index: 1;
+}
+
+.navbar-brand {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* title row */
+.navbar-title {
+  display: flex;
+  align-items: center; /* 🔥 vertical alignment fix */
+  gap: 12px;
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.logo-image {
+  height: 70px;
+  width: 70px;
+  object-fit: contain;
+  display: block;
+  opacity: 1;
+}
+
+/* subtitle */
+.navbar-subtitle {
+  margin-left: 62px; /* aligns under text start */
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.9);
 }

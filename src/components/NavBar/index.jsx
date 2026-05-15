@@ -9,14 +9,16 @@ const NavBar = () => {
   const changeLanguage = (e) => {
     i18n.changeLanguage(e.target.value);
   };
+
   return (
-    <>
+    <header className="header-cover">
       <nav className="navbar">
-        <div>
-          <h1>
-            <img src="funnel.svg" height={30} width={30} alt="Logo" />
-            {t("title")}
+        <div className="navbar-brand">
+          <h1 className="navbar-title">
+            <img src="hunililer_icon.png" alt="Logo" className="logo-image" />
+            <span>{t("title")}</span>
           </h1>
+
           <span className="navbar-subtitle title-italic">{t("subtitle")}</span>
         </div>
 
@@ -32,22 +34,7 @@ const NavBar = () => {
           </select>
         </div>
       </nav>
-      <div>
-        <div className="navbar-bottom">
-          {/* <Link to="/clan" className="nav-link">
-            {t("clan")}
-          </Link> */}
-          {/* <a href="/taytay/TayTayMouse.zip" className="nav-link">
-            {t("Crypto Mouse")}
-          </a> */}
-          \
-          {/* <Link to="/kriptoInfo" className="nav-link">
-            {t("kriptoInfo")}
-          </Link> */}
-        </div>
-      </div>
-    </>
+    </header>
   );
 };
-
 export default NavBar;

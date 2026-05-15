@@ -264,6 +264,7 @@ export const MonstersUnits = [
       "radial-gradient(circle,rgba(0, 212, 255, 1) 0%, rgba(39, 39, 171, 1) 88%, rgba(2, 0, 36, 1) 100%",
     name: "(III)Emerald Dragon",
     strength: 4500,
+    health: 13500,
     strengthAgainst: [
       { name: "Mounted", strengthPercentage: 185 },
       { name: "Giants", strengthPercentage: 72 },
@@ -277,6 +278,7 @@ export const MonstersUnits = [
       "radial-gradient(circle,rgba(191, 171, 237, 1) 0%, rgba(56, 49, 110, 1) 100%)",
     name: "(IV)Magic Dragon",
     strength: 15000,
+    health: 45000,
     strengthAgainst: [
       { name: "Ranged", strengthPercentage: 216 },
       { name: "Melee", strengthPercentage: 169 },
@@ -290,6 +292,7 @@ export const MonstersUnits = [
       "radial-gradient(circle,rgb(247, 196, 86) 0%, rgba(127, 53, 7, 1) 62%)",
     name: "(V)Desert Vanquisher",
     strength: 42000,
+    health: 126000,
     strengthAgainst: [{ name: "Ranged", strengthPercentage: 253 }],
   },
   {
@@ -300,6 +303,7 @@ export const MonstersUnits = [
       "radial-gradient(circle,rgba(235, 115, 115, 1) 0%, rgba(84, 0, 0, 1) 62%)",
     name: "(VI)Crystal Dragon",
     strength: 120000,
+    health: 360000,
     strengthAgainst: [{ name: "Mounted", strengthPercentage: 258 }],
   },
   {
@@ -309,7 +313,8 @@ export const MonstersUnits = [
     color:
       "radial-gradient(circle,rgb(189, 180, 80) 0%, rgba(102, 95, 0, 1) 62%)",
     name: "(VII)Black Dragon",
-    strength: 330000,
+    strength: 300000,
+    health: 900000,
     strengthAgainst: [{ name: "Melee", strengthPercentage: 570 }],
   },
   {
@@ -320,6 +325,7 @@ export const MonstersUnits = [
       "radial-gradient(circle,rgba(155, 155, 155, 1) 0%, rgba(79, 130, 140, 1) 100%)",
     name: "(I)Devastator I",
     strength: 650000,
+    health: 1950000,
     strengthAgainst: [
       { name: "Ranged", strengthPercentage: 1281 },
       { name: "Giants", strengthPercentage: 667 },
@@ -333,6 +339,7 @@ export const MonstersUnits = [
       "radial-gradient(circle,rgba(117, 140, 107, 1) 0%, rgba(30, 94, 0, 1) 100%)",
     name: "(II)Devastator II",
     strength: 1170000,
+    health: 3510000,
     strengthAgainst: [
       { name: "Ranged", strengthPercentage: 1922 },
       { name: "Giants", strengthPercentage: 1000 },
@@ -346,6 +353,7 @@ export const MonstersUnits = [
       "radial-gradient(circle,rgba(0, 212, 255, 1) 0%, rgba(39, 39, 171, 1) 88%, rgba(2, 0, 36, 1) 100%",
     name: "(III)Water Elemental",
     strength: 1900,
+    health: 5700,
     strengthAgainst: [
       { name: "Melee", strengthPercentage: 113 },
       { name: "Flying", strengthPercentage: 144 },
@@ -359,6 +367,7 @@ export const MonstersUnits = [
       "radial-gradient(circle,rgba(191, 171, 237, 1) 0%, rgba(56, 49, 110, 1) 100%)",
     name: "(IV)Ice Phoenix",
     strength: 17000,
+    health: 51000,
     strengthAgainst: [{ name: "Flying", strengthPercentage: 223 }],
   },
   {
@@ -369,6 +378,7 @@ export const MonstersUnits = [
       "radial-gradient(circle,rgb(247, 196, 86) 0%, rgba(127, 53, 7, 1) 62%)",
     name: "(V)Flaming Centaur",
     strength: 44000,
+    health: 132000,
     strengthAgainst: [{ name: "Ranged", strengthPercentage: 415 }],
   },
   {
@@ -379,6 +389,7 @@ export const MonstersUnits = [
       "radial-gradient(circle,rgba(235, 115, 115, 1) 0%, rgba(84, 0, 0, 1) 62%)",
     name: "(VI)Ruby Golem",
     strength: 130000,
+    health: 390000,
     strengthAgainst: [
       { name: "Mounted", strengthPercentage: 380 },
       { name: "Melee", strengthPercentage: 486 },
@@ -392,6 +403,7 @@ export const MonstersUnits = [
       "radial-gradient(circle,rgb(189, 180, 80) 0%, rgba(102, 95, 0, 1) 62%)",
     name: "(VII)Wind Lord",
     strength: 310000,
+    health: 930000,
     strengthAgainst: [{ name: "Mounted", strengthPercentage: 387 }],
   },
   {
@@ -402,6 +414,7 @@ export const MonstersUnits = [
       "radial-gradient(circle,rgba(155, 155, 155, 1) 0%, rgba(79, 130, 140, 1) 100%)",
     name: "(I)Fire Phoenix I",
     strength: 660000,
+    health: 1980000,
     strengthAgainst: [
       { name: "Melee", strengthPercentage: 701 },
       { name: "Dragons", strengthPercentage: 1247 },
@@ -415,6 +428,7 @@ export const MonstersUnits = [
       "radial-gradient(circle,rgba(117, 140, 107, 1) 0%, rgba(30, 94, 0, 1) 100%)",
     name: "(II)Fire Phoenix II",
     strength: 1190000,
+    health: 3570000,
     strengthAgainst: [
       { name: "Melee", strengthPercentage: 1051 },
       { name: "Dragons", strengthPercentage: 1871 },
@@ -428,6 +442,7 @@ export const MonstersUnits = [
       "radial-gradient(circle,rgba(0, 212, 255, 1) 0%, rgba(39, 39, 171, 1) 88%, rgba(2, 0, 36, 1) 100%",
     name: "(III)Stone Gargoyle",
     strength: 5200,
+    health: 15600,
     strengthAgainst: [{ name: "Melee", strengthPercentage: 185 }],
   },
   {
@@ -438,6 +453,7 @@ export const MonstersUnits = [
       "radial-gradient(circle,rgba(191, 171, 237, 1) 0%, rgba(56, 49, 110, 1) 100%)",
     name: "(IV)Many-Armed Guardian",
     strength: 13000,
+    health: 39000,
     strengthAgainst: [{ name: "Mounted", strengthPercentage: 115 }],
   },
   {
@@ -448,6 +464,7 @@ export const MonstersUnits = [
       "radial-gradient(circle,rgb(247, 196, 86) 0%, rgba(127, 53, 7, 1) 62%)",
     name: "(V)Ettin",
     strength: 48000,
+    health: 144000,
     strengthAgainst: [{ name: "Mounted", strengthPercentage: 334 }],
   },
   {
@@ -458,6 +475,7 @@ export const MonstersUnits = [
       "radial-gradient(circle,rgba(235, 115, 115, 1) 0%, rgba(84, 0, 0, 1) 62%)",
     name: "(VI)Troll Rider",
     strength: 110000,
+    health: 330000,
     strengthAgainst: [
       { name: "Ranged", strengthPercentage: 380 },
       { name: "Fortifications", strengthPercentage: 486 },
@@ -471,6 +489,7 @@ export const MonstersUnits = [
       "radial-gradient(circle,rgb(189, 180, 80) 0%, rgba(102, 95, 0, 1) 62%)",
     name: "(VII)Destructive Colossus",
     strength: 290000,
+    health: 870000,
     strengthAgainst: [
       { name: "Melee", strengthPercentage: 752 },
       { name: "Flying", strengthPercentage: 547 },
@@ -484,6 +503,7 @@ export const MonstersUnits = [
       "radial-gradient(circle,rgba(155, 155, 155, 1) 0%, rgba(79, 130, 140, 1) 100%)",
     name: "(I)Kraken I",
     strength: 670000,
+    health: 2010000,
     strengthAgainst: [
       { name: "Mounted", strengthPercentage: 991 },
       { name: "Beasts", strengthPercentage: 957 },
@@ -497,6 +517,7 @@ export const MonstersUnits = [
       "radial-gradient(circle,rgba(117, 140, 107, 1) 0%, rgba(30, 94, 0, 1) 100%)",
     name: "(II)Kraken II",
     strength: 1210000,
+    health: 3630000,
     strengthAgainst: [
       { name: "Mounted", strengthPercentage: 1486 },
       { name: "Beasts", strengthPercentage: 1435 },
@@ -510,6 +531,7 @@ export const MonstersUnits = [
     color:
       "radial-gradient(circle,rgba(0, 212, 255, 1) 0%, rgba(39, 39, 171, 1) 88%, rgba(2, 0, 36, 1) 100%",
     strength: 3900,
+    health: 11700,
     strengthAgainst: [
       { name: "Mounted", strengthPercentage: 144 },
       { name: "Ranged", strengthPercentage: 113 },
@@ -523,6 +545,7 @@ export const MonstersUnits = [
       "radial-gradient(circle,rgba(191, 171, 237, 1) 0%, rgba(56, 49, 110, 1) 100%)",
     name: "(IV)Gorgon Medusa",
     strength: 12000,
+    health: 36000,
     strengthAgainst: [
       { name: "Melee", strengthPercentage: 277 },
       { name: "Flying", strengthPercentage: 108 },
@@ -536,6 +559,7 @@ export const MonstersUnits = [
       "radial-gradient(circle,rgb(247, 196, 86) 0%, rgba(127, 53, 7, 1) 62%)",
     name: "(V)Fearsome Manticore",
     strength: 46000,
+    health: 138000,
     strengthAgainst: [
       { name: "Flying", strengthPercentage: 253 },
       { name: "Giants", strengthPercentage: 324 },
@@ -549,8 +573,9 @@ export const MonstersUnits = [
       "radial-gradient(circle,rgba(235, 115, 115, 1) 0%, rgba(84, 0, 0, 1) 62%)",
     name: "(VI)Jungle Destroyer",
     strength: 130000,
+    health: 390000,
     strengthAgainst: [
-      { name: "mounted", strengthPercentage: 243 },
+      { name: "Mounted", strengthPercentage: 243 },
       { name: "Dragons", strengthPercentage: 243 },
     ],
   },
@@ -562,6 +587,7 @@ export const MonstersUnits = [
       "radial-gradient(circle,rgb(189, 180, 80) 0%, rgba(102, 95, 0, 1) 62%)",
     name: "(VII)Ancient Terror",
     strength: 280000,
+    health: 840000,
     strengthAgainst: [
       { name: "Ranged", strengthPercentage: 752 },
       { name: "Fortifications", strengthPercentage: 547 },
@@ -575,6 +601,7 @@ export const MonstersUnits = [
       "radial-gradient(circle,rgba(155, 155, 155, 1) 0%, rgba(79, 130, 140, 1) 100%)",
     name: "(I)Trickster I",
     strength: 640000,
+    health: 1920000,
     strengthAgainst: [
       { name: "Flying", strengthPercentage: 940 },
       { name: "Elementals", strengthPercentage: 1008 },
@@ -588,6 +615,7 @@ export const MonstersUnits = [
       "radial-gradient(circle,rgba(117, 140, 107, 1) 0%, rgba(30, 94, 0, 1) 100%)",
     name: "(II)Trickster II",
     strength: 1150000,
+    health: 3450000,
     strengthAgainst: [
       { name: "Flying", strengthPercentage: 1410 },
       { name: "Elementals", strengthPercentage: 1512 },
@@ -604,6 +632,7 @@ export const MercenaryUnits = [
       "radial-gradient(circle,rgba(235, 115, 115, 1) 0%, rgba(84, 0, 0, 1) 62%)",
     name: "Trailseeker VI",
     strength: 1890,
+    health: 5670,
     strengthAgainst: [
       { name: "Melee", strengthPercentage: 198 },
       { name: "Flying", strengthPercentage: 254 },
@@ -617,6 +646,7 @@ export const MercenaryUnits = [
       "radial-gradient(circle,rgba(235, 115, 115, 1) 0%, rgba(84, 0, 0, 1) 62%)",
     name: "Arbalester VI",
     strength: 1900,
+    health: 5700,
     strengthAgainst: [
       { name: "Melee", strengthPercentage: 394 },
       { name: "Flying", strengthPercentage: 509 },
@@ -630,6 +660,7 @@ export const MercenaryUnits = [
       "radial-gradient(circle,rgba(235, 115, 115, 1) 0%, rgba(84, 0, 0, 1) 62%)",
     name: "Legionary VI",
     strength: 1900,
+    health: 5700,
     strengthAgainst: [
       { name: "Mounted", strengthPercentage: 295 },
       { name: "Beasts", strengthPercentage: 608 },
@@ -643,6 +674,7 @@ export const MercenaryUnits = [
       "radial-gradient(circle,rgba(235, 115, 115, 1) 0%, rgba(84, 0, 0, 1) 62%)",
     name: "Epic Monster Hunter VI",
     strength: 2030,
+    health: 6090,
     strengthAgainst: [{ name: "Epic Monsters", strengthPercentage: 609 }],
   },
   {
@@ -653,6 +685,7 @@ export const MercenaryUnits = [
       "radial-gradient(circle,rgba(235, 115, 115, 1) 0%, rgba(84, 0, 0, 1) 62%)",
     name: "Chariot VI",
     strength: 3800,
+    health: 11400,
     strengthAgainst: [
       { name: "Ranged", strengthPercentage: 493 },
       { name: "Siege Engine", strengthPercentage: 410 },
@@ -666,6 +699,7 @@ export const MercenaryUnits = [
       "radial-gradient(circle,rgba(235, 115, 115, 1) 0%, rgba(84, 0, 0, 1) 62%)",
     name: "Shedu VI",
     strength: 18900,
+    health: 56700,
     strengthAgainst: [
       { name: "Mounted", strengthPercentage: 296 },
       { name: "Fortifications", strengthPercentage: 156 },
@@ -679,6 +713,7 @@ export const MercenaryUnits = [
       "radial-gradient(circle,rgba(235, 115, 115, 1) 0%, rgba(84, 0, 0, 1) 62%)",
     name: "Death Chariot",
     strength: 57000,
+    health: 171000,
     strengthAgainst: [{ name: "Ranged", strengthPercentage: 60 }],
   },
   {
@@ -689,6 +724,7 @@ export const MercenaryUnits = [
       "radial-gradient(circle,rgba(235, 115, 115, 1) 0%, rgba(84, 0, 0, 1) 62%)",
     name: "Bone Golem",
     strength: 70000,
+    health: 210000,
     strengthAgainst: [{ name: "Dragons", strengthPercentage: 40 }],
   },
   {
@@ -699,6 +735,7 @@ export const MercenaryUnits = [
       "radial-gradient(circle,rgba(235, 115, 115, 1) 0%, rgba(84, 0, 0, 1) 62%)",
     name: "Ent",
     strength: 73000,
+    health: 219000,
     strengthAgainst: [
       { name: "Ranged", strengthPercentage: 55 },
       { name: "Dragons", strengthPercentage: 45 },
@@ -712,6 +749,7 @@ export const MercenaryUnits = [
       "radial-gradient(circle,rgba(235, 115, 115, 1) 0%, rgba(84, 0, 0, 1) 62%)",
     name: "Cursed Dendroid",
     strength: 110000,
+    health: 330000,
     strengthAgainst: [
       { name: "Ranged", strengthPercentage: 65 },
       { name: "Dragons", strengthPercentage: 50 },
@@ -725,6 +763,7 @@ export const MercenaryUnits = [
       "radial-gradient(circle,rgba(235, 115, 115, 1) 0%, rgba(84, 0, 0, 1) 62%)",
     name: "Abomination",
     strength: 130000,
+    health: 390000,
     strengthAgainst: [
       { name: "Ranged", strengthPercentage: 60 },
       { name: "Elementals", strengthPercentage: 50 },
@@ -738,6 +777,7 @@ export const MercenaryUnits = [
       "radial-gradient(circle,rgba(235, 115, 115, 1) 0%, rgba(84, 0, 0, 1) 62%)",
     name: "Archdemon",
     strength: 180000,
+    health: 540000,
     strengthAgainst: [
       { name: "Mounted", strengthPercentage: 60 },
       { name: "Beasts", strengthPercentage: 40 },
@@ -753,6 +793,7 @@ export const MercenaryUnits = [
       "radial-gradient(circle,rgb(189, 180, 80) 0%, rgba(102, 95, 0, 1) 62%)",
     name: "Arbalester VII",
     strength: 3400,
+    health: 10200,
     strengthAgainst: [
       { name: "Melee", strengthPercentage: 570 },
       { name: "Flying", strengthPercentage: 729 },
@@ -766,6 +807,7 @@ export const MercenaryUnits = [
       "radial-gradient(circle,rgb(189, 180, 80) 0%, rgba(102, 95, 0, 1) 62%)",
     name: "Trailseeker VII",
     strength: 3400,
+    health: 10200,
     strengthAgainst: [
       { name: "Melee", strengthPercentage: 286 },
       { name: "Flying", strengthPercentage: 364 },
@@ -779,6 +821,7 @@ export const MercenaryUnits = [
       "radial-gradient(circle,rgb(189, 180, 80) 0%, rgba(102, 95, 0, 1) 62%)",
     name: "Legionary VII",
     strength: 3400,
+    health: 10200,
     strengthAgainst: [
       { name: "Mounted", strengthPercentage: 295 },
       { name: "Beasts", strengthPercentage: 608 },
@@ -792,6 +835,7 @@ export const MercenaryUnits = [
       "radial-gradient(circle,rgb(189, 180, 80) 0%, rgba(102, 95, 0, 1) 62%)",
     name: "Knight VI",
     strength: 3400,
+    health: 10200,
     strengthAgainst: [
       { name: "Mounted", strengthPercentage: 752 },
       { name: "Beasts", strengthPercentage: 911 },
@@ -805,6 +849,7 @@ export const MercenaryUnits = [
       "radial-gradient(circle,rgb(189, 180, 80) 0%, rgba(102, 95, 0, 1) 62%)",
     name: "Epic Monster Hunter VII",
     strength: 3740,
+    health: 11220,
     strengthAgainst: [{ name: "Epic Monsters", strengthPercentage: 934 }],
   },
   {
@@ -815,6 +860,7 @@ export const MercenaryUnits = [
       "radial-gradient(circle,rgb(189, 180, 80) 0%, rgba(102, 95, 0, 1) 62%)",
     name: "Rhino Rider",
     strength: 6800,
+    health: 20400,
     strengthAgainst: [
       { name: "Ranged", strengthPercentage: 377 },
       { name: "Siege Engine", strengthPercentage: 274 },
@@ -829,6 +875,7 @@ export const MercenaryUnits = [
       "radial-gradient(circle,rgb(189, 180, 80) 0%, rgba(102, 95, 0, 1) 62%)",
     name: "Chariot VII",
     strength: 6800,
+    health: 20400,
     strengthAgainst: [
       { name: "Ranged", strengthPercentage: 752 },
       { name: "Siege Engine", strengthPercentage: 547 },
@@ -842,6 +889,7 @@ export const MercenaryUnits = [
       "radial-gradient(circle,rgb(189, 180, 80) 0%, rgba(102, 95, 0, 1) 62%)",
     name: "Palintone",
     strength: 17000,
+    health: 51000,
     strengthAgainst: [{ name: "Fortifications", strengthPercentage: 740 }],
   },
   {
@@ -852,6 +900,7 @@ export const MercenaryUnits = [
       "radial-gradient(circle,rgb(189, 180, 80) 0%, rgba(102, 95, 0, 1) 62%)",
     name: "Jungle King",
     strength: 110000,
+    health: 330000,
     strengthAgainst: [
       { name: "Elementals", strengthPercentage: 911 },
       { name: "Mounted", strengthPercentage: 387 },
@@ -865,6 +914,7 @@ export const MercenaryUnits = [
       "radial-gradient(circle,rgb(189, 180, 80) 0%, rgba(102, 95, 0, 1) 62%)",
     name: "Sphynx",
     strength: 136000,
+    health: 408000,
     strengthAgainst: [
       { name: "Mounted", strengthPercentage: 934 },
       { name: "Fortifications", strengthPercentage: 365 },
@@ -879,6 +929,7 @@ export const MercenaryUnits = [
       "radial-gradient(circle,rgb(189, 180, 80) 0%, rgba(102, 95, 0, 1) 62%)",
     name: "Shedu VII",
     strength: 136000,
+    health: 408000,
     strengthAgainst: [
       { name: "Mounted", strengthPercentage: 377 },
       { name: "Fortifications", strengthPercentage: 274 },
@@ -893,6 +944,7 @@ export const MercenaryUnits = [
       "radial-gradient(circle,rgb(189, 180, 80) 0%, rgba(102, 95, 0, 1) 62%)",
     name: "Sea Lord",
     strength: 140000,
+    health: 420000,
     strengthAgainst: [
       { name: "Dragons", strengthPercentage: 547 },
       { name: "Ranged", strengthPercentage: 752 },
@@ -906,6 +958,7 @@ export const MercenaryUnits = [
       "radial-gradient(circle,rgb(189, 180, 80) 0%, rgba(102, 95, 0, 1) 62%)",
     name: "Golden Dragon",
     strength: 170000,
+    health: 510000,
     strengthAgainst: [
       { name: "Mounted", strengthPercentage: 934 },
       { name: "Giants", strengthPercentage: 365 },
@@ -919,6 +972,7 @@ export const MercenaryUnits = [
       "radial-gradient(circle,rgb(189, 180, 80) 0%, rgba(102, 95, 0, 1) 62%)",
     name: "Lightning Lord",
     strength: 153000,
+    health: 459000,
     strengthAgainst: [
       { name: "Melee", strengthPercentage: 934 },
       { name: "Beasts", strengthPercentage: 365 },
@@ -932,6 +986,7 @@ export const MercenaryUnits = [
       "radial-gradient(circle,rgb(189, 180, 80) 0%, rgba(102, 95, 0, 1) 62%)",
     name: "Overload",
     strength: 200000,
+    health: 600000,
     strengthAgainst: [
       { name: "Melee", strengthPercentage: 60 },
       { name: "Beasts", strengthPercentage: 50 },
@@ -946,6 +1001,7 @@ export const MercenaryUnits = [
       "radial-gradient(circle,rgb(189, 180, 80) 0%, rgba(102, 95, 0, 1) 62%)",
     name: "Life Dragon",
     strength: 240000,
+    health: 720000,
     strengthAgainst: [
       { name: "Mounted", strengthPercentage: 60 },
       { name: "Giants", strengthPercentage: 50 },
@@ -959,6 +1015,7 @@ export const MercenaryUnits = [
       "radial-gradient(circle,rgb(189, 180, 80) 0%, rgba(102, 95, 0, 1) 62%)",
     name: "Sandworm",
     strength: 430000,
+    health: 1290000,
     strengthAgainst: [
       { name: "Mounted", strengthPercentage: 75 },
       { name: "Dragons", strengthPercentage: 50 },
@@ -972,6 +1029,7 @@ export const MercenaryUnits = [
       "radial-gradient(circle,rgb(189, 180, 80) 0%, rgba(102, 95, 0, 1) 62%)",
     name: "Fire Lord",
     strength: 560000,
+    health: 1680000,
     strengthAgainst: [
       { name: "Melee", strengthPercentage: 80 },
       { name: "Dragons", strengthPercentage: 45 },
@@ -987,6 +1045,7 @@ export const MercenaryUnits = [
       "radial-gradient(circle,rgba(117, 140, 107, 1) 0%, rgba(30, 94, 0, 1) 100%)",
     name: "Slavic Warrior",
     strength: 11000,
+    health: 33000,
     strengthAgainst: [
       { name: "Mounted", strengthPercentage: 1000 },
       { name: "Beasts", strengthPercentage: 2050 },
@@ -1000,6 +1059,7 @@ export const MercenaryUnits = [
       "radial-gradient(circle,rgba(117, 140, 107, 1) 0%, rgba(30, 94, 0, 1) 100%)",
     name: "Highlander",
     strength: 11000,
+    health: 33000,
     strengthAgainst: [
       { name: "Melee", strengthPercentage: 1333 },
       { name: "Flying", strengthPercentage: 1717 },
@@ -1013,6 +1073,7 @@ export const MercenaryUnits = [
       "radial-gradient(circle,rgba(117, 140, 107, 1) 0%, rgba(30, 94, 0, 1) 100%)",
     name: "Scarface",
     strength: 11000,
+    health: 33000,
     strengthAgainst: [{ name: "Mounted", strengthPercentage: 500 }],
   },
   {
@@ -1023,6 +1084,7 @@ export const MercenaryUnits = [
       "radial-gradient(circle,rgba(117, 140, 107, 1) 0%, rgba(30, 94, 0, 1) 100%)",
     name: "Quicksand",
     strength: 22000,
+    health: 66000,
     strengthAgainst: [
       { name: "Ranged", strengthPercentage: 1667 },
       { name: "Siege Engine", strengthPercentage: 1384 },
@@ -1036,6 +1098,7 @@ export const MercenaryUnits = [
       "radial-gradient(circle,rgba(117, 140, 107, 1) 0%, rgba(30, 94, 0, 1) 100%)",
     name: "Warregal",
     strength: 220000,
+    health: 660000,
     strengthAgainst: [
       { name: "Mounted", strengthPercentage: 1999 },
       { name: "Fortifications", strengthPercentage: 1051 },
@@ -1049,6 +1112,7 @@ export const MercenaryUnits = [
       "radial-gradient(circle,rgba(117, 140, 107, 1) 0%, rgba(30, 94, 0, 1) 100%)",
     name: "Jago",
     strength: 220000,
+    health: 660000,
     strengthAgainst: [
       { name: "Mounted", strengthPercentage: 1000 },
       { name: "Fortifications", strengthPercentage: 525 },
@@ -1062,6 +1126,7 @@ export const MercenaryUnits = [
       "radial-gradient(circle,rgba(117, 140, 107, 1) 0%, rgba(30, 94, 0, 1) 100%)",
     name: "Demonic Salamander",
     strength: 410000,
+    health: 1230000,
     strengthAgainst: [{ name: "Mounted", strengthPercentage: 65 }],
   },
   {
@@ -1072,6 +1137,7 @@ export const MercenaryUnits = [
       "radial-gradient(circle,rgba(117, 140, 107, 1) 0%, rgba(30, 94, 0, 1) 100%)",
     name: "Superior Epic Monster Hunter",
     strength: 410000,
+    health: 1230000,
     strengthAgainst: [{ name: "Epic Monsters", strengthPercentage: 1000 }],
   },
   {
@@ -1082,6 +1148,7 @@ export const MercenaryUnits = [
       "radial-gradient(circle,rgba(117, 140, 107, 1) 0%, rgba(30, 94, 0, 1) 100%)",
     name: "Eternal Cannoneer",
     strength: 440000,
+    health: 1320000,
     strengthAgainst: [{ name: "Flying", strengthPercentage: 65 }],
   },
   {
@@ -1092,6 +1159,7 @@ export const MercenaryUnits = [
       "radial-gradient(circle,rgba(117, 140, 107, 1) 0%, rgba(30, 94, 0, 1) 100%)",
     name: "Warden",
     strength: 470000,
+    health: 1410000,
     strengthAgainst: [{ name: "Ranged", strengthPercentage: 70 }],
   },
   {
@@ -1102,6 +1170,18 @@ export const MercenaryUnits = [
       "radial-gradient(circle,rgba(117, 140, 107, 1) 0%, rgba(30, 94, 0, 1) 100%)",
     name: "Wyvern",
     strength: 690000,
+    health: 2070000,
     strengthAgainst: [{ name: "Melee", strengthPercentage: 75 }],
+  },
+  {
+    authority: 63,
+    unitType: "Siege Engine",
+    category: "Mercenary II",
+    color:
+      "radial-gradient(circle,rgba(117, 140, 107, 1) 0%, rgba(30, 94, 0, 1) 100%)",
+    name: "Ariel",
+    strength: 55000,
+    health: 330000,
+    strengthAgainst: [{ name: "Fortifications", strengthPercentage: 1667 }],
   },
 ];
