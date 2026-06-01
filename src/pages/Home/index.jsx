@@ -630,6 +630,9 @@ function Home() {
       if (selectedName === "Armageddon") {
         setEnemyStrengthThreshold(70);
       }
+      if (selectedName === "Arcanomancer") {
+        setEnemyStrengthThreshold(55);
+      }
     }
 
     if (selectedLevel < 50) {

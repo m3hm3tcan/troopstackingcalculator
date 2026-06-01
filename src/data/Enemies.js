@@ -657,6 +657,30 @@ export const Enemies = {
     strength: 720,
     strengthAgainst: [{ name: "Flying", strengthPercentage: 50 }],
   },
+  AetherwingSentinel: {
+    name: "Aetherwing Sentinel",
+    unitType: "Flying",
+    strength: 100000,
+    strengthAgainst: [{ name: "Melee", strengthPercentage: 80 }],
+  },
+  MoonmarkedHuntress: {
+    name: "Moonmarked Huntress",
+    unitType: "Mounted",
+    strength: 57000,
+    strengthAgainst: [{ name: "Melee", strengthPercentage: 60 }],
+  },
+  Arcanomancer: {
+    name: "Arcanomancer",
+    unitType: "Melee",
+    strength: 720,
+    strengthAgainst: [{ name: "Mounted", strengthPercentage: 45 }],
+  },
+  ArcaneArcher: {
+    name: "Arcane Archer",
+    unitType: "Ranged",
+    strength: 720,
+    strengthAgainst: [{ name: "Flying", strengthPercentage: 50 }],
+  },
 };
 
 // Example EnemySquads data simplified (replace with your full data)
@@ -4281,6 +4305,17 @@ export const EnemySquads = [
       { count: 28000000, name: Enemies.Ifrit },
       { count: 25000000, name: Enemies.FirewormRider },
       { count: 180000000, name: Enemies.Overseer },
+    ],
+  },
+  {
+    level: 50,
+    category: "Event",
+    name: "Arcanomancer",
+    squad: [
+      { count: 51722080, name: Enemies.AetherwingSentinel },
+      { count: 54016472, name: Enemies.MoonmarkedHuntress },
+      { count: 46139288, name: Enemies.Arcanomancer },
+      { count: 3878186753, name: Enemies.ArcaneArcher },
     ],
   },
 ];
