@@ -1,25 +1,250 @@
-.clan-container {
-  min-height: 90vh;
+.clan-chest-page {
+  min-height: calc(100vh - 200px);
+  padding: 18px 12px 42px;
+  background: #050505;
+  color: #f2f6fb;
+  font-family: Arial, sans-serif;
 }
 
-.clan-container {
-  padding: 20px;
-  max-width: 100%;
+.clan-chest-connect-page {
+  display: grid;
+  place-items: center;
+}
+
+.clan-chest-connect-panel,
+.clan-chest-header,
+.clan-chest-period {
+  border: 1px solid #5787b6;
+  border-radius: 6px;
+  background: #111;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+}
+
+.clan-chest-connect-panel {
+  width: min(100%, 420px);
+  padding: 24px;
+}
+
+.clan-chest-eyebrow {
+  margin: 0 0 4px;
+  color: #9fc3e7;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.clan-chest-connect-panel h1,
+.clan-chest-header h1 {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(18px, 3vw, 24px);
+  line-height: 1.1;
+}
+
+.clan-chest-connect-form {
+  display: grid;
+  gap: 14px;
+  margin-top: 30px;
+}
+
+.clan-chest-connect-form label {
+  margin: 0;
+  color: #e7eef8;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.clan-chest-connect-form input {
+  width: 100%;
+  max-width: none;
+  min-height: 48px;
+  margin: 0;
+  padding: 12px 14px;
+  border: 1px solid #5787b6;
+  border-radius: 6px;
+  background: #070707;
+  color: #fff;
+  font: inherit;
+  outline: none;
+}
+
+.clan-chest-connect-form input:focus {
+  border-color: #9fc3e7;
+  box-shadow: 0 0 0 3px rgba(87, 135, 182, 0.32);
+}
+
+.clan-chest-connect-form button,
+.clan-chest-secondary-button {
+  min-height: 44px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 5px;
+  background: #5787b6;
+  color: #fff;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.clan-chest-connect-form button:hover,
+.clan-chest-secondary-button:hover {
+  background: #6e9ed0;
+}
+
+.clan-chest-connect-form button:disabled {
+  cursor: wait;
+  opacity: 0.72;
+}
+
+.clan-chest-error {
+  margin: 0;
+  padding: 11px 12px;
+  border: 1px solid #e3b0a5;
+  border-radius: 5px;
+  background: #2a1111;
+  color: #ffc4bd;
+  font-size: 14px;
+}
+
+.clan-chest-shell {
+  width: min(100%, 1080px);
+  margin: 0 auto;
+}
+
+.clan-chest-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+  padding: 12px 14px;
+}
+
+.clan-chest-secondary-button {
+  flex: 0 0 auto;
+  min-height: 32px;
+  padding: 0 10px;
+  background: #222;
+  border: 1px solid #5787b6;
+  color: #e7eef8;
+  font-size: 12px;
+}
+
+.clan-chest-secondary-button:hover {
+  background: #333;
+}
+
+.clan-chest-period-list {
+  display: grid;
+  gap: 12px;
+}
+
+.clan-chest-period {
+  overflow: hidden;
+}
+
+.clan-chest-period-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 14px;
+  border-bottom: 1px solid #333;
+  background: #1b1b1b;
+}
+
+.clan-chest-period-heading h2 {
+  margin: 0;
+  color: #fff;
+  font-size: 15px;
+}
+
+.clan-chest-period-heading span {
+  flex: 0 0 auto;
+  color: #9fc3e7;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.clan-chest-table-wrap {
   overflow-x: auto;
 }
 
-.clan-container h1 {
-  text-align: center;
-  font-size: 1.8rem;
-  margin-bottom: 20px;
+.clan-chest-table {
+  width: 100%;
+  min-width: 620px;
+  border-collapse: collapse;
 }
 
-.loading,
-.error {
-  text-align: center;
-  font-size: 1.2rem;
+.clan-chest-table th,
+.clan-chest-table td {
+  padding: 9px 12px;
+  text-align: left;
+  border-bottom: 1px solid #2b2b2b;
 }
 
-.error {
-  color: red;
+.clan-chest-table th {
+  color: #cce0ff;
+  background: #151515;
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.clan-chest-table td {
+  color: #f2f6fb;
+  font-size: 14px;
+}
+
+.clan-chest-table th:first-child,
+.clan-chest-table td:first-child {
+  width: 76px;
+  color: #9fc3e7;
+  font-weight: 800;
+}
+
+.clan-chest-table th:nth-child(3),
+.clan-chest-table th:nth-child(4),
+.clan-chest-table td:nth-child(3),
+.clan-chest-table td:nth-child(4) {
+  text-align: right;
+}
+
+.clan-chest-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.clan-chest-table tbody tr:hover {
+  background: #1b2632;
+}
+
+@media (max-width: 700px) {
+  .clan-chest-page {
+    padding: 12px 8px 28px;
+  }
+
+  .clan-chest-connect-panel {
+    padding: 26px;
+  }
+
+  .clan-chest-header,
+  .clan-chest-period-heading {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .clan-chest-secondary-button {
+    width: 100%;
+    min-height: 36px;
+  }
+
+  .clan-chest-table {
+    min-width: 540px;
+  }
+
+  .clan-chest-table th,
+  .clan-chest-table td {
+    padding: 10px 12px;
+  }
 }

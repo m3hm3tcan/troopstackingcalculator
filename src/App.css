@@ -123,10 +123,10 @@ button:focus-visible {
   padding-bottom: 1px;
 }
 
-.navbar div:last-child {
+/* .navbar div:last-child {
   margin-left: auto;
   padding-right: 0;
-}
+} */
 
 .header-bar {
   display: flex;

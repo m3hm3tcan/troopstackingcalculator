@@ -20,6 +20,14 @@ const NavBar = () => {
           </h1>
 
           <span className="navbar-subtitle title-italic">{t("subtitle")}</span>
+          <div className="navbar-links">
+            <Link to="/" className="nav-link">
+              Home
+            </Link>
+            <Link to="/clan-chest-info" className="nav-link">
+              Clan Chest
+            </Link>
+          </div>
         </div>
 
         <div className="header-btn-group">
