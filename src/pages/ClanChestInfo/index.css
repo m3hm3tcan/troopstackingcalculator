@@ -167,6 +167,29 @@
   font-weight: 700;
 }
 
+.clan-chest-member-search {
+  padding: 10px 12px;
+  border-bottom: 1px solid #333;
+  background: #1b1b1b;
+}
+
+.clan-chest-member-search input {
+  width: min(100%, 320px);
+  min-height: 38px;
+  padding: 8px 11px;
+  border: 1px solid #5787b6;
+  border-radius: 5px;
+  background: #090909;
+  color: #fff;
+  font: inherit;
+  outline: none;
+}
+
+.clan-chest-member-search input:focus {
+  border-color: #9fc3e7;
+  box-shadow: 0 0 0 3px rgba(87, 135, 182, 0.24);
+}
+
 .clan-chest-table-wrap {
   overflow-x: auto;
 }
@@ -204,11 +227,23 @@
   font-weight: 800;
 }
 
-.clan-chest-table th:nth-child(3),
-.clan-chest-table th:nth-child(4),
-.clan-chest-table td:nth-child(3),
-.clan-chest-table td:nth-child(4) {
+.clan-chest-table th:nth-child(n + 3),
+.clan-chest-table td:nth-child(n + 3) {
   text-align: right;
+}
+
+.clan-chest-period-label {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 3px;
+  white-space: nowrap;
+}
+
+.clan-chest-period-label small {
+  color: #8fa5bc;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: none;
 }
 
 .clan-chest-table tbody tr:last-child td {
@@ -217,6 +252,22 @@
 
 .clan-chest-table tbody tr:hover {
   background: #1b2632;
+}
+
+.clan-chest-table td.clan-chest-score-medium {
+  background: rgba(255, 193, 7, 0.2);
+}
+
+.clan-chest-table tbody tr:hover td.clan-chest-score-medium {
+  background: rgba(255, 193, 7, 0.3);
+}
+
+.clan-chest-table td.clan-chest-score-high {
+  background: rgba(46, 204, 113, 0.22);
+}
+
+.clan-chest-table tbody tr:hover td.clan-chest-score-high {
+  background: rgba(46, 204, 113, 0.32);
 }
 
 @media (max-width: 700px) {

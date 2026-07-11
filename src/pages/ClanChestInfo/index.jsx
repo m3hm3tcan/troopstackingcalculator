@@ -18,6 +18,7 @@ const dateFormatter = new Intl.DateTimeFormat("en", {
 
 const numberFormatter = new Intl.NumberFormat("en");
 const CLAN_KEY_STORAGE_KEY = "hunililer_clan_chest_key";
+const VISIBLE_PERIOD_COUNT = 3;
 
 const normalizeNumber = (value) => {
   if (value === null || value === undefined || value === "") {
@@ -38,6 +39,14 @@ const formatDate = (value) => {
   }
 
   return dateFormatter.format(date);
+};
+
+const formatPeriodLabel = (periodIndex) => {
+  const numericIndex = Number(periodIndex);
+
+  return Number.isFinite(numericIndex)
+    ? `Period ${numericIndex + 1}`
+    : `Period ${periodIndex}`;
 };
 
 const groupRowsByPeriod = (rows) => {
@@ -80,8 +89,66 @@ const ClanChestInfo = () => {
   const [scoreRows, setScoreRows] = useState([]);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [memberSearch, setMemberSearch] = useState("");
 
   const periods = useMemo(() => groupRowsByPeriod(scoreRows), [scoreRows]);
+  const visiblePeriods = useMemo(
+    () => periods.slice(0, VISIBLE_PERIOD_COUNT),
+    [periods],
+  );
+  const leaderboardRows = useMemo(() => {
+    const currentPeriod = periods[0];
+
+    if (!currentPeriod) {
+      return [];
+    }
+
+    const memberScores = new Map();
+
+    visiblePeriods.forEach((period) => {
+      period.rows.forEach((row) => {
+        const memberKey = row.member_id ?? row.member_name;
+        const member = memberScores.get(memberKey) || {
+          memberKey,
+          memberName: row.member_name,
+          scores: new Map(),
+        };
+
+        member.scores.set(period.periodIndex, normalizeNumber(row.total_points));
+        memberScores.set(memberKey, member);
+      });
+    });
+
+    return currentPeriod.rows
+      .map((row) => {
+        const memberKey = row.member_id ?? row.member_name;
+        return (
+          memberScores.get(memberKey) || {
+            memberKey,
+            memberName: row.member_name,
+            scores: new Map(),
+          }
+        );
+      })
+      .sort((a, b) => {
+        const pointsDifference =
+          normalizeNumber(b.scores.get(currentPeriod.periodIndex)) -
+          normalizeNumber(a.scores.get(currentPeriod.periodIndex));
+
+        return pointsDifference || a.memberName.localeCompare(b.memberName);
+      });
+  }, [periods, visiblePeriods]);
+  const filteredLeaderboardRows = useMemo(() => {
+    const searchTerm = memberSearch.trim().toLocaleLowerCase();
+
+    if (!searchTerm) {
+      return leaderboardRows;
+    }
+
+    return leaderboardRows.filter((member) =>
+      member.memberName.toLocaleLowerCase().includes(searchTerm),
+    );
+  }, [leaderboardRows, memberSearch]);
   const clanName = scoreRows[0]?.clan_name || "";
   const isConnected = connectedClanKey && !error;
 
@@ -149,6 +216,7 @@ const ClanChestInfo = () => {
     setScoreRows([]);
     setError("");
     setIsLoading(false);
+    setMemberSearch("");
     localStorage.removeItem(CLAN_KEY_STORAGE_KEY);
   };
 
@@ -197,41 +265,73 @@ const ClanChestInfo = () => {
           </button>
         </header>
 
-        <div className="clan-chest-period-list">
-          {periods.map((period) => (
-            <section className="clan-chest-period" key={period.periodIndex}>
-              <div className="clan-chest-period-heading">
-                <h2>
-                  {formatDate(period.periodStart)} - {formatDate(period.periodEnd)}
-                </h2>
-                <span>Period {period.periodIndex}</span>
-              </div>
+        <section className="clan-chest-period">
+          <div className="clan-chest-member-search">
+            <input
+              type="search"
+              value={memberSearch}
+              onChange={(event) => setMemberSearch(event.target.value)}
+              placeholder="Search member name..."
+              aria-label="Search member name"
+            />
+          </div>
 
-              <div className="clan-chest-table-wrap">
-                <table className="clan-chest-table">
-                  <thead>
-                    <tr>
-                      <th>Rank</th>
-                      <th>Member Name</th>
-                      <th>Chest Count</th>
-                      <th>Total Points</th>
+          <div className="clan-chest-table-wrap">
+            <table className="clan-chest-table">
+              <thead>
+                <tr>
+                  <th>Rank</th>
+                  <th>Member Name</th>
+                  {visiblePeriods.map((period, index) => (
+                    <th key={period.periodIndex}>
+                      <span className="clan-chest-period-label">
+                        {index === 0
+                          ? "Current"
+                          : formatPeriodLabel(period.periodIndex)}
+                        <small>
+                          {formatDate(period.periodStart)} - {formatDate(period.periodEnd)}
+                        </small>
+                      </span>
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {filteredLeaderboardRows.map((member) => {
+                  const rank = leaderboardRows.indexOf(member) + 1;
+
+                  return (
+                    <tr key={member.memberKey}>
+                      <td>{rank}</td>
+                      <td>{member.memberName}</td>
+                      {visiblePeriods.map((period) => {
+                        const hasScore = member.scores.has(period.periodIndex);
+                        const score = normalizeNumber(
+                          member.scores.get(period.periodIndex),
+                        );
+                        const scoreClassName =
+                          score > 10000
+                            ? "clan-chest-score-high"
+                            : score > 5000
+                              ? "clan-chest-score-medium"
+                              : "";
+
+                        return (
+                          <td
+                            key={period.periodIndex}
+                            className={hasScore ? scoreClassName : ""}
+                          >
+                            {hasScore ? formatNumber(score) : "—"}
+                          </td>
+                        );
+                      })}
                     </tr>
-                  </thead>
-                  <tbody>
-                    {period.rows.map((row, index) => (
-                      <tr key={`${row.period_index}-${row.member_id}-${index}`}>
-                        <td>{index + 1}</td>
-                        <td>{row.member_name}</td>
-                        <td>{formatNumber(row.chest_count)}</td>
-                        <td>{formatNumber(row.total_points)}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </section>
-          ))}
-        </div>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </section>
       </section>
     </main>
   );
