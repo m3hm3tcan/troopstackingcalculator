@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 
 const NavBar = () => {
   const { t, i18n } = useTranslation();
+  const isTurkish = (i18n.resolvedLanguage || i18n.language).startsWith("tr");
 
   const changeLanguage = (e) => {
     i18n.changeLanguage(e.target.value);
@@ -22,10 +23,13 @@ const NavBar = () => {
           <span className="navbar-subtitle title-italic">{t("subtitle")}</span>
           <div className="navbar-links">
             <Link to="/" className="nav-link">
-              Home
+              {isTurkish ? "Ana Sayfa" : "Home"}
             </Link>
             <Link to="/clan-chest-info" className="nav-link">
-              Clan Chest
+              {isTurkish ? "Klan Paneli" : "Clan Dashboard"}
+            </Link>
+            <Link to="/clan-chest-collector" className="nav-link">
+              Chest Collector
             </Link>
           </div>
         </div>
