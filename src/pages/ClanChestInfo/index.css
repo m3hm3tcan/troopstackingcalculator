@@ -48,6 +48,19 @@
   margin-top: 30px;
 }
 
+.clan-chest-connect-description {
+  margin: 14px 0 0;
+  color: #aebdcd;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.clan-chest-key-help {
+  margin-top: -8px;
+  color: #8fa5bc;
+  font-size: 12px;
+}
+
 .clan-chest-connect-form label {
   margin: 0;
   color: #e7eef8;

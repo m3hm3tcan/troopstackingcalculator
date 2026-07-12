@@ -17,11 +17,11 @@ const VISIBLE_PERIOD_COUNT = 3;
 const copy = {
   en: {
     enterKeyError: "Enter your clan web app key to connect.", configError: "Supabase is not configured. Add VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY.", connectError: "Unable to connect. Check the clan key and try again.", emptyError: "No clan score periods were found for this key.",
-    chest: "Clan Chest", connectTitle: "Connect to your leaderboard", keyLabel: "Clan web app key", keyPlaceholder: "Enter clan key", connecting: "Connecting...", connect: "Connect", leaderboard: "Leaderboard", changeClan: "Change Clan", search: "Search member name...", rank: "Rank", member: "Member Name", current: "Current", period: "Period",
+    chest: "Clan Dashboard", connectTitle: "View your clan scores", connectDescription: "Sign in with your Clan Web UI Key to view the chests, member contributions, and scores collected by Chest Collector.", keyLabel: "Clan access key", keyPlaceholder: "Enter your Web UI Key", keyHelp: "You can get this key from your clan administrator.", connecting: "Connecting...", connect: "Open Clan Dashboard", leaderboard: "Leaderboard", changeClan: "Change Clan", search: "Search member name...", rank: "Rank", member: "Member Name", current: "Current", period: "Period",
   },
   tr: {
     enterKeyError: "Bağlanmak için klan web uygulaması anahtarınızı girin.", configError: "Supabase yapılandırılmamış. VITE_SUPABASE_URL ve VITE_SUPABASE_ANON_KEY değerlerini ekleyin.", connectError: "Bağlantı kurulamadı. Klan anahtarını kontrol edip tekrar deneyin.", emptyError: "Bu anahtar için klan skor dönemi bulunamadı.",
-    chest: "Klan Sandığı", connectTitle: "Liderlik tablonuza bağlanın", keyLabel: "Klan web uygulaması anahtarı", keyPlaceholder: "Klan anahtarını girin", connecting: "Bağlanıyor...", connect: "Bağlan", leaderboard: "Liderlik Tablosu", changeClan: "Klanı Değiştir", search: "Üye adına göre ara...", rank: "Sıra", member: "Üye Adı", current: "Güncel", period: "Dönem",
+    chest: "Klan Paneli", connectTitle: "Klan puanlarınızı görüntüleyin", connectDescription: "Chest Collector tarafından toplanan sandıkları, üye katkılarını ve puanları görüntülemek için Clan Web UI Key’inizle giriş yapın.", keyLabel: "Klan erişim anahtarı", keyPlaceholder: "Web UI Key’inizi girin", keyHelp: "Bu anahtarı klan yöneticinizden alabilirsiniz.", connecting: "Bağlanıyor...", connect: "Klan Panelini Aç", leaderboard: "Liderlik Tablosu", changeClan: "Klanı Değiştir", search: "Üye adına göre ara...", rank: "Sıra", member: "Üye Adı", current: "Güncel", period: "Dönem",
   },
 };
 
@@ -235,6 +235,7 @@ const ClanChestInfo = () => {
         <section className="clan-chest-connect-panel">
           <p className="clan-chest-eyebrow">{text.chest}</p>
           <h1>{text.connectTitle}</h1>
+          <p className="clan-chest-connect-description">{text.connectDescription}</p>
 
           <form className="clan-chest-connect-form" onSubmit={handleConnect}>
             <label htmlFor="clan-web-app-key">{text.keyLabel}</label>
@@ -247,6 +248,7 @@ const ClanChestInfo = () => {
               placeholder={text.keyPlaceholder}
               disabled={isLoading}
             />
+            <small className="clan-chest-key-help">{text.keyHelp}</small>
             {error ? <p className="clan-chest-error">{error}</p> : null}
             <button type="submit" disabled={isLoading}>
               {isLoading ? text.connecting : text.connect}

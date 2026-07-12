@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import "./index.css";
 
-const DOWNLOAD_URL = "";
+const DOWNLOAD_URL = "https://www.dropbox.com/scl/fi/5dr46ztzi8vrsb86hhbvn/HunililerChestTracker-Setup-1.0.0.exe?rlkey=euek011hns91i35atpodgty1y&st=emfmhray&dl=1";
 const CONTACT_URL = "mailto:tarkanandthewolf@outlook.com";
 
 const englishCopy = {
@@ -51,7 +52,9 @@ const englishCopy = {
   "OTOMASYONA GEÇMEYE HAZIR MISINIZ?": "READY TO AUTOMATE?", "Klan yönetiminde saatlerini değil,": "Use automation—not hours—", "otomasyonu kullan.": "to manage your clan.",
   "Sandık kayıtlarını otomatikleştirin ve klan katkılarını tek merkezde toplayın.": "Automate chest records and bring clan contributions together in one place.", "İletişime Geç": "Contact Us",
   "Otomatik sandık takibi ve klan katkı yönetimi.": "Automated chest tracking and clan contribution management.", "Nasıl Çalışır": "How It Works", "SSS": "FAQ",
-  "Clan Chest Collector. İlgili oyun şirketleriyle bağlantılı değildir.": "Clan Chest Collector. Not affiliated with the relevant game companies."
+  "Clan Chest Collector. İlgili oyun şirketleriyle bağlantılı değildir.": "Clan Chest Collector. Not affiliated with the relevant game companies.",
+  "Klan Puanlarını Görüntüle": "View Clan Scores", "Toplanan veriler Klan Panelinde": "Collected data in the Clan Dashboard",
+  "Chest Collector tarafından toplanan sandıkları, üye katkılarını ve puanları Clan Web UI Key ile Klan Panelinden görüntüleyin.": "Use your Clan Web UI Key to view the chests, member contributions, and scores collected by Chest Collector in the Clan Dashboard."
   ,"Clan Key doğrulandı": "Clan Key verified", "Son tarama · şimdi": "Last scan · now", "Bekleyen yüklemeler otomatik denenir": "Pending uploads retry automatically",
   "Sandık algılandı · Epic": "Chest detected · Epic", "Kayıt buluta gönderildi": "Record uploaded to the cloud", "Sonraki tarama hazır": "Ready for the next scan",
   "✓ Yerel kayıt güvencesi": "✓ Reliable local storage", "✓ Klan bazlı senkronizasyon": "✓ Clan-based sync",
@@ -103,6 +106,16 @@ function DashboardPreview() {
       <div className="cc-panel cc-controls"><small>OTOMASYON</small><div><button>Başlat</button><button>Durdur</button></div><span>Bekleyen yüklemeler otomatik denenir</span></div>
       <div className="cc-panel cc-log"><small>AKTİVİTE GÜNLÜĞÜ</small><code><i>22:14:08</i> Sandık algılandı · Epic<br/><i>22:14:09</i> Kayıt buluta gönderildi<br/><i>22:14:10</i> Sonraki tarama hazır</code></div>
     </div>
+  </div>;
+}
+
+function ProductShowcase() {
+  return <div className="cc-product-showcase">
+    <figure className="cc-product-shot cc-hero-shot"><img src="/chestTracker/userinterface.png" alt="Clan Chest Collector kontrol paneli"/></figure>
+    <figure className="cc-product-shot cc-login-shot"><img src="/chestTracker/tracker_login.png" alt="Clan Key giriş ekranı" loading="lazy"/></figure>
+    <figure className="cc-product-shot cc-members-shot"><img src="/chestTracker/clanmembers.png" alt="Klan üyeleri yönetim ekranı" loading="lazy"/></figure>
+    <figure className="cc-product-shot cc-points-shot"><img src="/chestTracker/chestpoints.png" alt="Sandık puanları yapılandırma ekranı" loading="lazy"/></figure>
+    <figure className="cc-product-shot cc-compact-shot"><img src="/chestTracker/chest_tracker_compact_mode.png" alt="Clan Chest Tracker kompakt mod görünümü" loading="lazy"/></figure>
   </div>;
 }
 
@@ -169,10 +182,12 @@ export default function ChestCollector() {
           <div className="cc-actions">
             <a className="cc-btn cc-btn-primary" href={DOWNLOAD_URL || "#contact"} onClick={download}>Uygulamayı İndir <span>→</span></a>
             <button className="cc-btn cc-btn-ghost" type="button" onClick={() => scrollToSection("nasil-calisir")}>Nasıl Çalışır?</button>
+            <Link className="cc-btn cc-btn-dashboard" to="/clan-chest-info">Klan Puanlarını Görüntüle</Link>
           </div>
+          <p className="cc-dashboard-note"><strong>Toplanan veriler Klan Panelinde</strong><br/>Chest Collector tarafından toplanan sandıkları, üye katkılarını ve puanları Clan Web UI Key ile Klan Panelinden görüntüleyin.</p>
           <div className="cc-trust"><span>✓ Yerel kayıt güvencesi</span><span>✓ Klan bazlı senkronizasyon</span></div>
         </div>
-        <DashboardPreview/>
+        <ProductShowcase/>
       </div>
     </section>
 
@@ -193,7 +208,7 @@ export default function ChestCollector() {
 
     <section className="cc-section cc-faq" id="sss"><div className="cc-wrap cc-faq-grid"><div className="cc-section-head left"><span>SIK SORULAN SORULAR</span><h2>Merak ettikleriniz.</h2><p>Kurulum ve çalışma biçimi hakkında temel bilgiler.</p></div><div>{faqs.map(([q,a],i)=><article key={q} className={openFaq===i?"open":""}><button onClick={()=>setOpenFaq(openFaq===i?-1:i)} aria-expanded={openFaq===i}>{q}<span>+</span></button><div><p>{a}</p></div></article>)}</div></div></section>
 
-    <section className="cc-cta" id="contact"><div className="cc-wrap"><small>OTOMASYONA GEÇMEYE HAZIR MISINIZ?</small><h2>Klan yönetiminde saatlerini değil,<br/><em>otomasyonu kullan.</em></h2><p>Sandık kayıtlarını otomatikleştirin ve klan katkılarını tek merkezde toplayın.</p><div className="cc-actions"><a className="cc-btn cc-btn-primary" href={DOWNLOAD_URL || CONTACT_URL}>Uygulamayı İndir <span>→</span></a><a className="cc-btn cc-btn-ghost" href={CONTACT_URL}>İletişime Geç</a></div></div></section>
+    <section className="cc-cta" id="contact"><div className="cc-wrap"><small>OTOMASYONA GEÇMEYE HAZIR MISINIZ?</small><h2>Klan yönetiminde saatlerini değil,<br/><em>otomasyonu kullan.</em></h2><p>Sandık kayıtlarını otomatikleştirin ve klan katkılarını tek merkezde toplayın.</p><div className="cc-actions"><a className="cc-btn cc-btn-primary" href={DOWNLOAD_URL || CONTACT_URL}>Uygulamayı İndir <span>→</span></a><Link className="cc-btn cc-btn-dashboard" to="/clan-chest-info">Klan Puanlarını Görüntüle</Link><a className="cc-btn cc-btn-ghost" href={CONTACT_URL}>İletişime Geç</a></div></div></section>
     <footer className="cc-footer"><div className="cc-wrap"><div><b><span>◆</span> Clan Chest Collector</b><p>Otomatik sandık takibi ve klan katkı yönetimi.</p></div><nav><button type="button" onClick={() => scrollToSection("ozellikler")}>Özellikler</button><button type="button" onClick={() => scrollToSection("nasil-calisir")}>Nasıl Çalışır?</button><button type="button" onClick={() => scrollToSection("sss")}>SSS</button></nav><small>© {new Date().getFullYear()} Clan Chest Collector. İlgili oyun şirketleriyle bağlantılı değildir.</small></div></footer>
   </main>;
 }

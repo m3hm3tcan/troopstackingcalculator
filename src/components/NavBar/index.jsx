@@ -26,10 +26,10 @@ const NavBar = () => {
               {isTurkish ? "Ana Sayfa" : "Home"}
             </Link>
             <Link to="/clan-chest-info" className="nav-link">
-              {isTurkish ? "Klan Sandığı Bilgisi" : "Clan Chest Info"}
+              {isTurkish ? "Klan Paneli" : "Clan Dashboard"}
             </Link>
             <Link to="/clan-chest-collector" className="nav-link">
-              {isTurkish ? "Sandık Otomasyonu" : "Chest Collector App"}
+              Chest Collector
             </Link>
           </div>
         </div>
