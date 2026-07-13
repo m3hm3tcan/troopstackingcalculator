@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "./index.css";
 
 const DOWNLOAD_URL =
-  "https://www.dropbox.com/scl/fi/2qn6s38zonzr7odoik75v/HunililerChestTracker-Setup-1.0.0.zip?rlkey=5xlj5j7z753liqra6m7yow87k&st=u4p29e85&dl=1";
+  "https://www.dropbox.com/scl/fi/2qn6s38zonzr7odoik75v/HunililerChestTracker-Setup-1.0.0.zip?rlkey=5xlj5j7z753liqra6m7yow87k&st=rjkcw034&dl=1";
 const CONTACT_URL = "mailto:tarkanandthewolf@outlook.com";
 
 const englishCopy = {
