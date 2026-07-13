@@ -6,6 +6,8 @@ import "./index.css";
 const DOWNLOAD_URL =
   "https://www.dropbox.com/scl/fi/2qn6s38zonzr7odoik75v/HunililerChestTracker-Setup-1.0.0.zip?rlkey=5xlj5j7z753liqra6m7yow87k&st=rjkcw034&dl=1";
 const CONTACT_URL = "mailto:tarkanandthewolf@outlook.com";
+const SETUP_VIDEO_URL =
+  "https://www.dropbox.com/scl/fi/l0rx934rq0lwg8p040g4s/setup.mp4?rlkey=xpyus8oesp3629g3o9zbhtir3&st=3802lccx&raw=1";
 
 const englishCopy = {
   "Windows için klan otomasyonu": "Clan automation for Windows",
@@ -165,6 +167,12 @@ const englishCopy = {
   "AKTİVİTE GÜNLÜĞÜ": "ACTIVITY LOG",
   Başlat: "Start",
   Durdur: "Stop",
+  "VİDEOLU KURULUM REHBERİ": "VIDEO SETUP GUIDE",
+  "İlk kurulumu videodan izleyin": "Watch the initial setup video",
+  "Sandık toplama alanlarını nasıl belirleyeceğinizi ve otomasyonu nasıl başlatacağınızı adım adım görün.":
+    "See step by step how to select the chest collection areas and start the automation.",
+  "Clan Chest Collector ilk kurulum videosu":
+    "Clan Chest Collector initial setup video",
 };
 
 const Icon = ({ name }) => {
@@ -381,6 +389,20 @@ function ProductShowcase() {
   );
 }
 
+function SetupVideo() {
+  return (
+    <video
+      className="cc-video-embed"
+      controls
+      preload="metadata"
+      playsInline
+      aria-label="Clan Chest Collector ilk kurulum videosu"
+    >
+      <source src={SETUP_VIDEO_URL} type="video/mp4" />
+    </video>
+  );
+}
+
 export default function ChestCollector() {
   const { i18n } = useTranslation();
   const pageRef = useRef(null);
@@ -579,6 +601,17 @@ export default function ChestCollector() {
                 <p>{d}</p>
               </article>
             ))}
+          </div>
+          <div className="cc-setup-video">
+            <div className="cc-section-head">
+              <span>VİDEOLU KURULUM REHBERİ</span>
+              <h2>İlk kurulumu videodan izleyin</h2>
+              <p>
+                Sandık toplama alanlarını nasıl belirleyeceğinizi ve otomasyonu
+                nasıl başlatacağınızı adım adım görün.
+              </p>
+            </div>
+            <SetupVideo />
           </div>
         </div>
       </section>
