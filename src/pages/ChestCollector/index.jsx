@@ -566,55 +566,7 @@ export default function ChestCollector() {
         </div>
       </section>
 
-      <section className="cc-section cc-how" id="nasil-calisir">
-        <div className="cc-wrap">
-          <div className="cc-section-head">
-            <span>BİRKAÇ DAKİKADA HAZIR</span>
-            <h2>Bir kez ayarla, gerisini otomasyona bırak.</h2>
-          </div>
-          <div className="cc-steps">
-            {[
-              [
-                "01",
-                "Clan Key ile bağlan",
-                "Klanınıza özel anahtar ile güvenli bağlantıyı kurun.",
-              ],
-              [
-                "02",
-                "Alanları belirle",
-                "Sandık bilgisini ve açma düğmesini ekrandan seçin.",
-              ],
-              [
-                "03",
-                "Otomasyonu başlat",
-                "Tarama hızını ayarlayın ve Start düğmesine basın.",
-              ],
-              [
-                "04",
-                "Katkıları takip et",
-                "Kayıtları, üyeleri ve puanları düzenli takip edin.",
-              ],
-            ].map(([n, t, d]) => (
-              <article key={n}>
-                <b>{n}</b>
-                <h3>{t}</h3>
-                <p>{d}</p>
-              </article>
-            ))}
-          </div>
-          <div className="cc-setup-video">
-            <div className="cc-section-head">
-              <span>VİDEOLU KURULUM REHBERİ</span>
-              <h2>İlk kurulumu videodan izleyin</h2>
-              <p>
-                Sandık toplama alanlarını nasıl belirleyeceğinizi ve otomasyonu
-                nasıl başlatacağınızı adım adım görün.
-              </p>
-            </div>
-            <SetupVideo />
-          </div>
-        </div>
-      </section>
+      
 
       <section className="cc-section cc-reliable">
         <div className="cc-wrap cc-reliable-grid">
